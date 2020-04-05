@@ -14,9 +14,9 @@
   border: 1px solid black;
 }
 @media(max-width: 768px){
-html, body{height:100vh; background:#303030 !important;}
+html, body{height:100%;}
 #mapMain { 
-  height: calc(100vh - 56px);
+  height: 100%;
   width:100%;
 }
 /*#mapMain { 
