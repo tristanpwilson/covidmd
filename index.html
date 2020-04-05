@@ -80,9 +80,7 @@
         // This is the default content that is shown when there is no hover
         :'<h4><i>County (Hover)</i></h4>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>'); +
       '</div>'
-      
-    $(".info").toggleClass("infoActive");
-    
+
   };
   
   info.addTo(mainmap);
@@ -148,6 +146,7 @@
     }
 
     info.update(layer.feature.properties);
+    $(".info").addClass("infoActive");
   }
 
 
@@ -156,12 +155,13 @@
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
 		info.update();
+    $(".info").removeClass("infoActive");
 	}
 
 	function zoomToFeature(e) {
 		mainmap.fitBounds(e.target.getBounds());
 	}
-
+  
 	function onEachFeature(feature, layer) {
 		layer.on({      
 			mouseover: highlightFeature,
