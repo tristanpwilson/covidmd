@@ -28,6 +28,14 @@ border: 1px solid black;
   transition:.3s ease opacity;
 }
 
+.info b.diff{
+  font-style:normal;
+  color:#E3282B;
+  font-weight:600;
+}
+
+
+
 
 /* State Cases Div */
 .info #statecases{

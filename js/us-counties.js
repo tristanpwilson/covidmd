@@ -10,6 +10,7 @@ var countiesData =
       "properties": {
         "name": "Allegany",
         "cases": 1,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -466,6 +467,7 @@ var countiesData =
       "properties": {
         "name": "Anne Arundel",
         "cases": 206,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -820,6 +822,7 @@ var countiesData =
       "properties": {
         "name": "Baltimore",
         "cases": 353,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -1201,6 +1204,7 @@ var countiesData =
       "properties": {
         "name": "Baltimore City",
         "cases": 265,
+        "prevcases": 0,
         "deaths": 2,
         "recoveries": 0,
         "new": 2,
@@ -1278,6 +1282,7 @@ var countiesData =
       "properties": {
         "name": "Calvert",
         "cases": 22,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -1540,6 +1545,7 @@ var countiesData =
       "properties": {
         "name": "Caroline",
         "cases": 4,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -1831,6 +1837,7 @@ var countiesData =
       "properties": {
         "name": "Carroll",
         "cases": 105,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -2180,6 +2187,7 @@ var countiesData =
       "properties": {
         "name": "Cecil",
         "cases": 20,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -2366,6 +2374,7 @@ var countiesData =
       "properties": {
         "name": "Charles",
         "cases": 69,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -2756,6 +2765,7 @@ var countiesData =
       "properties": {
         "name": "Dorchester",
         "cases": 1,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -3165,6 +3175,7 @@ var countiesData =
       "properties": {
         "name": "Frederick",
         "cases": 45,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -3567,6 +3578,7 @@ var countiesData =
       "properties": {
         "name": "Garrett",
         "cases": 3,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -3806,6 +3818,7 @@ var countiesData =
       "properties": {
         "name": "Harford",
         "cases": 37,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -4063,6 +4076,7 @@ var countiesData =
       "properties": {
         "name": "Howard",
         "cases": 152,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -4404,6 +4418,7 @@ var countiesData =
       "properties": {
         "name": "Kent",
         "cases": 5,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -4719,6 +4734,7 @@ var countiesData =
       "properties": {
         "name": "Montgomery",
         "cases": 498,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -5033,6 +5049,7 @@ var countiesData =
       "properties": {
         "name": "Prince George's",
         "cases": 473,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -5411,6 +5428,7 @@ var countiesData =
       "properties": {
         "name": "Queen Anne's",
         "cases": 8,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -5828,6 +5846,7 @@ var countiesData =
       "properties": {
         "name": "St. Mary's",
         "cases": 27,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -6145,6 +6164,7 @@ var countiesData =
       "properties": {
         "name": "Somerset",
         "cases": 4,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -6494,6 +6514,7 @@ var countiesData =
       "properties": {
         "name": "Talbot",
         "cases": 4,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -6887,6 +6908,7 @@ var countiesData =
       "properties": {
         "name": "Washington",
         "cases": 17,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -7404,6 +7426,7 @@ var countiesData =
       "properties": {
         "name": "Wicomico",
         "cases": 7,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -7725,6 +7748,7 @@ var countiesData =
       "properties": {
         "name": "Worcester",
         "cases": 5,
+        "prevcases": 0,
         "deaths": 0,
         "recoveries": 0,
         "new": 0,
@@ -8011,6 +8035,7 @@ var countiesData =
         "name": "Total",
         "cases": 1,
         "statecases" : 1,
+        "prevstatecases": 0,
         "deaths": 42,
         "recoveries": 0,
         "new": 0
