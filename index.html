@@ -185,27 +185,38 @@
 
   mainmap.on('zoomend', function () {
     
-      var zoomLevel = mainmap.getZoom();
-      var countyName = $('.leaflet-tooltip h5');
-      var countyNumber = $('.leaflet-tooltip p.mapCases');
-
-    switch (zoomLevel) {
-      case 7:
-        countyName.css('opacity', 0);
-        countyNumber.css('font-size', 14);
-        countyNumber.css('margin-top', -4);
-        break;
-      case 8:
-        countyName.css('opacity', 1);
-        countyName.css('font-size', 12);
-        countyNumber.css('font-size', 16);
-        countyNumber.css('margin-top', 2);
-        break;
-      case 9:
-        countyName.css('font-size', 18);
-        countyNumber.css('font-size', 24);
-        break;
-
+    var zoomLevel = mainmap.getZoom();
+    var countyName = $('.leaflet-tooltip h5');
+    var countyNumber = $('.leaflet-tooltip p.mapCases');
+    if (L.Browser.mobile) {
+      switch (zoomLevel) {
+        case 7:
+          countyNumber.css('font-size', 14);
+          break;
+        case 8:
+          countyNumber.css('font-size', 18);
+          break;
+        case 9:
+          countyNumber.css('font-size', 24);
+          break;
+      }
+    } else
+      switch (zoomLevel) {
+        case 7:
+          countyName.css('opacity', 0);
+          countyNumber.css('font-size', 14);
+          countyNumber.css('margin-top', -4);
+          break;
+        case 8:
+          countyName.css('opacity', 1);
+          countyName.css('font-size', 12);
+          countyNumber.css('font-size', 16);
+          countyNumber.css('margin-top', 2);
+          break;
+        case 9:
+          countyName.css('font-size', 18);
+          countyNumber.css('font-size', 24);
+          break;
       }
 
     //alert(zoomLevel);

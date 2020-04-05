@@ -166,21 +166,21 @@
 }
 
 @media(max-width: 768px){
-.leaflet-tooltip h5{
-  display:none;
-}
-.leaflet-tooltip p.mapCases{
-  margin:2px 0 0 0;
-  font-size:3.5vw !important;
-  font-weight:600;
-}
+  .leaflet-tooltip h5{
+    display:none;
+  }
+  .leaflet-tooltip p.mapCases{
+    margin:5px 0 0 0 !important;
+    font-size:14px;
+    font-weight:600;
+  }
 }
 @media(max-width: 575px){
-.leaflet-tooltip p.mapCases{
-  margin:2px 0 0 0;
-  font-size:5vw !important;
-  font-weight:600;
-}
+  .leaflet-tooltip p.mapCases{
+    margin:0px 0 0 0;
+    /*font-size:5vw !important;*/
+    font-weight:600;
+  }
 }
 
 
