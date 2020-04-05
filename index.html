@@ -62,7 +62,7 @@
   // method that we will use to update the control based on feature properties passed
   info.update = function(props) {
     this._div.innerHTML =
-      '<div id="statecases"><h3>Maryland (Total)</h3><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p></div>' +
+      '<div id="statecases"><h3>Maryland <i>Total</i></h3><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p></div>' +
 
       //'<h3>Details</h3>' + 
       '<div id="countycases">' +

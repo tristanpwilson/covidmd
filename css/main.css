@@ -1,10 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
 
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+*{
+  font-family: 'Work Sans', sans-serif;
+ 
+}
+
 #mapMain { 
- height: 100vh;
- width:100%;
-border: 1px solid black;
+  height: 100vh;
+  width:100%;
+  border: 1px solid black;
 }
 
 .info{
@@ -13,59 +20,71 @@ border: 1px solid black;
   width:200px;
   min-height:200px;
   height:auto;
-  padding:5px 10px;
+  padding:0px 0px;
   margin:5vh 3vw 0 0 !important;
   border-radius:4px;
-  background:#ccc;
+  background:#ddd;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,1),
               0 1px 10px 0 rgba(0,0,0,.4);
-  opacity:.9;
-  transition:.3s ease opacity;
+  opacity:1;
+  transition:.3s ease background .1s;
 }
 
 .info.infoActive{
-  opacity:1;
-  transition:.3s ease opacity;
+  background: #fafafa;
+  transition:.2s ease background;
 }
 
 .info b.diff{
   font-style:normal;
   color:#E3282B;
+  font-weight:500;
+}
+
+
+
+/* State + County Cases Info Box (Shared) */
+.info #countycases,
+.info #statecases{
+  padding: 10px 12.5px 17.5px 12.5px;
+  margin: 0 0 0 0;
+} 
+
+
+/* State Cases Info Box */
+.info #statecases{
+  background:#fff;
+  border-bottom: 1px solid #bbb;
+  border-radius:4px 4px 0 0;
+} 
+
+.info #statecases h3, 
+.info #statecases p{ 
+ padding:0;
+ color:#2a2a2a;
+ line-height:100%
+} 
+
+.info #statecases h3{
+  margin:7.5px 0 0 0;
+  font-size:22px;
   font-weight:600;
 }
 
-
-
-
-/* State Cases Div */
-.info #statecases{
-  padding: 5px 0 12.5px 0;
-  margin: 0 0 0 0;
-  border-bottom: 1px solid #999;
+.info #statecases h3 i{ 
+ font-style: normal;
+ font-size:16px;
+ color:#767676;
+ font-weight:500;
 } 
- 
-.info #statecases h3{
-  margin:0 0 0 0;
-  padding:0 0 0 0 !important;
-  font-size:20px;
-  font-weight:300;
-}
 
 .info #statecases p{
-  margin:5px 0 0 0;
-  padding:0 0 0 0 !important;
+  margin:12px 0 0 0;
   font-size:16px
 } 
  
 
-
-
-/* County Cases Div */
-.info #countycases{
- padding: 0 0 10px 0;
-
-}
-
+/* County Cases  Info Box */
 .info #countycases h4, 
 .info #countycases p{ 
  padding:0;
@@ -75,20 +94,28 @@ border: 1px solid black;
 
 .info #countycases h4{
  font-size: 18px;
- margin:15px 0 0 0;
- font-weight:300;
+ margin:5px 0 0 0;
+ font-weight:600;
 }
 
 .info #countycases p{
   font-size: 14px;
   margin:10px 0 0 0;
+  font-weight:400;
 }
 
+/* Placholder County Title */
 .info #countycases h4 i,
 .info #countycases p i{
-  color:#666;
-  font-weight:300;
   font-style: normal;
+  font-weight:400;
+}
+.info #countycases h4 i{
+  color:#444;
+}
+
+.info #countycases p i{
+  color:#999;
 }
 
 /* ----------------------------- */
