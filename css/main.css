@@ -21,7 +21,7 @@
   min-height:200px;
   height:auto;
   padding:0px 0px;
-  margin:5vh 3vw 0 0 !important;
+  margin:5vh 3vw !important;
   border-radius:4px;
   background:#ddd;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,1),
@@ -167,5 +167,23 @@
   margin:2px 0 0 0;
   font-size:5vw !important;
   font-weight:600;
+}
+}
+
+
+.leaflet-control-attribution,
+.leaflet-control-attribution a{
+ font-size:10px !important;
+ color:#bbb !important;
+ background-color: transparent !important;
+}
+.leaflet-control-attribution a{
+ text-decoration: underline !important;
+}
+
+@media(max-width: 768px){
+.leaflet-control-attribution,
+.leaflet-control-attribution a{
+ font-size:10px !important;
 }
 }
