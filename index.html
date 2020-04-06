@@ -73,11 +73,10 @@
     this._div.innerHTML =
       '<div id="statecases"><h3>Maryland <i>Total</i></h3><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p></div>' +
 
-      //'<h3>Details</h3>' + 
-      '<div id="countycases">' +
-      (props ?
+
+      '<div id="countycases">' + (props ?
         '<h4>' + props.name + '</h4>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths</p>' + '<p>' + props.recoveries + ' recoveries</p>'
-        // This is the default content that is shown when there is no hover
+        // Default content without hover
         :'<h4><i>County (Hover)</i></h4>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>'); +
       '</div>'
 
@@ -141,12 +140,14 @@
         fillOpacity: 1
       });
 
+    // Checks for browser compatibility (not chrome or firefox)
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge && !L.Browser.mobile) {
       layer.bringToFront();
     }
 
+    // Updates the data in the .info container
     info.update(layer.feature.properties);
-     $(".info").addClass("infoActive");
+    $(".info").addClass("infoActive");
   }
 
 
@@ -166,7 +167,7 @@
 		layer.on({      
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: highlightFeature
+			click: highlightFeature,
       //click: zoomToFeature
 		});
     
