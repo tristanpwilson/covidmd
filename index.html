@@ -128,8 +128,8 @@
 
     var layer = e.target;
 
-    if (L.Browser.mobile) {} 
-    else {
+   // if (L.Browser.mobile) {} 
+   // else {
       layer.setStyle({
         weight: 3,
         opacity: .8,
@@ -137,7 +137,7 @@
         dashArray: '',
         fillOpacity: 1,
        });
-    }
+  // }
 
     // Checks for browser compatibility (not chrome or firefox)
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge && !L.Browser.mobile) {
@@ -153,7 +153,8 @@
 	var geojson;
 
 	function resetHighlight(e) {
-		geojson.resetStyle(e.target);
+		//geojson.resetStyle(e.target);
+    geojson.resetStyle();
 		info.update();
     $(".info").removeClass("infoActive");
 	}
@@ -166,7 +167,10 @@
 		layer.on({      
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: highlightFeature
+			mousedown: resetHighlight,
+      mouseup: highlightFeature,
+
+      //click: highlightFeature
             
       //click: zoomToFeature
 		});
