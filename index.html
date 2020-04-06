@@ -8,11 +8,10 @@
   
   <link href="css/main.css" rel="stylesheet" type="text/css">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
+  <link rel="stylesheet" href="css/leaflet.css"/>
    
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+  <!--<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>-->
+  <script type="text/javascript" src="js/leaflet.js"></script>
   <script type="text/javascript" src="js/us-counties.js"></script>
 
   
@@ -22,6 +21,7 @@
 
   <div id="mapMain"></div>
   <div id="stateTotals"></div>
+  <div id="activeTarget"></div>
 
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -89,6 +89,7 @@
   for (i in countiesData.features) {
     caseNumbers += countiesData.features[i].properties.cases + " ";
   }
+    
   var caseString = caseNumbers.split(" ");
   var caseMax = caseString.reduce(function(a, b) {
     return Math.max(a, b);
@@ -96,7 +97,6 @@
 
   // Color scale of shading depending on case count value
   function getColor(d) {
-    
 
     return d >= caseMax ? '#A60000' :
            d > caseMax / 1.25 ? '#cc2212' :
@@ -116,7 +116,7 @@
   function style(feature) {
     return {
       weight: 1.5,
-      opacity: .4,
+      opacity: .5,
       color: 'white',
       dashArray: '',
       fillOpacity: 0.8,
@@ -128,17 +128,16 @@
 
     var layer = e.target;
 
-    if (L.Browser.mobile) {
-      info.update(layer.feature.properties);
-    } else
-
+    if (L.Browser.mobile) {} 
+    else {
       layer.setStyle({
         weight: 3,
         opacity: .8,
         color: '#fff',
         dashArray: '',
-        fillOpacity: 1
-      });
+        fillOpacity: 1,
+       });
+    }
 
     // Checks for browser compatibility (not chrome or firefox)
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge && !L.Browser.mobile) {
@@ -162,15 +161,16 @@
 	function zoomToFeature(e) {
 		mainmap.fitBounds(e.target.getBounds());
 	}
-  
+
 	function onEachFeature(feature, layer) {
 		layer.on({      
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: highlightFeature,
+			click: highlightFeature
+            
       //click: zoomToFeature
 		});
-    
+
     layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + feature.properties.cases + '</p>',{ 
       permanent: true, 
       interactive: false,
