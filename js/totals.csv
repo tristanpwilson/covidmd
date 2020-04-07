@@ -1,28 +1,27 @@
-,,,,
-2,County,Cases,Deaths,Recoveries
-3,Allegany,7,,
-4,Anne Arundel,370,,
-5,Baltimore,652,,
-6,Baltimore City,459,,
-7,Calvert,41,,
-8,Caroline,11,,
-9,Carroll,159,,
-10,Cecil,41,,
-11,Charles,136,,
-12,Dorchester,3,,
-13,Frederick,151,,
-14,Garrett,3,,
-15,Harford,59,,
-16,Howard,236,,
-17,Kent,8,,
-18,Montgomery,871,,
-19,Prince George's,"1,020",,
-20,Queen Anne's,15,,
-21,St. Mary's,46,,
-22,Somerset,4,,
-23,Talbot,8,,
-24,Washington,44,,
-25,Wicomico,17,,
-26,Worcester,10,,
-27,Unassigned,0,,
-28,Total,"4,371",,
+2,County,Cases
+3,Allegany,7
+4,Anne Arundel,370
+5,Baltimore,652
+6,Baltimore City,459
+7,Calvert,41
+8,Caroline,11
+9,Carroll,159
+10,Cecil,41
+11,Charles,136
+12,Dorchester,3
+13,Frederick,151
+14,Garrett,3
+15,Harford,59
+16,Howard,236
+17,Kent,8
+18,Montgomery,871
+19,Prince George's,1020
+20,Queen Anne's,15
+21,St. Mary's,46
+22,Somerset,4
+23,Talbot,8
+24,Washington,44
+25,Wicomico,17
+26,Worcester,10
+27,Unassigned,0
+28,Total,4371
