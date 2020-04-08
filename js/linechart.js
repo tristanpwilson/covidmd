@@ -1,9 +1,16 @@
 // JavaScript Document
 
-    var caseNumbers = countiesData.features[24].properties.history;
-    var caseTimeline = countiesData.features[24].properties.dates;
 
-    //alert(caseTimeline);
+    //Pulling & Generating Data for Charts
+    var caseNumbers = countiesData.features[24].properties.history;
+    function diff(ary) {
+      var newA = [];
+      for (var i = 1; i < ary.length; i++)  newA.push(ary[i] - ary[i - 1])
+      return newA;
+    }
+    var dailyCaseChange = diff(caseNumbers);
+    var adjDailyCaseChange = dailyCaseChange.unshift(1);
+    var caseTimeline = countiesData.features[24].properties.dates;
 
     if($(window).width() <= 767) {
       window.aspect = 2;
@@ -12,8 +19,7 @@
     }
 
 
-    //alert(window.aspect);
-		
+    //Linechart 1 Config		
     var config = {
 			type: 'line',
 			data: {
@@ -92,9 +98,91 @@
 			}
 		};
 
+    //Barchart 1 Config
+    var config2 = {
+			type: 'bar',
+			data: {
+				labels: caseTimeline,
+				datasets: [{
+					label: 'New Cases',
+          pointRadius: 0,
+					backgroundColor: "rgba(255, 107, 105, 0.5)",
+					borderColor: "rgba(255, 107, 105, 0.9)",
+					data: dailyCaseChange,
+					fill: true,
+				}]
+			},
+			options: {
+				responsive: false,
+        maintainAspectRation: false,
+        aspectRatio: window.aspect,     
+
+        legend: {
+          display: false
+        },
+				title: {
+					display: true,
+					text: 'Daily New Cases in Maryland',
+          fontColor: "#fff",
+          fontFamily: "Work Sans",
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+            type: 'time',
+              time: {
+                  unit: 'day'
+              },
+						display: true,
+            scaleLabel: {
+							display: false,
+							labelString: 'Date'
+						},
+            ticks:{
+              fontColor: "#fff",
+              fontSize: "9"
+            },
+            gridLines:{
+              offsetGridLines: false,
+              color:"rgba(255,255,255,0.1)"
+            }
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: false,
+							labelString: 'Cases',
+              fontColor: "#fff",
+              fontSize: "10",
+						},
+            ticks:{
+              fontColor: "#fff",
+              fontSize: "9",
+              //stepSize:"1000",
+            },
+            gridLines:{
+              color:"rgba(255,255,255,0.1)"
+            }
+					}],
+
+				}
+			}
+		};
+
+
+
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
+      var ctx = document.getElementById('canvas2').getContext('2d');
+			window.myBar = new Chart(ctx, config2);
 		};
 
 		var colorNames = Object.keys(window.chartColors);
