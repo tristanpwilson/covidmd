@@ -20,7 +20,7 @@
 				}]
 			},
 			options: {
-				responsive: true,
+				responsive: false,
         legend: {
           display: false
         },
@@ -60,7 +60,7 @@
 					yAxes: [{
 						display: true,
 						scaleLabel: {
-							display: true,
+							display: false,
 							labelString: 'Cases',
               fontColor: "#fff",
               fontSize: "10",
