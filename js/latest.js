@@ -6,8 +6,8 @@ function latestData () {
 //Cases
 countiesData.features[0].properties.cases = 6;
 countiesData.features[1].properties.cases = 466;
-countiesData.features[2].properties.cases = 571;
-countiesData.features[3].properties.cases = 866;
+countiesData.features[2].properties.cases = 866;
+countiesData.features[3].properties.cases = 571;
 countiesData.features[4].properties.cases = 56;
 countiesData.features[5].properties.cases = 11;
 countiesData.features[6].properties.cases = 186;
@@ -61,8 +61,8 @@ countiesData.features[24].properties.prevstatecases = 4371;
 //Deaths  
 countiesData.features[0].properties.deaths = 0;
 countiesData.features[1].properties.deaths = 11;
-countiesData.features[2].properties.deaths = 10;
-countiesData.features[3].properties.deaths = 13;
+countiesData.features[2].properties.deaths = 13;
+countiesData.features[3].properties.deaths = 10;
 countiesData.features[4].properties.deaths = 2;
 countiesData.features[5].properties.deaths = 0;
 countiesData.features[6].properties.deaths = 18;
