@@ -45,7 +45,7 @@
       '<div id="statecases"><h3>Maryland <i>Total</i></h3><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p></div>' +
 
       '<div id="countycases">' + (props ?
-        '<h4>' + props.name + '</h4>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths</p>' + '<p>' + props.recoveries + ' recoveries</p>'
+        '<h4>' + props.name + '</h4>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         // Default content without hover
         :'<h4><i>County (Hover)</i></h4>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>'); +
       '</div>'

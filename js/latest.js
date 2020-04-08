@@ -60,12 +60,12 @@ countiesData.features[24].properties.prevstatecases = 4371;
 
 //Deaths  
 countiesData.features[0].properties.deaths = 0;
-countiesData.features[1].properties.deaths = 8;
-countiesData.features[2].properties.deaths = 11;
-countiesData.features[3].properties.deaths = 8;
-countiesData.features[4].properties.deaths = 1;
+countiesData.features[1].properties.deaths = 11;
+countiesData.features[2].properties.deaths = 10;
+countiesData.features[3].properties.deaths = 13;
+countiesData.features[4].properties.deaths = 2;
 countiesData.features[5].properties.deaths = 0;
-countiesData.features[6].properties.deaths = 16;
+countiesData.features[6].properties.deaths = 18;
 countiesData.features[7].properties.deaths = 1;
 countiesData.features[8].properties.deaths = 2;
 countiesData.features[9].properties.deaths = 0;
@@ -74,35 +74,37 @@ countiesData.features[11].properties.deaths = 0;
 countiesData.features[12].properties.deaths = 0;
 countiesData.features[13].properties.deaths = 3;
 countiesData.features[14].properties.deaths = 0;
-countiesData.features[15].properties.deaths = 21;
-countiesData.features[16].properties.deaths = 26;
+countiesData.features[15].properties.deaths = 26;
+countiesData.features[16].properties.deaths = 32;
 countiesData.features[17].properties.deaths = 0;
 countiesData.features[18].properties.deaths = 0;
 countiesData.features[19].properties.deaths = 0;
-countiesData.features[20].properties.deaths = 0;
+countiesData.features[20].properties.deaths = 1;
 countiesData.features[21].properties.deaths = 0;
 countiesData.features[22].properties.deaths = 1;
 countiesData.features[23].properties.deaths = 0;
-countiesData.features[24].properties.deaths = 103;  
+countiesData.features[24].properties.deaths = 124;  
+
+
   
 // Previous Day's Deaths    
 countiesData.features[0].properties.prevdeaths = 0;
-countiesData.features[1].properties.prevdeaths = 6;
-countiesData.features[2].properties.prevdeaths = 6;
-countiesData.features[3].properties.prevdeaths = 7;
+countiesData.features[1].properties.prevdeaths = 8;
+countiesData.features[2].properties.prevdeaths = 11;
+countiesData.features[3].properties.prevdeaths = 8;
 countiesData.features[4].properties.prevdeaths = 1;
 countiesData.features[5].properties.prevdeaths = 0;
-countiesData.features[6].properties.prevdeaths = 8;
+countiesData.features[6].properties.prevdeaths = 16;
 countiesData.features[7].properties.prevdeaths = 1;
 countiesData.features[8].properties.prevdeaths = 2;
 countiesData.features[9].properties.prevdeaths = 0;
-countiesData.features[10].properties.prevdeaths = 3;
+countiesData.features[10].properties.prevdeaths = 4;
 countiesData.features[11].properties.prevdeaths = 0;
 countiesData.features[12].properties.prevdeaths = 0;
 countiesData.features[13].properties.prevdeaths = 3;
 countiesData.features[14].properties.prevdeaths = 0;
-countiesData.features[15].properties.prevdeaths = 13;
-countiesData.features[16].properties.prevdeaths = 16;
+countiesData.features[15].properties.prevdeaths = 21;
+countiesData.features[16].properties.prevdeaths = 26;
 countiesData.features[17].properties.prevdeaths = 0;
 countiesData.features[18].properties.prevdeaths = 0;
 countiesData.features[19].properties.prevdeaths = 0;
@@ -110,7 +112,7 @@ countiesData.features[20].properties.prevdeaths = 0;
 countiesData.features[21].properties.prevdeaths = 0;
 countiesData.features[22].properties.prevdeaths = 1;
 countiesData.features[23].properties.prevdeaths = 0;
-countiesData.features[24].properties.prevdeaths = 67;
+countiesData.features[24].properties.prevdeaths = 103;  
  
 //Recoveries 
 countiesData.features[0].properties.recoveries = 0;
