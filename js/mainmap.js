@@ -47,7 +47,7 @@
       '<div id="countycases">' + (props ?
         '<h4>' + props.name + '</h4>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         // Default content without hover
-        :'<h4><i>County (Hover)</i></h4>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>' + '<p><i> --- </i></p>'); +
+        :'<h4><i>County (Hover/Tap)</i></h4>' + '<p><i> __ </i> cases</p>' + '<p><i> __ </i> deaths</p>' + '<p><i> __ </i> recoveries</p>'); +
       '</div>'
   };
   

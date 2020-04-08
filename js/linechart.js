@@ -5,8 +5,16 @@
 
     //alert(caseTimeline);
 
+    if($(window).width() <= 767) {
+      window.aspect = 2;
+    } else {
+      window.aspect = 1.5;
+    }
 
-		var config = {
+
+    //alert(window.aspect);
+		
+    var config = {
 			type: 'line',
 			data: {
 				labels: caseTimeline,
@@ -21,6 +29,8 @@
 			},
 			options: {
 				responsive: false,
+        maintainAspectRation: false,
+        aspectRatio: window.aspect,     
         legend: {
           display: false
         },
@@ -51,7 +61,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9",
+              fontSize: "9"
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)"
@@ -68,7 +78,11 @@
             ticks:{
               fontColor: "#fff",
               fontSize: "9",
+              //stepSize:"1000",
             },
+            //afterFit: function(scale) {
+            //   scale.height = 80  //<-- set value as you wish 
+            //},
             gridLines:{
               color:"rgba(255,255,255,0.1)"
             }
@@ -84,4 +98,6 @@
 		};
 
 		var colorNames = Object.keys(window.chartColors);
+    
+
     
