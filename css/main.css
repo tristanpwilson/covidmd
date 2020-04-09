@@ -164,12 +164,9 @@ html, body{height:100%;}
 }
 #mainchart{
   order:2;
-  padding:10px 0 15px 0;
 }
 #secondchart{
-  position:relative; 
   order:3;
-  padding:10px 0 15px 0;
 }
 #mainchart canvas{}
 
@@ -184,12 +181,12 @@ html, body{height:100%;}
     flex-direction:row;
     flex-wrap:wrap;
     width:100%;
-    min-height:300px;
+    min-height:auto;
     top:initial;
     bottom:16px;
     left:0;
     right:0;
-
+    background: rgba(38,38,38,1.00);
   }
   .info{
     display:flex !important;
@@ -199,9 +196,23 @@ html, body{height:100%;}
     order:1;
     width:100%;
     min-height:initial;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+    background:transparent;
+  }
+  .info.infoActive{
+    background:transparent;
   }
   
   /* State + County Cases Info Box (Shared) */
+  /*.info #countycases,
+  .info #statecases{
+    position:relative;
+    display:block;
+    width:50%;
+    padding: 7.5px 3vw 10px 3vw;
+    margin: 0 0 0 0;
+    background:#000;
+  } */
   .info #countycases,
   .info #statecases{
     position:relative;
@@ -209,41 +220,51 @@ html, body{height:100%;}
     width:50%;
     padding: 7.5px 3vw 10px 3vw;
     margin: 0 0 0 0;
-    
+    background: transparent;
   } 
   .info #statecases{
     border-bottom:none;
-    border-right: 1px solid #bbb;
+    border-right: 1px solid rgba(255,255,255,0.2);
   }
   
   .info #statecases h3{
     margin:7.5px 0 0 0;
     font-size:18px;
+    color:#fff;
   } 
   .info #statecases h3 i{ 
     font-size:12px;
+    color:#ddd;
   } 
   
   .info #statecases p{
     margin:7.5px 0 0 0;
-    font-size:14px
+    font-size:16px;
+    color:#fff;
   } 
   
   .info #countycases h4{
     margin:5px 0 0 0;
     font-size: 16px;
+    color:#fff;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+    .info #countycases h4 i{
+    margin:5px 0 0 0;
+    font-size: 16px;
+    font-weight:500;
+    color:#fff;
   }
   .info #countycases p{
     font-size: 12px;
     margin:5px 0 0 0;
+    color:#fff;
   }
 
 
   .container-toggle-tabs {
-    position:flex;
-    flex-direction:row;
-    flex-wrap:nowrap;
-    justify-content:flex-start;
     display:block;
     z-index:2000;
     order:2;
@@ -256,7 +277,6 @@ html, body{height:100%;}
     width:auto;
   }
   .box-toggle-tabs{
-    position:relative;
     display:flex;
     flex-direction:column;
     flex-wrap:nowrap;
@@ -264,6 +284,7 @@ html, body{height:100%;}
     width: 100%;
     padding:0 !important;
     margin:0 !important;
+
   }
   
   .toggle-tab {
@@ -271,9 +292,8 @@ html, body{height:100%;}
     margin: 0;
     list-style: none;
     text-align:right;
-    font-weight:600;
     color:#fff;
-    background: rgba(0,0,0,0);
+    font-weight:600;
     cursor:pointer;
   }
   
@@ -282,21 +302,19 @@ html, body{height:100%;}
   .tab-content {display: none !important;}
   .tab-content.active-tab-content {display: block !important;}
 
-  /*#mainchart,*/
   .stdcharts{
     position:relative;
     display:block;
     flex-grow:1;
     flex-basis:75%;
     width:75%;
-    
-    height:100%;
+    order:3;
+    /*height:100%;*/
     margin:0 !important;
     padding: 5px 0;
   }
   .stdcharts canvas{
-    width:auto;
-    max-width:100%;
+    max-width:500px;
     margin:0 auto;
     padding:0;
   }
