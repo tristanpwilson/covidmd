@@ -34,7 +34,7 @@
 				}]
 			},
 			options: {
-				responsive: false,
+				responsive: true,
         maintainAspectRation: false,
         aspectRatio: window.aspect,     
         legend: {
@@ -113,9 +113,9 @@
 				}]
 			},
 			options: {
-				responsive: false,
+				responsive: true,
         maintainAspectRation: false,
-        aspectRatio: window.aspect,     
+        aspectRatio: window.aspect,
 
         legend: {
           display: false

@@ -22,18 +22,25 @@
 
   <div id="mapMain">
     <div id="infoPane" class="infoPane">
-      <div id="mainchart" class="stdcharts">
+      
+      <!--Tabs for toggling charts on mobile-->
+      <div class="container-toggle-tabs">
+        <ul class="box-toggle-tabs">
+          <li class="toggle-tab active-tab" role="button">Total Cases</li>
+          <li class="toggle-tab" role="button">Daily Cases</li>
+        </ul>
+      </div>  
+      
+      <div id="mainchart" class="stdcharts tab-content active-tab-content">
         <canvas id="canvas"></canvas>
       </div>
-      <div id="secondchart" class="stdcharts">
+      <div id="secondchart" class="stdcharts tab-content">
         <canvas id="canvas2"></canvas>
       </div>
+        
+
     </div>
   </div>
-
-  
-  
-  <div id="activeTarget"></div>
 
   
   
@@ -42,6 +49,25 @@
   <script type="text/javascript" src="js/latest.js"></script>
   <script type="text/javascript" src="js/mainmap.js"></script>
   <script type="text/javascript" src="js/linechart.js"></script>
+  
+  <!-- jQuery for controlling tabbed content-->
+  <script type="text/javascript">
+    $(".box-toggle-tabs li").click(function () {
+    $(this)
+      .addClass("active-tab")
+      .parents("ul.box-toggle-tabs")
+      .find("li")
+      .not($(this))
+      .removeClass("active-tab");
+    var currentTabIndex = $(this).index();
+    $(".tab-content:eq(" + currentTabIndex + ")")
+      .addClass("active-tab-content")
+      .parents(".infoPane")
+      .find(".tab-content")
+      .not($(".tab-content:eq(" + currentTabIndex + ")"))
+      .removeClass("active-tab-content");
+    });
+  </script>
 
 
 </body>
