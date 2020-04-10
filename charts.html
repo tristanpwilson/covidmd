@@ -15,7 +15,7 @@
   <!-- Based on data at https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland-->
   <!-- and https://coronavirus.maryland.gov/ ------------------------------------------------>
   
-  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/chartsonly.css" rel="stylesheet" type="text/css">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/leaflet.css"/>
 
@@ -30,7 +30,7 @@
   </script>
 
 
-  <script type="text/javascript" src="js/leaflet.js"></script>
+  <!--<script type="text/javascript" src="js/leaflet.js"></script>-->
   <script type="text/javascript" src="js/Chart.bundle.js"></script>
   <script type="text/javascript" src="js/utils.js"></script>
 
@@ -38,27 +38,26 @@
 
 <body>
 
-  <div id="mapMain">
-    <div id="infoPane" class="infoPane">
+  <div id="container-charts">
+    <nav class="mainNav">
+     <a href="index.html" aria-label="Link to previous page"></a>
+    </nav>  
       
-      <!--Tabs for toggling charts on mobile-->
-      <div class="container-toggle-tabs">
-        <ul class="box-toggle-tabs">
-          <li class="toggle-tab active-tab" role="button">Total Cases</li>
-          <li class="toggle-tab" role="button">Daily Cases</li>
-        </ul>
-      </div>  
-      
-      <div id="mainchart" class="stdcharts tab-content active-tab-content">
-        <a href="charts.html" id="linkExpChart" title="Expand charts to fullscreen" aria-label="Expand charts to fullscreen"></a>
-        <canvas id="canvas"></canvas>
-      </div>
-      <div id="secondchart" class="stdcharts tab-content">
-        <canvas id="canvas2"></canvas>
-      </div>
-        
-
+    <!--Tabs for toggling charts -->
+    <div class="container-toggle-tabs">
+      <ul class="box-toggle-tabs">
+        <li class="toggle-tab active-tab" role="button" tabindex="0">Total Cases</li>
+        <li class="toggle-tab" role="button" tabindex="0">Daily Cases</li>
+      </ul>
+    </div>  
+    
+    <div id="mainchart" class="stdcharts tab-content active-tab-content">
+      <canvas id="canvas"></canvas>
     </div>
+    <div id="secondchart" class="stdcharts tab-content">
+      <canvas id="canvas2"></canvas>
+    </div>
+       
   </div>
 
   
@@ -66,26 +65,37 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/us-counties.js"></script>
   <script type="text/javascript" src="js/latest.js"></script>
-  <script type="text/javascript" src="js/mainmap.js"></script>
-  <script type="text/javascript" src="js/linechart.js"></script>
+  <script type="text/javascript" src="js/chartsonly.js"></script>
   
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">
-    $(".box-toggle-tabs li").click(function () {
-    $(this)
-      .addClass("active-tab")
-      .parents("ul.box-toggle-tabs")
-      .find("li")
-      .not($(this))
-      .removeClass("active-tab");
-    var currentTabIndex = $(this).index();
-    $(".tab-content:eq(" + currentTabIndex + ")")
-      .addClass("active-tab-content")
-      .parents(".infoPane")
-      .find(".tab-content")
-      .not($(".tab-content:eq(" + currentTabIndex + ")"))
-      .removeClass("active-tab-content");
+    
+    // Toggles active tab and active tabbed content
+    function toggleTabs() {
+      var currentTabIndex = $(document.activeElement).index();
+      $(".toggle-tab:eq(" + currentTabIndex + ")") 
+        .addClass("active-tab")
+        .parents("ul.box-toggle-tabs")
+        .find("li")
+        .not($(".toggle-tab:eq(" + currentTabIndex + ")"))
+        .removeClass("active-tab");
+      $(".tab-content:eq(" + currentTabIndex + ")")
+        .addClass("active-tab-content")
+        .parents("#container-charts")
+        .find(".tab-content")
+        .not($(".tab-content:eq(" + currentTabIndex + ")"))
+        .removeClass("active-tab-content");
+    };
+    
+    //Accessibility: Force tabs to work with mouse OR keyboard only
+    $(".box-toggle-tabs li").on('click', toggleTabs);
+    $(".box-toggle-tabs li").on('keypress', function (e) {
+        //enter key code is 13
+        if (e.which == 13) {
+            toggleTabs()
+        }
     });
+    
   </script>
 
 

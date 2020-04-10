@@ -1,0 +1,16 @@
+$(window).on('resize', function updateConfigByMutating(myLine){
+  if($(window).width() <= 767) {
+      window.aspect = 1;
+      //window.myLine.options.aspectRatio = 4;
+      window.myLine.options.title.text = 'new title';
+      window.myLine.resize();
+      //window.myLine.update();
+    } else {
+      window.aspect = 2;
+      //window.myLine.options.aspectRatio = 1;
+      window.myLine.options.title.text = 'old title';
+      window.myLine.resize();
+      //window.myLine.update();
+    }
+  //  window.myLine.options.title.text = 'new title';
+});

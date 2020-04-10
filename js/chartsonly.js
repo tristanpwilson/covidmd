@@ -12,11 +12,11 @@
     var adjDailyCaseChange = dailyCaseChange.unshift(1);
     var caseTimeline = countiesData.features[24].properties.dates;
 
-    if($(window).width() <= 767) {
-      window.aspect = 2;
-    } else {
-      window.aspect = 1.5;
-    }
+    //if($(window).width() <= 767) {
+    //  window.aspect = 2;
+    //} else {
+    //  window.aspect = 1.5;
+    //}
 
 
     //Linechart 1 Config		
@@ -26,17 +26,18 @@
 				labels: caseTimeline,
 				datasets: [{
 					label: 'Total Cases in Maryland',
-          pointRadius: 0,
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
+          pointRadius: 2,
+					pointHitRadius: 30,
 					fill: true,
 				}]
 			},
 			options: {
 				responsive: true,
-        //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason
-        aspectRatio: window.aspect,     
+        maintainAspectRatio: false,  
+        //aspectRatio: window.aspect,     
         legend: {
           display: false
         },
@@ -45,10 +46,17 @@
 					text: 'Total Cases in Maryland',
           fontColor: "#fff",
           fontFamily: "Work Sans",
+          fontSize: 18,
 				},
+       // elements: {
+			//		point: {
+        //    pointRadius: 100,
+				//		pointHitRadius: 100,
+				//	}
+				//},
 				tooltips: {
 					mode: 'index',
-					intersect: false,
+					intersect: true,
 				},
 				hover: {
 					mode: 'nearest',
@@ -114,8 +122,8 @@
 			},
 			options: {
 				responsive: true,
-        aspectRatio: window.aspect,
-        //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason
+        maintainAspectRatio: false,  
+        //aspectRatio: window.aspect,     
         legend: {
           display: false
         },
@@ -124,6 +132,7 @@
 					text: 'Daily New Cases in Maryland',
           fontColor: "#fff",
           fontFamily: "Work Sans",
+          fontSize: 18,
 				},
 				tooltips: {
 					mode: 'index',
