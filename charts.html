@@ -37,13 +37,18 @@
 </head>
 
 <body>
+    
 
   <div id="container-charts">
-    <nav class="mainNav">
-     <a href="index.html" aria-label="Link to previous page"></a>
-    </nav>  
-      
+    <div class="container-header">
+      <nav class="mainNav">
+        <a href="index.html" aria-label="Link to previous page"></a>
+      </nav>  
+  
+      <h1>COVID-19 in Maryland</h1>
+    </div>
     <!--Tabs for toggling charts -->
+
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
         <li class="toggle-tab active-tab" role="button" tabindex="0">Total Cases</li>
@@ -54,6 +59,7 @@
     <div id="mainchart" class="stdcharts tab-content active-tab-content">
       <canvas id="canvas"></canvas>
     </div>
+    
     <div id="secondchart" class="stdcharts tab-content">
       <canvas id="canvas2"></canvas>
     </div>
@@ -69,8 +75,7 @@
   
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">
-    
-    // Toggles active tab and active tabbed content
+     // Toggles active tab and active tabbed content
     function toggleTabs() {
       var currentTabIndex = $(document.activeElement).index();
       $(".toggle-tab:eq(" + currentTabIndex + ")") 
@@ -95,6 +100,7 @@
             toggleTabs()
         }
     });
+   
     
   </script>
 

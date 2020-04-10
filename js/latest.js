@@ -3,6 +3,9 @@
 //Function to be called in main js
 function latestData () {
   
+countiesData.features[24].properties.history = [39,57,85,108,150,195,245,290,349,423,581,790,1066,1244,1415,1662,1985,2331,2758,3125,3609,4045,4371,5529,6185,6968,];
+
+
 //Cases
 countiesData.features[0].properties.cases = 10;
 countiesData.features[1].properties.cases = 554;

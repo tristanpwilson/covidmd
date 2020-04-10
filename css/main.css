@@ -38,8 +38,8 @@ html, body{height:100%;}
  width:300px;
  top:2vh;
  right:1vw;
- /*background:rgba(255,255,255,0.5);*/
- background:transparent;
+ /*background:background:transparent;*/
+ background: rgba(38,38,38,.8);
  box-shadow: 0 -1px 3px 0 rgba(0,0,0,.2),
              0 -1px 10px 0 rgba(0,0,0,.2);
  overflow:hidden;             
@@ -55,13 +55,15 @@ html, body{height:100%;}
   padding:0px 0px;
   margin: 0 !important;
   border-radius:0px;
-  background:#eee;
+  /*background:#eee;*/
+  background:transparent;
   opacity:1;
   transition:.3s ease background .1s;
 }
 
 .info.infoActive{
-  background: #fafafa;
+  /*background: #fafafa;*/
+  background:transparent;
   transition:.2s ease background;
 }
 
@@ -77,33 +79,37 @@ html, body{height:100%;}
 .info #statecases{
   padding: 15px 17.5px 22.5px 17.5px;
   margin: 0 0 0 0;
+  background:transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 } 
 
 
 /* State Cases Info Box */
 .info #statecases{
-  background:#fff;
-  border-bottom: 1px solid #bbb;
+  /*background:#fff;*/
+
   border-radius:0;
 } 
 
 .info #statecases h3, 
 .info #statecases p{ 
  padding:0;
- color:#2a2a2a;
+ /*color:#2a2a2a;*/
+ color:#fff;
  line-height:100%
 } 
 
 .info #statecases h3{
   margin:7.5px 0 0 0;
-  font-size:22px;
+  font-size:26px;
   font-weight:600;
 }
 
 .info #statecases h3 i{ 
  font-style: normal;
  font-size:16px;
- color:#767676;
+ /*color:#767676;*/
+ color:#ddd;
  font-weight:500;
 } 
 
@@ -117,7 +123,8 @@ html, body{height:100%;}
 .info #countycases h4, 
 .info #countycases p{ 
  padding:0;
- color:#2a2a2a;
+ /*color:#2a2a2a;*/
+ color:#fff;
  line-height:100%
 }
 
@@ -140,7 +147,8 @@ html, body{height:100%;}
   font-weight:400;
 }
 .info #countycases h4 i{
-  color:#444;
+  /*color:#444;*/
+  color:#ddd;
 }
 
 .info #countycases p i{
@@ -156,7 +164,7 @@ html, body{height:100%;}
   left:0; 
   bottom:0; 
   padding:10px 0 15px 0;
-  background: rgba(38,38,38,1);
+  background: rgba(38,38,38,0);
 }
 #mainchart{
   order:2;
