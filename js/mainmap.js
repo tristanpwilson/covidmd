@@ -65,9 +65,10 @@
 
   // Disable dragging when user's cursor enters the info pane
   a.addEventListener('mouseover', function () {mainmap.dragging.disable();});
-
+  a.addEventListener('touchstart', function () {mainmap.dragging.disable();});
   // Re-enable dragging when user's cursor leaves the info pane
   a.addEventListener('mouseout', function () {mainmap.dragging.enable();}); 
+  a.addEventListener('touchend', function () {mainmap.dragging.enable();}); 
 
 
   // Calculating the maximum and minimum case values for use in color scale  
