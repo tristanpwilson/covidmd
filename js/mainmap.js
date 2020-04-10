@@ -7,7 +7,7 @@
   //Instantiates the Leaflet.js map
   if (L.Browser.mobile) {
       var mainmap = L.map('mapMain', {zoomControl: false}).setView([37.50, -77.28], 7);
-   } else
+   } else 
       var mainmap = L.map('mapMain', {zoomControl: true}).setView([38.73, -76.34], 8);
       
   //var mainmap = L.map('mapMain', {zoomDelta: .5}).setView([38.63, -77.34], 8);
@@ -22,8 +22,7 @@
     accessToken: 'pk.eyJ1Ijoic3JpcmFjaGFjaGFjaGEiLCJhIjoiY2ltdGhpeGpiMDIxM3dibHVic3N2OGt3dyJ9.GCpLXlY3H4rUnodkF073WA'
   }).addTo(mainmap);
   
-  
-  
+
   // Function that produces the contextual info shown on hover
   
   var info = L.control();
@@ -52,9 +51,11 @@
   };
   
   info.addTo(mainmap);
-
+  
+  // Info control has been created, now we want to move it to the desired parent container (#infoPane)
   // Find the container that info box was inserted into
   var infoContainer = info.getContainer();
+  
   // Choose the new parent container (node) that we want to move info box to
   var a = document.getElementById('infoPane');
  
@@ -62,7 +63,11 @@
   function setParent(el, newParent){newParent.appendChild(el);}
   setParent(infoContainer, a);
 
+  // Disable dragging when user's cursor enters the info pane
+  a.addEventListener('mouseover', function () {mainmap.dragging.disable();});
 
+  // Re-enable dragging when user's cursor leaves the info pane
+  a.addEventListener('mouseout', function () {mainmap.dragging.enable();}); 
 
 
   // Calculating the maximum and minimum case values for use in color scale  
@@ -208,5 +213,7 @@
     //alert(zoomLevel);
   });
   
+
+
 
 //alert(countiesData.features[1].properties.name);

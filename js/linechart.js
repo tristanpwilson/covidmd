@@ -26,10 +26,11 @@
 				labels: caseTimeline,
 				datasets: [{
 					label: 'Total Cases in Maryland',
-          pointRadius: 0,
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
+          pointRadius: 2,
+					pointHitRadius: 30,
 					fill: true,
 				}]
 			},
@@ -106,7 +107,7 @@
 				datasets: [{
 					label: 'New Cases',
           pointRadius: 0,
-					backgroundColor: "rgba(255, 107, 105, 0.5)",
+					backgroundColor: "rgba(255, 107, 105, 0.8)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: dailyCaseChange,
 					fill: true,

@@ -48,12 +48,6 @@
           fontFamily: "Work Sans",
           fontSize: 18,
 				},
-       // elements: {
-			//		point: {
-        //    pointRadius: 100,
-				//		pointHitRadius: 100,
-				//	}
-				//},
 				tooltips: {
 					mode: 'index',
 					intersect: true,
@@ -114,7 +108,7 @@
 				datasets: [{
 					label: 'New Cases',
           pointRadius: 0,
-					backgroundColor: "rgba(255, 107, 105, 0.5)",
+					backgroundColor: "rgba(255, 107, 105, 0.7)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: dailyCaseChange,
 					fill: true,
