@@ -3,6 +3,7 @@
 
     //Pulling & Generating Data for Charts
     var caseNumbers = countiesData.features[24].properties.history;
+    var deathNumbers = countiesData.features[24].properties.historydeaths;
     function diff(ary) {
       var newA = [];
       for (var i = 1; i < ary.length; i++)  newA.push(ary[i] - ary[i - 1])
@@ -25,10 +26,19 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'Total Cases in Maryland',
+					label: 'Total Cases',
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
+          pointRadius: 2,
+					pointHitRadius: 30,
+					fill: true,
+				},
+        {
+					label: 'Total Deaths',
+					backgroundColor: "rgba(245,153,34,.6)",
+					borderColor: "rgba(245,153,34,.9)",
+					data: deathNumbers,
           pointRadius: 2,
 					pointHitRadius: 30,
 					fill: true,
@@ -48,21 +58,13 @@
           fontFamily: "Work Sans",
 				},
 				tooltips: {
-					mode: 'index',
-					intersect: false,
-          displayColors: false,
-          callbacks: {
-            title: function(tooltipItem, data) {
-              return data['labels'][tooltipItem[0]['index']];
-            },
-            label: function(tooltipItem, data) {
-              return data['datasets'][0]['data'][tooltipItem['index']] + " total cases";
-            }
-          }
-				},
+          enabled: true, 
+          mode: 'label',
+          displayColors:false,
+         },       
 				hover: {
 					mode: 'nearest',
-					intersect: true
+					intersect: false
 				},
 				scales: {
 					xAxes: [{
