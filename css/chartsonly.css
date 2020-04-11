@@ -186,3 +186,18 @@
 
 #mainchart {}
 #secondchart {}
+@media(max-width: 768px){
+.stdcharts{
+  position:relative;
+  display:block;
+  z-index:3000;
+  height:80vh;
+  flex-shrink:2;
+  flex-grow:1;
+  width: 95vw;
+  max-height: calc(95vw * .95);
+  margin:0 auto!important;
+  padding: 30px 0;
+  background: rgba(38,38,38,1);
+ }
+}

@@ -50,6 +50,15 @@
 				tooltips: {
 					mode: 'index',
 					intersect: false,
+          displayColors: false,
+          callbacks: {
+            title: function(tooltipItem, data) {
+              return data['labels'][tooltipItem[0]['index']];
+            },
+            label: function(tooltipItem, data) {
+              return data['datasets'][0]['data'][tooltipItem['index']] + " total cases";
+            }
+          }
 				},
 				hover: {
 					mode: 'nearest',
@@ -85,11 +94,7 @@
             ticks:{
               fontColor: "#fff",
               fontSize: "9",
-              //stepSize:"1000",
             },
-            //afterFit: function(scale) {
-            //   scale.height = 80  //<-- set value as you wish 
-            //},
             gridLines:{
               color:"rgba(255,255,255,0.1)"
             }
@@ -129,6 +134,15 @@
 				tooltips: {
 					mode: 'index',
 					intersect: false,
+          displayColors: false,
+          callbacks: {
+            title: function(tooltipItem, data) {
+              return data['labels'][tooltipItem[0]['index']];
+            },
+            label: function(tooltipItem, data) {
+              return data['datasets'][0]['data'][tooltipItem['index']] + " new cases";
+            }
+          }
 				},
 				hover: {
 					mode: 'nearest',

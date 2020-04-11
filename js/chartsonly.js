@@ -50,7 +50,18 @@
 				},
 				tooltips: {
 					mode: 'index',
-					intersect: true,
+					intersect: false,
+          displayColors: false,
+          titleFontSize: 16,
+          bodyFontSize: 16,
+          callbacks: {
+            title: function(tooltipItem, data) {
+              return data['labels'][tooltipItem[0]['index']];
+            },
+            label: function(tooltipItem, data) {
+              return data['datasets'][0]['data'][tooltipItem['index']] + " total cases";
+            }
+          }
 				},
 				hover: {
 					mode: 'nearest',
@@ -60,7 +71,8 @@
 					xAxes: [{
             type: 'time',
               time: {
-                  unit: 'day'
+                  unit: 'day',
+                  //unitStepSize: 2,          
               },
 						display: true,
 						scaleLabel: {
@@ -69,7 +81,10 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9"
+              fontSize: 10,
+              autoSkip: true,
+              maxRotation: 0,
+              //maxTicksLimit: 16,
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)"
@@ -128,9 +143,20 @@
           fontFamily: "Work Sans",
           fontSize: 18,
 				},
-				tooltips: {
+								tooltips: {
 					mode: 'index',
 					intersect: false,
+          displayColors: false,
+          titleFontSize: 16,
+          bodyFontSize: 16,
+          callbacks: {
+            title: function(tooltipItem, data) {
+              return data['labels'][tooltipItem[0]['index']];
+            },
+            label: function(tooltipItem, data) {
+              return data['datasets'][0]['data'][tooltipItem['index']] + " new cases";
+            }
+          }
 				},
 				hover: {
 					mode: 'nearest',
