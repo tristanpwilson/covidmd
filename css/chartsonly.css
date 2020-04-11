@@ -31,7 +31,7 @@
 /* ------ Header Styles -------- */
 /* ----------------------------- */
 .container-header{
-  height:5%;
+  height:auto;
   flex-shrink:0;
   padding: 10px 0;
   background: #121212;

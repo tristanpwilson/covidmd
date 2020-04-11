@@ -75,37 +75,39 @@ html, body{height:100%;}
 
 
 /* State + County Cases Info Box (Shared) */
+.info #title,
 .info #countycases,
 .info #statecases{
-  padding: 15px 17.5px 22.5px 17.5px;
   margin: 0 0 0 0;
   background:transparent;
   border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 15px 17.5px 15px 17.5px;
 } 
 
-
-/* State Cases Info Box */
-.info #statecases{
-  /*background:#fff;*/
-
-  border-radius:0;
-} 
-
+.info #title h1, 
+.info #statecases h2, 
 .info #statecases h3, 
-.info #statecases p{ 
+.info #statecases p,
+.info #countycases h3, 
+.info #countycases p{ 
  padding:0;
- /*color:#2a2a2a;*/
  color:#fff;
  line-height:100%
 } 
 
-.info #statecases h3{
-  margin:7.5px 0 0 0;
-  font-size:26px;
+/* State Cases Info Box (Only)*/
+.info #title h1{
+  margin:0 0 0 0;
+  font-size:24px;
+  font-weight:600;
+}
+.info #statecases h2{
+  margin:2.5px 0 0 0;
+  font-size:20px;
   font-weight:600;
 }
 
-.info #statecases h3 i{ 
+.info #statecases h2 i{ 
  font-style: normal;
  font-size:16px;
  /*color:#767676;*/
@@ -120,17 +122,10 @@ html, body{height:100%;}
  
 
 /* County Cases  Info Box */
-.info #countycases h4, 
-.info #countycases p{ 
- padding:0;
- /*color:#2a2a2a;*/
- color:#fff;
- line-height:100%
-}
 
-.info #countycases h4{
+.info #countycases h3{
  font-size: 18px;
- margin:5px 0 0 0;
+ margin:0;
  font-weight:600;
 }
 
@@ -141,16 +136,20 @@ html, body{height:100%;}
 }
 
 /* Placholder County Title */
-.info #countycases h4 i,
-.info #countycases p i{
+.info #countycases h3 i,
+.info #countycases p i,
+.info #countycases h3 i span{
   font-style: normal;
   font-weight:400;
 }
-.info #countycases h4 i{
+.info #countycases h3 i,
+.info #countycases h3 i span{
   /*color:#444;*/
   color:#ddd;
 }
-
+.info #countycases h3 i span{
+  font-size:12px;
+}
 .info #countycases p i{
   color:#999;
 }
@@ -228,7 +227,7 @@ html, body{height:100%;}
   .info{
     display:flex !important;
     flex-direction:row;
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
     justify-content:flex-start;
     order:1;
     width:100%;
@@ -236,40 +235,50 @@ html, body{height:100%;}
     border-bottom:1px solid rgba(255,255,255,0.2);
     background:transparent;
   }
-  .info.infoActive{
-    background:transparent;
-  }
+  .info.infoActive{}
   
   /* State + County Cases Info Box (Shared) */
-  /*.info #countycases,
-  .info #statecases{
-    position:relative;
-    display:block;
-    width:50%;
-    padding: 7.5px 3vw 10px 3vw;
-    margin: 0 0 0 0;
-    background:#000;
-  } */
+  .info #title,
   .info #countycases,
   .info #statecases{
     position:relative;
     display:block;
     width:50%;
-    padding: 7.5px 3vw 10px 3vw;
     margin: 0 0 0 0;
+    border-bottom:none;
     background: transparent;
   } 
+  
+  .info #title{
+    width:100%;
+    padding: 10px 3vw 10px 3vw !important;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+  } 
+  
+  .info #title h1{
+    padding: 0 !important;
+    margin:0 !important;
+    color:#fff;
+    font-size:22px;
+  }
+    
+  .info #countycases,
   .info #statecases{
-    border-bottom:none;
+    width:50%;
+    padding: 7.5px 3vw 10px 3vw;
+  }
+
+  .info #statecases{
+    border:2;
     border-right: 1px solid rgba(255,255,255,0.2);
   }
   
-  .info #statecases h3{
-    margin:7.5px 0 0 0;
+  .info #statecases h2{
+    margin:5px 0 0 0;
     font-size:18px;
     color:#fff;
   } 
-  .info #statecases h3 i{ 
+  .info #statecases h2 i{ 
     font-size:12px;
     color:#ddd;
   } 
@@ -279,20 +288,26 @@ html, body{height:100%;}
     font-size:16px;
     color:#fff;
   } 
-  
-  .info #countycases h4{
-    margin:5px 0 0 0;
+  .info #countycases{
+   order:3;
+   }
+   
+  .info #countycases h3{
+    margin:2.5px 0 0 0;
     font-size: 16px;
     color:#fff;
     text-overflow:ellipsis;
     overflow:hidden;
     white-space:nowrap;
   }
-    .info #countycases h4 i{
+  .info #countycases h3 i{
     margin:5px 0 0 0;
     font-size: 16px;
     font-weight:500;
     color:#fff;
+  }
+  .info #countycases h3 i span{
+    font-size:12px;
   }
   .info #countycases p{
     font-size: 12px;

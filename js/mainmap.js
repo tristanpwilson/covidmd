@@ -41,12 +41,12 @@
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
     this._div.innerHTML =
-      '<div id="statecases"><h3>Maryland <i>Total</i></h3><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
+      '<div id="title"><h1>Maryland COVID-19</h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
 
       '<div id="countycases">' + (props ?
-        '<h4>' + props.name + '</h4>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
+        '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         // Default content without hover
-        :'<h4><i>County (Hover/Tap)</i></h4>' + '<p><i> __ </i> cases</p>' + '<p><i> __ </i> deaths</p>' + '<p><i> __ </i> recoveries</p>'); +
+        :'<h3><i>County <span>(Hover/Tap)</span></i></h3>' + '<p><i> __ </i> cases</p>' + '<p><i> __ </i> deaths</p>' + '<p><i> __ </i> recoveries</p>'); +
       '</div>'
   };
   
