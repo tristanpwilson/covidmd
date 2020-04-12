@@ -1,9 +1,10 @@
 // JavaScript Document
-
+    latestData();
 
     //Pulling & Generating Data for Charts
     var caseNumbers = countiesData.features[24].properties.history;
     var deathNumbers = countiesData.features[24].properties.historydeaths;
+    var recoveryNumbers = countiesData.features[24].properties.historyrecoveries;
     function diff(ary) {
       var newA = [];
       for (var i = 1; i < ary.length; i++)  newA.push(ary[i] - ary[i - 1])
@@ -36,9 +37,18 @@
 				},
         {
 					label: 'Total Deaths',
-					backgroundColor: "rgba(245,153,34,.6)",
+					backgroundColor: "rgba(247,183,104,.5)",
 					borderColor: "rgba(245,153,34,.9)",
 					data: deathNumbers,
+          pointRadius: 2,
+					pointHitRadius: 30,
+					fill: true,
+				},
+        {
+					label: 'Total Recoveries',
+					backgroundColor: "rgba(31,173,37,.7)",
+					borderColor: "rgba(31,173,37,1.00)",
+					data: recoveryNumbers,
           pointRadius: 2,
 					pointHitRadius: 30,
 					fill: true,
@@ -49,7 +59,16 @@
         maintainAspectRatio: false,  
         //aspectRatio: window.aspect,     
         legend: {
-          display: false
+          display: true,
+          position: "top",
+          align: "end",
+          labels:{
+           boxWidth: 12,
+           boxHeight: 10,
+           fontColor: "#eee",
+           //padding:30,
+          },
+          //fullWidth: false,
         },
 				title: {
 					display: true,
@@ -82,8 +101,8 @@
             ticks:{
               fontColor: "#fff",
               fontSize: 10,
-              autoSkip: true,
-              maxRotation: 0,
+              //autoSkip: true,
+              //maxRotation: 0,
               //maxTicksLimit: 16,
             },
             gridLines:{
