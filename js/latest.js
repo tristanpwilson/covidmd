@@ -5,7 +5,7 @@ function latestData () {
   
 countiesData.features[24].properties.history = [39,57,85,108,150,195,245,290,349,423,581,790,1066,1244,1415,1662,1985,2331,2758,3125,3609,4045,4371,5529,6185,6968,7694,8228,];	
 countiesData.features[24].properties.historydeaths = [0,0,1,1,2,3,3,3,4,4,4,5,10,11,15,18,24,29,42,54,68,92,104,124,139,172,206,236,];
-24].properties.historyrecoveries = [3,3,3,3,3,3,3,3,3,3,3,25,32,39,43,53,69,81,159,159,159,184,288,365,365,365,431,456,];
+countiesData.features[24].properties.historyrecoveries = [3,3,3,3,3,3,3,3,3,3,3,25,32,39,43,53,69,81,159,159,159,184,288,365,365,365,431,456,];
 countiesData.features[24].properties.dates = ["3/16/2020", "3/17/2020", "3/18/2020", "3/19/2020", "3/20/2020", "3/21/2020", "3/22/2020", "3/23/2020", "3/24/2020", "3/25/2020", "3/26/2020", "3/27/2020", "3/28/2020", "3/29/2020", "3/30/2020", "3/31/2020", "4/1/2020", "4/2/2020", "4/3/2020", "4/4/2020", "4/5/2020", "4/6/2020", "4/7/2020", "4/8/2020","4/9/2020","4/10/2020","4/11/2020","4/12/2020"];
 
 
@@ -144,4 +144,6 @@ countiesData.features[22].properties.recoveries = 0;
 countiesData.features[23].properties.recoveries = 0;
 countiesData.features[24].properties.recoveries = 456;
 
+//prevrecoveries 
+countiesData.features[24].properties.prevrecoveries = 431;
 }  
