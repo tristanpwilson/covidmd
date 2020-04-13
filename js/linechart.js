@@ -131,6 +131,7 @@
 				}]
 			},
 			options: {
+        
 				responsive: true,
         aspectRatio: window.aspect,
         //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason
@@ -162,6 +163,7 @@
 				},
 				scales: {
 					xAxes: [{
+            offset:true,
             type: 'time',
               time: {
                   unit: 'day'
