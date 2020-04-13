@@ -179,6 +179,7 @@
 				},
 				scales: {
 					xAxes: [{
+            offset:true,
             type: 'time',
               time: {
                   unit: 'day'
