@@ -84,7 +84,6 @@ html, body{height:100%;}
   padding: 15px 17.5px 15px 17.5px;
 } 
 
-.info #countycases{min-height:125px;}
 
 .info #title h1, 
 .info #statecases h2, 
@@ -129,6 +128,7 @@ html, body{height:100%;}
  font-size: 18px;
  margin:0;
  font-weight:600;
+ height: 18px !important;
 }
 
 .info #countycases p{
@@ -146,7 +146,6 @@ html, body{height:100%;}
 }
 .info #countycases h3 i,
 .info #countycases h3 i span{
- 
   /*color:#444;*/
   color:#ddd;
 }
