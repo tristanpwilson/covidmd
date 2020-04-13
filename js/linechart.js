@@ -4,6 +4,7 @@
     //Pulling & Generating Data for Charts
     var caseNumbers = countiesData.features[24].properties.history;
     var deathNumbers = countiesData.features[24].properties.historydeaths;
+    var recoveryNumbers = countiesData.features[24].properties.historyrecoveries;
     function diff(ary) {
       var newA = [];
       for (var i = 1; i < ary.length; i++)  newA.push(ary[i] - ary[i - 1])
@@ -39,6 +40,15 @@
 					backgroundColor: "rgba(245,153,34,.6)",
 					borderColor: "rgba(245,153,34,.9)",
 					data: deathNumbers,
+          pointRadius: 2,
+					pointHitRadius: 30,
+					fill: true,
+				},
+        {
+					label: 'Total Recoveries',
+					backgroundColor: "rgba(31,173,37,.7)",
+					borderColor: "rgba(31,173,37,1.00)",
+					data: recoveryNumbers,
           pointRadius: 2,
 					pointHitRadius: 30,
 					fill: true,
