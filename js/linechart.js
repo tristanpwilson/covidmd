@@ -50,7 +50,7 @@
 					borderColor: "rgba(31,173,37,1.00)",
 					data: recoveryNumbers,
           pointRadius: 2,
-					pointHitRadius: 30,
+					pointHitRadius: 10,
 					fill: true,
 				}]
 			},
