@@ -42,8 +42,9 @@ html, body{height:100%;}
  background: rgba(38,38,38,.8);
  box-shadow: 0 -1px 3px 0 rgba(0,0,0,.2),
              0 -1px 10px 0 rgba(0,0,0,.2);
- overflow:hidden;             
+ overflow-x:hidden;             
 }
+
 
 .info{
   position:relative !important;
@@ -60,7 +61,15 @@ html, body{height:100%;}
   opacity:1;
   transition:.3s ease background .1s;
 }
-
+@media (max-height:800px){
+#infoPane{
+  overflow-y:scroll;  
+  height:90vh;}
+  
+  .info{
+  min-height:auto;
+  height:auto;
+}}
 .info.infoActive{
   /*background: #fafafa;*/
   background:transparent;
