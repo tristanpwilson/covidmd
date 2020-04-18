@@ -32,7 +32,7 @@
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
           pointRadius: 2,
-					pointHitRadius: 30,
+					pointHitRadius: 10,
 					fill: true,
 				},
         {
