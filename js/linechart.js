@@ -27,7 +27,7 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'Total Cases',
+					label: 'Cases',
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
@@ -39,7 +39,7 @@
 					fill: true,
 				},
         {
-					label: 'Total Deaths',
+					label: 'Deaths',
 					backgroundColor: "rgba(245,153,34,.6)",
 					borderColor: "rgba(245,153,34,.9)",
 					data: deathNumbers,
@@ -51,7 +51,7 @@
 					fill: true,
 				},
         {
-					label: 'Total Recoveries',
+					label: 'Recoveries',
 					backgroundColor: "rgba(31,173,37,.7)",
 					borderColor: "rgba(31,173,37,1.00)",
 					data: recoveryNumbers,         
@@ -65,17 +65,30 @@
 			},
 			options: {
 				responsive: true,
-        //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason
-        aspectRatio: window.aspect,     
-        legend: {
-          display: false
-        },
-				title: {
+        //maintainAspectRatio: false, 
+        aspectRatio: window.aspect, 
+        title: {
 					display: true,
-					text: 'Total Cases in Maryland',
+					text: 'Cumulative Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-				},
+          fontSize: 16,
+          lineHeight: 1,
+          padding:0,
+				},   
+        legend: {
+          display: true,
+          position: "top",
+          align: "center",
+          fullWidth: true,
+          //padding:0,
+          labels:{
+           boxWidth: 12,
+           boxHeight: 10,
+           fontColor: "#fafafa",
+           //padding:10,
+          },
+        },
 				tooltips: {
           enabled: true, 
           mode: 'label',
@@ -144,32 +157,40 @@
 				}]
 			},
 			options: {
-        
 				responsive: true,
         aspectRatio: window.aspect,
         //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason
-        legend: {
-          display: false
-        },
-				title: {
+        title: {
 					display: true,
-					text: 'Daily New Cases in Maryland',
+					text: 'Daily New Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
+          fontSize: 16,
+          lineHeight: 1,
+          padding: 0,
 				},
+        legend: {
+          display: true,
+          position: "top",
+          align: "center",
+          fullWidth: true,
+          //padding:0,
+          labels:{
+           boxWidth: 12,
+           boxHeight: 10,
+           fontColor: "#fafafa",
+           //padding:10,
+          },
+        },
 				tooltips: {
-					mode: 'index',
-					intersect: false,
-          displayColors: false,
-          callbacks: {
-            title: function(tooltipItem, data) {
-              return data['labels'][tooltipItem[0]['index']];
-            },
-            label: function(tooltipItem, data) {
-              return data['datasets'][0]['data'][tooltipItem['index']] + " new cases";
-            }
-          }
-				},
+          enabled: true, 
+          mode: 'label',
+          displayColors:false,
+          position:'average',
+          xalign: 'right',
+          yalign:'none',
+          intersect:false,
+         }, 
 				hover: {
 					mode: 'nearest',
 					intersect: true
@@ -227,7 +248,7 @@
 			window.myBar = new Chart(ctx, config2);
 		};
 
-		var colorNames = Object.keys(window.chartColors);
+		//var colorNames = Object.keys(window.chartColors);
     
 
     
