@@ -33,6 +33,9 @@
 					data: caseNumbers,
           pointRadius: 2,
 					pointHitRadius: 4,
+          hoverRadius: 3,
+          hoverBorderWidth:2,
+          hoverBorderColor:"rgba(255, 127, 125, 1)",
 					fill: true,
 				},
         {
@@ -42,6 +45,9 @@
 					data: deathNumbers,
           pointRadius: 2,
 					pointHitRadius: 4,
+          hoverRadius: 3,
+          hoverBorderWidth:2,
+          hoverBorderColor:"rgba(255,173,54,1.00)",
 					fill: true,
 				},
         {
@@ -51,6 +57,9 @@
 					data: recoveryNumbers,         
           pointRadius: 2,
 					pointHitRadius: 4,
+          hoverRadius: 3,
+          hoverBorderWidth:2,
+          hoverBorderColor:"rgba(51,193,57,1.00)",
           fill: true,
 				}]
 			},
