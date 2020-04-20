@@ -148,7 +148,7 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'New Cases',
+					label: 'Cases per Day',
           pointRadius: 0,
 					backgroundColor: "rgba(255, 107, 105, 0.8)",
 					borderColor: "rgba(255, 107, 105, 0.9)",

@@ -38,7 +38,7 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'Total Cases',
+					label: 'Cases',
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
@@ -51,7 +51,7 @@
           lineTension: 0.1,
 				},
         {
-					label: 'Total Deaths',
+					label: 'Deaths',
 					backgroundColor: "rgba(245,153,34,.6)",
 					borderColor: "rgba(245,153,34,.9)",
 					data: deathNumbers,
@@ -64,7 +64,7 @@
           lineTension: 0.1,
 				},
         {
-					label: 'Total Recoveries',
+					label: 'Recoveries',
 					backgroundColor: "rgba(31,173,37,.7)",
 					borderColor: "rgba(31,173,37,1.00)",
 					data: recoveryNumbers,         
@@ -95,7 +95,7 @@
         },
 				title: {
 					display: true,
-					text: 'Total Cases in Maryland',
+					text: 'Cumulative Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: 18,
@@ -165,7 +165,7 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'New Cases',
+					label: 'Cases per Day',
           pointRadius: 0,
 					backgroundColor: "rgba(255, 107, 105, 0.7)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
@@ -182,7 +182,7 @@
         },
 				title: {
 					display: true,
-					text: 'Daily New Cases in Maryland',
+					text: 'Daily New Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: 18,
@@ -251,7 +251,7 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'New Deaths / Day',
+					label: 'Deaths per Day',
           pointRadius: 0,
 					backgroundColor: "rgba(245,153,34,.9)",
 					borderColor: "rgba(245,153,34,.9)",
@@ -268,7 +268,7 @@
         },
 				title: {
 					display: true,
-					text: 'Daily New Deaths in Maryland',
+					text: 'Daily New Deaths in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: 18,
@@ -337,7 +337,7 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'New Recoveries / Day',
+					label: 'Recoveries per Day',
           pointRadius: 0,
 					backgroundColor: "rgba(31,173,37,0.8)",
 					borderColor: "rgba(31,173,37,0.8)",
@@ -354,7 +354,7 @@
         },
 				title: {
 					display: true,
-					text: 'Daily New Recoveries in Maryland',
+					text: 'Daily New Recoveries in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: 18,
