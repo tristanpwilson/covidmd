@@ -31,8 +31,8 @@
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
-          pointRadius: 2,
-					pointHitRadius: 30,
+          pointRadius: 3,
+					pointHitRadius: 5,
 					fill: true,
 				},
         {
@@ -40,8 +40,8 @@
 					backgroundColor: "rgba(247,183,104,.5)",
 					borderColor: "rgba(245,153,34,.9)",
 					data: deathNumbers,
-          pointRadius: 2,
-					pointHitRadius: 30,
+          pointRadius: 3,
+					pointHitRadius: 5,
 					fill: true,
 				},
         {
@@ -49,8 +49,8 @@
 					backgroundColor: "rgba(31,173,37,.7)",
 					borderColor: "rgba(31,173,37,1.00)",
 					data: recoveryNumbers,
-          pointRadius: 2,
-					pointHitRadius: 30,
+          pointRadius: 3,
+					pointHitRadius: 5,
 					fill: true,
 				}]
 			},
@@ -81,10 +81,14 @@
           enabled: true, 
           mode: 'label',
           displayColors:false,
-         },    
+          position:'average',
+          xalign: 'right',
+          yalign:'none',
+          intersect:false,
+         },       
 				hover: {
-					mode: 'nearest',
-					intersect: true
+					//mode: 'average',
+					intersect: false
 				},
 				scales: {
 					xAxes: [{

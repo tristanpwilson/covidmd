@@ -32,7 +32,7 @@
 					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: caseNumbers,
           pointRadius: 2,
-					pointHitRadius: 10,
+					pointHitRadius: 4,
 					fill: true,
 				},
         {
@@ -41,17 +41,17 @@
 					borderColor: "rgba(245,153,34,.9)",
 					data: deathNumbers,
           pointRadius: 2,
-					pointHitRadius: 30,
+					pointHitRadius: 4,
 					fill: true,
 				},
         {
 					label: 'Total Recoveries',
 					backgroundColor: "rgba(31,173,37,.7)",
 					borderColor: "rgba(31,173,37,1.00)",
-					data: recoveryNumbers,
+					data: recoveryNumbers,         
           pointRadius: 2,
-					pointHitRadius: 10,
-					fill: true,
+					pointHitRadius: 4,
+          fill: true,
 				}]
 			},
 			options: {
@@ -71,9 +71,13 @@
           enabled: true, 
           mode: 'label',
           displayColors:false,
+          position:'average',
+          xalign: 'right',
+          yalign:'none',
+          intersect:false,
          },       
 				hover: {
-					mode: 'nearest',
+					//mode: 'average',
 					intersect: false
 				},
 				scales: {
