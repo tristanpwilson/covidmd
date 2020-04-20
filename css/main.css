@@ -61,15 +61,41 @@ html, body{height:100%;}
   opacity:1;
   transition:.3s ease background .1s;
 }
-@media (max-height:800px){
-#infoPane{
-  overflow-y:scroll;  
-  height:90vh;}
+
+@media (max-height:760px){
+  #infoPane{
+    overflow-y:scroll;  
+    height:100vh;
+    top:0vh;
+    right:0vh;
+  }
   
   .info{
-  min-height:auto;
-  height:auto;
-}}
+    min-height:auto;
+    height:auto;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgba(80,80,80,1); 
+    border-radius: 5px;
+    background:rgba(10, 10, 10, .5); 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background:rgba(54, 54, 54, 1.0); 
+    border-radius: 5px;
+    border:1px solid rgba(40,40,40,1.0)
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background:rgba(90,90,90,1); 
+  }
+
+}
 .info.infoActive{
   /*background: #fafafa;*/
   background:transparent;
