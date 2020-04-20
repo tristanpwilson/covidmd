@@ -3,26 +3,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
-*{
-  font-family: 'Work Sans', sans-serif;
- 
-}
+*{font-family: 'Work Sans', sans-serif;}
+html{overflow-x:hidden;}
+#mapMain {height: 100vh; width:100%; border: none;}
 
-#mapMain { 
-  height: 100vh;
-  width:100%;
-  border: 1px solid black;
-}
 @media(max-width: 768px){
 html, body{height:100%;}
-#mapMain { 
-  height: 100%;
-  width:100%;
+#mapMain { height: 100%; width:100%;}
 }
-/*#mapMain {position:fixed !important;}*/
-}
-
-
 
 
 /* ----------------------------- */
@@ -35,10 +23,9 @@ html, body{height:100%;}
  flex-direction:column;
  z-index:1000;
  height:auto;
- width:300px;
+ width:360px;
  top:2vh;
  right:1vw;
- /*background:background:transparent;*/
  background: rgba(38,38,38,.8);
  box-shadow: 0 -1px 3px 0 rgba(0,0,0,.2),
              0 -1px 10px 0 rgba(0,0,0,.2);
@@ -250,6 +237,18 @@ html, body{height:100%;}
 
 }
 
+@media(min-width: 1600px){
+  #infoPane{
+    width:400px;
+  }
+}
+
+@media(max-width: 992px){
+  #infoPane{
+    width:300px;
+  }
+}
+
 @media(max-width: 768px){
   #infoPane{
     flex-direction:row;
@@ -260,6 +259,7 @@ html, body{height:100%;}
     bottom:16px;
     left:0;
     right:0;
+    overflow-y:hidden;  
     background: rgba(38,38,38,1.00);
   }
   .info{
