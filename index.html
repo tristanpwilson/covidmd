@@ -38,6 +38,24 @@
 
 <body>
 
+  <div id="container-i">
+    <button id="button-i">
+      <img id="icon-i" src="img/infosm.png" alt="information icon">
+    </button>
+    <div id="panelDesc">
+      <h2>About this Project</h2>
+      <p>COVIDMD is an attempt to track, aggregate, and display publically available COVID-19 data in a single, user friendly location </p>
+      <h2>Data Sources</h2>
+      <p>This website aggregates data from the following public sources:</p>
+      <a href="https://coronavirus.maryland.gov/">https://coronavirus.maryland.gov/</a>
+      <a href="https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv">https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv</a>
+      <a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland">https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland</a>
+      <h2>Creator</h2>
+      <p>Tristan Wilson</p>
+      <a href="https://tristanw.com">https://tristanw.com</a>
+    </div>
+  </div>
+
   <div id="mapMain">
     <div id="infoPane" class="infoPane">
       
@@ -94,7 +112,19 @@
   });
 
   </script>
+  
+  <!-- jQuery for controlling i panel content-->
+  <script type="text/javascript">
+  $("#button-i").click(function () {
+    $(this).toggleClass("buttonActive")
+    if ($("#panelDesc").hasClass("panelActive")){
+      $("#panelDesc").hide(200).removeClass("panelActive")
+      } else {
+      $("#panelDesc").show(200).addClass("panelActive")
+      }
+  });
 
+  </script>
 
 </body>
 

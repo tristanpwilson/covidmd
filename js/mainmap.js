@@ -8,7 +8,7 @@
   if (L.Browser.mobile) {
       var mainmap = L.map('mapMain', {zoomControl: false}).setView([37.50, -77.28], 7);
    } else 
-      var mainmap = L.map('mapMain', {zoomControl: true}).setView([38.73, -76.34], 8);
+      var mainmap = L.map('mapMain', {zoomControl: false}).setView([38.73, -76.34], 8);
       
   //var mainmap = L.map('mapMain', {zoomDelta: .5}).setView([38.63, -77.34], 8);
 
@@ -22,6 +22,9 @@
     accessToken: 'pk.eyJ1Ijoic3JpcmFjaGFjaGFjaGEiLCJhIjoiY2ltdGhpeGpiMDIxM3dibHVic3N2OGt3dyJ9.GCpLXlY3H4rUnodkF073WA'
   }).addTo(mainmap);
   
+  L.control.zoom({
+      position: 'bottomleft'
+  }).addTo(mainmap);
 
   // Function that produces the contextual info shown on hover
   
