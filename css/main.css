@@ -378,11 +378,12 @@ html, body{height:100%;}
   }
   
   .toggle-tab {
-    padding:10px 10px 10px 0px;
+    padding:15px 10px 15px 0px;
     margin: 0;
     list-style: none;
     text-align:right;
     color:#fff;
+    font-size:14px;
     font-weight:600;
     cursor:pointer;
   }
@@ -399,7 +400,6 @@ html, body{height:100%;}
     flex-grow:1;
     flex-basis:75%;
     width:75%;
-
     order:3;
     /*height:100%;*/
     margin:0 !important;
@@ -413,7 +413,12 @@ html, body{height:100%;}
     padding:0;
   }
 }
-
+@media(max-width: 575px){
+  .toggle-tab {
+    font-size:2.7vw;
+    font-weight:600;
+  }
+}
 
 /* ----------------------------- */
 /* County Name and Case # Labels */

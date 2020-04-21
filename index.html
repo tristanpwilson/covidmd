@@ -87,6 +87,7 @@
       .find(".tab-content")
       .not($(".tab-content:eq(" + currentTabIndex + ")"))
       .removeClass("active-tab-content");
+      
       //Hacky way of stabilizing height of canvas before chart loads in
       var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
       $('#secondchart').children("canvas").css('min-height', chartBoxHeight);

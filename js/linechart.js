@@ -14,12 +14,15 @@
     var adjDailyCaseChange = dailyCaseChange.unshift(1);
     var caseTimeline = countiesData.features[24].properties.dates;
 
-    if($(window).width() <= 767) {
-      window.aspect = 2;
+    if($(window).width() <= 575) {
+      window.aspect = 1.25;
+      window.legendFontSize = 12;
     } else {
       window.aspect = 1.5;
+      window.legendFontSize = 14;
     }
-
+   
+   //if($(window).width() <= 575) {} else if($(window).width() > 575 && $(window).width() <= 767) { } else{ }
 
     //Linechart 1 Config		
     var config = {
@@ -72,7 +75,7 @@
 					text: 'Cumulative Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 16,
+          fontSize: 17,
           lineHeight: 1,
           padding:0,
 				},   
@@ -81,12 +84,11 @@
           position: "top",
           align: "center",
           fullWidth: true,
-          //padding:0,
           labels:{
-           boxWidth: 12,
-           boxHeight: 10,
+           boxWidth: 13,
+           boxHeight: 11,
            fontColor: "#fafafa",
-           //padding:10,
+           fontSize: window.legendFontSize,
           },
         },
 				tooltips: {
@@ -165,7 +167,7 @@
 					text: 'Daily New Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 16,
+          fontSize: 17,
           lineHeight: 1,
           padding: 0,
 				},
@@ -174,12 +176,11 @@
           position: "top",
           align: "center",
           fullWidth: true,
-          //padding:0,
           labels:{
-           boxWidth: 12,
-           boxHeight: 10,
+           boxWidth: 13,
+           boxHeight: 11,
            fontColor: "#fafafa",
-           //padding:10,
+           fontSize: window.legendFontSize,
           },
         },
 				tooltips: {
