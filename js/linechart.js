@@ -17,9 +17,11 @@
     if($(window).width() <= 575) {
       window.aspect = 1.25;
       window.legendFontSize = 12;
+      window.titleFontSize = 15;
     } else {
       window.aspect = 1.5;
       window.legendFontSize = 14;
+      window.titleFontSize = 16;
     }
    
    //if($(window).width() <= 575) {} else if($(window).width() > 575 && $(window).width() <= 767) { } else{ }
@@ -75,7 +77,7 @@
 					text: 'Cumulative Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 17,
+          fontSize: window.titleFontSize,
           lineHeight: 1,
           padding:0,
 				},   
@@ -168,7 +170,7 @@
 					text: 'Daily New Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 17,
+          fontSize: window.titleFontSize,
           lineHeight: 1,
           padding: 0,
 				},
