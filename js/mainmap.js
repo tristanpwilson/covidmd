@@ -41,7 +41,7 @@
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
     this._div.innerHTML =
-      '<div id="title"><h1>Maryland COVID-19</h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
+      '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflag.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
 
       '<div id="countycases">' + (props ?
         '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
