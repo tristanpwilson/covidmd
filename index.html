@@ -70,9 +70,10 @@
   <script type="text/javascript" src="js/mainmap.js"></script>
   <script type="text/javascript" src="js/linechart.js"></script>
   
+  
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">
-    $(".box-toggle-tabs li").click(function () {
+  $(".box-toggle-tabs li").click(function () {
     $(this)
       .addClass("active-tab")
       .parents("ul.box-toggle-tabs")
@@ -86,7 +87,11 @@
       .find(".tab-content")
       .not($(".tab-content:eq(" + currentTabIndex + ")"))
       .removeClass("active-tab-content");
-    });
+      //Hacky way of stabilizing height of canvas before chart loads in
+      var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
+      $('#secondchart').children("canvas").css('min-height', chartBoxHeight);
+  });
+
   </script>
 
 

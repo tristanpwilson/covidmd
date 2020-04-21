@@ -353,7 +353,6 @@ html, body{height:100%;}
     color:#fff;
   }
 
-
   .container-toggle-tabs {
     display:block;
     z-index:2000;
@@ -363,9 +362,10 @@ html, body{height:100%;}
     flex-basis:20%;
     padding:0 !important;
     margin:0 !important;
-    background: rgba(38,38,38,.9);
+    background: rgba(30,30,30,1.00);
     width:auto;
   }
+  
   .box-toggle-tabs{
     display:flex;
     flex-direction:column;
@@ -388,7 +388,8 @@ html, body{height:100%;}
   }
   
   .toggle-tab:hover,
-  .toggle-tab.active-tab {background: rgba(0,0,0,0.5);}
+  .toggle-tab.active-tab {background: rgba(38,38,38,1);}
+  
   .tab-content {display: none !important;}
   .tab-content.active-tab-content {display: block !important;}
 
@@ -398,11 +399,14 @@ html, body{height:100%;}
     flex-grow:1;
     flex-basis:75%;
     width:75%;
+
     order:3;
     /*height:100%;*/
     margin:0 !important;
-    padding: 5px 0;
+    padding: 15px 2vw;
+    transition:.1s linear height 1s;
   }
+      
   .stdcharts canvas{
     max-width:500px;
     margin:0 auto;
