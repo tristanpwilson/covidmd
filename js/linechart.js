@@ -108,7 +108,8 @@
 					xAxes: [{
             type: 'time',
               time: {
-                  unit: 'day'
+                  unit: 'day',
+                  unitStepSize: 5,          
               },
 						display: true,
 						scaleLabel: {
@@ -201,7 +202,8 @@
             offset:true,
             type: 'time',
               time: {
-                  unit: 'day'
+                  unit: 'day',
+                  unitStepSize: 5,          
               },
 						display: true,
             scaleLabel: {

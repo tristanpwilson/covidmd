@@ -17,406 +17,394 @@ html, body{height:100%;}
 /* -------- Info Pane ---------- */
 /* ----------------------------- */
 
-#infoPane{
- position:absolute;
- display:flex;
- flex-direction:column;
- z-index:1000;
- height:auto;
- width:360px;
- top:2vh;
- right:1vw;
- background: rgba(38,38,38,.8);
- box-shadow: 0 -1px 3px 0 rgba(0,0,0,.2),
-             0 -1px 10px 0 rgba(0,0,0,.2);
- overflow-x:hidden;             
+#infoPane {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  height: auto;
+  width: 360px;
+  top: 2vh;
+  right: 1vw;
+  background: rgba(38, 38, 38, .8);
+  box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, .2), 0 -1px 10px 0 rgba(0, 0, 0, .2);
+  overflow-x: hidden;
 }
 
-
-.info{
-  position:relative !important;
-  display:block !important;
-  order:1;
-  width:100%;
-  min-height:200px;
-  height:auto;
-  padding:0px 0px;
+.info {
+  position: relative !important;
+  display: block !important;
+  order: 1;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  padding: 0px 0px;
   margin: 0 !important;
-  border-radius:0px;
+  border-radius: 0px;
   /*background:#eee;*/
-  background:transparent;
-  opacity:1;
-  transition:.3s ease background .1s;
+  background: transparent;
+  opacity: 1;
+  transition: .3s ease background .1s;
 }
 
-
-.info.infoActive{
+.info.infoActive {
   /*background: #fafafa;*/
-  background:transparent;
-  transition:.2s ease background;
+  background: transparent;
+  transition: .2s ease background;
 }
 
-.info b.diff{
-  font-style:normal;
-  color:#E3282B;
-  font-weight:500;
+.info b.diff {
+  font-style: normal;
+  color: #E3282B;
+  font-weight: 500;
 }
-
 
 /* State + County Cases Info Box (Shared) */
+
 .info #title,
 .info #countycases,
-.info #statecases{
+.info #statecases {
   margin: 0 0 0 0;
-  background:transparent;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 15px 17.5px 15px 17.5px;
-} 
+}
 
-
-.info #title h1, 
-.info #statecases h2, 
-.info #statecases h3, 
+.info #title h1,
+.info #statecases h2,
+.info #statecases h3,
 .info #statecases p,
-.info #countycases h3, 
-.info #countycases p{ 
- padding:0;
- color:#fff;
- line-height:100%
-} 
+.info #countycases h3,
+.info #countycases p {
+  padding: 0;
+  color: #fff;
+  line-height: 100%
+}
 
 /* State Cases Info Box (Only)*/
-.info #title h1{
-  margin:0 0 0 0;
-  font-size:24px;
-  font-weight:600;
-}
-.info #statecases h2{
-  margin:2.5px 0 0 0;
-  font-size:20px;
-  font-weight:600;
+
+.info #title h1 {
+  margin: 0 0 0 0;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.info #statecases h2 i{ 
- font-style: normal;
- font-size:16px;
- /*color:#767676;*/
- color:#ddd;
- font-weight:500;
-} 
+.info #statecases h2 {
+  margin: 2.5px 0 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
 
-.info #statecases p{
-  margin:12px 0 0 0;
-  font-size:16px
-} 
- 
+.info #statecases h2 i {
+  font-style: normal;
+  font-size: 16px;
+  /*color:#767676;*/
+  color: #ddd;
+  font-weight: 500;
+}
+
+.info #statecases p {
+  margin: 12px 0 0 0;
+  font-size: 16px
+}
 
 /* County Cases  Info Box */
 
-.info #countycases h3{
- font-size: 18px;
- margin:0;
- font-weight:600;
- height: 18px !important;
+.info #countycases h3 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+  height: 18px !important;
 }
 
-.info #countycases p{
+.info #countycases p {
   font-size: 14px;
-  margin:10px 0 0 0;
-  font-weight:400;
+  margin: 10px 0 0 0;
+  font-weight: 400;
 }
 
 /* Placholder County Title */
+
 .info #countycases h3 i,
 .info #countycases p i,
-.info #countycases h3 i span{
+.info #countycases h3 i span {
   font-style: normal;
-  font-weight:400;
-}
-.info #countycases h3 i,
-.info #countycases h3 i span{
-  /*color:#444;*/
-  color:#ddd;
-}
-.info #countycases h3 i span{
-  font-size:12px;
-}
-.info #countycases p i{
-  color:#999;
+  font-weight: 400;
 }
 
-.stdcharts{
-  position:relative; 
-  order:2;
-  z-index:1000;
-  width:100%; 
-  height:auto; 
-  left:0; 
-  bottom:0; 
-  padding:10px 0 15px 0;
-  background: rgba(38,38,38,0);
+.info #countycases h3 i,
+.info #countycases h3 i span {
+  /*color:#444;*/
+  color: #ddd;
 }
-#mainchart{
-  order:2;
+
+.info #countycases h3 i span {
+  font-size: 12px;
 }
-#secondchart{
-  order:3;
+
+.info #countycases p i {
+  color: #999;
 }
-#mainchart canvas{}
+
+.stdcharts {
+  position: relative;
+  order: 2;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+  left: 0;
+  bottom: 0;
+  padding: 10px 0 15px 0;
+  background: rgba(38, 38, 38, 0);
+}
+
+#mainchart {
+  order: 2;
+}
+
+#secondchart {
+  order: 3;
+}
+
+#mainchart canvas {}
 
 .container-toggle-tabs,
 .box-toggle-tabs,
-.toggle-tabs{
-  display:none;
+.toggle-tabs {
+  display: none;
 }
 
-.linkExpChart{
- position:absolute;
- z-index:3000;
- display:block;
- top:7.5px;
- right:7.5px;
- height:15px;
- width:15px;
- color:#fff;
- font-weight:600;
- text-decoration:none !important;
- background-image:url("../img/expand.png");
- background-position: center;
- background-repeat: no-repeat; 
- background-size: contain;
- opacity:.7;
+.linkExpChart {
+  position: absolute;
+  z-index: 3000;
+  display: block;
+  top: 7.5px;
+  right: 7.5px;
+  height: 15px;
+  width: 15px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none !important;
+  background-image: url("../img/expand.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .7;
   transition: .1s linear all, .3s ease opacity;
 }
 
 .linkExpChart:hover,
-.linkExpChart:focus{
- top:5px;
- right:5px;
- height:20px;
- width:20px;
- color:#fff;
- font-weight:600;
- opacity:1;
+.linkExpChart:focus {
+  top: 5px;
+  right: 5px;
+  height: 20px;
+  width: 20px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 1;
   transition: .1s linear all, .3s ease opacity;
 }
 
-@media (max-height:860px){
-  #infoPane{
-    overflow-y:scroll;  
-    height:auto;
-    max-height:100vh;
-    top:0vh;
-    right:0vh;
+@media (max-height:860px) {
+  #infoPane {
+    overflow-y: scroll;
+    height: auto;
+    max-height: 100vh;
+    top: 0vh;
+    right: 0vh;
   }
-  
-  .info{
-    min-height:auto;
-    height:auto;
+  .info {
+    min-height: auto;
+    height: auto;
   }
-  
   ::-webkit-scrollbar {
     width: 10px;
   }
-
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2px rgba(80,80,80,1); 
+    box-shadow: inset 0 0 2px rgba(80, 80, 80, 1);
     border-radius: 5px;
-    background:rgba(10, 10, 10, .5); 
+    background: rgba(10, 10, 10, .5);
   }
-  
   ::-webkit-scrollbar-thumb {
-    background:rgba(54, 54, 54, 1.0); 
+    background: rgba(54, 54, 54, 1.0);
     border-radius: 5px;
-    border:1px solid rgba(40,40,40,1.0)
+    border: 1px solid rgba(40, 40, 40, 1.0)
   }
-  
   ::-webkit-scrollbar-thumb:hover {
-    background:rgba(90,90,90,1); 
-  }
-
-}
-
-@media(min-width: 1600px){
-  #infoPane{
-    width:400px;
+    background: rgba(90, 90, 90, 1);
   }
 }
 
-@media(max-width: 992px){
-  #infoPane{
-    width:300px;
+@media(min-width: 1600px) {
+  #infoPane {
+    width: 400px;
   }
 }
 
-@media(max-width: 768px){
-  #infoPane{
-    flex-direction:row;
-    flex-wrap:wrap;
-    width:100%;
-    min-height:auto;
-    top:initial;
-    bottom:16px;
-    left:0;
-    right:0;
-    overflow-y:hidden;  
-    background: rgba(38,38,38,1.00);
+@media(max-width: 992px) {
+  #infoPane {
+    width: 300px;
   }
-  .info{
-    display:flex !important;
-    flex-direction:row;
-    flex-wrap:wrap;
-    justify-content:flex-start;
-    order:1;
-    width:100%;
-    min-height:initial;
-    border-bottom:1px solid rgba(255,255,255,0.2);
-    background:transparent;
+}
+
+@media(max-width: 768px) {
+  #infoPane {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: auto;
+    top: initial;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    overflow-y: hidden;
+    background: rgba(38, 38, 38, 1.00);
   }
-  .info.infoActive{}
-  
+  .info {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    order: 1;
+    width: 100%;
+    min-height: initial;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+  }
+  .info.infoActive {}
   /* State + County Cases Info Box (Shared) */
   .info #title,
   .info #countycases,
-  .info #statecases{
-    position:relative;
-    display:block;
-    width:50%;
+  .info #statecases {
+    position: relative;
+    display: block;
+    width: 50%;
     margin: 0 0 0 0;
-    border-bottom:none;
+    border-bottom: none;
     background: transparent;
-  } 
-  
-  .info #title{
-    width:100%;
-    padding: 10px 3vw 10px 3vw !important;
-    border-bottom:1px solid rgba(255,255,255,0.2);
-  } 
-  
-  .info #title h1{
-    padding: 0 !important;
-    margin:0 !important;
-    color:#fff;
-    font-size:22px;
   }
-    
+  .info #title {
+    width: 100%;
+    padding: 10px 3vw 10px 3vw !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .info #title h1 {
+    padding: 0 !important;
+    margin: 0 !important;
+    color: #fff;
+    font-size: 22px;
+  }
   .info #countycases,
-  .info #statecases{
-    width:50%;
+  .info #statecases {
+    width: 50%;
     padding: 7.5px 3vw 10px 3vw;
   }
-
-  .info #statecases{
-    border:2;
-    border-right: 1px solid rgba(255,255,255,0.2);
+  .info #statecases {
+    border: 2;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
   }
-  
-  .info #statecases h2{
-    margin:5px 0 0 0;
-    font-size:18px;
-    color:#fff;
-  } 
-  .info #statecases h2 i{ 
-    font-size:12px;
-    color:#ddd;
-  } 
-  
-  .info #statecases p{
-    margin:7.5px 0 0 0;
-    font-size:16px;
-    color:#fff;
-  } 
-  .info #countycases{
-   order:3;
-   }
-   
-  .info #countycases h3{
-    margin:2.5px 0 0 0;
-    font-size: 16px;
-    color:#fff;
-    text-overflow:ellipsis;
-    overflow:hidden;
-    white-space:nowrap;
+  .info #statecases h2 {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    color: #fff;
   }
-  .info #countycases h3 i{
-    margin:5px 0 0 0;
-    font-size: 16px;
-    font-weight:500;
-    color:#fff;
-  }
-  .info #countycases h3 i span{
-    font-size:12px;
-  }
-  .info #countycases p{
+  .info #statecases h2 i {
     font-size: 12px;
-    margin:5px 0 0 0;
-    color:#fff;
+    color: #ddd;
   }
-
+  .info #statecases p {
+    margin: 7.5px 0 0 0;
+    font-size: 16px;
+    color: #fff;
+  }
+  .info #countycases {
+    order: 3;
+  }
+  .info #countycases h3 {
+    margin: 2.5px 0 0 0;
+    font-size: 16px;
+    color: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .info #countycases h3 i {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .info #countycases h3 i span {
+    font-size: 12px;
+  }
+  .info #countycases p {
+    font-size: 12px;
+    margin: 5px 0 0 0;
+    color: #fff;
+  }
   .container-toggle-tabs {
-    display:block;
-    z-index:2000;
-    order:2;
-    flex-grow:0;
-    flex-shrink:1;
-    flex-basis:20%;
-    padding:0 !important;
-    margin:0 !important;
-    background: rgba(30,30,30,1.00);
-    width:auto;
+    display: block;
+    z-index: 2000;
+    order: 2;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 20%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: rgba(30, 30, 30, 1.00);
+    width: auto;
   }
-  
-  .box-toggle-tabs{
-    display:flex;
-    flex-direction:column;
-    flex-wrap:nowrap;
+  .box-toggle-tabs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: space-evenly;
     width: 100%;
-    padding:0 !important;
-    margin:0 !important;
-
+    padding: 0 !important;
+    margin: 0 !important;
   }
-  
   .toggle-tab {
-    padding:15px 10px 15px 0px;
+    padding: 15px 10px 15px 0px;
     margin: 0;
     list-style: none;
-    text-align:right;
-    color:#fff;
-    font-size:14px;
-    font-weight:600;
-    cursor:pointer;
+    text-align: right;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
   }
-  
   .toggle-tab:hover,
-  .toggle-tab.active-tab {background: rgba(38,38,38,1);}
-  
-  .tab-content {display: none !important;}
-  .tab-content.active-tab-content {display: block !important;}
-
-  .stdcharts{
-    position:relative;
-    display:block;
-    flex-grow:1;
-    flex-basis:75%;
-    width:75%;
-    order:3;
-    /*height:100%;*/
-    margin:0 !important;
-    padding: 15px 2vw;
-    transition:.1s linear height 1s;
+  .toggle-tab.active-tab {
+    background: rgba(38, 38, 38, 1);
   }
-      
-  .stdcharts canvas{
-    max-width:500px;
-    margin:0 auto;
-    padding:0;
+  .tab-content {
+    display: none !important;
+  }
+  .tab-content.active-tab-content {
+    display: block !important;
+  }
+  .stdcharts {
+    position: relative;
+    display: block;
+    flex-grow: 1;
+    flex-basis: 75%;
+    width: 75%;
+    order: 3;
+    /*height:100%;*/
+    margin: 0 !important;
+    padding: 15px 2vw;
+    transition: .1s linear height 1s;
+  }
+  .stdcharts canvas {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
   }
 }
-@media(max-width: 575px){
+
+@media(max-width: 575px) {
   .toggle-tab {
-    font-size:2.7vw;
-    font-weight:600;
+    font-size: 2.7vw;
   }
 }
 
@@ -424,87 +412,87 @@ html, body{height:100%;}
 /* County Name and Case # Labels */
 /* ----------------------------- */
 
-.leaflet-tooltip{
+.leaflet-tooltip {
   background: transparent !important;
-  
-  box-shadow:none !important;
+  box-shadow: none !important;
   border: none !important;
-  width:300px;
-  height:44px;
-  
+  width: 300px;
+  height: 44px;
 }
 
 .leaflet-tooltip h5,
-.leaflet-tooltip p.mapCases{
- line-height:100%;
- text-align:center;
- color:#fff;
- text-shadow:0px 0px 1px rgba(0,0,0,1), 0px 1px 1px rgba(0,0,0,0.9),0px 1px 10px rgba(0,0,0,0.4);
+.leaflet-tooltip p.mapCases {
+  line-height: 100%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 1), 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 10px rgba(0, 0, 0, 0.4);
 }
 
-.leaflet-tooltip h5{
-  margin:0; 
-  font-size:12px;
-  font-weight:600;
+.leaflet-tooltip h5 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.leaflet-tooltip p.mapCases{
-  margin:2px 0 0 0;
-  font-size:16px;
-  font-weight:600;
+.leaflet-tooltip p.mapCases {
+  margin: 2px 0 0 0;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-@media(max-width: 768px){
-  .leaflet-tooltip h5{
-    display:none;
+@media(max-width: 768px) {
+  .leaflet-tooltip h5 {
+    display: none;
   }
-  .leaflet-tooltip p.mapCases{
-    margin:5px 0 0 0 !important;
-    font-size:14px;
-    font-weight:600;
+  .leaflet-tooltip p.mapCases {
+    margin: 5px 0 0 0 !important;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
-@media(max-width: 575px){
-  .leaflet-tooltip p.mapCases{
-    margin:0px 0 0 0;
+
+@media(max-width: 575px) {
+  .leaflet-tooltip p.mapCases {
+    margin: 0px 0 0 0;
     /*font-size:5vw !important;*/
-    font-weight:600;
+    font-weight: 600;
   }
 }
 
-.leaflet-bottom.leaflet-right{
-  position:absolute !important;
-  left:0 !important;
-  right:initial;
+.leaflet-bottom.leaflet-right {
+  position: absolute !important;
+  left: 0 !important;
+  right: initial;
 }
 
 .leaflet-control-attribution,
-.leaflet-control-attribution a{
-  font-size:10px !important;
-  color:#bbb !important;
+.leaflet-control-attribution a {
+  font-size: 10px !important;
+  color: #bbb !important;
   background-color: transparent !important;
 }
-.leaflet-control-attribution a{
+
+.leaflet-control-attribution a {
   text-decoration: underline !important;
 }
 
-@media(max-width: 768px){
-  .leaflet-bottom.leaflet-right{
-     position:absolute !important;
-     left:initial !important;
-     right:0 !important;
+@media(max-width: 768px) {
+  .leaflet-bottom.leaflet-right {
+    position: absolute !important;
+    left: initial !important;
+    right: 0 !important;
   }
-  .leaflet-control-attribution{
-    width:100vw;
-    height:16px;
-    text-align:center;
+  .leaflet-control-attribution {
+    width: 100vw;
+    height: 16px;
+    text-align: center;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
   }
   .leaflet-control-attribution,
-  .leaflet-control-attribution a{
-    font-size:10px !important;
+  .leaflet-control-attribution a {
+    font-size: 10px !important;
   }
 }
 

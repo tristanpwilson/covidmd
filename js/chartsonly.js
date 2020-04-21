@@ -30,7 +30,20 @@
       var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
 
 
-    //if($(window).width() <= 767) {window.aspect = 2;} else {window.aspect = 1.5;}
+    // Checking window width and changing parameters accordingly
+    if($(window).width() <= 575) {
+      //window.aspect = 1.25;
+      window.legendFontSize = 12;
+      window.titleFontSize = 18;
+      window.xAxisFontSize = 12;
+      window.yAxisFontSize = 12;
+    } else {
+      //window.aspect = 1.5;
+      window.legendFontSize = 14;
+      window.titleFontSize = 22;
+      window.xAxisFontSize = 14;
+      window.yAxisFontSize = 14;
+    }
 
     //Linechart 1 Config		
     var config = {
@@ -84,21 +97,21 @@
         legend: {
           display: true,
           position: "top",
-          align: "middle",
+          align: "center",
+          fullWidth: true,
           labels:{
-           boxWidth: 12,
-           boxHeight: 10,
-           fontColor: "#eee",
-           //padding:30,
+           boxWidth: 13,
+           boxHeight: 11,
+           fontColor: "#fafafa",
+           fontSize: window.legendFontSize,
           },
-          //fullWidth: false,
         },
 				title: {
 					display: true,
 					text: 'Cumulative Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 18,
+          fontSize: window.titleFontSize,
 				},
 				tooltips: {
           enabled: true, 
@@ -120,7 +133,7 @@
             type: 'time',
               time: {
                   unit: 'day',
-                  //unitStepSize: 2,          
+                  unitStepSize: 4,          
               },
 						display: true,
 						scaleLabel: {
@@ -129,7 +142,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: 10,
+              fontSize: window.xAxisFontSize,
               //autoSkip: true,
               //maxRotation: 0,
               //maxTicksLimit: 16,
@@ -148,7 +161,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9",
+              fontSize: window.yAxisFontSize,
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)"
@@ -178,14 +191,23 @@
         maintainAspectRatio: false,  
         //aspectRatio: window.aspect,     
         legend: {
-          display: false
+          display: true,
+          position: "top",
+          align: "center",
+          fullWidth: true,
+          labels:{
+           boxWidth: 13,
+           boxHeight: 11,
+           fontColor: "#fafafa",
+           fontSize: window.legendFontSize,
+          },
         },
 				title: {
 					display: true,
 					text: 'Daily New Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 18,
+          fontSize: window.titleFontSize,
 				},
         tooltips: {
           enabled: true, 
@@ -207,7 +229,8 @@
             offset:true,
             type: 'time',
               time: {
-                  unit: 'day'
+                  unit: 'day',
+                  unitStepSize: 4,          
               },
 						display: true,
             scaleLabel: {
@@ -216,7 +239,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9"
+              fontSize: window.xAxisFontSize,
             },
             gridLines:{
               offsetGridLines: false,
@@ -229,7 +252,7 @@
 							display: false,
 							labelString: 'Cases',
               fontColor: "#fff",
-              fontSize: "10",
+              fontSize: window.yAxisFontSize,
 						},
             ticks:{
               fontColor: "#fff",
@@ -264,14 +287,23 @@
         maintainAspectRatio: false,  
         //aspectRatio: window.aspect,     
         legend: {
-          display: false
+          display: true,
+          position: "top",
+          align: "center",
+          fullWidth: true,
+          labels:{
+           boxWidth: 13,
+           boxHeight: 11,
+           fontColor: "#fafafa",
+           fontSize: window.legendFontSize,
+          },
         },
 				title: {
 					display: true,
 					text: 'Daily New Deaths in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 18,
+          fontSize: window.titleFontSize,
 				},
 				tooltips: {
           enabled: true, 
@@ -293,7 +325,8 @@
             offset:true,
             type: 'time',
               time: {
-                  unit: 'day'
+                  unit: 'day',
+                  unitStepSize: 4,          
               },
 						display: true,
             scaleLabel: {
@@ -302,7 +335,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9"
+              fontSize: window.xAxisFontSize,
             },
             gridLines:{
               offsetGridLines: false,
@@ -319,7 +352,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9",
+              fontSize: window.yAxisFontSize,
               //stepSize:"1000",
             },
             gridLines:{
@@ -350,14 +383,23 @@
         maintainAspectRatio: false,  
         //aspectRatio: window.aspect,     
         legend: {
-          display: false
+          display: true,
+          position: "top",
+          align: "center",
+          fullWidth: true,
+          labels:{
+           boxWidth: 13,
+           boxHeight: 11,
+           fontColor: "#fafafa",
+           fontSize: window.legendFontSize,
+          },
         },
 				title: {
 					display: true,
 					text: 'Daily New Recoveries in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
-          fontSize: 18,
+          fontSize: window.titleFontSize,
 				},
         tooltips: {
           enabled: true, 
@@ -379,7 +421,8 @@
             offset:true,
             type: 'time',
               time: {
-                  unit: 'day'
+                  unit: 'day',
+                  unitStepSize: 4,          
               },
 						display: true,
             scaleLabel: {
@@ -388,7 +431,7 @@
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9"
+              fontSize: window.xAxisFontSize,
             },
             gridLines:{
               offsetGridLines: false,
@@ -401,7 +444,7 @@
 							display: false,
 							labelString: 'Cases',
               fontColor: "#fff",
-              fontSize: "10",
+              fontSize: window.yAxisFontSize,
 						},
             ticks:{
               fontColor: "#fff",
@@ -417,11 +460,6 @@
 			}
 		};
 
-    
-    
-    
-    
-    
 
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');
