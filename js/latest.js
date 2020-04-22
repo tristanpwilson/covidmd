@@ -34,7 +34,7 @@ countiesData.features[20].properties.cases = 22;
 countiesData.features[21].properties.cases = 126;
 countiesData.features[22].properties.cases = 176;
 countiesData.features[23].properties.cases = 33;
-countiesData.features[24].properties.statecases = 14193;
+countiesData.features[24].properties.statecases = 14775;
 
 //prevcases
 countiesData.features[0].properties.prevcases = 33;
@@ -61,7 +61,7 @@ countiesData.features[20].properties.prevcases = 19;
 countiesData.features[21].properties.prevcases = 117;
 countiesData.features[22].properties.prevcases = 145;
 countiesData.features[23].properties.prevcases = 33;
-countiesData.features[24].properties.prevstatecases = 13684;
+countiesData.features[24].properties.prevstatecases = 14193;
 
 //deaths
 countiesData.features[0].properties.deaths = 2;
@@ -88,7 +88,7 @@ countiesData.features[20].properties.deaths = 1;
 countiesData.features[21].properties.deaths = 3;
 countiesData.features[22].properties.deaths = 2;
 countiesData.features[23].properties.deaths = 0;
-countiesData.features[24].properties.deaths = 584;
+countiesData.features[24].properties.deaths = 698;
 
 //prevdeaths
 countiesData.features[0].properties.prevdeaths = 1;
@@ -115,7 +115,7 @@ countiesData.features[20].properties.prevdeaths = 1;
 countiesData.features[21].properties.prevdeaths = 3;
 countiesData.features[22].properties.prevdeaths = 3;
 countiesData.features[23].properties.prevdeaths = 0;
-countiesData.features[24].properties.prevdeaths = 516;
+countiesData.features[24].properties.prevdeaths = 584;
 
 //recoveries
 countiesData.features[0].properties.recoveries = 0;
@@ -142,9 +142,9 @@ countiesData.features[20].properties.recoveries = 0;
 countiesData.features[21].properties.recoveries = 0;
 countiesData.features[22].properties.recoveries = 0;
 countiesData.features[23].properties.recoveries = 0;
-countiesData.features[24].properties.recoveries = 930;
+countiesData.features[24].properties.recoveries = 981;
 
 //prevrecoveries
-countiesData.features[24].properties.prevrecoveries = 917;
+countiesData.features[24].properties.prevrecoveries = 930;
 
 }  
