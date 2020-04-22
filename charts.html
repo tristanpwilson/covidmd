@@ -14,7 +14,7 @@
   <!-- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.------>
   <!-- Based on data at https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland-->
   <!-- and https://coronavirus.maryland.gov/ ------------------------------------------------>
-  
+  <link href="css/universal.css" rel="stylesheet" type="text/css">
   <link href="css/chartsonly.css" rel="stylesheet" type="text/css">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/leaflet.css"/>
@@ -37,7 +37,36 @@
 </head>
 
 <body>
-    
+  <div class="container-i" id="container-i-charts">
+    <button id="button-i" aria-label="Button to open information pane about this website and its creator">
+      <!--<img id="icon-i" src="img/1px.gif" alt="information icon">-->
+    </button>
+    <div id="panelDesc">
+      <h2>About this Project</h2>
+      <p>COVIDMD is an attempt to track, aggregate, and display publically available COVID-19 data in a single, user friendly location </p>
+      <h3>Data Sources</h3>
+      <p>This website aggregates data from the following public sources:</p>
+      <ul>
+        <li><a href="https://coronavirus.maryland.gov/">Maryland Department of Health</a></li>
+        <li><a href="https://github.com/nytimes/covid-19-data">New York Times: COVID-19 Data Repository</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland">Wikipedia: 2020 Coronavirus in Maryland</a></li>
+      </ul>
+      <div class="divider"></div>
+      
+      
+      <h3>Creative Commons</h3>
+      <div class="ccDesc">
+        <p xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">COVID MD is licensed under:</p>
+         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>        
+      </div>
+      
+      <h3>Created By</h3>
+      <p>Tristan Wilson</p>
+      <ul>
+        <li><a href="https://tristanw.com">https://tristanw.com</a></li>
+      </ul>
+    </div>
+  </div>
 
   <div id="container-charts">
     <div class="container-header">
@@ -111,10 +140,19 @@
             toggleTabs()
         }
     });
-   
-    
   </script>
-
+  
+  <script type="text/javascript">
+  // jQuery for controlling i panel content
+  $("#button-i").click(function () {
+    $(this).toggleClass("buttonActive")
+    if ($("#panelDesc").hasClass("panelActive")){
+      $("#panelDesc").slideUp(200).removeClass("panelActive")
+      } else {
+      $("#panelDesc").slideDown(200).addClass("panelActive")
+      }
+  });
+  </script>
 
 </body>
 

@@ -5,11 +5,17 @@
 
 
   //Instantiates the Leaflet.js map
-  if (L.Browser.mobile) {
-      var mainmap = L.map('mapMain', {zoomControl: false}).setView([37.50, -77.28], 7);
-   } else 
-      var mainmap = L.map('mapMain', {zoomControl: false}).setView([38.73, -76.34], 8);
+  //if (L.Browser.mobile) {
+  //    var mainmap = L.map('mapMain', {zoomControl: false}).setView([37.50, -77.28], 7);
+  // } else 
+  //    var mainmap = L.map('mapMain', {zoomControl: false}).setView([38.73, -76.34], 8);
       
+    if($(window).width() <= 767) {
+      var mainmap = L.map('mapMain', {zoomControl: false}).setView([36.9, -77.28], 7);
+    } else {
+      var mainmap = L.map('mapMain', {zoomControl: false}).setView([38.73, -76.34], 8);
+    }
+    
   //var mainmap = L.map('mapMain', {zoomDelta: .5}).setView([38.63, -77.34], 8);
 
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -22,21 +28,12 @@
     accessToken: 'pk.eyJ1Ijoic3JpcmFjaGFjaGFjaGEiLCJhIjoiY2ltdGhpeGpiMDIxM3dibHVic3N2OGt3dyJ9.GCpLXlY3H4rUnodkF073WA'
   }).addTo(mainmap);
   
-  L.control.zoom({
-      position: 'bottomleft'
-  }).addTo(mainmap);
 
-  // Function that produces the contextual info shown on hover
-  
+  // Instantiates the infoPane container
   var info = L.control();
-  
-      // if (L.Browser.mobile) {
-      //    var info = L.control({position: 'bottomleft'});
-      // } else
-      //    var info = L.control({position: 'topright'});
 
   info.onAdd = function(mainmap) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this._div = L.DomUtil.create('div', 'info reorderWorker'); // create a div with a class "info"
     this.update();
     return this._div;
   };
