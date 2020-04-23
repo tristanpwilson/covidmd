@@ -1,17 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
-
-*{
-  font-family: 'Work Sans', sans-serif;
-
-
-}
-
 @media(max-width: 768px){
   html, body{height:100%;}
 }
+
 #container-charts{
   position:relative;
   display:flex;
@@ -24,8 +17,6 @@
   right:0;
   background: rgba(38,38,38,1.00);
 }
-
-
 
 
 /* ----------------------------- */
@@ -44,7 +35,6 @@
   font-size:30px;
   text-align:center;
 }
-
 
 .mainNav{
  position:absolute;
@@ -138,26 +128,57 @@
   display:block;
   flex-grow:0;
   flex-basis:20%;
+  align-self:flex-end;
   min-width:150px;
   max-width:300px;
-  
   padding:0px;
-  line-height:40px;
-  height:40px;
+  height:36px;
   margin: 0;
+  line-height:36px;
   list-style: none;
   text-align:center;
-  color:#fff;
+  color:rgba(255,255,255,0.47);
+  background: rgba(38,38,38,.2);
+  border:1px solid rgba(38,38,38,.3);
   font-weight:600;
   cursor:pointer;
-    align-self:flex-end;
+  border-radius:4px 4px 0 0;
+  outline:none !important;
+   box-shadow: 0 -1px 1px 0 rgba(0,0,0,0),
+               0 -1px 1px 0 rgba(0,0,0,.1) inset;
+    transition: .2s ease-out height .1s, .05s ease background, .05s ease color;
+}
+.toggle-tab:hover,
+.toggle-tab:focus{
+  height:38px;
+  line-height:38px;
+  color:rgba(255,255,255,0.7);
+  background: rgba(38,38,38,.5);
+  border:1px solid rgba(38,38,38,0);
+    box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.1);
+    transition: .05s ease-in height, .05s ease background, .1s ease color;
+}
+  
+.toggle-tab.active-tab,
+.toggle-tab.active-tab:hover,
+.toggle-tab.active-tab:focus {
+  z-index:3020 !important;
+  height:40px  !important;
+  line-height:40px !important;
+  color:rgba(255,255,255,1);
+  background: rgba(38,38,38,1);
+    box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.5), 0 -2px 1px 1px rgba(0,0,0,0.1);
 }
 
-.toggle-tab:hover{
-  background: rgba(38,38,38,.5);}
-.toggle-tab.active-tab {
-  background: rgba(38,38,38,1);}
-
+.toggle-tab.active-tab:focus:after {
+  content:"";
+  position:absolute;
+  left:40%;
+  bottom:10%;
+  height:2px;
+  width:20%;
+  background:rgba(255,255,255,.2);
+}
 
 .tab-content {order: 3 !important; display:none !important; }
 .tab-content.active-tab-content {order:2 !important; display:block !important;}
