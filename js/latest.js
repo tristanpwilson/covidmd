@@ -3,10 +3,10 @@
 //Function to be called in main js
 function latestData () {
   
-countiesData.features[24].properties.history = [39,57,85,108,150,195,245,290,349,423,581,790,1066,1244,1415,1662,1985,2331,2758,3125,3609,4045,4371,5529,6185,6968,7694,8228,8936,9472,10032,10734,11572,12308,12830,13684,14193,14775];
-countiesData.features[24].properties.historydeaths = [0,0,1,1,2,3,3,3,4,4,4,5,10,11,15,18,24,29,42,54,68,92,104,124,139,172,207,236,262,302,351,372,408,463,486,516,584,698];
-countiesData.features[24].properties.historyrecoveries = [3,3,3,3,3,3,3,3,3,3,3,25,32,39,43,53,69,81,159,159,159,184,288,365,365,365,431,456,603,607,607,736,736,771,914,917,930,981];
-countiesData.features[24].properties.dates = ["3/16/2020", "3/17/2020", "3/18/2020", "3/19/2020", "3/20/2020", "3/21/2020", "3/22/2020", "3/23/2020", "3/24/2020", "3/25/2020", "3/26/2020", "3/27/2020", "3/28/2020", "3/29/2020", "3/30/2020", "3/31/2020", "4/1/2020", "4/2/2020", "4/3/2020", "4/4/2020", "4/5/2020", "4/6/2020", "4/7/2020", "4/8/2020","4/9/2020","4/10/2020","4/11/2020","4/12/2020","4/13/2020","4/14/2020","4/15/2020","4/16/2020","4/17/2020","4/18/2020","4/19/2020","4/20/2020","4/21/2020","4/22/2020"];
+countiesData.features[24].properties.history = [39,57,85,108,150,195,245,290,349,423,581,790,1066,1244,1415,1662,1985,2331,2758,3125,3609,4045,4371,5529,6185,6968,7694,8228,8936,9472,10032,10734,11572,12308,12830,13684,14193,14775,15737];
+countiesData.features[24].properties.historydeaths = [0,0,1,1,2,3,3,3,4,4,4,5,10,11,15,18,24,29,42,54,68,92,104,124,139,172,207,236,262,302,351,372,408,463,486,516,584,698,748];
+countiesData.features[24].properties.historyrecoveries = [3,3,3,3,3,3,3,3,3,3,3,25,32,39,43,53,69,81,159,159,159,184,288,365,365,365,431,456,603,607,607,736,736,771,914,917,930,981,1040];
+countiesData.features[24].properties.dates = ["3/16/2020", "3/17/2020", "3/18/2020", "3/19/2020", "3/20/2020", "3/21/2020", "3/22/2020", "3/23/2020", "3/24/2020", "3/25/2020", "3/26/2020", "3/27/2020", "3/28/2020", "3/29/2020", "3/30/2020", "3/31/2020", "4/1/2020", "4/2/2020", "4/3/2020", "4/4/2020", "4/5/2020", "4/6/2020", "4/7/2020", "4/8/2020","4/9/2020","4/10/2020","4/11/2020","4/12/2020","4/13/2020","4/14/2020","4/15/2020","4/16/2020","4/17/2020","4/18/2020","4/19/2020","4/20/2020","4/21/2020","4/22/2020","4/23/2020"];
 
 
 //cases
@@ -34,7 +34,7 @@ countiesData.features[20].properties.cases = 23;
 countiesData.features[21].properties.cases = 127;
 countiesData.features[22].properties.cases = 183;
 countiesData.features[23].properties.cases = 34;
-countiesData.features[24].properties.statecases = 14775;
+countiesData.features[24].properties.statecases = 15737;
 
 //prevcases
 countiesData.features[0].properties.prevcases = 56;
@@ -61,7 +61,7 @@ countiesData.features[20].properties.prevcases = 22;
 countiesData.features[21].properties.prevcases = 126;
 countiesData.features[22].properties.prevcases = 176;
 countiesData.features[23].properties.prevcases = 33;
-countiesData.features[24].properties.prevstatecases = 14193;
+countiesData.features[24].properties.prevstatecases = 14775;
 
 //deaths
 countiesData.features[0].properties.deaths = 3;
@@ -88,7 +88,7 @@ countiesData.features[20].properties.deaths = 1;
 countiesData.features[21].properties.deaths = 3;
 countiesData.features[22].properties.deaths = 2;
 countiesData.features[23].properties.deaths = 0;
-countiesData.features[24].properties.deaths = 631;
+countiesData.features[24].properties.deaths = 748;
 
 //prevdeaths
 countiesData.features[0].properties.prevdeaths = 2;
@@ -115,7 +115,7 @@ countiesData.features[20].properties.prevdeaths = 1;
 countiesData.features[21].properties.prevdeaths = 3;
 countiesData.features[22].properties.prevdeaths = 2;
 countiesData.features[23].properties.prevdeaths = 0;
-countiesData.features[24].properties.prevdeaths = 584;
+countiesData.features[24].properties.prevdeaths = 631;
 
 //recoveries
 countiesData.features[0].properties.recoveries = 0;
@@ -142,9 +142,9 @@ countiesData.features[20].properties.recoveries = 0;
 countiesData.features[21].properties.recoveries = 0;
 countiesData.features[22].properties.recoveries = 0;
 countiesData.features[23].properties.recoveries = 0;
-countiesData.features[24].properties.recoveries = 981;
+countiesData.features[24].properties.recoveries = 1040;
 
 //prevrecoveries
-countiesData.features[24].properties.prevrecoveries = 930;
+countiesData.features[24].properties.prevrecoveries = 981;
 
 }  
