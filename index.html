@@ -38,13 +38,19 @@
 
 <body>
 
+  <!-- Hidden H1 For Accessibility / Screen Readers Only -->
+  <h1 class="sr-only">COVID-19 Maryland Data Tracking</h1>
+  
   <div  class="container-i">
-    <button id="button-i" aria-label="Button to open information pane about this website and its creator">
-      <!--<img id="icon-i" src="img/1px.gif" alt="information icon">-->
-    </button>
+  
+    <!-- "i" Button for Expanding/Collapsing Project Info Panel -->
+    <button id="button-i" aria-label="Open panel containing project info" aria-expanded="false"></button>
+    
+    <!-- Expandable Panel Containing Project Info -->
     <div id="panelDesc">
       <h2>About this Project</h2>
       <p>COVIDMD is an attempt to track, aggregate, and display publically available COVID-19 data in a single, user friendly location </p>
+      
       <h3>Data Sources</h3>
       <p>This website aggregates data from the following public sources:</p>
       <ul>
@@ -52,13 +58,13 @@
         <li><a href="https://github.com/nytimes/covid-19-data">New York Times: COVID-19 Data Repository</a></li>
         <li><a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland">Wikipedia: 2020 Coronavirus in Maryland</a></li>
       </ul>
-      <div class="divider"></div>
       
+      <div class="divider"></div>
       
       <h3>Creative Commons</h3>
       <div class="ccDesc">
         <p xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">COVID MD is licensed under:</p>
-         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>        
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>        
       </div>
       
       <h3>Created By</h3>
@@ -67,13 +73,16 @@
         <li><a href="https://tristanw.com">https://tristanw.com</a></li>
       </ul>
     </div>
+    
   </div>
 
+  <!-- Main Map Container -->
   <div id="mapMain">
-    
+   
+    <!-- Information Panel on Right Side -->
     <div id="infoPane" class="infoPane">
       
-      <!--Tabs for toggling charts on mobile-->
+      <!-- Tabs for toggling charts on mobile -->
       <div class="container-toggle-tabs reorderWorker">
         <ul class="box-toggle-tabs">
           <li class="toggle-tab active-tab" role="button">Total Cases</li>
@@ -81,22 +90,21 @@
         </ul>
       </div>  
       
+      <!-- First Chart.js Graph -->
       <div id="mainchart" class="stdcharts tab-content active-tab-content reorderWorker">
         <a href="charts" class="linkExpChart" title="Expand charts to fullscreen" aria-label="Expand charts to fullscreen"></a>
         <canvas id="canvas"></canvas>
       </div>
       
+      <!-- Second Chart.js Graph -->
       <div id="secondchart" class="stdcharts tab-content reorderWorker">
         <a href="charts" class="linkExpChart" title="Expand charts to fullscreen" aria-label="Expand charts to fullscreen"></a>
         <canvas id="canvas2"></canvas>
       </div>
         
-
     </div>
   </div>
 
-  
-  
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/us-counties.js"></script>
   <script type="text/javascript" src="js/latest.js"></script>
@@ -124,29 +132,34 @@
       var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
       $('#secondchart').children("canvas").css('min-height', chartBoxHeight);
   });
-
   </script>
   
   <script type="text/javascript">
   // jQuery for controlling i panel content
   $("#button-i").click(function () {
-    $(this).toggleClass("buttonActive")
+    $(this).toggleClass("buttonActive");
+    
+    // Checks if panel is expanded
     if ($("#panelDesc").hasClass("panelActive")){
-      $("#panelDesc").slideUp(200).removeClass("panelActive")
-      } else {
-      $("#panelDesc").slideDown(200).addClass("panelActive")
-      }
+      // Collapses visible panel with slide up animation
+      $("#panelDesc").slideUp(200).removeClass("panelActive");
+      // Sets aria-expanded attr to 'false' and aria-label attr to 'Open panel...'
+      $("#button-i").attr('aria-expanded', 'false').attr('aria-label', 'Open panel containing project info');
+    } else {
+      // Expands hidden panel with slide down animation
+      $("#panelDesc").slideDown(200).addClass("panelActive");
+      // Sets aria-expanded attr to 'true' and aria-label attr to 'Close panel...'
+      $("#button-i").attr('aria-expanded', 'true').attr('aria-label', 'Close panel containing project info');
+    }
   });
   </script>
   
   <script>
-  // Scripts for Accessibility
-  
+  // Scripts for Enforcing Accessibility
   // Reorders DOM elements manually for proper screen reader reading order
   var wrapper = $('#infoPane'), 
-    items = wrapper.children('.reorderWorker'),
-    arr = [4,0,1,2];
-       
+      items = wrapper.children('.reorderWorker'),
+      arr = [4,0,1,2];  
   wrapper.append( $.map(arr, function(v){ return items[v] }) ); //items.detach(); if arr doesn't reuse all items
   
   // Removes map container from tab order because it shouldnt be in there
