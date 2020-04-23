@@ -196,11 +196,13 @@
   padding: 30px 0;
   background: rgba(38,38,38,1);
  }
+ #cntychart{
+   width: 90vw;
+ }
 
 .stdcharts canvas{
   width:100%;
   height:100%;
-
   margin:0 auto;
   padding:0;
 }
@@ -230,11 +232,14 @@
     flex-shrink:2;
     flex-grow:1;
     width: 95vw;
-    max-height: calc(95vw * .95);
+    max-height: calc(95vw * 1.1);
     margin:0 auto!important;
     padding: 30px 0;
     background: rgba(38,38,38,1);
   }
+   #cntychart{
+    max-height: none;
+ }
 }
 
 @media (max-width: 575px){

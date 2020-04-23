@@ -80,41 +80,41 @@
     var nameCnty22 = countiesData.features[22].properties.name;
     var nameCnty23 = countiesData.features[23].properties.name;
 
-    var colorCnty0 = '#6B213D'
-    var colorCnty1 = '#792669'
-    var colorCnty2 = '#862C86'
-    var colorCnty3 = '#6D3293'
-    var colorCnty4 = '#4A38A1'
-    var colorCnty5 = '#3F5BAE'
-    var colorCnty6 = '#4694BC'
-    var colorCnty7 = '#4DC9C9'
-    var colorCnty8 = '#54D7AB'
-    var colorCnty9 = '#5CE47F'
-    var colorCnty10 = '#77F264'
-    var colorCnty11 = '#B7FF6C'
-    var colorCnty12 = '#D0FF68'
-    var colorCnty13 = '#EBFF65'
-    var colorCnty14 = '#FFFF61'
-    var colorCnty15 = '#FFFF5E'
-    var colorCnty16 = '#FFE65A'
-    var colorCnty17 = '#FFCA57'
-    var colorCnty18 = '#FFAD54'
-    var colorCnty19 = '#FF8D51'
-    var colorCnty20 = '#FF6A4F'
-    var colorCnty21 = '#FF4C52'
-    var colorCnty22 = '#FF4973'
-    var colorCnty23 = '#FF4973'
+    var colorCnty0 = '#6B213D';
+    var colorCnty1 = '#792669';
+    var colorCnty2 = '#862C86';
+    var colorCnty3 = '#6D3293';
+    var colorCnty4 = '#4A38A1';
+    var colorCnty5 = '#3F5BAE';
+    var colorCnty6 = '#4694BC';
+    var colorCnty7 = '#4DC9C9';
+    var colorCnty8 = '#54D7AB';
+    var colorCnty9 = '#5CE47F';
+    var colorCnty10 = '#77F264';
+    var colorCnty11 = '#B7FF6C';
+    var colorCnty12 = '#D0FF68';
+    var colorCnty13 = '#EBFF65';
+    var colorCnty14 = '#FFFF61';
+    var colorCnty15 = '#FFFF5E';
+    var colorCnty16 = '#FFE65A';
+    var colorCnty17 = '#FFCA57';
+    var colorCnty18 = '#FFAD54';
+    var colorCnty19 = '#FF8D51';
+    var colorCnty20 = '#FF6A4F';
+    var colorCnty21 = '#FF4C52';
+    var colorCnty22 = '#FF4973';
+    var colorCnty23 = '#FF4973';
 
     // Checking window width and changing parameters accordingly
     if($(window).width() <= 575) {
-      //window.aspect = 1.25;
+      window.aspectCnty = 0.8;
       window.legendFontSize = 12;
       window.titleFontSize = 18;
       window.xAxisFontSize = 12;
       window.yAxisFontSize = 12;
       window.legendPosition = "bottom";
     } else {
-      //window.aspect = 1.5;
+      window.aspectCnty = 2;
       window.legendFontSize = 14;
       window.titleFontSize = 22;
       window.xAxisFontSize = 14;
@@ -554,6 +554,7 @@
 					borderColor: colorCnty0,
           hoverBorderColor:colorCnty0,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty1,
@@ -582,6 +583,7 @@
 					borderColor: colorCnty4,
           hoverBorderColor:colorCnty4,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
           data: caseCnty5,
@@ -589,6 +591,7 @@
 					borderColor: colorCnty5,
           hoverBorderColor:colorCnty5,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty6,
@@ -603,6 +606,7 @@
 					borderColor: colorCnty7,
           hoverBorderColor:colorCnty7,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
           data: caseCnty8,
@@ -617,6 +621,7 @@
 					borderColor: colorCnty9,
           hoverBorderColor:colorCnty9,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty10,
@@ -631,6 +636,7 @@
 					borderColor: colorCnty11,
           hoverBorderColor:colorCnty11,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty12,
@@ -652,6 +658,7 @@
 					borderColor: colorCnty14,
           hoverBorderColor:colorCnty14,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty15,
@@ -673,6 +680,7 @@
 					borderColor: colorCnty17,
           hoverBorderColor:colorCnty17,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty18,
@@ -687,6 +695,7 @@
 					borderColor: colorCnty19,
           hoverBorderColor:colorCnty19,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty20,
@@ -694,6 +703,7 @@
 					borderColor: colorCnty20,
           hoverBorderColor:colorCnty20,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          hidden: true,
 				},
         {
 					data: caseCnty21,
@@ -715,17 +725,18 @@
 					borderColor: colorCnty23,
           hoverBorderColor:colorCnty23,
           pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill: false, lineTension: 0.1,
+          hidden: true,
 				},]
 			},
 			options: {
 				responsive: true,
         maintainAspectRatio: false,  
-        //aspectRatio: window.aspect,     
+        //aspectRatio: window.aspectCnty,     
         legend: {
           display: true,
           position: window.legendPosition,
           align: "start",
-          fullWidth: false,
+          fullWidth: true,
           labels:{
            boxWidth: 13,
            boxHeight: 11,
@@ -735,7 +746,8 @@
         },
 				title: {
 					display: true,
-					text: 'Cumulative Cases in MD',
+					text: 'Cumulative Cases per County',
+          //text: ['Cumulative Cases per County', '(Select to Show/Hide)'],
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: window.titleFontSize,
