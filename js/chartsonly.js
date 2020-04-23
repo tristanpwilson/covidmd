@@ -107,19 +107,19 @@
 
     // Checking window width and changing parameters accordingly
     if($(window).width() <= 575) {
-      window.aspectCnty = 0.8;
       window.legendFontSize = 12;
       window.titleFontSize = 18;
       window.xAxisFontSize = 12;
       window.yAxisFontSize = 12;
-      window.legendPosition = "bottom";
+      window.legendPaddingCnty = 14;
+      window.legendPositionCnty = "bottom";
     } else {
-      window.aspectCnty = 2;
       window.legendFontSize = 14;
       window.titleFontSize = 22;
       window.xAxisFontSize = 14;
       window.yAxisFontSize = 14;
-      window.legendPosition = "left";
+      window.legendPaddingCnty = 5;
+      window.legendPositionCnty = "left";
     }
 
     //Linechart 1 Config		
@@ -734,7 +734,7 @@
         //aspectRatio: window.aspectCnty,     
         legend: {
           display: true,
-          position: window.legendPosition,
+          position: window.legendPositionCnty,
           align: "start",
           fullWidth: true,
           labels:{
@@ -742,6 +742,7 @@
            boxHeight: 11,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
+           padding:window.legendPaddingCnty,
           },
         },
 				title: {
