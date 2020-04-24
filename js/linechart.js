@@ -102,7 +102,7 @@
           labels:{
            usePointStyle: true,
            boxWidth: 8,
-           boxHeight: 8,
+           //boxHeight: 8,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -169,6 +169,8 @@
 				datasets: [{
 					label: 'Cases',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(230, 84, 83, 0.9)",
 					//backgroundColor: "rgba(255, 107, 105, 0.8)",
           backgroundColor: "rgba(230, 84, 83, 0.9)",
 					data: dailyCaseChange,
@@ -179,6 +181,8 @@
         {
 					label: 'Deaths',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(245,153,34,.9)",
 					backgroundColor: "rgba(245,153,34,.9)",
 					data: dailyDeathChange,
           barPercentage: 1,
@@ -188,6 +192,8 @@
         {
 					label: 'Recoveries',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(31,173,37,0.9)",
 					backgroundColor: "rgba(31,173,37,0.9)",
 					data: dailyRecoveryChange,
           barPercentage: 1,
@@ -214,8 +220,8 @@
           align: "center",
           fullWidth: true,
           labels:{
-           boxWidth: 8,
-           boxHeight: 9,
+           boxWidth: 12,
+           boxHeight: 4,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
