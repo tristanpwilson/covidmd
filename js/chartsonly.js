@@ -131,6 +131,8 @@
 					label: 'Cases',
 					backgroundColor: "rgba(255, 107, 105, 0.5)",
 					borderColor: "rgba(255, 107, 105, 0.9)",
+          //backgroundColor: "rgba(230, 84, 83, 0.5)",
+					//borderColor: "rgba(230, 84, 83, 0.9)",
 					data: caseNumbers,
           pointRadius: 2,
 					pointHitRadius: 5,
@@ -255,9 +257,9 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'Cases per Day',
+					label: 'Cases',
           pointRadius: 0,
-					backgroundColor: "rgba(255, 107, 105, 0.7)",
+					backgroundColor: "rgba(255, 107, 105, 0.8)",
 					data: dailyCaseChange,
           barPercentage: 1,
           categoryPercentage: 0.85,
