@@ -790,11 +790,11 @@
           position:'nearest',
           xalign: 'right',
           yalign:'none',
-          intersect:false,
+          intersect:true,
          },       
 				hover: {
 					mode: 'nearest',
-					intersect: false
+					intersect: true
 				},
 				scales: {
 					xAxes: [{

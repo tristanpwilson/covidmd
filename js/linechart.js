@@ -233,7 +233,7 @@
           position:'average',
           xalign: 'right',
           yalign:'none',
-          intersect:false,
+          intersect:true,
          }, 
 				hover: {
 					mode: 'nearest',
