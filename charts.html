@@ -108,8 +108,9 @@
      // Toggles active tab and active tabbed content
     $(document).ready(function () {  
        var hash = $.trim( window.location.hash );
-       if (hash) $('.toggle-tab[href$="'+hash+'"]').focus();
-        toggleTabs()
+       if (hash){ $('.toggle-tab[href$="'+hash+'"]').focus();
+       toggleTabs();
+       }else{}
     });
     
     function toggleTabs() {

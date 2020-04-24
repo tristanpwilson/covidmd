@@ -565,7 +565,7 @@ html, body{height:100%;}
 
 #linkNewFeature{
   position:absolute;
-  z-index:4000;
+  z-index:3020;
   top:10px;
   left:50px;
   width:auto;
