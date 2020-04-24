@@ -82,11 +82,11 @@
 
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
-         <li class="toggle-tab active-tab" role="button" tabindex="0">Total<br class="mobile-xs-only"> Cases</li>
-        <li class="toggle-tab" role="button" tabindex="0">Daily<br class="mobile-xs-only"> Cases</li>
-        <li class="toggle-tab" role="button" tabindex="0">Daily<br class="mobile-xs-only"> Deaths</li>
-        <li class="toggle-tab" role="button" tabindex="0">Daily<br class="mobile-xs-only"> Recoveries</li>
-        <li class="toggle-tab" role="button" tabindex="0">Cases By<br class="mobile-xs-only"> County</li>
+        <li class="toggle-tab active-tab" role="button" tabindex="0" id="#totalcases">Total<br class="mobile-xs-only"> Cases</li>
+        <li class="toggle-tab" role="button" tabindex="0" id="#dailycases">Daily<br class="mobile-xs-only"> Cases</li>
+        <li class="toggle-tab" role="button" tabindex="0" id="#dailydeaths">Daily<br class="mobile-xs-only"> Deaths</li>
+        <li class="toggle-tab" role="button" tabindex="0" id="#dailyrecoveries">Daily<br class="mobile-xs-only"> Recoveries</li>
+        <li class="toggle-tab" role="button" tabindex="0" id="#casesbycounty">Cases By<br class="mobile-xs-only"> County</li>
       </ul>
     </div>  
     
@@ -130,6 +130,8 @@
             toggleTabs()
         }
     });
+    var hash = $.trim( window.location.hash );
+    if (hash) $('.box-toggle-tabs li[id$="'+hash+'"]').trigger('click');
   </script>
   
   <script type="text/javascript">
