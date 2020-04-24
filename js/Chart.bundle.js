@@ -20102,6 +20102,7 @@ var Legend = core_element.extend({
 			// Set the ctx for the box
 			ctx.save();
 
+
 			var lineWidth = valueOrDefault$e(legendItem.lineWidth, lineDefault.borderWidth);
 			ctx.fillStyle = valueOrDefault$e(legendItem.fillStyle, defaultColor);
 			ctx.lineCap = valueOrDefault$e(legendItem.lineCap, lineDefault.borderCapStyle);
@@ -20125,31 +20126,56 @@ var Legend = core_element.extend({
 				// Draw pointStyle as legend symbol
 				helpers$1.canvas.drawPoint(ctx, legendItem.pointStyle, radius, centerX, centerY, legendItem.rotation);
 			} else {
-				// Draw box as legend symbol
-				ctx.fillRect(rtlHelper.leftForLtr(x, boxWidth), y, boxWidth, fontSize);
+				
+        
+				// CUSTOM: Check is item is hidden; if it IS hidden, do not fill the rectangle
+        if(legendItem.hidden){
+          
+        } else{
+          // CUSTOM: If it is NOT hidden, fill the rectangle as per usual
+          // CUSTOM: Use boxWidth value for height of drawing as well - make perfect square
+          // Draw box as legend symbol
+          ctx.fillRect(rtlHelper.leftForLtr(x, boxWidth), y, boxWidth, boxWidth);
+          //ctx.fillRect(rtlHelper.leftForLtr(x, boxWidth), y, boxWidth, fontSize);
+        }
 				if (lineWidth !== 0) {
-					ctx.strokeRect(rtlHelper.leftForLtr(x, boxWidth), y, boxWidth, fontSize);
+          // CUSTOM: Again, but for stroke; use boxWidth value for height of drawing as well - make perfect square
+					ctx.strokeRect(rtlHelper.leftForLtr(x, boxWidth), y, boxWidth, boxWidth);
+          //ctx.strokeRect(rtlHelper.leftForLtr(x, boxWidth), y, boxWidth, fontSize);
 				}
 			}
 
 			ctx.restore();
 		};
 
-		var fillText = function(x, y, legendItem, textWidth) {
+		  var fillText = function(x, y, legendItem, textWidth) {
 			var halfFontSize = fontSize / 2;
 			var xLeft = rtlHelper.xPlus(x, boxWidth + halfFontSize);
 			var yMiddle = y + halfFontSize;
-
+     
+      // CUSTOM: Storing the original fillStyle for use later   
+      var prevFillStyle = ctx.fillStyle;
+      
+      if (legendItem.hidden) {
+        // CUSTOM: If the item is hidden, change the fillStyle to a certain color (i.e. indicates its
+        ctx.fillStyle = "rgba(255,255,255,0.4)";
+      }
+      
 			ctx.fillText(legendItem.text, xLeft, yMiddle);
 
 			if (legendItem.hidden) {
-				// Strikethrough the text if hidden
-				ctx.beginPath();
-				ctx.lineWidth = 2;
-				ctx.moveTo(xLeft, yMiddle);
-				ctx.lineTo(rtlHelper.xPlus(xLeft, textWidth), yMiddle);
-				ctx.stroke();
-			}
+        // CUSTOM: Put the fillStyle back to its previous value   
+        ctx.fillStyle = prevFillStyle;   
+        
+        // CUSTOM: Removed strikethrough from original chart.js code
+        
+           // Strikethrough the text if hidden
+           // ctx.beginPath();
+           // ctx.lineWidth = 2;
+           // ctx.moveTo(xLeft, yMiddle);
+           // ctx.lineTo(rtlHelper.xPlus(xLeft, textWidth), yMiddle);
+           // ctx.stroke();     
+			} 
 		};
 
 		var alignmentOffset = function(dimension, blockSize) {

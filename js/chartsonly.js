@@ -121,6 +121,8 @@
       window.legendPaddingCnty = 5;
       window.legendPositionCnty = "left";
     }
+    
+    
 
     //Linechart 1 Config		
     var config = {
@@ -136,6 +138,7 @@
 					data: caseNumbers,
           pointRadius: 2,
 					pointHitRadius: 5,
+          borderWidth: 2,
           hoverRadius: 5,
           hoverBorderWidth:3,
           hoverBorderColor:"rgba(255, 127, 125, 1)",
@@ -149,6 +152,7 @@
 					data: deathNumbers,
           pointRadius: 2,
 					pointHitRadius: 5,
+          borderWidth: 2,
           hoverRadius: 5,
           hoverBorderWidth:3,
           hoverBorderColor:"rgba(255,173,54,1.00)",
@@ -162,6 +166,7 @@
 					data: recoveryNumbers,         
           pointRadius: 2,
 					pointHitRadius: 5,
+          borderWidth: 2,
           hoverRadius: 5,
           hoverBorderWidth:3,
           hoverBorderColor:"rgba(51,193,57,1.00)",
@@ -179,10 +184,11 @@
           align: "center",
           fullWidth: true,
           labels:{
-           boxWidth: 13,
-           boxHeight: 11,
-           fontColor: "#fafafa",
-           fontSize: window.legendFontSize,
+            usePointStyle: true,
+            boxWidth: 10,
+            //boxHeight: 9,
+            fontColor: "#fafafa",
+            fontSize: window.legendFontSize,
           },
         },
 				title: {
@@ -259,6 +265,8 @@
 				datasets: [{
 					label: 'Cases',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(255, 107, 105, 0.8)",
 					backgroundColor: "rgba(255, 107, 105, 0.8)",
 					data: dailyCaseChange,
           barPercentage: 1,
@@ -267,6 +275,8 @@
         {
 					label: 'Deaths',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(245,153,34,.9)",
 					backgroundColor: "rgba(245,153,34,.9)",
 					data: dailyDeathChange,
           barPercentage: 1,
@@ -276,6 +286,8 @@
         {
 					label: 'Recoveries',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(31,173,37,0.8)",
 					backgroundColor: "rgba(31,173,37,0.8)",
 					data: dailyRecoveryChange,
           barPercentage: 1,
@@ -294,7 +306,7 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           boxHeight: 11,
+           //boxHeight: 16,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -349,11 +361,12 @@
 							display: false,
 							labelString: 'Cases',
               fontColor: "#fff",
-              fontSize: window.yAxisFontSize,
+              
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9",
+              fontSize: window.yAxisFontSize,
+              //fontSize: "9",
               //stepSize:"1000",
             },
             gridLines:{
@@ -373,8 +386,9 @@
 				datasets: [{
 					label: 'Deaths per Day',
           pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(245,153,34,.9)",
 					backgroundColor: "rgba(245,153,34,.9)",
-					borderColor: "rgba(245,153,34,.9)",
 					data: dailyDeathChange,
 					fill: true,
 				}]
@@ -390,7 +404,7 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           boxHeight: 11,
+           //boxHeight: 16,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -445,7 +459,6 @@
 							display: false,
 							labelString: 'Cases',
               fontColor: "#fff",
-              fontSize: "10",
 						},
             ticks:{
               fontColor: "#fff",
@@ -469,8 +482,9 @@
 				datasets: [{
 					label: 'Recoveries per Day',
           pointRadius: 0,
-					backgroundColor: "rgba(31,173,37,0.8)",
+          borderWidth: 2,
 					borderColor: "rgba(31,173,37,0.8)",
+					backgroundColor: "rgba(31,173,37,0.8)",
 					data: dailyRecoveryChange,
 					fill: true,
         }]
@@ -486,7 +500,7 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           boxHeight: 11,
+           //boxHeight: 16,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -541,11 +555,10 @@
 							display: false,
 							labelString: 'Cases',
               fontColor: "#fff",
-              fontSize: window.yAxisFontSize,
 						},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9",
+              fontSize: window.yAxisFontSize,
               //stepSize:"1000",
             },
             gridLines:{
@@ -556,11 +569,6 @@
 				}
 			}
 		};
-
-
-    
-//                                                        pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill: true, lineTension: 0.1,
-//                                                      };
 
     //Bar Chart For Cases by County
     var configCnty = {
@@ -573,7 +581,7 @@
 					label: nameCnty0,
 					borderColor: colorCnty0,
           hoverBorderColor:colorCnty0,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -581,28 +589,28 @@
 					label: nameCnty1,
 					borderColor: colorCnty1,
           hoverBorderColor:colorCnty1,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
           data: caseCnty2,
 					label: nameCnty2,
 					borderColor: colorCnty2,
           hoverBorderColor:colorCnty2,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty3,
 					label: nameCnty3,
 					borderColor: colorCnty3,
           hoverBorderColor:colorCnty3,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty4,
 					label: nameCnty4,
 					borderColor: colorCnty4,
           hoverBorderColor:colorCnty4,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -610,7 +618,7 @@
 					label: nameCnty5,
 					borderColor: colorCnty5,
           hoverBorderColor:colorCnty5,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -618,14 +626,14 @@
 					label: nameCnty6,
 					borderColor: colorCnty6,
           hoverBorderColor:colorCnty6,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty7,
 					label: nameCnty7,
 					borderColor: colorCnty7,
           hoverBorderColor:colorCnty7,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -633,14 +641,14 @@
 					label: nameCnty8,
 					borderColor: colorCnty8,
           hoverBorderColor:colorCnty8,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty9,
 					label: nameCnty9,
 					borderColor: colorCnty9,
           hoverBorderColor:colorCnty9,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -648,14 +656,14 @@
 					label: nameCnty10,
 					borderColor: colorCnty10,
           hoverBorderColor:colorCnty10,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty11,
 					label: nameCnty11,
 					borderColor: colorCnty11,
           hoverBorderColor:colorCnty11,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -663,21 +671,21 @@
 					label: nameCnty12,
 					borderColor: colorCnty12,
           hoverBorderColor:colorCnty12,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty13,
 					label: nameCnty13,
 					borderColor: colorCnty13,
           hoverBorderColor:colorCnty13,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty14,
 					label: nameCnty14,
 					borderColor: colorCnty14,
           hoverBorderColor:colorCnty14,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -685,21 +693,21 @@
 					label: nameCnty15,
 					borderColor: colorCnty15,
           hoverBorderColor:colorCnty15,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty16,
 					label: nameCnty16,
 					borderColor: colorCnty16,
           hoverBorderColor:colorCnty16,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty17,
 					label: nameCnty17,
 					borderColor: colorCnty17,
           hoverBorderColor:colorCnty17,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -707,14 +715,14 @@
 					label: nameCnty18,
 					borderColor: colorCnty18,
           hoverBorderColor:colorCnty18,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty19,
 					label: nameCnty19,
 					borderColor: colorCnty19,
           hoverBorderColor:colorCnty19,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -722,7 +730,7 @@
 					label: nameCnty20,
 					borderColor: colorCnty20,
           hoverBorderColor:colorCnty20,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
           hidden: true,
 				},
         {
@@ -730,21 +738,21 @@
 					label: nameCnty21,
 					borderColor: colorCnty21,
           hoverBorderColor:colorCnty21,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty22,
 					label: nameCnty22,
 					borderColor: colorCnty22,
           hoverBorderColor:colorCnty22,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
 				},
         {
 					data: caseCnty23,
 					label: nameCnty23,
 					borderColor: colorCnty23,
           hoverBorderColor:colorCnty23,
-          pointRadius: 2, pointHitRadius: 5, hoverRadius: 5, hoverBorderWidth:3, fill: false, lineTension: 0.1,
+          pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill: false, lineTension: 0.1,
           hidden: true,
 				},]
 			},
@@ -759,7 +767,7 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           boxHeight: 11,
+           //boxHeight: 11,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
            padding:window.legendPaddingCnty,
@@ -845,13 +853,17 @@
       var ctx = document.getElementById('canvasCnty').getContext('2d');
 			window.myLineMulti = new Chart(ctx, configCnty);
 		};
-    
-//window.myLineMulti.defaults.data.datasets.line.fill = false;
-//window.configCnty.defaults.data.datasets.line.lineTension = 0.1;
-//window.configCnty.defaults.global.data.datasets.pointRadius = 2;
-//window.configCnty.defaults.global.data.datasets.pointHitRadius = 5;
-//window.myLineMulti.defaults.global.datasets.line.hoverRadius = 5;
-//window.myLineMulti.defaults.global.data.datasets.hoverBorderWidth = 3;
+ 
+ 
+// Saving if needed because this works well
+//          labels:{
+//            generateLabels: function(chart) {
+//              labels = Chart.defaults.global.legend.labels.generateLabels(chart);
+//              labels[0].fillStyle = "rgba(255, 107, 105, 0.9)";
+//              labels[1].fillStyle = "rgba(245,153,34,1.00)";
+//              labels[2].fillStyle = "rgba(31,173,37,1.00)";
+//              return labels;
+//            },
 
     
 
