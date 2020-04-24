@@ -260,7 +260,7 @@
 					backgroundColor: "rgba(255, 107, 105, 0.7)",
 					data: dailyCaseChange,
           barPercentage: 1,
-          categoryPercentage: 0.8,
+          categoryPercentage: 0.85,
 				},
         {
 					label: 'Deaths',
@@ -268,7 +268,7 @@
 					backgroundColor: "rgba(245,153,34,.9)",
 					data: dailyDeathChange,
           barPercentage: 1,
-          categoryPercentage: 0.8,
+          categoryPercentage: 0.85,
           hidden: true,
 				},
         {
@@ -277,7 +277,7 @@
 					backgroundColor: "rgba(31,173,37,0.8)",
 					data: dailyRecoveryChange,
           barPercentage: 1,
-          categoryPercentage: 0.8,
+          categoryPercentage: 0.85,
           hidden: true,
         }]
 			},
