@@ -5,14 +5,26 @@
     var caseNumbers = countiesData.features[24].properties.history;
     var deathNumbers = countiesData.features[24].properties.historydeaths;
     var recoveryNumbers = countiesData.features[24].properties.historyrecoveries;
+    
+    var caseTimeline = countiesData.features[24].properties.dates;
+    
     function diff(ary) {
       var newA = [];
       for (var i = 1; i < ary.length; i++)  newA.push(ary[i] - ary[i - 1])
       return newA;
     }
-    var dailyCaseChange = diff(caseNumbers);
-    var adjDailyCaseChange = dailyCaseChange.unshift(1);
-    var caseTimeline = countiesData.features[24].properties.dates;
+      // Calculating daily change in Recoveries
+      var dailyCaseChange = diff(caseNumbers);
+      var adjDailyCaseChange = dailyCaseChange.unshift(1);
+      
+      // Calculating daily change in deaths
+      var dailyDeathChange = diff(deathNumbers);
+      var adjDailyDeathChange = dailyDeathChange.unshift(1);
+      
+      // Calculating daily change in Recoveries
+      var dailyRecoveryChange = diff(recoveryNumbers);
+      var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
+
 
     if($(window).width() <= 575) {
       window.aspect = 1.25;
@@ -87,8 +99,9 @@
           align: "center",
           fullWidth: true,
           labels:{
-           boxWidth: 13,
-           boxHeight: 11,
+           usePointStyle: true,
+           boxWidth: 8,
+           boxHeight: 8,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -153,13 +166,32 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [{
-					label: 'Cases per Day',
+					label: 'Cases',
           pointRadius: 0,
 					backgroundColor: "rgba(255, 107, 105, 0.8)",
-					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: dailyCaseChange,
-					fill: true,
-				}]
+          barPercentage: 1,
+          categoryPercentage: 0.9,
+          //barThickness: 'flex',
+				},
+        {
+					label: 'Deaths',
+          pointRadius: 0,
+					backgroundColor: "rgba(245,153,34,.9)",
+					data: dailyDeathChange,
+          barPercentage: 1,
+          categoryPercentage: 0.9,
+          hidden: true,
+				},
+        {
+					label: 'Recoveries',
+          pointRadius: 0,
+					backgroundColor: "rgba(31,173,37,0.8)",
+					data: dailyRecoveryChange,
+          barPercentage: 1,
+          categoryPercentage: 0.9,
+          hidden: true,
+        }]
 			},
 			options: {
 				responsive: true,
@@ -180,8 +212,8 @@
           align: "center",
           fullWidth: true,
           labels:{
-           boxWidth: 13,
-           boxHeight: 11,
+           boxWidth: 8,
+           boxHeight: 9,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },

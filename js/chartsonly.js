@@ -258,10 +258,28 @@
 					label: 'Cases per Day',
           pointRadius: 0,
 					backgroundColor: "rgba(255, 107, 105, 0.7)",
-					borderColor: "rgba(255, 107, 105, 0.9)",
 					data: dailyCaseChange,
-					fill: true,
-				}]
+          barPercentage: 1,
+          categoryPercentage: 0.8,
+				},
+        {
+					label: 'Deaths',
+          pointRadius: 0,
+					backgroundColor: "rgba(245,153,34,.9)",
+					data: dailyDeathChange,
+          barPercentage: 1,
+          categoryPercentage: 0.8,
+          hidden: true,
+				},
+        {
+					label: 'Recoveries',
+          pointRadius: 0,
+					backgroundColor: "rgba(31,173,37,0.8)",
+					data: dailyRecoveryChange,
+          barPercentage: 1,
+          categoryPercentage: 0.8,
+          hidden: true,
+        }]
 			},
 			options: {
 				responsive: true,
