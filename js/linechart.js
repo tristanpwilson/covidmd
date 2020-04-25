@@ -30,11 +30,30 @@
       window.aspect = 1.25;
       window.legendFontSize = 12;
       window.titleFontSize = 15;
+      window.xAxisFontSize = 9;
+      window.xAxisMinRotation = 0;
+      window.xAxisMaxRotation = 0.1;
+      window.xAxisPosition = 'top';
+      window.xAxisMirror = true;
+      window.yAxisFontSize = 9;
+      window.yAxisTickDisplay = false;
+      window.yAxisTickMirror = true;
     } else {
       window.aspect = 1.5;
       window.legendFontSize = 14;
       window.titleFontSize = 16;
+      window.xAxisFontSize = 9;
+      window.xAxisMinRotation = -0.1;
+      window.xAxisMaxRotation = 0;
+      window.xAxisPosition = 'bottom';
+      window.xAxisMirror = false;
+      window.yAxisFontSize = 9;
+      window.yAxisTickDisplay = true;
+      window.yAxisTickMirror = false;
     }
+   
+   
+
    
    //if($(window).width() <= 575) {} else if($(window).width() > 575 && $(window).width() <= 767) { } else{ }
 
@@ -241,41 +260,44 @@
 				},
 				scales: {
 					xAxes: [{
-            offset:true,
+            //offsetGridlines:true,
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 5,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-            scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+            offset:false,
+            position:window.xAxisPosition,
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9"
+              fontSize: window.xAxisFontSize,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 40,
             },
-            gridLines:{
-              offsetGridLines: false,
-              color:"rgba(255,255,255,0.1)"
-            }
+            gridLines:{color:"rgba(255,255,255,0.1)"}
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-              fontSize: "10",
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
-              fontSize: "9",
-              //stepSize:"1000",
+              fontSize: window.yAxisFontSize,
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 

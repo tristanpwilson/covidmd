@@ -17,6 +17,17 @@
 .mobile-only,
 .mobile-xs-only{display:none;}
 
+.a11y{
+  position:absolute;
+  display:block;
+  height:0;
+  width:0;
+  opacity:0;
+  font-size:1px;
+  color:rgba(0,0,0,0);
+  background:rgba(0,0,0,0);
+}
+
 .strike{text-decoration:line-through; cursor:not-allowed !important;}
 
 @media(max-width:767px){.mobile-only{display:initial !important;}}

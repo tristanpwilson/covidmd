@@ -110,14 +110,22 @@
       window.legendFontSize = 12;
       window.titleFontSize = 18;
       window.xAxisFontSize = 12;
+      window.xAxisMinRotation = 89.9;
+      window.xAxisMaxRotation = 90;
       window.yAxisFontSize = 12;
+      window.yAxisTickDisplay = false;
+      window.yAxisTickMirror = true;
       window.legendPaddingCnty = 14;
       window.legendPositionCnty = "bottom";
     } else {
-      window.legendFontSize = 14;
+      window.legendFontSize = 15;
       window.titleFontSize = 22;
       window.xAxisFontSize = 14;
+      window.xAxisMinRotation = -0.1;
+      window.xAxisMaxRotation = 0;
       window.yAxisFontSize = 14;
+      window.yAxisTickDisplay = true;
+      window.yAxisTickMirror = false;
       window.legendPaddingCnty = 5;
       window.legendPositionCnty = "left";
     }
@@ -186,9 +194,9 @@
           labels:{
             usePointStyle: true,
             boxWidth: 10,
-            //boxHeight: 9,
             fontColor: "#fafafa",
             fontSize: window.legendFontSize,
+            fontStyle: 'bold',
           },
         },
 				title: {
@@ -216,40 +224,45 @@
 				scales: {
 					xAxes: [{
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 4,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+            offset:false,
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
-              //autoSkip: true,
-              //maxRotation: 0,
-              //maxTicksLimit: 16,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 60,
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              zeroLineColor: "rgba(255,255,255,0.1)",
             }
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-              fontSize: "10",
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
               fontSize: window.yAxisFontSize,
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              zeroLineColor: "rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 
@@ -336,41 +349,42 @@
 				scales: {
 					xAxes: [{
             offset:true,
+            //offsetGridlines:true,
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 4,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-            scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 60,
             },
-            gridLines:{
-              offsetGridLines: false,
-              color:"rgba(255,255,255,0.1)"
-            }
+            gridLines:{color:"rgba(255,255,255,0.1)"}
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-              
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
               fontSize: window.yAxisFontSize,
-              //fontSize: "9",
-              //stepSize:"1000",
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 
@@ -404,7 +418,6 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           //boxHeight: 16,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -434,39 +447,42 @@
 				scales: {
 					xAxes: [{
             offset:true,
+            //offsetGridlines:true,
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 4,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-            scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 60,
             },
-            gridLines:{
-              offsetGridLines: false,
-              color:"rgba(255,255,255,0.1)"
-            }
+            gridLines:{color:"rgba(255,255,255,0.1)"}
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
               fontSize: window.yAxisFontSize,
-              //stepSize:"1000",
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 
@@ -500,7 +516,6 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           //boxHeight: 16,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
           },
@@ -530,39 +545,42 @@
 				scales: {
 					xAxes: [{
             offset:true,
+            //offsetGridlines:true,
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 4,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-            scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 60,
             },
-            gridLines:{
-              offsetGridLines: false,
-              color:"rgba(255,255,255,0.1)"
-            }
+            gridLines:{color:"rgba(255,255,255,0.1)"}
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
               fontSize: window.yAxisFontSize,
-              //stepSize:"1000",
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 
@@ -767,7 +785,6 @@
           fullWidth: true,
           labels:{
            boxWidth: 13,
-           //boxHeight: 11,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
            padding:window.legendPaddingCnty,
@@ -776,7 +793,6 @@
 				title: {
 					display: true,
 					text: 'Cumulative Cases per County',
-          //text: ['Cumulative Cases per County', '(Select to Show/Hide)'],
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: window.titleFontSize,
@@ -798,47 +814,50 @@
 				},
 				scales: {
 					xAxes: [{
+            offset:true,
+            //offsetGridlines:true,
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 4,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
-              //autoSkip: true,
-              //maxRotation: 0,
-              //maxTicksLimit: 16,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 60,
             },
-            gridLines:{
-              color:"rgba(255,255,255,0.1)"
-            }
+            gridLines:{color:"rgba(255,255,255,0.1)"}
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-              fontSize: "10",
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
               fontSize: window.yAxisFontSize,
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 
 				}
 			}
 		};
+    
 
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Charts | COVID-19 Maryland</title>
+  <title>Charts - COVID-19 MD | Visualizing COVID-19 Case Data in Maryland and its counties</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="COVIDMD aggregates publically available covid-19 data in the state of Maryland and attempts to graph them in useful ways. This includes total cases, deaths, and recoveries over time, daily change in cases, deaths, and recoveries, and cumulative cases totals per Maryland county.">
@@ -39,36 +39,7 @@
 </head>
 
 <body>
-  <div class="container-i" id="container-i-charts">
-    <button id="button-i" aria-label="Button to open information pane about this website and its creator">
-      <!--<img id="icon-i" src="img/1px.gif" alt="information icon">-->
-    </button>
-    <div id="panelDesc">
-      <h2>About this Project</h2>
-      <p>COVIDMD is an attempt to track, aggregate, and display publically available COVID-19 data in a single, user friendly location </p>
-      <h3>Data Sources</h3>
-      <p>This website aggregates data from the following public sources:</p>
-      <ul>
-        <li><a href="https://coronavirus.maryland.gov/">Maryland Department of Health</a></li>
-        <li><a href="https://github.com/nytimes/covid-19-data">New York Times: COVID-19 Data Repository</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland">Wikipedia: 2020 Coronavirus in Maryland</a></li>
-      </ul>
-      <div class="divider"></div>
-      
-      
-      <h3>Creative Commons</h3>
-      <div class="ccDesc">
-        <p xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">COVID MD is licensed under:</p>
-         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>        
-      </div>
-      
-      <h3>Created By</h3>
-      <p>T. Wilson</p>
-      <ul>
-        <li><a href="mailto:mail@covidmd.info">mail@covidmd.info</a></li>
-      </ul>
-    </div>
-  </div>
+  
 
   <div id="container-charts">
     <div class="container-header">
@@ -76,7 +47,38 @@
         <a href="/" aria-label="Link back to home page"></a>
       </nav>  
   
-      <h1>Maryland COVID-19</h1>
+      <h1>Charts and Graphs - COVID19 MD</h1>
+      
+      <div class="container-i" id="container-i-charts">
+        <button id="button-i" aria-label="Button to open information pane about this website and its creator">
+        </button>
+        <div id="panelDesc">
+          <h2>About this Project</h2>
+          <p>COVIDMD is an attempt to track, aggregate, and display publically available COVID-19 data in a single, user friendly location </p>
+          <h3>Data Sources</h3>
+          <p>This website aggregates data from the following public sources:</p>
+          <ul>
+            <li><a href="https://coronavirus.maryland.gov/">Maryland Department of Health</a></li>
+            <li><a href="https://github.com/nytimes/covid-19-data">New York Times: COVID-19 Data Repository</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Maryland">Wikipedia: 2020 Coronavirus in Maryland</a></li>
+          </ul>
+          <div class="divider"></div>
+          
+          
+          <h3>Creative Commons</h3>
+          <div class="ccDesc">
+            <p xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">COVID MD is licensed under:</p>
+             <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>        
+          </div>
+          
+          <h3>Created By</h3>
+          <p>T. Wilson</p>
+          <ul>
+            <li><a href="mailto:mail@covidmd.info">mail@covidmd.info</a></li>
+          </ul>
+        </div>
+      </div>
+      
     </div>
     <!--Tabs for toggling charts -->
 
@@ -90,11 +92,11 @@
       </ul>
     </div>  
     
-    <div id="mainchart" class="stdcharts tab-content active-tab-content"><canvas id="canvas"></canvas></div>
-    <div id="secondchart" class="stdcharts tab-content"><canvas id="canvas2"></canvas></div>
-    <div id="dthchart" class="stdcharts tab-content"><canvas id="canvasDth"></canvas></div>
-    <div id="recchart" class="stdcharts tab-content"><canvas id="canvasRec"></canvas></div>
-    <div id="cntychart" class="stdcharts tab-content"><canvas id="canvasCnty"></canvas></div>
+    <div id="mainchart" class="stdcharts tab-content active-tab-content"><h2 class="a11y">Cumulative Cases in MD</h2><canvas id="canvas"></canvas></div>
+    <div id="secondchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Cases in MD</h2><canvas id="canvas2"></canvas></div>
+    <div id="dthchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Deaths in MD</h2><canvas id="canvasDth"></canvas></div>
+    <div id="recchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Recoveries in MD</h2><canvas id="canvasRec"></canvas></div>
+    <div id="cntychart" class="stdcharts tab-content"><h2 class="a11y">Cumulative Cases per County</h2><canvas id="canvasCnty"></canvas></div>
     
   </div>
 
