@@ -96,7 +96,14 @@
     <div id="secondchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Cases in MD</h2><canvas id="canvas2"></canvas></div>
     <div id="dthchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Deaths in MD</h2><canvas id="canvasDth"></canvas></div>
     <div id="recchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Recoveries in MD</h2><canvas id="canvasRec"></canvas></div>
-    <div id="cntychart" class="stdcharts tab-content"><h2 class="a11y">Cumulative Cases per County</h2><canvas id="canvasCnty"></canvas></div>
+    <div id="cntychart" class="stdcharts tab-content">
+      <h2 class="a11y">Cumulative Cases per County</h2>
+      <div id="cntyToggleBox" style="position:absolute; top: 20px; left:0;">  
+        <a href="javascript:void(0);" id="hideAllData" style="z-index:3003; padding:5px 7.5px; color:#555; font-size:14px; font-weight:500; background:#fff;">Hide All</a>
+        <a href="javascript:void(0);" id="showAllData" style="z-index:3003; padding:5px 7.5px; color:#555; font-size:14px; font-weight:500; background:#fff;">Show All</a>
+      </div>
+      <canvas id="canvasCnty"></canvas>
+    </div>
     
   </div>
 
@@ -157,6 +164,26 @@
       $("#panelDesc").slideDown(200).addClass("panelActive")
       }
   });
+  </script>
+  
+  <script>
+  $("#hideAllData").click(function() {
+    window.myLineMulti.data.datasets.forEach(function(ds) {
+      if(!ds.hidden){
+      ds.hidden = !ds.hidden;
+      }
+    });
+    window.myLineMulti.update();
+  });
+  $("#showAllData").click(function() {
+    window.myLineMulti.data.datasets.forEach(function(ds) {
+      if(ds.hidden){
+      ds.hidden = !ds.hidden;
+      }
+    });
+    window.myLineMulti.update();
+  });
+  
   </script>
 
 </body>
