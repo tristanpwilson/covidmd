@@ -107,7 +107,7 @@
 
     // Checking window width and changing parameters accordingly
     if($(window).width() <= 575) {
-      window.legendFontSize = 12;
+      window.legendFontSize = 14;
       window.titleFontSize = 18;
       window.xAxisFontSize = 12;
       window.xAxisMinRotation = 89.9;
