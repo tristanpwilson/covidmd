@@ -49,6 +49,7 @@
 #button-i {
  position:absolute;  
  display:block;  
+ z-index:3042;
  padding:0px !important; 
  width: 44px;
  height:44px;
@@ -81,13 +82,16 @@
 #panelDesc{
  position:absolute !important; 
  display:none;
+ z-index:3040;
  width:30vw;
+ min-width:425px;
  top:0px;
- left:45px;
- padding:0px 10px 7.5px 10px !important; 
+ left:2px;
+ padding:35px 10px 7.5px 10px !important; 
  margin:0px !important;
  border-radius:0 0 5px 5px;
- background:rgba(255,255,255,0.9)
+ background:rgba(255,255,255,1);
+ box-shadow:0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 #container-i-charts{
@@ -98,7 +102,8 @@
 }
 #container-i-charts #panelDesc{
  left:initial;
- right:45px;
+ right:2px;
+ padding:0px 45px 7.5px 10px !important;
 }
 
 
@@ -174,19 +179,21 @@
 
 @media(max-width:767px){
   .container-i {
-   width:100%;
+   width:100% !important;
   }
   #button-i{
-   width:8vw;
-   height:8vw;
+   width:45px;
+   height:45px;
    max-height:45px;
    min-height:35px;
-   right:0;
+   right:1vw;
   }
-  #panelDesc{
+  #panelDesc,
+  #container-i-charts #panelDesc{
    left:1vw;
-   max-width:initial;
-   width:91vw;
-   background:rgba(255,255,255,0.9)
+   right:1vw;
+   width:98vw;
+   min-width:initial !important;
+   padding:0px 45px 7.5px 10px !important; 
   }
 }
