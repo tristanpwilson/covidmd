@@ -189,39 +189,7 @@ html, body{height:100%;}
   display: none;
 }
 
-.linkExpChart {
-  position: absolute;
-  z-index: 3000;
-  display: block;
-  top: 7.5px;
-  right: 7.5px;
-  height: 15px;
-  width: 15px;
-  text-decoration: none !important;
-  background-image: url("../img/expand.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: .7;
-  transition: .1s linear all, .3s ease opacity;
-}
 
-.linkExpChart:hover,
-.linkExpChart:focus {
-  top: 5px;
-  right: 5px;
-  height: 20px;
-  width: 20px;
-  color: #fff;
-  font-weight: 600;
-  opacity: 1;
-  transition: .1s linear all, .3s ease opacity;
-}
-
-.linkExpChart:focus {
-  outline:1px dashed rgba(255,212,105,.3) !important;
-  outline-offset:5px;
-}
 
 @media (max-height:860px) {
   #infoPane {
@@ -421,19 +389,7 @@ html, body{height:100%;}
     margin: 0 auto;
     padding: 0;
   }
-  .linkExpChart {
-    top: 15px;
-    right: 10px;
-    height: 20px;
-    width: 20px;
-  }
-  .linkExpChart:hover,
-  .linkExpChart:focus {
-    top: 15px;
-    right: 10px;
-    height: 20px;
-    width: 20px;
-  }
+
 }
 
 @media(max-width: 575px) {
@@ -562,6 +518,63 @@ html, body{height:100%;}
   
 }
 
+#chartIconLine1{
+  position:relative;
+  display:block;
+  float:right;
+  z-index:3000;
+  top:0px;
+  width:20px;
+  height:20px;
+  padding: 0;
+  text-decoration: none !important;
+  background-image: url("../img/charticonline-lg1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .7;
+}
+
+#chartIconLine1:hover,
+#chartIconLine1:focus{
+  opacity:1;
+  transition:.2s ease opacity;
+}
+
+.linkExpChart {
+  position: absolute;
+  z-index: 3000;
+  display: block;
+  top: 8px;
+  right: 18px;
+  height: 18px;
+  width: 18px;
+  text-decoration: none !important;
+  background-image: url("../img/expand.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .7;
+  transition: .1s linear all, .3s ease opacity;
+}
+
+.linkExpChart:hover,
+.linkExpChart:focus {
+  top: 7px;
+  right: 17px;
+  height: 20px;
+  width: 20px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 1;
+  transition: .1s linear all, .3s ease opacity;
+}
+
+.linkExpChart:focus {
+  outline:1px dashed rgba(255,212,105,.3) !important;
+  outline-offset:5px;
+}
+
 
 #linkNewFeature{
   position:absolute;
@@ -582,9 +595,37 @@ html, body{height:100%;}
 
 
 @media(max-width: 768px) {
-#linkNewFeature{
-  top:5px;
-  left:5px;
-  width:auto;
-}
+  #chartIconLine1{
+    height: 24px;
+    width: 24px;
+    background-size:18px;
+    opacity: .7;
+  }
+  
+  #chartIconLine1:hover,
+  #chartIconLine1:focus{
+  }
+  
+  .linkExpChart {
+    top: 10px;
+    right: 3vw;
+    height: 24px;
+    width: 24px;
+    background-size:16px;
+  }
+  .linkExpChart:hover,
+  .linkExpChart:focus {
+    top: 10px;
+    right: 3vw;
+    height: 24px;
+    width: 24px;
+    background-size:16px;
+  }  
+  
+  
+  #linkNewFeature{
+    top:5px;
+    left:5px;
+    width:auto;
+  }
 }

@@ -43,9 +43,13 @@
     this._div.innerHTML =
       '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflag.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
 
-      '<div id="countycases">' + (props ?
+      '<div id="countycases"><a href="charts#casesbycounty" id="chartIconLine1" aria-label="Link to chart of county data over time"></a>' + 
+      (props ?
+      
+      // Content displayed on county hover
         '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
-        // Default content without hover
+        
+        // Default content without county hover
         :'<h3><i>County <span>(Hover/Tap)</span></i></h3>' + '<p><i> __ </i> cases</p>' + '<p><i> __ </i> deaths</p>' + '<p><i> __ </i> recoveries</p>'); +
       '</div>'
   };
