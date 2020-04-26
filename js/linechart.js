@@ -31,8 +31,8 @@
       window.legendFontSize = 12;
       window.titleFontSize = 15;
       window.xAxisFontSize = 9;
-      window.xAxisMinRotation = 0;
-      window.xAxisMaxRotation = 0.1;
+      window.xAxisMinRotation = 89.9;
+      window.xAxisMaxRotation = 90;
       window.xAxisPosition = 'top';
       window.xAxisMirror = true;
       window.yAxisFontSize = 9;
@@ -142,37 +142,40 @@
 				scales: {
 					xAxes: [{
             type: 'time',
-              time: {
-                  unit: 'day',
-                  unitStepSize: 5,          
-              },
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Date'
-						},
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
-              fontSize: "9"
+              fontSize: window.xAxisFontSize,
+              autoSkip: true,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 40,
             },
-            gridLines:{
-              color:"rgba(255,255,255,0.1)"
-            }
+            gridLines:{color:"rgba(255,255,255,0.1)"}
 					}],
 					yAxes: [{
 						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Cases',
-              fontColor: "#fff",
-              fontSize: "10",
-						},
+						scaleLabel: {display: false,},
             ticks:{
+              mirror: window.yAxisTickMirror,
               fontColor: "#fff",
-              fontSize: "9",
+              fontSize: window.yAxisFontSize,
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
+            },
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
             },
             gridLines:{
-              color:"rgba(255,255,255,0.1)"
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
 					}],
 
@@ -189,13 +192,11 @@
 					label: 'Cases',
           pointRadius: 0,
           borderWidth: 2,
-          borderColor: "rgba(230, 84, 83, 0.9)",
-					//backgroundColor: "rgba(255, 107, 105, 0.8)",
-          backgroundColor: "rgba(230, 84, 83, 0.9)",
+          borderColor: "rgba(255, 107, 105, 0.8)",
+					backgroundColor: "rgba(255, 107, 105, 0.8)",
 					data: dailyCaseChange,
           barPercentage: 1,
-          categoryPercentage: 0.9,
-          //barThickness: 'flex',
+          categoryPercentage: 0.85,
 				},
         {
 					label: 'Deaths',
@@ -205,18 +206,18 @@
 					backgroundColor: "rgba(245,153,34,.9)",
 					data: dailyDeathChange,
           barPercentage: 1,
-          categoryPercentage: 0.9,
-          hidden: false,
+          categoryPercentage: 0.85,
+          hidden: true,
 				},
         {
 					label: 'Recoveries',
           pointRadius: 0,
           borderWidth: 2,
-          borderColor: "rgba(31,173,37,0.9)",
-					backgroundColor: "rgba(31,173,37,0.9)",
+          borderColor: "rgba(31,173,37,0.8)",
+					backgroundColor: "rgba(31,173,37,0.8)",
 					data: dailyRecoveryChange,
           barPercentage: 1,
-          categoryPercentage: 0.9,
+          categoryPercentage: 0.85,
           hidden: true,
         }]
 			},
@@ -260,15 +261,13 @@
 				},
 				scales: {
 					xAxes: [{
-            //offsetGridlines:true,
+            offset:true,
             type: 'time',
             time: {
               unit: 'day',
               //unitStepSize: 4,
             },
 						display: true,
-            offset:false,
-            position:window.xAxisPosition,
 						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
@@ -278,7 +277,9 @@
               maxRotation:window.xAxisMaxRotation,
               autoSkipPadding: 40,
             },
-            gridLines:{color:"rgba(255,255,255,0.1)"}
+            gridLines:{
+              color:"rgba(255,255,255,0.1)",
+            }
 					}],
 					yAxes: [{
 						display: true,
@@ -297,6 +298,7 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
+              drawBorder:false,
               drawTicks: window.yAxisTickDisplay,
             }
 					}],

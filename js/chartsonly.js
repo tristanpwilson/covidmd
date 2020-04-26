@@ -105,6 +105,11 @@
     var colorCnty22 = '#FF4973';
     var colorCnty23 = '#FF4973';
 
+
+
+
+
+
     // Checking window width and changing parameters accordingly
     if($(window).width() <= 575) {
       window.legendFontSize = 14;
@@ -117,6 +122,7 @@
       window.yAxisTickMirror = true;
       window.legendPaddingCnty = 14;
       window.legendPositionCnty = "bottom";
+      window.legendAlignCnty = "start";
     } else {
       window.legendFontSize = 15;
       window.titleFontSize = 22;
@@ -126,11 +132,14 @@
       window.yAxisFontSize = 14;
       window.yAxisTickDisplay = true;
       window.yAxisTickMirror = false;
-      window.legendPaddingCnty = 5;
+      window.legendPaddingCnty =10;
       window.legendPositionCnty = "left";
+      window.legendAlignCnty = "center";
     }
     
     
+
+
 
     //Linechart 1 Config		
     var config = {
@@ -241,7 +250,7 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
-              zeroLineColor: "rgba(255,255,255,0.1)",
+              zeroLineColor: "rgba(255,255,255,0.02)",
             }
 					}],
 					yAxes: [{
@@ -261,7 +270,6 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
-              zeroLineColor: "rgba(255,255,255,0.1)",
               drawTicks: window.yAxisTickDisplay,
             }
 					}],
@@ -289,8 +297,8 @@
 					label: 'Deaths',
           pointRadius: 0,
           borderWidth: 2,
-          borderColor: "rgba(245,153,34,.9)",
-					backgroundColor: "rgba(245,153,34,.9)",
+          borderColor: "rgba(245,153,34,0.9)",
+					backgroundColor: "rgba(245,153,34,0.9)",
 					data: dailyDeathChange,
           barPercentage: 1,
           categoryPercentage: 0.85,
@@ -312,6 +320,13 @@
 				responsive: true,
         maintainAspectRatio: false,  
         //aspectRatio: window.aspect,     
+        title: {
+					display: true,
+					text: 'Daily New Cases in MD',
+          fontColor: "#fff",
+          fontFamily: "Work Sans",
+          fontSize: window.titleFontSize,
+				},
         legend: {
           display: true,
           position: "top",
@@ -324,13 +339,6 @@
            fontSize: window.legendFontSize,
           },
         },
-				title: {
-					display: true,
-					text: 'Daily New Cases in MD',
-          fontColor: "#fff",
-          fontFamily: "Work Sans",
-          fontSize: window.titleFontSize,
-				},
         tooltips: {
           enabled: true, 
           mode: 'label',
@@ -384,7 +392,9 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
+              drawBorder:false,
               drawTicks: window.yAxisTickDisplay,
+              tickMarkLength:0,
             }
 					}],
 
@@ -401,10 +411,12 @@
 					label: 'Deaths per Day',
           pointRadius: 0,
           borderWidth: 2,
-          borderColor: "rgba(245,153,34,.9)",
-					backgroundColor: "rgba(245,153,34,.9)",
+          borderColor: "rgba(245,153,34,.8)",
+					backgroundColor: "rgba(245,153,34,.8)",
 					data: dailyDeathChange,
 					fill: true,
+          barPercentage: 1,
+          categoryPercentage: 0.85,
 				}]
 			},
 			options: {
@@ -482,7 +494,9 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
+              drawBorder:false,
               drawTicks: window.yAxisTickDisplay,
+              tickMarkLength:0,
             }
 					}],
 
@@ -503,6 +517,8 @@
 					backgroundColor: "rgba(31,173,37,0.8)",
 					data: dailyRecoveryChange,
 					fill: true,
+          barPercentage: 1,
+          categoryPercentage: 0.85,
         }]
 			},
 			options: {
@@ -580,7 +596,9 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
+              drawBorder:false,
               drawTicks: window.yAxisTickDisplay,
+              tickMarkLength:0,
             }
 					}],
 
@@ -781,13 +799,15 @@
         legend: {
           display: true,
           position: window.legendPositionCnty,
-          align: "start",
+          align: window.legendAlignCnty,
           fullWidth: true,
           labels:{
            boxWidth: 13,
            fontColor: "#fafafa",
            fontSize: window.legendFontSize,
            padding:window.legendPaddingCnty,
+          
+           textDirection:'right',
           },
         },
 				title: {
@@ -850,7 +870,9 @@
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
+              drawBorder:false,
               drawTicks: window.yAxisTickDisplay,
+              tickMarkLength:0,
             }
 					}],
 
@@ -871,8 +893,11 @@
       
       var ctx = document.getElementById('canvasCnty').getContext('2d');
 			window.myLineMulti = new Chart(ctx, configCnty);
+
 		};
- 
+    
+  
+
  
 // Saving if needed because this works well
 //          labels:{
