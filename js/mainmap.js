@@ -41,7 +41,7 @@
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
     this._div.innerHTML =
-      '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflag.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
+      '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflagmap-lg.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
 
       '<div id="countycases"><a href="charts#casesbycounty" id="chartIconLine1" aria-label="Link to chart of county data over time" title="View graph of county data"></a>' + 
       (props ?
