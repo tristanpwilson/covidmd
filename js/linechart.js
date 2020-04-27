@@ -51,11 +51,7 @@
       window.yAxisTickDisplay = true;
       window.yAxisTickMirror = false;
     }
-   
-   
 
-   
-   //if($(window).width() <= 575) {} else if($(window).width() > 575 && $(window).width() <= 767) { } else{ }
 
     //Linechart 1 Config		
     var config = {
@@ -308,14 +304,16 @@
 		};
 
 
-
-
-		window.onload = function() {
+    window.onload = function generateCharts() {
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
       var ctx = document.getElementById('canvas2').getContext('2d');
 			window.myBar = new Chart(ctx, config2);
 		};
+		
+
+    
+   
 
 		//var colorNames = Object.keys(window.chartColors);
     
