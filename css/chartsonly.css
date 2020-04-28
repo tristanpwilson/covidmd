@@ -185,7 +185,6 @@
 
 .stdcharts{
   position:relative;
-  display:block;
   z-index:3000 !important; 
   height:80vh;
   flex-shrink:2;

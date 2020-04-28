@@ -3,13 +3,9 @@
 //Calls the latest data from latest.js and updates the JSON objects in us-counties.js
   latestData();
 
-
   //Instantiates the Leaflet.js map
-  //if (L.Browser.mobile) {
-  //    var mainmap = L.map('mapMain', {zoomControl: false}).setView([37.50, -77.28], 7);
-  // } else 
-  //    var mainmap = L.map('mapMain', {zoomControl: false}).setView([38.73, -76.34], 8);
-      
+
+    //if (L.Browser.mobile) {
     if($(window).width() <= 767) {
       var mainmap = L.map('mapMain', {zoomControl: false}).setView([36.9, -77.28], 7);
     } else {
@@ -37,11 +33,18 @@
     this.update();
     return this._div;
   };
+  
+  // Pulling case data from JSON, calculating when needed, and setting as variables
+  var stateCasesVal = countiesData.features[24].properties.history[countiesData.features[24].properties.history.length-1];
+  var stateCasesChg = stateCasesVal - countiesData.features[24].properties.history[countiesData.features[24].properties.history.length-2];
+  var stateDeathsVal = countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-1];
+  var stateDeathsChg = stateDeathsVal - countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-2];
+  
 
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
     this._div.innerHTML =
-      '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflagmap-lg.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + countiesData.features[24].properties.statecases + ' cases <b class="diff">(+' + [countiesData.features[24].properties.statecases - countiesData.features[24].properties.prevstatecases] + ')</b></p><p>' + countiesData.features[24].properties.deaths + ' deaths <b class="diff">(+' + [countiesData.features[24].properties.deaths - countiesData.features[24].properties.prevdeaths] + ')</b></p></div>' +
+      '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflagmap-lg.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + stateCasesVal + ' cases <b class="diff">(+' + stateCasesChg + ')</b></p><p>' + stateDeathsVal + ' deaths <b class="diff">(+' + stateDeathsChg + ')</b></p></div>' +
 
       '<div id="countycases"><a href="charts#casesbycounty" id="chartIconLine1" aria-label="Link to chart of county data over time" title="View graph of county data"></a>' + 
       (props ?
@@ -54,6 +57,7 @@
       '</div>'
   };
   
+  // Adds info control to map
   info.addTo(mainmap);
   
   // Info control has been created, now we want to move it to the desired parent container (#infoPane)
@@ -74,7 +78,7 @@
   a.addEventListener('mouseout', function () {mainmap.dragging.enable(); mainmap.scrollWheelZoom.enable();}); 
   a.addEventListener('touchend', function () {mainmap.dragging.enable();}); 
 
-
+  
   // Calculating the maximum and minimum case values for use in color scale  
   var countiesData, i, caseNumbers = "";
   for (i in countiesData.features) {
@@ -88,7 +92,7 @@
 
   // Color scale of shading depending on case count value
   function getColor(d) {
-
+  
     return d >= caseMax ? '#A60000' :
            d > caseMax / 1.25 ? '#cc2212' :
            d > caseMax / 1.50 ? '#d93b23' :
@@ -103,7 +107,7 @@
   }
   
   
- //Styles for general county polygon features
+  //Styles for general county polygon features
   function style(feature) {
     return {
       weight: 1.5,
@@ -116,31 +120,25 @@
   }
 
   function highlightFeature(e) {
-
     var layer = e.target;
+    
+    layer.setStyle({
+      weight: 3,
+      opacity: .8,
+      color: '#fff',
+      dashArray: '',
+      fillOpacity: 1,
+  });
 
-   // if (L.Browser.mobile) {} 
-   // else {
-      layer.setStyle({
-        weight: 3,
-        opacity: .8,
-        color: '#fff',
-        dashArray: '',
-        fillOpacity: 1,
-       });
-  // }
-
-    // Checks for browser compatibility (not chrome or firefox)
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge && !L.Browser.mobile) {
-      layer.bringToFront();
-    }
-
-
-    // Updates the data in the .info container
-    info.update(layer.feature.properties);
-    $(".info").addClass("infoActive");
+  // Checks for browser compatibility (not chrome or firefox)
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge && !L.Browser.mobile) {
+    layer.bringToFront();
   }
 
+  // Updates the data in the .info container
+  info.update(layer.feature.properties);
+    $(".info").addClass("infoActive");
+  }
 
 	var geojson;
 
@@ -161,17 +159,19 @@
 			mouseout: resetHighlight,
       mouseup: highlightFeature,
       mousedown: resetHighlight,
-
-      //click: highlightFeature
       //click: zoomToFeature
-		});
+  });
 
-    layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + feature.properties.cases + '</p>',{ 
-      permanent: true, 
-      interactive: false,
-      opacity: 1, 
-      offset: L.point(0, 0),
-      direction: 'center' });
+  // Setting variable for latest case value of each county from its JSON history array
+  var countyCasesVal = feature.properties.history[feature.properties.history.length-1];
+   
+   //layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + feature.properties.cases + '</p>',{ 
+   layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + countyCasesVal + '</p>',{ 
+    permanent: true, 
+    interactive: false,
+    opacity: 1, 
+    offset: L.point(0, 0),
+    direction: 'center' });
   }
 
 	geojson = L.geoJson(countiesData, {
@@ -180,7 +180,6 @@
 	}).addTo(mainmap);
 
   mainmap.on('zoomend', function () {
-    
     var zoomLevel = mainmap.getZoom();
     var countyName = $('.leaflet-tooltip h5');
     var countyNumber = $('.leaflet-tooltip p.mapCases');
@@ -214,11 +213,7 @@
           countyNumber.css('font-size', 24);
           break;
       }
-
     //alert(zoomLevel);
   });
   
 
-
-
-//alert(countiesData.features[1].properties.name);
