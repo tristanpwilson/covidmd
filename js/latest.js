@@ -6,9 +6,11 @@ function latestData () {
 countiesData.features[24].properties.history = [39,57,85,108,150,195,245,290,349,423,581,790,1066,1244,1415,1662,1985,2331,2758,3125,3609,4045,4371,5529,6185,6968,7694,8228,8936,9472,10032,10734,11572,12308,12830,13684,14193,14775,15737,16616,17766,18581,19487,20113,];
 countiesData.features[24].properties.historydeaths = [0,0,1,1,2,3,3,3,4,4,4,5,10,11,15,18,24,29,42,54,68,92,104,124,139,172,207,236,262,302,351,372,408,463,486,516,584,631,748,798,875,910,945,1016,];
 countiesData.features[24].properties.historyrecoveries = [3,3,3,3,3,3,3,3,3,3,3,25,32,39,43,53,69,81,159,159,159,184,288,365,365,365,431,456,603,607,607,736,736,771,914,917,930,981,1040,1108,1165,1177,1263,1295,];
+
 countiesData.features[24].properties.dates = ["3/16/2020", "3/17/2020", "3/18/2020", "3/19/2020", "3/20/2020", "3/21/2020", "3/22/2020", "3/23/2020", "3/24/2020", "3/25/2020", "3/26/2020", "3/27/2020", "3/28/2020", "3/29/2020", "3/30/2020", "3/31/2020", "4/1/2020", "4/2/2020", "4/3/2020", "4/4/2020", "4/5/2020", "4/6/2020", "4/7/2020", "4/8/2020","4/9/2020","4/10/2020","4/11/2020","4/12/2020","4/13/2020","4/14/2020","4/15/2020","4/16/2020","4/17/2020","4/18/2020","4/19/2020","4/20/2020","4/21/2020","4/22/2020","4/23/2020","4/24/2020","4/25/2020","4/26/2020","4/27/2020","4/28/2020"];
 
-//Per County Case History Arrays
+
+// Case History Arrays Per County
 countiesData.features[0].properties.history = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,6,6,7,6,8,10,11,13,15,17,17,20,26,33,33,32,56,58,77,90,105,113,114,115,];
 countiesData.features[1].properties.history = [2,3,4,5,10,16,19,20,24,31,42,63,88,99,110,127,158,206,249,289,319,343,370,466,505,554,615,659,724,783,845,896,966,1005,1047,1098,1157,1190,1294,1373,1430,1510,1544,1571,];
 countiesData.features[2].properties.history = [4,4,7,13,13,19,28,35,42,51,81,103,141,162,186,227,289,353,427,491,590,648,652,866,979,1072,1173,1257,1361,1377,1485,1516,1569,1664,1733,1875,1925,2012,2132,2234,2387,2509,2548,2631,];
@@ -34,6 +36,93 @@ countiesData.features[21].properties.history = [0,0,0,0,0,1,1,2,2,2,2,5,6,6,7,11
 countiesData.features[22].properties.history = [0,0,0,1,1,2,2,4,4,4,5,6,6,6,7,7,7,7,7,8,11,11,17,20,21,28,33,42,58,63,76,87,103,138,145,166,176,183,203,222,242,270,336,340,];
 countiesData.features[23].properties.history = [0,0,0,0,1,1,2,2,2,2,2,2,2,2,3,3,4,5,5,7,9,10,10,10,16,16,19,20,21,21,22,25,28,31,33,34,33,34,39,44,46,48,53,54,];
 
+
+// Deaths History Arrays Per County
+countiesData.features[0].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,3,3,3,3,3,4,5,];
+countiesData.features[1].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,4,6,6,8,8,11,12,16,19,27,29,32,30,35,40,34,40,48,52,56,61,63,62,71,74,78,];
+countiesData.features[2].properties.historydeaths = [0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,4,6,11,11,13,16,21,26,30,31,41,32,37,44,38,44,50,59,64,66,71,69,81,98,107,];
+countiesData.features[3].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,4,6,7,8,9,10,13,17,22,24,26,29,27,35,42,40,46,54,58,67,71,74,72,79,88,90,];
+countiesData.features[4].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,2,2,2,1,1,1,1,1,1,2,2,3,3,4,5,6,6,7,7,7,8,];
+countiesData.features[5].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[6].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,5,5,5,6,8,10,16,18,18,19,25,25,28,29,22,23,27,26,27,31,31,32,34,34,36,36,37,44,];
+countiesData.features[7].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3,5,5,5,5,5,5,6,];
+countiesData.features[8].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,3,4,5,9,10,12,11,13,15,16,17,20,23,30,32,34,34,35,37,39,];
+countiesData.features[9].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,];
+countiesData.features[10].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,3,4,4,4,4,9,11,12,12,14,27,29,30,23,25,30,33,35,36,41,39,45,48,48,];
+countiesData.features[11].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[12].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,3,4,6,0,1,6,7,8,8,9,4,11,11,13,];
+countiesData.features[13].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,3,3,3,3,3,4,5,6,6,8,9,10,11,11,10,11,13,13,14,15,15,15,16,17,18,];
+countiesData.features[14].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,3,3,4,4,];
+countiesData.features[15].properties.historydeaths = [0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,6,9,9,13,19,21,26,29,34,36,42,48,54,58,70,78,70,80,106,116,126,139,154,152,180,210,221,];
+countiesData.features[16].properties.historydeaths = [0,0,1,1,1,1,1,1,2,2,2,2,3,3,6,7,7,7,9,13,16,23,26,32,35,42,50,55,63,72,76,80,87,85,98,112,118,132,150,158,162,174,198,206,];
+countiesData.features[17].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,2,2,2,2,2,2,3,3,3,3,4,];
+countiesData.features[18].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,1,1,1,1,2,2,3,3,4,6,6,6,6,7,];
+countiesData.features[19].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[20].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,];
+countiesData.features[21].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,1,3,3,3,3,3,3,3,3,3,3,3,];
+countiesData.features[22].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,2,2,3,3,4,4,5,5,];
+countiesData.features[23].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,];
+
+
+// Recoveries History Arrays Per County
+countiesData.features[0].properties.historyrecoveries = [1,0,1,1,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[1].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[2].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[3].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[4].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[5].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[6].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,];
+countiesData.features[7].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[8].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[9].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[10].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,20,20,20,20,20,20,152,152,152,152,152,152,152,152,];
+countiesData.features[11].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[12].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[13].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,];
+countiesData.features[14].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[15].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,];
+countiesData.features[16].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[17].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[18].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[19].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[20].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[21].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+countiesData.features[22].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,52,52,52,];
+countiesData.features[23].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
+
+
+// Population Totals per County + State Aggregate
+countiesData.features[0].properties.population = 70416;
+countiesData.features[1].properties.population = 579234;
+countiesData.features[2].properties.population = 827370;
+countiesData.features[3].properties.population = 593490;
+countiesData.features[4].properties.population = 92525;
+countiesData.features[5].properties.population = 33406;
+countiesData.features[6].properties.population = 168447;
+countiesData.features[7].properties.population = 102855;
+countiesData.features[8].properties.population = 163257;
+countiesData.features[9].properties.population = 31929;
+countiesData.features[10].properties.population = 259547;
+countiesData.features[11].properties.population = 29014;
+countiesData.features[12].properties.population = 255441;
+countiesData.features[13].properties.population = 325690;
+countiesData.features[14].properties.population = 19422;
+countiesData.features[15].properties.population = 1050688;
+countiesData.features[16].properties.population = 909327;
+countiesData.features[17].properties.population = 50381;
+countiesData.features[18].properties.population = 113510;
+countiesData.features[19].properties.population = 26616;
+countiesData.features[20].properties.population = 37181;
+countiesData.features[21].properties.population = 151049;
+countiesData.features[22].properties.population = 103609;
+countiesData.features[23].properties.population = 52276;
+countiesData.features[24].properties.population = 6045680;
+
+
+
+// ----------------------------------------------------------------------------------------------
+// Nothing below this point needs to be changed - just autocalculates based upon the arrays above
+// ----------------------------------------------------------------------------------------------
 
 // Cases
 // Populating Todays 'cases' JSON by taking the last value in the 'history' JSON array
@@ -91,88 +180,118 @@ countiesData.features[22].properties.prevcases = countiesData.features[22].prope
 countiesData.features[23].properties.prevcases = countiesData.features[23].properties.history[countiesData.features[0].properties.history.length-2];
 countiesData.features[24].properties.prevstatecases = countiesData.features[24].properties.history[countiesData.features[0].properties.history.length-2];
 
-//deaths
-countiesData.features[0].properties.deaths = 5;
-countiesData.features[1].properties.deaths = 78;
-countiesData.features[2].properties.deaths = 107;
-countiesData.features[3].properties.deaths = 90;
-countiesData.features[4].properties.deaths = 8;
-countiesData.features[5].properties.deaths = 0;
-countiesData.features[6].properties.deaths = 44;
-countiesData.features[7].properties.deaths = 6;
-countiesData.features[8].properties.deaths = 39;
-countiesData.features[9].properties.deaths = 2;
-countiesData.features[10].properties.deaths = 48;
-countiesData.features[11].properties.deaths = 0;
-countiesData.features[12].properties.deaths = 13;
-countiesData.features[13].properties.deaths = 18;
-countiesData.features[14].properties.deaths = 4;
-countiesData.features[15].properties.deaths = 221;
-countiesData.features[16].properties.deaths = 206;
-countiesData.features[17].properties.deaths = 4;
-countiesData.features[18].properties.deaths = 7;
-countiesData.features[19].properties.deaths = 0;
-countiesData.features[20].properties.deaths = 1;
-countiesData.features[21].properties.deaths = 3;
-countiesData.features[22].properties.deaths = 5;
-countiesData.features[23].properties.deaths = 1;
-countiesData.features[24].properties.deaths = 1016;
+// Deaths
+// Populating Todays 'deaths' JSON by taking the last value in the 'historydeaths' JSON array
+countiesData.features[0].properties.deaths = countiesData.features[0].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[1].properties.deaths = countiesData.features[1].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[2].properties.deaths = countiesData.features[2].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[3].properties.deaths = countiesData.features[3].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[4].properties.deaths = countiesData.features[4].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[5].properties.deaths = countiesData.features[5].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[6].properties.deaths = countiesData.features[6].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[7].properties.deaths = countiesData.features[7].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[8].properties.deaths = countiesData.features[8].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[9].properties.deaths = countiesData.features[9].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[10].properties.deaths = countiesData.features[10].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[11].properties.deaths = countiesData.features[11].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[12].properties.deaths = countiesData.features[12].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[13].properties.deaths = countiesData.features[13].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[14].properties.deaths = countiesData.features[14].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[15].properties.deaths = countiesData.features[15].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[16].properties.deaths = countiesData.features[16].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[17].properties.deaths = countiesData.features[17].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[18].properties.deaths = countiesData.features[18].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[19].properties.deaths = countiesData.features[19].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[20].properties.deaths = countiesData.features[20].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[21].properties.deaths = countiesData.features[21].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[22].properties.deaths = countiesData.features[22].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[23].properties.deaths = countiesData.features[23].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
+countiesData.features[24].properties.deaths = countiesData.features[24].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-1];
 
-//prevdeaths
-countiesData.features[0].properties.prevdeaths = 4;
-countiesData.features[1].properties.prevdeaths = 74;
-countiesData.features[2].properties.prevdeaths = 98;
-countiesData.features[3].properties.prevdeaths = 88;
-countiesData.features[4].properties.prevdeaths = 7;
-countiesData.features[5].properties.prevdeaths = 0;
-countiesData.features[6].properties.prevdeaths = 37;
-countiesData.features[7].properties.prevdeaths = 5;
-countiesData.features[8].properties.prevdeaths = 37;
-countiesData.features[9].properties.prevdeaths = 2;
-countiesData.features[10].properties.prevdeaths = 48;
-countiesData.features[11].properties.prevdeaths = 0;
-countiesData.features[12].properties.prevdeaths = 11;
-countiesData.features[13].properties.prevdeaths = 17;
-countiesData.features[14].properties.prevdeaths = 4;
-countiesData.features[15].properties.prevdeaths = 210;
-countiesData.features[16].properties.prevdeaths = 198;
-countiesData.features[17].properties.prevdeaths = 3;
-countiesData.features[18].properties.prevdeaths = 6;
-countiesData.features[19].properties.prevdeaths = 0;
-countiesData.features[20].properties.prevdeaths = 1;
-countiesData.features[21].properties.prevdeaths = 3;
-countiesData.features[22].properties.prevdeaths = 5;
-countiesData.features[23].properties.prevdeaths = 0;
-countiesData.features[24].properties.prevdeaths = 945;
+// Prevdeaths
+// Populating yesterdays 'prevdeaths' JSON by taking the 2nd to last value in the 'historydeaths' JSON array
+countiesData.features[0].properties.prevdeaths = countiesData.features[0].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[1].properties.prevdeaths = countiesData.features[1].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[2].properties.prevdeaths = countiesData.features[2].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[3].properties.prevdeaths = countiesData.features[3].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[4].properties.prevdeaths = countiesData.features[4].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[5].properties.prevdeaths = countiesData.features[5].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[6].properties.prevdeaths = countiesData.features[6].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[7].properties.prevdeaths = countiesData.features[7].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[8].properties.prevdeaths = countiesData.features[8].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[9].properties.prevdeaths = countiesData.features[9].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[10].properties.prevdeaths = countiesData.features[10].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[11].properties.prevdeaths = countiesData.features[11].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[12].properties.prevdeaths = countiesData.features[12].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[13].properties.prevdeaths = countiesData.features[13].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[14].properties.prevdeaths = countiesData.features[14].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[15].properties.prevdeaths = countiesData.features[15].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[16].properties.prevdeaths = countiesData.features[16].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[17].properties.prevdeaths = countiesData.features[17].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[18].properties.prevdeaths = countiesData.features[18].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[19].properties.prevdeaths = countiesData.features[19].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[20].properties.prevdeaths = countiesData.features[20].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[21].properties.prevdeaths = countiesData.features[21].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[22].properties.prevdeaths = countiesData.features[22].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[23].properties.prevdeaths = countiesData.features[23].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
+countiesData.features[24].properties.prevdeaths = countiesData.features[24].properties.historydeaths[countiesData.features[0].properties.historydeaths.length-2];
 
-//recoveries
-countiesData.features[0].properties.recoveries = 0;
-countiesData.features[1].properties.recoveries = 8;
-countiesData.features[2].properties.recoveries = 6;
-countiesData.features[3].properties.recoveries = 11;
-countiesData.features[4].properties.recoveries = 0;
-countiesData.features[5].properties.recoveries = 0;
-countiesData.features[6].properties.recoveries = 0;
-countiesData.features[7].properties.recoveries = 0;
-countiesData.features[8].properties.recoveries = 1;
-countiesData.features[9].properties.recoveries = 0;
-countiesData.features[10].properties.recoveries = 6;
-countiesData.features[11].properties.recoveries = 0;
-countiesData.features[12].properties.recoveries = 7;
-countiesData.features[13].properties.recoveries = 1;
-countiesData.features[14].properties.recoveries = 0;
-countiesData.features[15].properties.recoveries = 20;
-countiesData.features[16].properties.recoveries = 11;
-countiesData.features[17].properties.recoveries = 0;
-countiesData.features[18].properties.recoveries = 0;
-countiesData.features[19].properties.recoveries = 0;
-countiesData.features[20].properties.recoveries = 0;
-countiesData.features[21].properties.recoveries = 0;
-countiesData.features[22].properties.recoveries = 0;
-countiesData.features[23].properties.recoveries = 0;
-countiesData.features[24].properties.recoveries = 1295;
+// Recoveries
+// Populating todays 'recoveries' JSON by taking the last value in the 'historyrecoveries' JSON array
+countiesData.features[0].properties.recoveries = countiesData.features[0].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[1].properties.recoveries = countiesData.features[1].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[2].properties.recoveries = countiesData.features[2].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[3].properties.recoveries = countiesData.features[3].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[4].properties.recoveries = countiesData.features[4].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[5].properties.recoveries = countiesData.features[5].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[6].properties.recoveries = countiesData.features[6].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[7].properties.recoveries = countiesData.features[7].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[8].properties.recoveries = countiesData.features[8].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[9].properties.recoveries = countiesData.features[9].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[10].properties.recoveries = countiesData.features[10].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[11].properties.recoveries = countiesData.features[11].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[12].properties.recoveries = countiesData.features[12].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[13].properties.recoveries = countiesData.features[13].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[14].properties.recoveries = countiesData.features[14].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[15].properties.recoveries = countiesData.features[15].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[16].properties.recoveries = countiesData.features[16].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[17].properties.recoveries = countiesData.features[17].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[18].properties.recoveries = countiesData.features[18].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[19].properties.recoveries = countiesData.features[19].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[20].properties.recoveries = countiesData.features[20].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[21].properties.recoveries = countiesData.features[21].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[22].properties.recoveries = countiesData.features[22].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[23].properties.recoveries = countiesData.features[23].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
+countiesData.features[24].properties.recoveries = countiesData.features[24].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-1];
 
-//prevrecoveries
-countiesData.features[24].properties.prevrecoveries = 1263;
+// Prevrecoveries
+// Populating yesterdays 'prevrecoveries' JSON by taking the 2nd to last value in the 'historyrecoveries' JSON array
+// Note: Reporting on recoveries is so sparse that I'm currently not including change in recovery per day values, and thus have commented out the counties below
+// Still reporting total change in recoveries though, so [24] is not commented
+//countiesData.features[0].properties.prevrecoveries = countiesData.features[0].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[1].properties.prevrecoveries = countiesData.features[1].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[2].properties.prevrecoveries = countiesData.features[2].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[3].properties.prevrecoveries = countiesData.features[3].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[4].properties.prevrecoveries = countiesData.features[4].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[5].properties.prevrecoveries = countiesData.features[5].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[6].properties.prevrecoveries = countiesData.features[6].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[7].properties.prevrecoveries = countiesData.features[7].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[8].properties.prevrecoveries = countiesData.features[8].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[9].properties.prevrecoveries = countiesData.features[9].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[10].properties.prevrecoveries = countiesData.features[10].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[11].properties.prevrecoveries = countiesData.features[11].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[12].properties.prevrecoveries = countiesData.features[12].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[13].properties.prevrecoveries = countiesData.features[13].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[14].properties.prevrecoveries = countiesData.features[14].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[15].properties.prevrecoveries = countiesData.features[15].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[16].properties.prevrecoveries = countiesData.features[16].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[17].properties.prevrecoveries = countiesData.features[17].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[18].properties.prevrecoveries = countiesData.features[18].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[19].properties.prevrecoveries = countiesData.features[19].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[20].properties.prevrecoveries = countiesData.features[20].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[21].properties.prevrecoveries = countiesData.features[21].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[22].properties.prevrecoveries = countiesData.features[22].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+//countiesData.features[23].properties.prevrecoveries = countiesData.features[23].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
+countiesData.features[24].properties.prevrecoveries = countiesData.features[24].properties.historyrecoveries[countiesData.features[0].properties.historyrecoveries.length-2];
 
 }  

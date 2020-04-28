@@ -40,6 +40,11 @@
   var stateDeathsVal = countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-1];
   var stateDeathsChg = stateDeathsVal - countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-2];
   
+  //var countyCasesVal = countiesData.features[24].properties.history[countiesData.features[24].properties.history.length-1];
+  //var countyCasesChg = stateCasesVal - countiesData.features[24].properties.history[countiesData.features[24].properties.history.length-2];
+  //var countyDeathsVal = countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-1];
+  //var countyDeathsChg = stateDeathsVal - countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-2];
+  
 
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
@@ -50,6 +55,7 @@
       (props ?
       
       // Content displayed on county hover
+      //  '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         
         // Default content without county hover

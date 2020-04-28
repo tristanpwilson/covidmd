@@ -84,15 +84,16 @@
 
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
-        <li class="toggle-tab active-tab"><a href="#totalcases">Total<br class="mobile-xs-only"> Cases</a></li>
-        <li class="toggle-tab"><a href="#dailycases">Daily<br class="mobile-xs-only"> Cases</a></li>
-        <li class="toggle-tab"><a href="#dailydeaths">Daily<br class="mobile-xs-only"> Deaths</a></li>
-        <li class="toggle-tab"><a href="#dailyrecoveries">Daily<br class="mobile-xs-only"> Recoveries</a></li>
-        <li class="toggle-tab"><a href="#casesbycounty">Cases By<br class="mobile-xs-only"> County</a></li>
+        <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Total<br class="mobile-xs-only"> Cases</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> Cases</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailydeaths">Daily<br class="mobile-xs-only"> Deaths</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailyrecoveries">Daily<br class="mobile-xs-only"> Recoveries</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-xs-only"> County</li>
       </ul>
     </div>  
     
-    <div id="mainchart" class="stdcharts tab-content active-tab-content"><h2 class="a11y">Cumulative Cases in MD</h2><canvas id="canvas"></canvas></div>
+    <!--<div id="mainchart" class="stdcharts tab-content active-tab-content"><h2 class="a11y">Cumulative Cases in MD</h2><canvas id="canvas"></canvas></div>-->
+    <div id="popchart" class="stdcharts tab-content active-tab-content"><h2 class="a11y">% Population</h2><canvas id="canvasPop"></canvas></div>
     <div id="secondchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Cases in MD</h2><canvas id="canvas2"></canvas></div>
     <div id="dthchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Deaths in MD</h2><canvas id="canvasDth"></canvas></div>
     <div id="recchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Recoveries in MD</h2><canvas id="canvasRec"></canvas></div>
@@ -104,51 +105,51 @@
       </div>
       <canvas id="canvasCnty"></canvas>
     </div>
-  
     
   </div>
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/us-counties.js"></script>
   <script type="text/javascript" src="js/latest.js"></script>
+  <script type="text/javascript" src="js/variables.js"></script>
   <script type="text/javascript" src="js/chartsonly.js"></script>
   
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">
      // Toggles active tab and active tabbed content
-    //$(document).ready(function () {  
-//       var hash = $.trim( window.location.hash );
-//       if (hash){ $('.toggle-tab[href$="'+hash+'"]').focus();
-//       toggleTabs();
-//       }else{}
-//    });
-//    
-//    function toggleTabs() {
-//      var currentTabIndex = $(document.activeElement).index();
-//
-//      $(".toggle-tab:eq(" + currentTabIndex + ")") 
-//        .addClass("active-tab")
-//        .parents("ul.box-toggle-tabs")
-//        .find("li")
-//        .not($(".toggle-tab:eq(" + currentTabIndex + ")"))
-//        .removeClass("active-tab");
-//      $(".tab-content:eq(" + currentTabIndex + ")")
-//        .addClass("active-tab-content")
-//        .parents("#container-charts")
-//        .find(".tab-content")
-//        .not($(".tab-content:eq(" + currentTabIndex + ")"))
-//        .removeClass("active-tab-content");
-//    };
+    $(document).ready(function () {  
+       var hash = $.trim( window.location.hash );
+       if (hash){ $('.toggle-tab[href$="'+hash+'"]').focus();
+       toggleTabs();
+       }else{}
+    });
+    
+    function toggleTabs() {
+      var currentTabIndex = $(document.activeElement).index();
+
+      $(".toggle-tab:eq(" + currentTabIndex + ")") 
+        .addClass("active-tab")
+        .parents("ul.box-toggle-tabs")
+        .find("li")
+        .not($(".toggle-tab:eq(" + currentTabIndex + ")"))
+        .removeClass("active-tab");
+      $(".tab-content:eq(" + currentTabIndex + ")")
+        .addClass("active-tab-content")
+        .parents("#container-charts")
+        .find(".tab-content")
+        .not($(".tab-content:eq(" + currentTabIndex + ")"))
+        .removeClass("active-tab-content");
+    };
     
     
     //Accessibility: Force tabs to work with mouse OR keyboard only
-    //$(".box-toggle-tabs li").on('click', toggleTabs);
-//    $(".box-toggle-tabs li").on('keypress', function (e) {
-//        //enter key code is 13
-//        if (e.which == 13) {
-//            toggleTabs()
-//        }
-//    });
+    $(".box-toggle-tabs li").on('click', toggleTabs);
+    $(".box-toggle-tabs li").on('keypress', function (e) {
+        //enter key code is 13
+        if (e.which == 13) {
+            toggleTabs()
+        }
+    });
     //$('.toggle-tab').first().click();
     
     
