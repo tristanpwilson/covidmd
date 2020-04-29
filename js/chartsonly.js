@@ -651,7 +651,7 @@
         display: true,
         position: window.legendPositionCnty,
         align: window.legendAlignCnty,
-        fullWidth: false,
+        fullWidth: true,
         labels:{
          boxWidth: 13,
          fontColor: "#fafafa",
