@@ -184,9 +184,10 @@
   #button-i{
    width:45px;
    height:45px;
-   max-height:45px;
-   min-height:35px;
    right:1vw;
+  }
+  #container-i-charts #button-i{
+   top:3px;
   }
   #panelDesc,
   #container-i-charts #panelDesc{

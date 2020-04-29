@@ -55,7 +55,6 @@
       (props ?
       
       // Content displayed on county hover
-      //  '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
         
         // Default content without county hover

@@ -63,7 +63,6 @@ countiesData.features[22].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,1,
 countiesData.features[23].properties.historydeaths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,];
 
 
-
 // Recoveries History Arrays Per County
 countiesData.features[0].properties.historyrecoveries = [1,0,1,1,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
 countiesData.features[1].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
