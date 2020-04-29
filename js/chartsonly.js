@@ -26,7 +26,7 @@
     window.yAxisFontSize = 14;
     window.yAxisTickDisplay = true;
     window.yAxisTickMirror = false;
-    window.legendPaddingCnty =10;
+    window.legendPaddingCnty = 10;
     window.legendPositionCnty = "left";
     window.legendAlignCnty = "center";
   }
@@ -651,7 +651,7 @@
         display: true,
         position: window.legendPositionCnty,
         align: window.legendAlignCnty,
-        fullWidth: true,
+        fullWidth: false,
         labels:{
          boxWidth: 13,
          fontColor: "#fafafa",
@@ -681,6 +681,14 @@
       hover: {
         mode: 'nearest',
         intersect: true
+      },
+      layout: {
+            padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+            }
       },
       scales: {
         xAxes: [{

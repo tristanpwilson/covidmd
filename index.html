@@ -87,20 +87,26 @@
         <ul class="box-toggle-tabs">
           <li class="toggle-tab active-tab" role="button">Total Cases</li>
           <li class="toggle-tab" role="button">Daily Cases</li>
+          <!--<li class="toggle-tab" role="button">Hospitalizations</li>-->
         </ul>
       </div>  
       
       <!-- First Chart.js Graph -->
       <div id="mainchart" class="stdcharts tab-content active-tab-content reorderWorker">
-        <a href="charts#totalcases" class="linkExpChart" title="Expand charts to fullscreen" aria-label="Expand charts to fullscreen"></a>
+        <a href="charts#totalcases" class="linkExpChart" title="Expand cumulative cases chart" aria-label="Expand cumulative cases chart"></a>
         <canvas id="canvas"></canvas>
       </div>
       
       <!-- Second Chart.js Graph -->
       <div id="secondchart" class="stdcharts tab-content reorderWorker">
-        <a href="charts#dailycases" class="linkExpChart" title="Expand charts to fullscreen" aria-label="Expand charts to fullscreen"></a>
+        <a href="charts#dailycases" class="linkExpChart" title="Expand daily cases chart" aria-label="Expand daily cases chart"></a>
         <canvas id="canvas2"></canvas>
       </div>
+      
+<!--      <div id="hospchart" class="stdcharts tab-content reorderWorker">
+        <a href="charts#hospitalizations" class="linkExpChart" title="Expand hospitalizations chart" aria-label="Expand hospitalizations chart"></a>
+        <canvas id="canvasHosp"></canvas>
+      </div>-->
         
     </div>
   </div>
@@ -162,7 +168,7 @@
   // Reorders DOM elements manually for proper screen reader reading order
   var wrapper = $('#infoPane'), 
       items = wrapper.children('.reorderWorker'),
-      arr = [4,0,1,2];  
+      arr = [4,0,1,2,3];  
   wrapper.append( $.map(arr, function(v){ return items[v] }) ); //items.detach(); if arr doesn't reuse all items
   
   // Removes map container from tab order because it shouldnt be in there

@@ -8165,6 +8165,10 @@ var countiesData =
         "historyrecoveries": [0,1],
         "population": 6045680,
         "dates": [],
+        "nowHospitalized": 1645,
+        "acuteCare": 1060,
+        "intensiveCare": 585,
+        "everHospitalized": 4402,
         "lastupdated": "4/27/20 11:00am EST",
       }
     },

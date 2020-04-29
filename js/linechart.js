@@ -24,6 +24,12 @@
       // Calculating daily change in Recoveries
       var dailyRecoveryChange = diff(recoveryNumbers);
       var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
+    
+    var nowHospNumbers = countiesData.features[24].properties.nowHospitalized;
+    var everHospNumbers = countiesData.features[24].properties.everHospitalized;
+    var intensiveHospNumbers = countiesData.features[24].properties.acuteCare;
+    var acuteHospNumbers = countiesData.features[24].properties.intensiveCare;
+
 
 
     if($(window).width() <= 575) {
@@ -303,12 +309,106 @@
 			}
 		};
 
+//    Barchart Hospitalizations Config
+//    var configHosp = {
+//			type: 'bar',
+//			data: {
+//				labels: ['Current Hospitalizations', 'Total Hospitalizations', 'Intensive Care', 'Acute Care'],
+//				datasets: [{
+//					label: 'Currently Hospitalized',
+//          pointRadius: 0,
+//          borderWidth: 2,
+//          borderColor: "rgba(255, 107, 105, 0.8)",
+//					backgroundColor: "rgba(255, 107, 105, 0.8)",
+//					data: [nowHospNumbers, everHospNumbers, intensiveHospNumbers, acuteHospNumbers],
+//          barPercentage: 1,
+//          categoryPercentage: 0.85,
+//				}]
+//			},    
+//			options: {
+//				responsive: true,
+//        aspectRatio: window.aspect, 
+//        //aspectRatio: window.aspect,     
+//        title: {
+//					display: true,
+//					text: 'Daily New Cases in MD',
+//          fontColor: "#fff",
+//          fontFamily: "Work Sans",
+//          fontSize: 12,
+//				},
+//        legend: {
+//          display: true,
+//          position: "top",
+//          align: "center",
+//          fullWidth: true,
+//          labels:{
+//           boxWidth: 13,
+//           //boxHeight: 16,
+//           fontColor: "#fafafa",
+//           fontSize: 12,
+//          },
+//        },
+//        tooltips: {
+//          enabled: true, 
+//          mode: 'label',
+//          displayColors:false,
+//          titleFontSize: 14,
+//          bodyFontSize: 14,
+//          position:'average',
+//          xalign: 'right',
+//          yalign:'none',
+//          intersect:true,
+//        },
+//				hover: {
+//					mode: 'nearest',
+//					intersect: true
+//				},
+//				scales: {
+//					xAxes: [{
+//            offset:true,
+//            type: 'category',
+//						display: true,
+//						scaleLabel: {display: false,},
+//            ticks:{
+//              fontColor: "#fff",
+//              fontSize: 12,
+//              autoSkip: false,
+//              maxRotation:0,
+//              autoSkipPadding: 60,
+//            },
+//            gridLines:{color:"rgba(255,255,255,0.1)"}
+//					}],
+//					yAxes: [{
+//						display: true,
+//						scaleLabel: {display: false,},
+//            ticks:{
+//              mirror: false,
+//              fontColor: "#fff",
+//              fontSize: 12,
+//              autoSkip: true,
+//              maxRotation: 0,
+//              autoSkipPadding: 30,
+//            },
+//            gridLines:{
+//              color:"rgba(255,255,255,0.1)",
+//              drawBorder:false,
+//              drawTicks: true,
+//              tickMarkLength:0,
+//            }
+//					}],
+//
+//				}
+//			}
+//		};
+
 
     window.onload = function generateCharts() {
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
       var ctx = document.getElementById('canvas2').getContext('2d');
 			window.myBar = new Chart(ctx, config2);
+      //var ctx = document.getElementById('canvasHosp').getContext('2d');
+			//window.myBar2 = new Chart(ctx, configHosp);
 		};
 		
 

@@ -182,7 +182,9 @@ html, body{height:100%;}
 #secondchart {
   order: 3;
 }
-
+#hospchart {
+  order: 4;
+}
 #mainchart canvas {}
 
 .container-toggle-tabs,
