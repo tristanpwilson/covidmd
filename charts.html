@@ -85,7 +85,7 @@
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
         <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Total<br class="mobile-xs-only"> Cases</li>
-        <li class="toggle-tab active" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> Cases</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> Cases</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#dailydeaths">Daily<br class="mobile-xs-only"> Deaths</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#dailyrecoveries">Daily<br class="mobile-xs-only"> Recoveries</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-xs-only"> County</li>
@@ -115,12 +115,12 @@
   
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">
-     // Toggles active tab and active tabbed content
+    // Toggles active tab and active tabbed content
     $(document).ready(function () {  
        var hash = $.trim( window.location.hash );
        if (hash){ $('.toggle-tab[href$="'+hash+'"]').focus();
        toggleTabs();
-       }else{}
+       } else{}
     });
     
     function toggleTabs() {
