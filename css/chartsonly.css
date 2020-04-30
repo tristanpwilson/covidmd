@@ -26,7 +26,7 @@
   height:auto;
   flex-shrink:0;
   padding: 10px 0;
-  background: #121212;
+  background: #151515;
 }
 .container-header h1{
   margin:0;
@@ -125,7 +125,7 @@
   width:100%;
   padding:0 !important;
   margin:0 !important;
-  background: #121212;
+  background: #151515;
 }
 .box-toggle-tabs{
   position:relative;
@@ -137,7 +137,7 @@
   height:100%;
   padding:0 !important;
   margin:0 !important;
-  background: #121212;
+  background: #151515;
 }
 
 .toggle-tab {
@@ -155,7 +155,7 @@
   list-style: none;
   text-align:center;
   color:rgba(255,255,255,0.47);
-  background: rgba(38,38,38,.2);
+  background: rgba(38,38,38,.4);
   border:1px solid rgba(38,38,38,.3);
   font-weight:600;
   cursor:pointer;
@@ -170,7 +170,7 @@
   height:38px;
   line-height:38px;
   color:rgba(255,255,255,0.7);
-  background: rgba(38,38,38,.5);
+  background: rgba(38,38,38,.6);
   border:1px solid rgba(38,38,38,0);
     box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.1);
     transition: .05s ease-in height, .05s ease background, .1s ease color;
