@@ -116,44 +116,41 @@
   
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">
-    // Toggles active tab and active tabbed content
-    $(document).ready(function () {  
-       var hash = $.trim( window.location.hash );
-       if (hash){ $('.toggle-tab[href$="'+hash+'"]').focus();
-       toggleTabs();
-       } else{}
-    });
-    
-    function toggleTabs() {
-      var currentTabIndex = $(document.activeElement).index();
+  // Toggles active tab and active tabbed content
+  $(document).ready(function () {  
+     var hash = $.trim( window.location.hash );
+     if (hash){ $('.toggle-tab[href$="'+hash+'"]').focus();
+     toggleTabs();
+     } else{}
+  });
 
-      $(".toggle-tab:eq(" + currentTabIndex + ")") 
-        .addClass("active-tab")
-        .parents("ul.box-toggle-tabs")
-        .find("li")
-        .not($(".toggle-tab:eq(" + currentTabIndex + ")"))
-        .removeClass("active-tab");
-      $(".tab-content:eq(" + currentTabIndex + ")")
-        .addClass("active-tab-content")
-        .parents("#container-charts")
-        .find(".tab-content")
-        .not($(".tab-content:eq(" + currentTabIndex + ")"))
-        .removeClass("active-tab-content");
-    };
-    
-    
-    //Accessibility: Force tabs to work with mouse OR keyboard only
-    $(".box-toggle-tabs li").on('click', toggleTabs);
-    $(".box-toggle-tabs li").on('keypress', function (e) {
-        //enter key code is 13
-        if (e.which == 13) {
-            toggleTabs()
-        }
-    });
-    //$('.toggle-tab').first().click();
-    
-    
-    
+  function toggleTabs() {
+    var currentTabIndex = $(document.activeElement).index();
+
+    $(".toggle-tab:eq(" + currentTabIndex + ")") 
+      .addClass("active-tab")
+      .parents("ul.box-toggle-tabs")
+      .find("li")
+      .not($(".toggle-tab:eq(" + currentTabIndex + ")"))
+      .removeClass("active-tab");
+    $(".tab-content:eq(" + currentTabIndex + ")")
+      .addClass("active-tab-content")
+      .parents("#container-charts")
+      .find(".tab-content")
+      .not($(".tab-content:eq(" + currentTabIndex + ")"))
+      .removeClass("active-tab-content");
+  };
+
+
+  //Accessibility: Force tabs to work with mouse OR keyboard only
+  $(".box-toggle-tabs li").on('click', toggleTabs);
+  $(".box-toggle-tabs li").on('keypress', function (e) {
+      //enter key code is 13
+      if (e.which == 13) {
+          toggleTabs()
+      }
+  });
+  //$('.toggle-tab').first().click();
   </script>
   
   <script type="text/javascript">
@@ -185,7 +182,6 @@
     });
     window.myLineMulti.update();
   });
-  
   </script>
 
 </body>

@@ -2,6 +2,7 @@
 
 latestData();
 
+
 //Pulling & Generating Data for Charts
 var caseNumbers = countiesData.features[24].properties.history;
 var deathNumbers = countiesData.features[24].properties.historydeaths;
@@ -117,21 +118,7 @@ var nameCnty22 = countiesData.features[22].properties.name;
 var nameCnty23 = countiesData.features[23].properties.name;
 
 
-// Colors for Daily State Bar Charts
-var colorCaseBorder = "rgba(223, 97, 95, .95)";
-var colorCaseBackground = "rgba(223, 97, 95, 0.9)";
-var colorCaseBorderLine = "rgba(255, 107, 105, 0.9)";
-var colorCaseBackgroundLine = "rgba(255, 107, 105, 0.5)";
 
-var colorDeathBorder = "rgba(219,149,61,1)";
-var colorDeathBackground = "rgba(239,161,63,0.9)";
-var colorDeathBorderLine = "rgba(245,153,34,.9)";
-var colorDeathBackgroundLine = "rgba(245,153,34,.6)";
-
-var colorRecoveryBorder = "rgba(66,170,71,.95)";
-var colorRecoveryBackground = "rgba(64,171,69,0.9)";
-var colorRecoveryBorderLine = "rgba(31,173,37,1.00)";
-var colorRecoveryBackgroundLine = "rgba(31,173,37,.7)";
 
 // Colors for County Cases Line Chart
 var colorCnty0 = '#6B213D';
@@ -158,3 +145,21 @@ var colorCnty20 = '#FF6A4F';
 var colorCnty21 = '#FF4C52';
 var colorCnty22 = '#FF4973';
 var colorCnty23 = '#FF4973';
+
+
+// Colors for Daily State Bar Charts
+var colorCaseBorder = "rgba(223, 97, 95, .95)";
+var colorCaseBackground = "rgba(223, 97, 95, 0.9)";
+var colorCaseBackgroundHover = "rgba(255, 107, 105, 1.0)";
+var colorCaseBorderLine = "rgba(255, 107, 105, 0.9)";
+var colorCaseBackgroundLine = "rgba(255, 107, 105, 0.5)";
+
+var colorDeathBorder = "rgba(219,149,61,1)";
+var colorDeathBackground = "rgba(239,161,63,0.9)";
+var colorDeathBorderLine = "rgba(245,153,34,.9)";
+var colorDeathBackgroundLine = "rgba(245,153,34,.6)";
+
+var colorRecoveryBorder = "rgba(66,170,71,.95)";
+var colorRecoveryBackground = "rgba(64,171,69,0.9)";
+var colorRecoveryBorderLine = "rgba(31,173,37,1.00)";
+var colorRecoveryBackgroundLine = "rgba(31,173,37,.7)";

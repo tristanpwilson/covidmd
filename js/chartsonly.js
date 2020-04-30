@@ -185,21 +185,21 @@
         borderWidth: 2,
         borderColor: colorCaseBorder,
         backgroundColor: colorCaseBackground,
-        hoverBackgroundColor:"",
+        hoverBackgroundColor:colorCaseBackgroundHover,
         hoverBorderColor:"",
         data: dailyCaseChange,
         barPercentage: 1,
-        categoryPercentage: 0.85,
+        categoryPercentage: 0.9,
       },
       {
         label: 'Deaths',
-        pointRadius: 0,
+        pointRadius: 10,
         borderWidth: 2,
         borderColor: colorDeathBorder,
         backgroundColor: colorDeathBackground,
         data: dailyDeathChange,
         barPercentage: 1,
-        categoryPercentage: 0.85,
+        categoryPercentage: 0.9,
         hidden: true,
       },
       {
@@ -210,7 +210,7 @@
         backgroundColor: colorRecoveryBackground,
         data: dailyRecoveryChange,
         barPercentage: 1,
-        categoryPercentage: 0.85,
+        categoryPercentage: 0.9,
         hidden: true,
       }]
     },
@@ -230,6 +230,9 @@
         position: "top",
         align: "center",
         fullWidth: true,
+        onHover:function(){
+          config2.options.tooltips.enabled= false
+        },
         labels:{
          boxWidth: 13,
          //boxHeight: 16,
@@ -238,19 +241,27 @@
         },
       },
       tooltips: {
-        enabled: true, 
+        enabled: false, 
         mode: 'label',
         displayColors:false,
         titleFontSize: 14,
         bodyFontSize: 14,
+        xPadding:5,
+        yPadding:5,
         position:'average',
-        xalign: 'right',
-        yalign:'none',
+        caretSize:5,
+        cornerRadius:3,
+        caretPadding:10,
+        xAlign: 'center',
+        yAlign: 'bottom',
         intersect:false,
       },
       hover: {
         mode: 'nearest',
-        intersect: true
+        intersect: true,
+        onHover:function(){
+         config2.options.tooltips.enabled= true
+        },
       },
       scales: {
         xAxes: [{
@@ -293,7 +304,8 @@
             drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
             tickMarkLength:0,
-          }
+          },
+
         }],
 
       }
@@ -345,9 +357,14 @@
         displayColors:false,
         titleFontSize: 14,
         bodyFontSize: 14,
+        xPadding:5,
+        yPadding:5,
         position:'average',
-        xalign: 'right',
-        yalign:'none',
+        caretSize:5,
+        cornerRadius:3,
+        caretPadding:10,
+        xAlign: 'center',
+        yAlign: 'bottom',
         intersect:false,
       },
       hover: {
@@ -447,9 +464,14 @@
         displayColors:false,
         titleFontSize: 14,
         bodyFontSize: 14,
+        xPadding:5,
+        yPadding:5,
         position:'average',
-        xalign: 'right',
-        yalign:'none',
+        caretSize:5,
+        cornerRadius:3,
+        caretPadding:10,
+        xAlign: 'center',
+        yAlign: 'bottom',
         intersect:false,
       },
       hover: {
