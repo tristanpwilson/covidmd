@@ -182,6 +182,20 @@
   $('$mapMain').attr('tabindex', -1);
   </script>
   
+  
+  <script>
+  // Fixes issue in Leaflet.js where control containers are prevented from scrolling within the map container
+  var infoPaneBox = document.getElementsByClassName("infoPane")[0];
+  if (!L.Browser.touch) {
+    L.DomEvent
+      .disableClickPropagation(infoPaneBox)
+      .disableScrollPropagation(infoPaneBox);
+  } else {
+    L.DomEvent.disableClickPropagation(infoPaneBox);
+  }
+  
+  </script>
+  
 
 </body>
 
