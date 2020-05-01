@@ -29,12 +29,15 @@ html, body, .leaflet-container {
   flex-direction: column;
   z-index: 1000;
   height: auto;
+  max-height: 96vh;
+  /*max-height: calc(98vh * 1.1);*/
   width: 360px;
   top: 2vh;
   right: 1vw;
   background: rgba(38, 38, 38, .8);
   box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, .2), 0 -1px 10px 0 rgba(0, 0, 0, .2);
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .info {
@@ -42,7 +45,7 @@ html, body, .leaflet-container {
   display: block !important;
   order: 1;
   width: 100%;
-  min-height: 200px;
+  min-height: 285px;
   height: auto;
   padding: 0px 0px;
   margin: 0 !important;
@@ -184,9 +187,11 @@ html, body, .leaflet-container {
 #secondchart {
   order: 3;
 }
+
 #hospchart {
   order: 4;
 }
+
 #mainchart canvas {}
 
 .container-toggle-tabs,
@@ -209,22 +214,7 @@ html, body, .leaflet-container {
     min-height: auto;
     height: auto;
   }
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2px rgba(80, 80, 80, 1);
-    border-radius: 5px;
-    background: rgba(10, 10, 10, .5);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(54, 54, 54, 1.0);
-    border-radius: 5px;
-    border: 1px solid rgba(40, 40, 40, 1.0)
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(90, 90, 90, 1);
-  }
+
 }
 
 @media(min-width: 1600px) {
@@ -412,12 +402,18 @@ html, body, .leaflet-container {
     margin: 0 auto;
     padding: 0;
   }
+  #hospchart {
+   display:flex;
+  }
+  #hospchart canvas {
+   align-self:flex-end;
+  }
 
 }
 
 @media(max-width: 575px) {
   .toggle-tab {
-    font-size: 2.7vw;
+    font-size: 2.6vw;
   }
 }
 
@@ -662,3 +658,24 @@ html, body, .leaflet-container {
     width:auto;
   }
 }
+
+
+/*---- Scrollbar Styles ----*/
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgba(100, 100, 100, 1);
+    border-radius: 5px 5px 0 0;
+    background: rgba(10, 10, 10, .5);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(60, 60, 60, 1.0);
+    border-radius: 5px;
+    border: 1px solid rgba(40, 40, 40, 1.0);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(90, 90, 90, 1);
+  }

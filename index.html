@@ -87,7 +87,7 @@
         <ul class="box-toggle-tabs">
           <li class="toggle-tab active-tab" role="button">Total Cases</li>
           <li class="toggle-tab" role="button">Daily Cases</li>
-          <!--<li class="toggle-tab" role="button">Hospitalizations</li>-->
+          <li class="toggle-tab" role="button">Hospitalized</li>
         </ul>
       </div>  
       
@@ -103,10 +103,11 @@
         <canvas id="canvas2"></canvas>
       </div>
       
-<!--      <div id="hospchart" class="stdcharts tab-content reorderWorker">
-        <a href="charts#hospitalizations" class="linkExpChart" title="Expand hospitalizations chart" aria-label="Expand hospitalizations chart"></a>
+      <!-- Third Chart.js Graph -->
+      <div id="hospchart" class="stdcharts tab-content reorderWorker">
+        <!--<a href="charts#hospitalizations" class="linkExpChart" title="Expand hospitalizations chart" aria-label="Expand hospitalizations chart"></a>-->
         <canvas id="canvasHosp"></canvas>
-      </div>-->
+      </div>
         
     </div>
   </div>
@@ -139,8 +140,13 @@
       .removeClass("active-tab-content");
       
       //Hacky way of stabilizing height of canvas before chart loads in
-      var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
-      $('#secondchart').children("canvas").css('min-height', chartBoxHeight);
+      //var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
+      var chartContainerHeight = $('#mainchart').children("canvas").height() + 30 + "px";
+
+      //$('#secondchart').children("canvas").css('min-height', chartBoxHeight);
+      $('#secondchart').css('min-height', chartContainerHeight);
+      $('#hospchart').css('min-height', chartContainerHeight);
+      
   });
   </script>
   

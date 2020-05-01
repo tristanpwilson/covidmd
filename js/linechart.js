@@ -34,6 +34,7 @@
 
     if($(window).width() <= 575) {
       window.aspect = 1.25;
+      window.aspectShort = 1.25;
       window.legendFontSize = 12;
       window.titleFontSize = 15;
       window.xAxisFontSize = 9;
@@ -44,8 +45,11 @@
       window.yAxisFontSize = 9;
       window.yAxisTickDisplay = false;
       window.yAxisTickMirror = true;
+      window.barPercentStacked = .2;
+      window.yAxisPaddingStacked = 0;
     } else {
       window.aspect = 1.5;
+      window.aspectShort = 3.75;
       window.legendFontSize = 14;
       window.titleFontSize = 16;
       window.xAxisFontSize = 9;
@@ -56,6 +60,8 @@
       window.yAxisFontSize = 9;
       window.yAxisTickDisplay = true;
       window.yAxisTickMirror = false;
+      window.barPercentStacked = 1;
+      window.yAxisPaddingStacked = 20;
     }
 
 
@@ -196,8 +202,6 @@
           borderWidth: 2,
           borderColor: colorCaseBorder,
 					backgroundColor: colorCaseBackground,
-          //borderColor: "rgba(255, 107, 105, 0.8)",
-					//backgroundColor: "rgba(255, 107, 105, 0.8)",
 					data: dailyCaseChange,
           barPercentage: 1,
           categoryPercentage: 0.85,
@@ -310,98 +314,132 @@
 				}
 			}
 		};
+    
+    //Barchart Hospitalizations Config
+    var configHosp = {
+			type: 'horizontalBar',
+			data: {
+				labels: [''],
+				datasets: [{
+					label: 'Intensive Care',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(175,90,160,1.0)",
+					backgroundColor: "rgba(175,90,160,0.9)",
+					data: [intensiveHospNumbers],
+          barPercentage: window.barPercentStacked,
+          //categoryPercentage: 0.85,
+				},
+        {
+					label: 'Acute Care',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: "rgba(91,141,211,1.0)",
+					backgroundColor: "rgba(91,141,211,0.9)",
+					data: [acuteHospNumbers],
+          barPercentage: window.barPercentStacked,
+          //categoryPercentage: 0.85,
+				}]
+			},    
+			options: {
+				responsive: true,
+        aspectRatio: window.aspectShort,  
+        title: {
+					display: true,
+					text: 'Current Hospitalizations',
+          fontColor: "#fff",
+          fontFamily: "Work Sans",
+          fontSize: window.titleFontSize,
+          lineHeight: 1,
+          padding: 0,
+				},
+        legend: {
+          display: true,
+          position: "top",
+          align: "center",
+          fullWidth: true,
+          labels:{
+           boxWidth: 12,
+           boxHeight: 4,
+           fontColor: "#fafafa",
+           fontSize: window.legendFontSize,
+          },
+        },
+        tooltips: {
+          enabled: true, 
+          mode: 'index',
+          displayColors:false,
+          position:'nearest',
+          intersect:true,
+          callbacks: {
+            title: function() {},
+            label: function(tooltipItem, data) {
+              // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
+              var count = data.datasets[tooltipItem.datasetIndex].label;
+              var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 
-//    Barchart Hospitalizations Config
-//    var configHosp = {
-//			type: 'bar',
-//			data: {
-//				labels: ['Current Hospitalizations', 'Total Hospitalizations', 'Intensive Care', 'Acute Care'],
-//				datasets: [{
-//					label: 'Currently Hospitalized',
-//          pointRadius: 0,
-//          borderWidth: 2,
-//          borderColor: "rgba(255, 107, 105, 0.8)",
-//					backgroundColor: "rgba(255, 107, 105, 0.8)",
-//					data: [nowHospNumbers, everHospNumbers, intensiveHospNumbers, acuteHospNumbers],
-//          barPercentage: 1,
-//          categoryPercentage: 0.85,
-//				}]
-//			},    
-//			options: {
-//				responsive: true,
-//        aspectRatio: window.aspect, 
-//        //aspectRatio: window.aspect,     
-//        title: {
-//					display: true,
-//					text: 'Daily New Cases in MD',
-//          fontColor: "#fff",
-//          fontFamily: "Work Sans",
-//          fontSize: 12,
-//				},
-//        legend: {
-//          display: true,
-//          position: "top",
-//          align: "center",
-//          fullWidth: true,
-//          labels:{
-//           boxWidth: 13,
-//           //boxHeight: 16,
-//           fontColor: "#fafafa",
-//           fontSize: 12,
-//          },
-//        },
-//        tooltips: {
-//          enabled: true, 
-//          mode: 'label',
-//          displayColors:false,
-//          titleFontSize: 14,
-//          bodyFontSize: 14,
-//          position:'average',
-//          xalign: 'right',
-//          yalign:'none',
-//          intersect:true,
-//        },
-//				hover: {
-//					mode: 'nearest',
-//					intersect: true
-//				},
-//				scales: {
-//					xAxes: [{
-//            offset:true,
-//            type: 'category',
-//						display: true,
-//						scaleLabel: {display: false,},
-//            ticks:{
-//              fontColor: "#fff",
-//              fontSize: 12,
-//              autoSkip: false,
-//              maxRotation:0,
-//              autoSkipPadding: 60,
-//            },
-//            gridLines:{color:"rgba(255,255,255,0.1)"}
-//					}],
-//					yAxes: [{
-//						display: true,
-//						scaleLabel: {display: false,},
-//            ticks:{
-//              mirror: false,
-//              fontColor: "#fff",
-//              fontSize: 12,
-//              autoSkip: true,
-//              maxRotation: 0,
-//              autoSkipPadding: 30,
-//            },
-//            gridLines:{
-//              color:"rgba(255,255,255,0.1)",
-//              drawBorder:false,
-//              drawTicks: true,
-//              tickMarkLength:0,
-//            }
-//					}],
-//
-//				}
-//			}
-//		};
+              // Loop through all datasets to get the actual total of the index
+              var total = 0;
+              for (var i = 0; i < data.datasets.length; i++)
+                  total += data.datasets[i].data[tooltipItem.index];
+
+              // If it is not the last dataset, you display it as you usually do
+              if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+                  return count + ": " + index;
+              } else { // .. else, you display the dataset and the total, using an array
+                  return [count + ": " + index, "Total: " + total];
+              }
+            }
+          },
+        },
+				hover: {
+					mode: 'nearest',
+					intersect: true,
+				},
+				scales: {
+					xAxes: [{
+            stacked:true,
+						display: true,
+						scaleLabel: {display: false,},
+            ticks:{
+              fontColor: "#fff",
+              fontSize: window.xAxisFontSize,
+              autoSkip: true,
+              autoSkipPadding: 0,
+            },
+            gridLines:{
+              color:"rgba(255,255,255,0.1)",
+              zeroLineColor:"rgba(255,255,255,0.1)",
+              drawBorder:false,
+              //drawTicks:false,
+              tickMarkLength:5,
+            }
+					}],
+					yAxes: [{
+            stacked: true,
+						display: true,
+						scaleLabel: {
+              display: true,
+              labelString:'Current',
+              fontColor: "255,255,255,1.0)",
+              fontSize: window.yAxisFontSize,
+              padding: {
+                top: window.yAxisPaddingStacked,
+                bottom: 0
+              }
+            },
+            ticks:{},
+            gridLines:{
+              color:"rgba(255,255,255,0)",
+              zeroLineColor:"rgba(255,255,255,0.0)",
+              drawBorder:false,
+              drawTicks: false,
+            }
+					}],
+
+				}
+			}
+		};
 
 
     window.onload = function generateCharts() {
@@ -409,8 +447,8 @@
 			window.myLine = new Chart(ctx, config);
       var ctx = document.getElementById('canvas2').getContext('2d');
 			window.myBar = new Chart(ctx, config2);
-      //var ctx = document.getElementById('canvasHosp').getContext('2d');
-			//window.myBar2 = new Chart(ctx, configHosp);
+      var ctx = document.getElementById('canvasHosp').getContext('2d');
+			window.myBar2 = new Chart(ctx, configHosp);
 		};
 		
 

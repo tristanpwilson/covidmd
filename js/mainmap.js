@@ -40,11 +40,6 @@
   var stateDeathsVal = countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-1];
   var stateDeathsChg = stateDeathsVal - countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-2];
   
-  //var countyCasesVal = countiesData.features[24].properties.history[countiesData.features[24].properties.history.length-1];
-  //var countyCasesChg = stateCasesVal - countiesData.features[24].properties.history[countiesData.features[24].properties.history.length-2];
-  //var countyDeathsVal = countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-1];
-  //var countyDeathsChg = stateDeathsVal - countiesData.features[24].properties.historydeaths[countiesData.features[24].properties.historydeaths.length-2];
-  
 
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
@@ -82,6 +77,8 @@
   // Re-enable dragging when user's cursor leaves the info pane
   a.addEventListener('mouseout', function () {mainmap.dragging.enable(); mainmap.scrollWheelZoom.enable();}); 
   a.addEventListener('touchend', function () {mainmap.dragging.enable();}); 
+
+
 
   
   // Calculating the maximum and minimum case values for use in color scale  

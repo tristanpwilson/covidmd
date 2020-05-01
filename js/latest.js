@@ -90,6 +90,13 @@ countiesData.features[22].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,
 countiesData.features[23].properties.historyrecoveries = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
 
 
+// Hospitalization Totals on State Level
+countiesData.features[24].properties.nowHospitalized = 1668;
+countiesData.features[24].properties.acuteCare = 1100;
+countiesData.features[24].properties.intensiveCare = 568;
+countiesData.features[24].properties.everHospitalized = 4718;
+  
+  
 // Population Totals per County + State Aggregate
 countiesData.features[0].properties.population = 70416;
 countiesData.features[1].properties.population = 579234;
