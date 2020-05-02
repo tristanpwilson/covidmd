@@ -99,11 +99,13 @@
     <div id="recchart" class="stdcharts tab-content"><h2 class="a11y">Daily New Recoveries in MD</h2><canvas id="canvasRec"></canvas></div>
     <div id="cntychart" class="stdcharts tab-content">
       <h2 class="a11y">Cumulative Cases per County</h2>
-      <div id="cntyToggleBox" style="position:absolute; top: 15px; left:0;">  
+      <!--<div id="cntyToggleBox" style="position:absolute; top: 15px; left:0;">  
         <a href="javascript:void(0);" id="hideAllData" style="">Hide All</a>
         <a href="javascript:void(0);" id="showAllData" style="">Show All</a>
-      </div>
+      </div>-->
+
       <canvas id="canvasCnty"></canvas>
+      <div id="legendContainerCnty"></div>
     </div>
     
   </div>
@@ -141,7 +143,6 @@
       .removeClass("active-tab-content");
   };
 
-
   //Accessibility: Force tabs to work with mouse OR keyboard only
   $(".box-toggle-tabs li").on('click', toggleTabs);
   $(".box-toggle-tabs li").on('keypress', function (e) {
@@ -165,24 +166,40 @@
   });
   </script>
   
-  <script>
+  <!--<script>
   $("#hideAllData").click(function() {
-    window.myLineMulti.data.datasets.forEach(function(ds) {
-      if(!ds.hidden){
-      ds.hidden = !ds.hidden;
-      }
-    });
-    window.myLineMulti.update();
-  });
-  $("#showAllData").click(function() {
+    if($(".legendItemCnty").hasClass("hiddenundefined")){
+      $(".legendItemCnty").removeClass("hiddenundefined");
+      $(".legendItemCnty").addClass("hiddentrue");
+    }else{
+
+    }
     window.myLineMulti.data.datasets.forEach(function(ds) {
       if(ds.hidden){
-      ds.hidden = !ds.hidden;
+      }else{ 
+       ds.hidden = !ds.hidden;
       }
     });
     window.myLineMulti.update();
   });
-  </script>
+  
+  
+  $("#showAllData").click(function() {
+    if($(".legendItemCnty").hasClass("hiddentrue")){
+      $(".legendItemCnty").removeClass("hiddentrue");
+      $(".legendItemCnty").addClass("hiddenundefined");
+    }else{
+
+    }
+    window.myLineMulti.data.datasets.forEach(function(ds) {
+      if(ds.hidden){
+        ds.hidden = !ds.hidden;
+        $(".legendItemCnty").toggleClass("hiddentrue");
+      }
+    });
+    window.myLineMulti.update();
+  });
+  </script>-->
 
 </body>
 

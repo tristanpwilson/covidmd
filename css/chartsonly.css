@@ -216,16 +216,7 @@
    width: 90vw;
    max-height:none;
  }
- #hideAllData,
- #showAllData{
-   display:inline-block;
-   z-index:3003; 
-   padding:4px 5px; 
-   color:#333; 
-   font-size:13px; 
-   font-weight:500; 
-   background:#ccc;
- }
+ 
 
 .stdcharts canvas{
   width:100%;
@@ -265,11 +256,11 @@
     background: rgba(38,38,38,1);
   }
   #cntychart{
-    max-height: none;
+    max-height: calc(95vw * 1);
     width: 97vw;
   }   
   #cntychart canvas{
-    margin-top:15px;
+    margin-top:0px;
   }
  
 
@@ -312,7 +303,67 @@
 
 
 
+/*--- County Chart Custom Legend --- */
 
+#legendContainerCnty{
+  width:100%;     
+  height:auto;
+  z-index:3000;
+}
+
+#legendContainerCnty> ul{
+  display:flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  padding:0 1vw;
+}
+#boxToggleCntyOff{
+  width:100%;
+  padding:15px 0;
+}
+#toggleCntyOff,
+#hideAllData,
+#showAllData{
+  display:inline-block;
+  z-index:3003; 
+  padding:4px 7.5px; 
+  color:#333; 
+  font-size:13px; 
+  font-weight:500; 
+  background:#ccc;
+}
+#toggleCntyOff{
+
+
+}
+
+ /* - Legend Item + Text Style (Also ".legendItemCnty") - */
+#legendContainerCnty li {
+  display:block;
+  flex-basis:150px;
+  cursor: pointer;
+  margin:0 0 0 0;
+  color:#fff;
+  font-size:16px;
+  font-weight:400;
+}
+/* - Legend Item Circle Style (Also ".legendCircleCnty") - */
+#legendContainerCnty li span {
+  position: relative;
+  display:inline-block;
+  margin:0 5px 0 0;
+  padding: 0;
+  height:14px;
+  width:14px;
+  border-radius: 13px;
+ 
+  z-index: 1000;
+}
+
+#legendContainerCnty li.hiddentrue span {
+  border:2px solid;
+  background:transparent !important;
+}
 
 
 

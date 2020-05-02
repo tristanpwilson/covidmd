@@ -1,9 +1,6 @@
 // JavaScript Document
     latestData();
 
-
-  
-
   // Checking window width and changing parameters accordingly (still can't get this to work dynamically on resize - only page load)
   if($(window).width() <= 575) {
     window.legendFontSize = 14;
@@ -14,7 +11,9 @@
     window.yAxisFontSize = 12;
     window.yAxisTickDisplay = false;
     window.yAxisTickMirror = true;
-    window.legendPaddingCnty = 14;
+    window.legendFontSizeCnty = 15;
+    window.legendBoxSizeCnty = 15;
+    window.legendPaddingCnty = 13;
     window.legendPositionCnty = "bottom";
     window.legendAlignCnty = "start";
   } else {
@@ -26,13 +25,12 @@
     window.yAxisFontSize = 14;
     window.yAxisTickDisplay = true;
     window.yAxisTickMirror = false;
+    window.legendFontSizeCnty = 15;
+    window.legendBoxSizeCnty = 13;
     window.legendPaddingCnty = 10;
     window.legendPositionCnty = "left";
     window.legendAlignCnty = "center";
   }
-    
-    
-
 
 
   //Linechart 1 Config		
@@ -537,7 +535,7 @@
         borderColor: colorCnty0,
         hoverBorderColor:colorCnty0,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty1,
         label: nameCnty1,
         borderColor: colorCnty1,
@@ -558,13 +556,13 @@
         borderColor: colorCnty4,
         hoverBorderColor:colorCnty4,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty5,
         label: nameCnty5,
         borderColor: colorCnty5,
         hoverBorderColor:colorCnty5,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty6,
         label: nameCnty6,
         borderColor: colorCnty6,
@@ -575,7 +573,7 @@
         borderColor: colorCnty7,
         hoverBorderColor:colorCnty7,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty8,
         label: nameCnty8,
         borderColor: colorCnty8,
@@ -586,7 +584,7 @@
         borderColor: colorCnty9,
         hoverBorderColor:colorCnty9,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty10,
         label: nameCnty10,
         borderColor: colorCnty10,
@@ -597,7 +595,7 @@
         borderColor: colorCnty11,
         hoverBorderColor:colorCnty11,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty12,
         label: nameCnty12,
         borderColor: colorCnty12,
@@ -613,7 +611,7 @@
         borderColor: colorCnty14,
         hoverBorderColor:colorCnty14,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty15,
         label: nameCnty15,
         borderColor: colorCnty15,
@@ -629,7 +627,7 @@
         borderColor: colorCnty17,
         hoverBorderColor:colorCnty17,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty18,
         label: nameCnty18,
         borderColor: colorCnty18,
@@ -640,13 +638,13 @@
         borderColor: colorCnty19,
         hoverBorderColor:colorCnty19,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty20,
         label: nameCnty20,
         borderColor: colorCnty20,
         hoverBorderColor:colorCnty20,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },{data: caseCnty21,
         label: nameCnty21,
         borderColor: colorCnty21,
@@ -662,7 +660,7 @@
         borderColor: colorCnty23,
         hoverBorderColor:colorCnty23,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill: false, lineTension: 0.1,
-        hidden: true,
+        //hidden: true,
       },]
     },
     options: {
@@ -670,17 +668,31 @@
       maintainAspectRatio: false,  
       //aspectRatio: window.aspectCnty,     
       legend: {
-        display: true,
-        position: window.legendPositionCnty,
-        align: window.legendAlignCnty,
-        fullWidth: true,
-        labels:{
-         boxWidth: 13,
-         fontColor: "#fafafa",
-         fontSize: window.legendFontSize,
-         padding:window.legendPaddingCnty,
-         textDirection:'right',
-        },
+        display: false,
+//        position: window.legendPositionCnty,
+//        align: window.legendAlignCnty,
+//        fullWidth: true,
+//        labels:{
+//         boxWidth: window.legendBoxSizeCnty,
+//         fontColor: "#fafafa",
+//         fontSize: window.legendFontSizeCnty,
+//         padding:window.legendPaddingCnty,
+//         textDirection:'right',
+//        },
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<div id="boxToggleCntyOff"><a id="toggleCntyOff" href="javascript:void(0);" onclick="updateDatasets(event)">All Off</a></div><ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemCnty hidden' + chart.data.datasets[i].hidden + '" onclick="updateDataset(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendCircleCnty" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
       },
       title: {
         display: true,
@@ -704,14 +716,7 @@
         mode: 'nearest',
         intersect: true
       },
-      layout: {
-            padding: {
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-            }
-      },
+      layout: {padding: {left: 0,right: 0,top: 0,bottom: 0,}},
       scales: {
         xAxes: [{
           offset:true,
@@ -759,117 +764,153 @@
       }
     }
   };
+
+  // onClick Function for County Line Legend; Enable show/hide for custom legend options
+  // This is NOT called in the legend.onClick option; it's added to each li in the legend
+  updateDataset = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ci = e.view.myLineMulti;
+    var meta = ci.getDatasetMeta(index);
+    $('li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+    // See controller.isDatasetVisible comment
+    meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+
+    // We hid a dataset ... rerender the chart
+    ci.update();
+  };
+  updateDatasets = function(e) {
+    //$('li[data-legend='+index+']').toggleClass("hiddentrue");
+    for(var i=0, n=window.myLineMulti.data.datasets.length;i<n;i++) {
+      var ci = e.view.myLineMulti;
+      var meta = ci.getDatasetMeta(i);
+
+      // See controller.isDatasetVisible comment
+
+       meta.hidden = meta.hidden === false? !ci.data.datasets[i].hidden : true;
+    }
+
+    // We hid a dataset ... rerender the chart
+    ci.update();
     
+    if($(".legendItemCnty").hasClass("hiddenundefined")){
+      $(".legendItemCnty").removeClass("hiddenundefined");
+      $(".legendItemCnty").addClass("hiddentrue");
+    }else{
+
+    }
     
+  };
+  
+
     
-    //Barchart Case Percent of Pop Config
-    var configPop = {
-			type: 'bar',
-			data: {
-				labels: allCountyNames,
-				datasets: [{
-					label: 'Percent',
-          pointRadius: 0,
-          borderWidth: 2,
-          borderColor: "rgba(255, 107, 105, 0.8)",
-					backgroundColor: "rgba(255, 107, 105, 0.8)",
-					data: casePrctgCountiesRnd,
-          barPercentage: 1,
-          categoryPercentage: 0.85,
-				}]
-			},
-			options: {
-				responsive: true,
-        maintainAspectRatio: false,  
-        //aspectRatio: window.aspect,     
-        title: {
-					display: true,
-					text: 'Daily New Cases in MD',
-          fontColor: "#fff",
-          fontFamily: "Work Sans",
-          fontSize: window.titleFontSize,
-				},
-        legend: {
-          display: true,
-          position: "top",
-          align: "center",
-          fullWidth: true,
-          labels:{
-           boxWidth: 13,
-           //boxHeight: 16,
-           fontColor: "#fafafa",
-           fontSize: window.legendFontSize,
-          },
+  //Barchart Case Percent of Pop Config
+  var configPop = {
+    type: 'bar',
+    data: {
+      labels: allCountyNames,
+      datasets: [{
+        label: 'Percent',
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: "rgba(255, 107, 105, 0.8)",
+        backgroundColor: "rgba(255, 107, 105, 0.8)",
+        data: casePrctgCountiesRnd,
+        barPercentage: 1,
+        categoryPercentage: 0.85,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      title: {
+        display: true,
+        text: 'Daily New Cases in MD',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      legend: {
+        display: true,
+        position: "top",
+        align: "center",
+        fullWidth: true,
+        labels:{
+         boxWidth: 13,
+         //boxHeight: 16,
+         fontColor: "#fafafa",
+         fontSize: window.legendFontSize,
         },
-        tooltips: {
-          enabled: true, 
-          mode: 'label',
-          displayColors:false,
-          titleFontSize: 14,
-          bodyFontSize: 14,
-          position:'average',
-          xalign: 'right',
-          yalign:'none',
-          intersect:true,
-          callbacks: {
-            label: function(tooltipItem, data) { 
-              var dataset = data.datasets[tooltipItem.datasetIndex];
-              var currentValue = dataset.data[tooltipItem.index];
-              return currentValue + '%';
-            }
+      },
+      tooltips: {
+        enabled: true, 
+        mode: 'label',
+        displayColors:false,
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        position:'average',
+        xalign: 'right',
+        yalign:'none',
+        intersect:true,
+        callbacks: {
+          label: function(tooltipItem, data) { 
+            var dataset = data.datasets[tooltipItem.datasetIndex];
+            var currentValue = dataset.data[tooltipItem.index];
+            return currentValue + '%';
           }
-        },
-				hover: {
-					mode: 'nearest',
-					intersect: true
-				},
-				scales: {
-					xAxes: [{
-            offset:true,
-            type: 'category',
-						display: true,
-						scaleLabel: {display: false,},
-            ticks:{
-              fontColor: "#fff",
-              fontSize: window.xAxisFontSize,
-              autoSkip: false,
-              minRotation:89,
-              maxRotation:91,
-              autoSkipPadding: 60,
-            },
-            gridLines:{color:"rgba(255,255,255,0.1)"}
-					}],
-					yAxes: [{
-						display: true,
-						scaleLabel: {display: false,},
-            ticks:{
-              mirror: window.yAxisTickMirror,
-              fontColor: "#fff",
-              fontSize: window.yAxisFontSize,
-              autoSkip: true,
-              maxRotation: 0,
-              autoSkipPadding: 30,
-              callback: function(value, index, values) {
-                          return value + '%';
-                        },
-            },
-            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
-              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
-              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
-            },
-            gridLines:{
-              color:"rgba(255,255,255,0.1)",
-              drawBorder:false,
-              drawTicks: window.yAxisTickDisplay,
-              tickMarkLength:0,
-            }
-					}],
+        }
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+      scales: {
+        xAxes: [{
+          offset:true,
+          type: 'category',
+          display: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: false,
+            minRotation:89,
+            maxRotation:91,
+            autoSkipPadding: 60,
+          },
+          gridLines:{color:"rgba(255,255,255,0.1)"}
+        }],
+        yAxes: [{
+          display: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            mirror: window.yAxisTickMirror,
+            fontColor: "#fff",
+            fontSize: window.yAxisFontSize,
+            autoSkip: true,
+            maxRotation: 0,
+            autoSkipPadding: 30,
+            callback: function(value, index, values) {
+                        return value + '%';
+                      },
+          },
+          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+          },
+          gridLines:{
+            color:"rgba(255,255,255,0.1)",
+            drawBorder:false,
+            drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:0,
+          }
+        }],
 
-				}
-			}
-		};
+      }
+    }
+  };
     
-
+         
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
@@ -880,14 +921,22 @@
       var ctx = document.getElementById('canvasRec').getContext('2d');
 			window.myBar = new Chart(ctx, configRec);
       
+      // County multi line graph initiation & custom legend generation
       var ctx = document.getElementById('canvasCnty').getContext('2d');
 			window.myLineMulti = new Chart(ctx, configCnty);
-      
+      document.getElementById("legendContainerCnty").innerHTML = myLineMulti.generateLegend();
+      var legendItems = legendContainerCnty.getElementsByTagName('li');
+
+
       //var ctx = document.getElementById('canvasPop').getContext('2d');
 			//window.myBarPop = new Chart(ctx, configPop);
-
 		};
-    
+
+
+//for (var i = 0; i < legendItems.length; i += 1) {
+//  legendItems[i].addEventListener("click", legendClickCallback, false);
+//}
+
   
 
  
@@ -901,6 +950,5 @@
 //              return labels;
 //            },
 
-    
 
     
