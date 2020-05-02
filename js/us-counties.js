@@ -8169,6 +8169,7 @@ var countiesData =
         "acuteCare": 1060,
         "intensiveCare": 585,
         "everHospitalized": 4402,
+        "negativetests": 101049,
         "lastupdated": "4/27/20 11:00am EST",
       }
     },
