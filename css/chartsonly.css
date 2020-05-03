@@ -315,25 +315,27 @@
 
 /*--- County Chart Custom Legend --- */
 
-#legendContainerCnty{
+#legendContainerCnty,
+#legendContainerCntyDth{
   width:100%;     
   height:auto;
   z-index:3000;
 }
 
-#legendContainerCnty> ul{
+#legendContainerCnty> ul,
+#legendContainerCntyDth> ul{
   display:flex;
   justify-content:flex-start;
   flex-wrap: wrap;
   padding:0 1vw;
 }
-#boxToggleCntyOff{
+#boxToggleCntyOff,
+#boxToggleCntyDthOff{
   width:100%;
   padding:15px 0;
 }
 #toggleCntyOff,
-#hideAllData,
-#showAllData{
+#toggleCntyDthOff{
   display:inline-block;
   z-index:3003; 
   padding:4px 7.5px; 
@@ -343,12 +345,13 @@
   background:#ccc;
 }
 #toggleCntyOff{
-
-
+}
+#toggleCntyDthOff{
 }
 
  /* - Legend Item + Text Style (Also ".legendItemCnty") - */
-#legendContainerCnty li {
+#legendContainerCnty li,
+#legendContainerCntyDth li {
   display:block;
   flex-basis:150px;
   cursor: pointer;
@@ -358,7 +361,8 @@
   font-weight:400;
 }
 /* - Legend Item Circle Style (Also ".legendCircleCnty") - */
-#legendContainerCnty li span {
+#legendContainerCnty li span,
+#legendContainerCntyDth li span {
   position: relative;
   display:inline-block;
   margin:0 5px 0 0;
@@ -370,7 +374,8 @@
   z-index: 1000;
 }
 
-#legendContainerCnty li.hiddentrue span {
+#legendContainerCnty li.hiddentrue span,
+#legendContainerCntyDth li.hiddentrue span {
   border:2px solid;
   background:transparent !important;
 }

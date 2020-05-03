@@ -96,6 +96,32 @@ var caseCnty21 = countiesData.features[21].properties.history;
 var caseCnty22 = countiesData.features[22].properties.history;
 var caseCnty23 = countiesData.features[23].properties.history;
 
+// Case Data for County Cases Line Chart
+var caseCntyDth0 = countiesData.features[0].properties.historydeaths;
+var caseCntyDth1 = countiesData.features[1].properties.historydeaths;
+var caseCntyDth2 = countiesData.features[2].properties.historydeaths;
+var caseCntyDth3 = countiesData.features[3].properties.historydeaths;
+var caseCntyDth4 = countiesData.features[4].properties.historydeaths;
+var caseCntyDth5 = countiesData.features[5].properties.historydeaths;
+var caseCntyDth6 = countiesData.features[6].properties.historydeaths;
+var caseCntyDth7 = countiesData.features[7].properties.historydeaths;
+var caseCntyDth8 = countiesData.features[8].properties.historydeaths;
+var caseCntyDth9 = countiesData.features[9].properties.historydeaths;
+var caseCntyDth10 = countiesData.features[10].properties.historydeaths;
+var caseCntyDth11 = countiesData.features[11].properties.historydeaths;
+var caseCntyDth12 = countiesData.features[12].properties.historydeaths;
+var caseCntyDth13 = countiesData.features[13].properties.historydeaths;
+var caseCntyDth14 = countiesData.features[14].properties.historydeaths;
+var caseCntyDth15 = countiesData.features[15].properties.historydeaths;
+var caseCntyDth16 = countiesData.features[16].properties.historydeaths;
+var caseCntyDth17 = countiesData.features[17].properties.historydeaths;
+var caseCntyDth18 = countiesData.features[18].properties.historydeaths;
+var caseCntyDth19 = countiesData.features[19].properties.historydeaths;
+var caseCntyDth20 = countiesData.features[20].properties.historydeaths;
+var caseCntyDth21 = countiesData.features[21].properties.historydeaths;
+var caseCntyDth22 = countiesData.features[22].properties.historydeaths;
+var caseCntyDth23 = countiesData.features[23].properties.historydeaths;
+
 // Names for County Cases Line Chart
 var nameCnty0 = countiesData.features[0].properties.name;
 var nameCnty1 = countiesData.features[1].properties.name;
@@ -125,31 +151,57 @@ var nameCnty23 = countiesData.features[23].properties.name;
 
 
 
-// Colors for County Cases Line Chart
-var colorCnty0 = '#6B213D';
-var colorCnty1 = '#792669';
-var colorCnty2 = '#862C86';
-var colorCnty3 = '#6D3293';
-var colorCnty4 = '#4A38A1';
-var colorCnty5 = '#3F5BAE';
-var colorCnty6 = '#4694BC';
-var colorCnty7 = '#4DC9C9';
-var colorCnty8 = '#54D7AB';
-var colorCnty9 = '#5CE47F';
-var colorCnty10 = '#77F264';
-var colorCnty11 = '#B7FF6C';
-var colorCnty12 = '#D0FF68';
-var colorCnty13 = '#EBFF65';
-var colorCnty14 = '#FFFF61';
-var colorCnty15 = '#FFFF5E';
-var colorCnty16 = '#FFE65A';
-var colorCnty17 = '#FFCA57';
-var colorCnty18 = '#FFAD54';
-var colorCnty19 = '#FF8D51';
-var colorCnty20 = '#FF6A4F';
-var colorCnty21 = '#FF4C52';
-var colorCnty22 = '#FF4973';
-var colorCnty23 = '#FF4973';
+// Colors for County Cases Line Chart (Randomized + New Contrasting)
+var colorCnty0 = '#C45256';
+var colorCnty1 = '#4DC9C9';
+var colorCnty2 = '#3F5BAE';
+var colorCnty3 = '#5DA522';
+var colorCnty4 = '#6D3293';
+var colorCnty5 = '#54D7AB';
+var colorCnty6 = '#4A38A1';
+var colorCnty7 = '#5CE47F';
+var colorCnty8 = '#CBC3ff';
+var colorCnty9 = '#737373';
+var colorCnty10 = '#FF8D51';
+var colorCnty11 = '#FFE65A';
+var colorCnty12 = '#ECCDCD';
+var colorCnty13 = '#FF4973';
+var colorCnty14 = '#862C86';
+var colorCnty15 = '#F79F40';
+var colorCnty16 = '#ff6666';
+var colorCnty17 = '#792669';
+var colorCnty18 = '#4694BC';
+var colorCnty19 = '#D6E8AF';
+var colorCnty20 = '#77F264';
+var colorCnty21 = '#E6B64E';
+var colorCnty22 = '#AAAAAA';
+var colorCnty23 = '#6B213D';
+
+// Original non-randomized colors
+//var colorCnty0 = '#6B213D';
+//var colorCnty1 = '#792669';
+//var colorCnty2 = '#862C86';
+//var colorCnty3 = '#6D3293';
+//var colorCnty4 = '#4A38A1';
+//var colorCnty5 = '#3F5BAE';
+//var colorCnty6 = '#4694BC';
+//var colorCnty7 = '#4DC9C9';
+//var colorCnty8 = '#54D7AB';
+//var colorCnty9 = '#5CE47F';
+//var colorCnty10 = '#77F264';
+//var colorCnty11 = '#B7FF6C';
+//var colorCnty12 = '#D0FF68';
+//var colorCnty13 = '#EBFF65';
+//var colorCnty14 = '#FFFF61';
+//var colorCnty15 = '#FFFF5E';
+//var colorCnty16 = '#FFE65A';
+//var colorCnty17 = '#FFCA57';
+//var colorCnty18 = '#FFAD54';
+//var colorCnty19 = '#FF8D51';
+//var colorCnty20 = '#FF6A4F';
+//var colorCnty21 = '#FF4C52';
+//var colorCnty22 = '#FF4973';
+//var colorCnty23 = '#FF4973';
 
 
 // Colors for Daily State Bar Charts
