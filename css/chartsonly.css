@@ -222,7 +222,8 @@
   background: rgba(38,38,38,1);
  }
  
- #cntychart{
+#cntychart,
+#cntydthchart{
    width: 90vw;
    max-height: 70vh;
  }
@@ -265,13 +266,12 @@
     padding: 30px 0;
     background: rgba(38,38,38,1);
   }
-  #cntychart{
+  #cntychart,
+  #cntydthchart{
     max-height: calc(95vw * 1);
     width: 97vw;
   }   
-  #cntychart canvas{
-    margin-top:0px;
-  }
+
  
 
  
