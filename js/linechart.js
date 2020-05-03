@@ -27,8 +27,8 @@
     
     var nowHospNumbers = countiesData.features[24].properties.nowHospitalized;
     var everHospNumbers = countiesData.features[24].properties.everHospitalized;
-    var intensiveHospNumbers = countiesData.features[24].properties.acuteCare;
-    var acuteHospNumbers = countiesData.features[24].properties.intensiveCare;
+    var intensiveHospNumbers = countiesData.features[24].properties.intensiveCare;
+    var acuteHospNumbers = countiesData.features[24].properties.acuteCare;
 
 
 
