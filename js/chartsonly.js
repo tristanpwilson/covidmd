@@ -1023,7 +1023,7 @@
             if (tooltipItem.datasetIndex != data.datasets.length - 1) {
                 return count + ": " + index;
             } else { // .. else, you display the dataset and the total, using an array
-                return [count + ": " + index, "Current Total: " + total];
+                return [count + ": " + index, "Total: " + total];
             }
           }
         },
