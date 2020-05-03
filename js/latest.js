@@ -94,8 +94,14 @@ countiesData.features[24].properties.nowHospitalized = 1635;
 countiesData.features[24].properties.acuteCare = 1070;
 countiesData.features[24].properties.intensiveCare = 565;
 countiesData.features[24].properties.everHospitalized = 5051;
+
+// Hospitalization History on State Level
+countiesData.features[24].properties.historyNowHospitalized = [0,0,0,0,0,0,0,0,0,0,108,146,185,212,260,308,402,423,447,605,559,770,801,848,924,918,1020,1019,1071,1079,1156,1219,1201,1288,1289,1340,1433,1432,1405,1405,1408,1463,1513,1528,1645,1645,1668,1657,1635,];
+countiesData.features[24].properties.historyAcuteCare = [0,0,0,0,0,0,0,0,0,0,68,76,113,118,150,177,257,260,263,369,305,498,499,539,581,560,641,633,657,631,718,788,762,800,791,829,907,905,890,878,870,933,978,977,1060,1060,1100,1091,1070,];
+countiesData.features[24].properties.historyIntensiveCare = [0,0,0,0,0,0,0,0,0,0,40,70,72,94,110,131,145,163,180,236,254,272,302,309,343,358,379,386,414,448,438,431,439,488,498,511,526,527,515,547,538,530,534,551,585,590,568,566,565,];
+countiesData.features[24].properties.historyEverHospitalized = [2,0,0,0,0,0,0,0,0,0,132,173,193,212,353,429,522,593,664,821,940,1059,1106,1210,1348,1413,1637,1860,1975,1975,2231,2451,2612,2757,2886,2886,3104,3325,3477,3618,3760,3962,4101,4268,4402,4402,4718,4910,5051,];  
   
-  
+
 // Population Totals per County + State Aggregate
 countiesData.features[0].properties.population = 70416;
 countiesData.features[1].properties.population = 579234;

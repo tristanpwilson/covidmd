@@ -315,62 +315,110 @@
 			}
 		};
     
-    //Barchart Hospitalizations Config
+      //Linechart Hospitalizations Config		
     var configHosp = {
-			type: 'horizontalBar',
-			data: {
-				labels: [''],
-				datasets: [{
-					label: 'Intensive',
-          pointRadius: 0,
-          borderWidth: 2,
-          borderColor: "rgba(91,141,211,1.0)",
-					backgroundColor: "rgba(91,141,211,0.9)",
-					data: [intensiveHospNumbers],
-          barPercentage: window.barPercentStacked,
-          //categoryPercentage: 0.85,
-				},
+      type: 'line',
+      data: {
+        labels: caseTimeline,
+        datasets: [
+  //      {
+  //        label: 'Now Hospitalized',
+  //        backgroundColor: colorNowHospBackground,
+  //        borderColor: colorNowHospBorder,
+  //        data: historyNowHosp,
+  //        pointRadius: 1,
+  //        pointHitRadius: 4,
+  //        borderWidth: 2,
+  //        hoverRadius: 5,
+  //        hoverBorderWidth:3,
+  //        hoverBorderColor:colorNowHospHover,
+  //        fill: true,
+  //        lineTension: 0.1,
+  //        //order:3,
+  //      },
         {
-					label: 'Critical (Acute)',
-          pointRadius: 0,
+          label: 'Acute Care',
+          backgroundColor: colorAcuteBackground,
+          borderColor: colorAcuteBorder,
+          data: historyAcute,
+          pointRadius: 1,
+          pointHitRadius: 4,
           borderWidth: 2,
-          borderColor: "rgba(175,90,160,1.0)",
-					backgroundColor: "rgba(175,90,160,0.9)",
-					data: [acuteHospNumbers],
-          barPercentage: window.barPercentStacked,
-          //categoryPercentage: 0.85,
-				}]
-			},    
-			options: {
-				responsive: true,
-        aspectRatio: window.aspectShort,  
-        title: {
-					display: true,
-					text: 'Current Hospitalizations',
-          fontColor: "#fff",
-          fontFamily: "Work Sans",
-          fontSize: window.titleFontSize,
-          lineHeight: 1,
-          padding: 0,
-				},
+          hoverRadius: 5,
+          hoverBorderWidth:3,
+          hoverBorderColor:colorAcuteHover,
+          fill: true,
+          lineTension: 0.1,
+          //order:2,
+        },
+        {
+          label: 'Intensive Care',
+          backgroundColor: colorIntensiveBackground,
+          borderColor: colorIntensiveBorder,
+          data: historyIntensive,         
+          pointRadius: 1,
+          pointHitRadius: 4,
+          borderWidth: 2,
+          hoverRadius: 5,
+          hoverBorderWidth:3,
+          hoverBorderColor:colorIntensiveHover,
+          fill: true,
+          lineTension: 0.1,
+          //order:1,
+        },
+  //      {
+  //        label: 'Ever Hospitalized',
+  //        backgroundColor: colorEverHospBackground,
+  //        borderColor: colorEverHospBorder,
+  //        data: historyEverHosp,         
+  //        pointRadius: 1,
+  //        pointHitRadius: 4,
+  //        borderWidth: 2,
+  //        hoverRadius: 5,
+  //        hoverBorderWidth:3,
+  //        hoverBorderColor:colorEverHospHover,
+  //        fill: true,
+  //        lineTension: 0.1,
+  //        //order:1,
+  //      }
+        ]
+      },
+      options: {
+        responsive: true,
+        aspectRatio: window.aspect,
+        //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason 
         legend: {
           display: true,
           position: "top",
           align: "center",
           fullWidth: true,
           labels:{
-           boxWidth: 12,
-           boxHeight: 4,
-           fontColor: "#fafafa",
-           fontSize: window.legendFontSize,
+            usePointStyle: true,
+            boxWidth: 8,
+            //boxHeight: 8,
+            fontColor: "#fafafa",
+            fontSize: window.legendFontSize,
           },
         },
+        title: {
+          display: true,
+          text: 'Current Hospitalizations in MD',
+          fontColor: "#fff",
+          fontFamily: "Work Sans",
+          fontSize: window.titleFontSize,
+          lineHeight: 1,
+          padding:0,
+        },   
         tooltips: {
           enabled: true, 
-          mode: 'index',
+          mode: 'label',
           displayColors:false,
-          position:'nearest',
-          intersect:true,
+          titleFontSize: 14,
+          bodyFontSize: 14,
+          position:'average',
+          xalign: 'right',
+          yalign:'none',
+          intersect:false,
           callbacks: {
             title: function() {},
             label: function(tooltipItem, data) {
@@ -391,55 +439,59 @@
               }
             }
           },
+        },       
+        hover: {
+          //mode: 'average',
+          intersect: false
         },
-				hover: {
-					mode: 'nearest',
-					intersect: true,
-				},
-				scales: {
-					xAxes: [{
-            stacked:true,
-						display: true,
-						scaleLabel: {display: false,},
+        scales: {
+          xAxes: [{
+            type: 'time',
+            time: {
+              unit: 'day',
+              //unitStepSize: 4,
+            },
+            display: true,
+            offset:false,
+            scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
               autoSkip: true,
-              autoSkipPadding: 0,
+              minRotation:window.xAxisMinRotation,
+              maxRotation:window.xAxisMaxRotation,
+              autoSkipPadding: 60,
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
-              zeroLineColor:"rgba(255,255,255,0.1)",
-              drawBorder:false,
-              //drawTicks:false,
-              tickMarkLength:5,
+              zeroLineColor: "rgba(255,255,255,0.02)",
             }
-					}],
-					yAxes: [{
+          }],
+          yAxes: [{
+            display: true,
             stacked: true,
-						display: true,
-						scaleLabel: {
-              display: true,
-              labelString:'Current',
-              fontColor: "255,255,255,1.0)",
+            scaleLabel: {display: false,},
+            ticks:{
+              mirror: window.yAxisTickMirror,
+              fontColor: "#fff",
               fontSize: window.yAxisFontSize,
-              padding: {
-                top: window.yAxisPaddingStacked,
-                bottom: 0
-              }
+              autoSkip: true,
+              maxRotation: 0,
+              autoSkipPadding: 30,
             },
-            ticks:{},
+            afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+              scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+              scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+            },
             gridLines:{
-              color:"rgba(255,255,255,0)",
-              zeroLineColor:"rgba(255,255,255,0.0)",
-              drawBorder:false,
-              drawTicks: false,
+              color:"rgba(255,255,255,0.1)",
+              drawTicks: window.yAxisTickDisplay,
             }
-					}],
+          }],
 
-				}
-			}
-		};
+        }
+      }
+    };
 
 
     window.onload = function generateCharts() {

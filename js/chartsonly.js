@@ -48,7 +48,7 @@
         borderWidth: 2,
         hoverRadius: 5,
         hoverBorderWidth:3,
-        hoverBorderColor:"rgba(255, 127, 125, 1)",
+        hoverBorderColor:colorCaseBackgroundHover,
         fill: true,
         lineTension: 0.1,
         //order:3,
@@ -64,7 +64,7 @@
         hoverRadius: 5,
         hoverBorderWidth:3,
         hoverBorderColor:"rgba(255,173,54,1.00)",
-        fill: true,
+        fill: false,
         lineTension: 0.1,
         //order:2,
       },
@@ -79,7 +79,7 @@
         hoverRadius: 5,
         hoverBorderWidth:3,
         hoverBorderColor:"rgba(51,193,57,1.00)",
-        fill: true,
+        fill: false,
         lineTension: 0.1,
         //order:1,
       }]
@@ -524,6 +524,7 @@
     }
   };
 
+
   //Bar Chart For Cases by County
   var configCnty = {
     type: 'line',
@@ -534,22 +535,26 @@
         label: nameCnty0,
         borderColor: colorCnty0,
         hoverBorderColor:colorCnty0,
+        backgroundColor:colorCnty0,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
         //hidden: true,
       },{data: caseCnty1,
         label: nameCnty1,
         borderColor: colorCnty1,
         hoverBorderColor:colorCnty1,
+        backgroundColor:colorCnty1,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
       },{data: caseCnty2,
         label: nameCnty2,
         borderColor: colorCnty2,
         hoverBorderColor:colorCnty2,
+        backgroundColor:colorCnty2,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
       },{data: caseCnty3,
         label: nameCnty3,
         borderColor: colorCnty3,
         hoverBorderColor:colorCnty3,
+        backgroundColor:colorCnty3,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
       },{data: caseCnty4,
         label: nameCnty4,
@@ -669,16 +674,6 @@
       //aspectRatio: window.aspectCnty,     
       legend: {
         display: false,
-//        position: window.legendPositionCnty,
-//        align: window.legendAlignCnty,
-//        fullWidth: true,
-//        labels:{
-//         boxWidth: window.legendBoxSizeCnty,
-//         fontColor: "#fafafa",
-//         fontSize: window.legendFontSizeCnty,
-//         padding:window.legendPaddingCnty,
-//         textDirection:'right',
-//        },
       },
       legendCallback: 
         function(chart) { 
@@ -796,9 +791,7 @@
       $(".legendItemCnty").removeClass("hiddenundefined");
       $(".legendItemCnty").addClass("hiddentrue");
     }else{
-
     }
-    
   };
   
 
@@ -909,7 +902,185 @@
       }
     }
   };
-    
+
+
+  //Linechart Hospitalizations Config		
+  var configHosp = {
+    type: 'line',
+    data: {
+      labels: caseTimeline,
+      datasets: [
+//      {
+//        label: 'Now Hospitalized',
+//        backgroundColor: colorNowHospBackground,
+//        borderColor: colorNowHospBorder,
+//        data: historyNowHosp,
+//        pointRadius: 2,
+//        pointHitRadius: 5,
+//        borderWidth: 2,
+//        hoverRadius: 5,
+//        hoverBorderWidth:3,
+//        hoverBorderColor:colorNowHospHover,
+//        fill: true,
+//        lineTension: 0.1,
+//        //order:3,
+//      },
+      {
+        label: 'Acute Care',
+        backgroundColor: colorAcuteBackground,
+        borderColor: colorAcuteBorder,
+        data: historyAcute,
+        pointRadius: 2,
+        pointHitRadius: 5,
+        borderWidth: 2,
+        hoverRadius: 5,
+        hoverBorderWidth:3,
+        hoverBorderColor:colorAcuteHover,
+        fill: true,
+        lineTension: 0.1,
+        //order:2,
+      },
+      {
+        label: 'Intensive Care',
+        backgroundColor: colorIntensiveBackground,
+        borderColor: colorIntensiveBorder,
+        data: historyIntensive,         
+        pointRadius: 2,
+        pointHitRadius: 5,
+        borderWidth: 2,
+        hoverRadius: 5,
+        hoverBorderWidth:3,
+        hoverBorderColor:colorIntensiveHover,
+        fill: true,
+        lineTension: 0.1,
+        //order:1,
+      },
+//      {
+//        label: 'Ever Hospitalized',
+//        backgroundColor: colorEverHospBackground,
+//        borderColor: colorEverHospBorder,
+//        data: historyEverHosp,         
+//        pointRadius: 2,
+//        pointHitRadius: 5,
+//        borderWidth: 2,
+//        hoverRadius: 5,
+//        hoverBorderWidth:3,
+//        hoverBorderColor:colorEverHospHover,
+//        fill: true,
+//        lineTension: 0.1,
+//        //order:1,
+//      }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      legend: {
+        display: true,
+        //reverse:true,
+        position: "top",
+        align: "center",
+        fullWidth: true,
+        labels:{
+          usePointStyle: true,
+          boxWidth: 10,
+          fontColor: "#fafafa",
+          fontSize: window.legendFontSize,
+          fontStyle: 'bold',
+        },
+      },
+      title: {
+        display: true,
+        text: 'Current Hospitalizations in MD',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      tooltips: {
+        enabled: true, 
+        mode: 'label',
+        displayColors:false,
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        position:'average',
+        xalign: 'right',
+        yalign:'none',
+        intersect:false,
+        callbacks: {
+          title: function() {},
+          label: function(tooltipItem, data) {
+            // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
+            var count = data.datasets[tooltipItem.datasetIndex].label;
+            var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+
+            // Loop through all datasets to get the actual total of the index
+            var total = 0;
+            for (var i = 0; i < data.datasets.length; i++)
+                total += data.datasets[i].data[tooltipItem.index];
+
+            // If it is not the last dataset, you display it as you usually do
+            if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+                return count + ": " + index;
+            } else { // .. else, you display the dataset and the total, using an array
+                return [count + ": " + index, "Current Total: " + total];
+            }
+          }
+        },
+      },       
+      hover: {
+        //mode: 'average',
+        intersect: false
+      },
+      scales: {
+        xAxes: [{
+          type: 'time',
+          time: {
+            unit: 'day',
+            //unitStepSize: 4,
+          },
+          display: true,
+          offset:false,
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: true,
+            minRotation:window.xAxisMinRotation,
+            maxRotation:window.xAxisMaxRotation,
+            autoSkipPadding: 60,
+          },
+          gridLines:{
+            color:"rgba(255,255,255,0.1)",
+            zeroLineColor: "rgba(255,255,255,0.02)",
+          }
+        }],
+        yAxes: [{
+          display: true,
+          stacked: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            mirror: window.yAxisTickMirror,
+            fontColor: "#fff",
+            fontSize: window.yAxisFontSize,
+            autoSkip: true,
+            maxRotation: 0,
+            autoSkipPadding: 30,
+          },
+          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+          },
+          gridLines:{
+            color:"rgba(255,255,255,0.1)",
+            drawTicks: window.yAxisTickDisplay,
+          }
+        }],
+
+      }
+    }
+  };
+
          
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');
@@ -918,8 +1089,10 @@
 			window.myBar = new Chart(ctx, config2);
       var ctx = document.getElementById('canvasDth').getContext('2d');
 			window.myBar = new Chart(ctx, configDth);
-      var ctx = document.getElementById('canvasRec').getContext('2d');
-			window.myBar = new Chart(ctx, configRec);
+      //var ctx = document.getElementById('canvasRec').getContext('2d');
+			//window.myBar = new Chart(ctx, configRec);
+      var ctx = document.getElementById('canvasHosp').getContext('2d');
+			window.myLineHosp = new Chart(ctx, configHosp);
       
       // County multi line graph initiation & custom legend generation
       var ctx = document.getElementById('canvasCnty').getContext('2d');

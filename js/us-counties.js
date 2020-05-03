@@ -8169,6 +8169,10 @@ var countiesData =
         "acuteCare": 1060,
         "intensiveCare": 585,
         "everHospitalized": 4402,
+        "historyNowHospitalized": [0,1],
+        "historyAcuteCare": [0,1],
+        "historyIntensiveCare": [0,1],
+        "historyEverHospitalized": [0,1],
         "negativetests": 101049,
         "lastupdated": "4/27/20 11:00am EST",
       }

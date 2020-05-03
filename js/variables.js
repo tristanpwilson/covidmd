@@ -31,6 +31,11 @@ function diff(ary) {
   var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
 
 
+var historyNowHosp = countiesData.features[24].properties.historyNowHospitalized;
+var historyAcute = countiesData.features[24].properties.historyAcuteCare;
+var historyIntensive = countiesData.features[24].properties.historyIntensiveCare;
+var historyEverHosp = countiesData.features[24].properties.historyEverHospitalized;
+
 
 // Todays Cases per County + Population per County  
 var allCase = [];
@@ -163,3 +168,23 @@ var colorRecoveryBorder = "rgba(66,170,71,.95)";
 var colorRecoveryBackground = "rgba(64,171,69,0.9)";
 var colorRecoveryBorderLine = "rgba(31,173,37,1.00)";
 var colorRecoveryBackgroundLine = "rgba(31,173,37,.7)";
+
+
+var colorNowHospBorder = "rgba(81,174,181,1.00)";
+var colorNowHospBackground = "rgba(81,174,181,0.6)";
+var colorNowHospHover = "rgba(81,174,181,1.00)";
+
+var colorAcuteBorder = "rgba(221,122,176,1.00)";
+var colorAcuteBackground = "rgba(221,122,176,0.6)";
+var colorAcuteHover = "rgba(221,122,176,1.00)";
+
+var colorIntensiveBorder = "rgba(157,111,171,1.00)";
+var colorIntensiveBackground = "rgba(157,111,171,0.6)";
+var colorIntensiveHover = "rgba(157,111,171,1.00)";
+
+var colorEverHospBorder = "rgba(86,80,132,1.00)";
+var colorEverHospBackground = "rgba(86,80,132,0.6)";
+var colorEverHospHover = "rgba(86,80,132,1.00)";
+
+
+
