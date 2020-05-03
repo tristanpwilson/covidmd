@@ -992,7 +992,7 @@
       },
       title: {
         display: true,
-        text: 'Current Hospitalizations in MD',
+        text: 'Current Hospitalizations in MD (Stacked)',
         fontColor: "#fff",
         fontFamily: "Work Sans",
         fontSize: window.titleFontSize,

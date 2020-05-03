@@ -197,6 +197,15 @@
   background:rgba(255,255,255,.2);
 }
 
+.toggle-tab .new-tag{
+/* content:"NEW";
+ position:absolute;*/
+ position:relative;
+ display:inline-block;
+ color:red;
+ font-size:8px;
+}
+
 .tab-content {order: 3 !important; display:none !important; }
 .tab-content.active-tab-content {order:2 !important; display:block !important;}
 
