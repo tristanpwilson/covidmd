@@ -252,29 +252,18 @@
     min-width:initial;
     font-size:12px;
   }  
-  
+ 
   .stdcharts{
-    position:relative;
     display:block;
-    z-index:3000;
-    height:80vh;
-    flex-shrink:2;
-    flex-grow:1;
     width: 97vw;
     max-height: calc(95vw * 1.1);
-    margin:0 auto!important;
-    padding: 30px 0;
-    background: rgba(38,38,38,1);
+    padding: 15px 0;
   }
+  
   #cntychart,
   #cntydthchart{
     max-height: calc(95vw * 1);
-    width: 97vw;
-  }   
-
- 
-
- 
+  } 
 }
 
 @media (max-width: 575px){
@@ -295,7 +284,6 @@
     height:38px;
     padding:5px 0;
     line-height:14px;
-
       transition: .05s ease-in height, .05s ease background, .1s ease color;
   }
     
@@ -306,6 +294,9 @@
     padding:6px 0;
     line-height:14px !important;
       box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.5), 0 -2px 1px 1px rgba(0,0,0,0.1);
+  }
+  .stdcharts{
+    padding: 1vh 0;
   }
 
 }
@@ -325,41 +316,64 @@
 #legendContainerCnty> ul,
 #legendContainerCntyDth> ul{
   display:flex;
-  justify-content:flex-start;
+  justify-content:space-between;
   flex-wrap: wrap;
   padding:0 1vw;
 }
 #boxToggleCntyOff,
 #boxToggleCntyDthOff{
   width:100%;
-  padding:15px 0;
+  padding:15px 0 7.5px 0;
 }
 #toggleCntyOff,
 #toggleCntyDthOff{
   display:inline-block;
   z-index:3003; 
   padding:4px 7.5px; 
-  color:#333; 
-  font-size:13px; 
+  font-size:15px; 
   font-weight:500; 
-  background:#ccc;
+  color:#ccc; 
+  
+  border:2px solid #ccc;
+  border-radius:4px;
+  background:transparent;
 }
-#toggleCntyOff{
-}
-#toggleCntyDthOff{
+#toggleCntyOff:before,
+#toggleCntyDthOff:before{
+  content:"\\";
+  position:relative;
+  display:inline-block;
+  margin-right:5px;
+  height:14px;
+  width:14px;
+  font-size:14px;
+  font-weight:500;
+  line-height:10px;
+  color:#ccc;
+  
+  border:2px solid #ccc;   
+  text-align:center;
+  border-radius:50%;
 }
 
  /* - Legend Item + Text Style (Also ".legendItemCnty") - */
 #legendContainerCnty li,
 #legendContainerCntyDth li {
   display:block;
-  flex-basis:150px;
+  flex-basis:20%;
+  flex-grow:0;
   cursor: pointer;
   margin:0 0 0 0;
   color:#fff;
   font-size:16px;
   font-weight:400;
 }
+
+#legendContainerCnty li:last-child,
+#legendContainerCntyDth li:last-child {
+  flex-grow:2 !important;
+}
+
 /* - Legend Item Circle Style (Also ".legendCircleCnty") - */
 #legendContainerCnty li span,
 #legendContainerCntyDth li span {
@@ -370,7 +384,6 @@
   height:14px;
   width:14px;
   border-radius: 13px;
- 
   z-index: 1000;
 }
 
@@ -381,7 +394,60 @@
 }
 
 
+@media (max-width: 991px){
+  #legendContainerCnty li,
+  #legendContainerCntyDth li {
+    flex-basis:25%;
+  }
 
+}
+
+@media (max-width: 767px){
+  #legendContainerCnty li,
+  #legendContainerCntyDth li {
+    flex-basis:33%;
+    font-size:16px;
+  }
+}
+
+@media (max-width: 575px){
+  #boxToggleCntyOff,
+  #boxToggleCntyDthOff{
+    padding:15px 0 7.5px 3%;
+  }
+  #toggleCntyOff,
+  #toggleCntyDthOff{
+    padding:2px 5px; 
+    font-size:13px; 
+    border:1px solid #ccc;
+    border-radius:4px;
+    background:transparent;
+  }
+  
+  #toggleCntyOff:before,
+  #toggleCntyDthOff:before{
+    margin-right:3px;
+    height:12px;
+    width:12px;
+    font-size:12px;
+    line-height:8px;
+  }
+
+  #legendContainerCnty> ul,
+  #legendContainerCntyDth> ul{
+    padding:0 4%;
+  }
+
+  #legendContainerCnty li,
+  #legendContainerCntyDth li {
+    flex-basis:42%;
+    font-size:14px;
+  }
+  #legendContainerCnty li:last-child,
+  #legendContainerCntyDth li:last-child {
+    flex-grow:0 !important;
+  }
+}
 
 
 

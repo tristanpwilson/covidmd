@@ -524,19 +524,20 @@
     }
   };
 
+//window.optionsDatasetCnty = datasets: [];
 
   //Bar Chart For Cases by County
   var configCnty = {
     type: 'line',
     data: {
       labels: caseTimeline,
-      datasets: 
-      [{data: caseCnty0,
+      datasets: [
+      {data: caseCnty0,
         label: nameCnty0,
         borderColor: colorCnty0,
-        hoverBorderColor:colorCnty0,
-        backgroundColor:colorCnty0,
-        backgroundColor:colorCnty0,
+        hoverBorderColor: colorCnty0,
+        backgroundColor: colorCnty0,
+        backgroundColor: colorCnty0,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
         //hidden: true,
       },{data: caseCnty1,
