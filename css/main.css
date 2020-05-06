@@ -45,7 +45,7 @@ html, body, .leaflet-container {
   display: block !important;
   order: 1;
   width: 100%;
-  min-height: 285px;
+  min-height: 265px;
   height: auto;
   padding: 0px 0px;
   margin: 0 !important;
@@ -623,7 +623,7 @@ html, body, .leaflet-container {
 }
 
 
-@media(max-width: 768px) {
+@media(max-width: 767px) {
   #chartIconLine1{
     height: 24px;
     width: 24px;
@@ -658,5 +658,73 @@ html, body, .leaflet-container {
     width:auto;
   }
 }
+
+
+/*TEMPORARY NOTE "!" BUTTON*/
+#noteExclA{
+  position:absolute;
+  display:inline-block;
+  right:19.5px;
+  height:16px;
+  width:16px;
+  margin-top:35px;
+  line-height:16px;
+  text-align:center;
+  color:#272727;
+  font-size: 16px;
+  font-weight: 600;
+  background:#F1EAA6;
+  border-radius:50%;
+  cursor:pointer;
+    transition:.2s ease border-radius .3s, .3s ease background .3s;
+}
+#noteExclA:hover,
+#noteExclA:focus{
+  color:#272727;
+  background:#FFFFFF;
+  border-radius:0 50% 50% 0px;
+    transition:.2s ease border-radius, .3s ease background;
+}
+#noteExclA:before{
+  content:"County-level recoveries data is no longer being reported by the state, so we've removed those values here for accuracy.";
+  position:absolute;
+  display:block;
+  right:10px;
+  width:0;
+  height:auto;
+  min-height:16px;
+  max-height:45px;
+  padding: 5px 7.5px;
+  text-align:left;
+  line-height:0%;
+  font-size:12px;
+  font-weight:400;
+  color:rgba(0,0,0,0.0);
+  background:#FFFFFF;
+  border-radius:5px 0px 0px 5px;
+  overflow:hidden;
+  opacity:0;
+    transition:.2s ease opacity .2s, .1s ease width .2s, .3s ease right .4s, .3s ease line-height, .2s ease color;
+}
+
+#noteExclA:hover:before,
+#noteExclA:focus:before{
+  content:"County-level recoveries data is no longer being reported by the state, so we've removed those values here for accuracy.";
+  width:300px;
+  right:16px;
+  line-height:100%;
+  color:rgba(0,0,0,0.9);
+  opacity:1;
+    transition:.2s ease opacity .2s, .2s ease width .1s, .2s ease right, .1s ease line-height .4s, .2s ease color .4s;
+}
+
+@media(max-width:992px){
+  #noteExclA{right:12.5px;}
+}
+
+@media(max-width:767px){
+  #noteExclA{right:3.5vw; height:18px; width:18px; line-height:18px;}
+}
+
 
 

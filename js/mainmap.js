@@ -46,14 +46,16 @@
     this._div.innerHTML =
       '<div id="title"><h1>Maryland COVID-19 <img src="img/mdflagmap-lg.png" aria-hidden="true" id="mdflag"></h1></div><div id="statecases"><h2>State Totals</h2><p>' + stateCasesVal + ' cases <b class="diff">(+' + stateCasesChg + ')</b></p><p>' + stateDeathsVal + ' deaths <b class="diff">(+' + stateDeathsChg + ')</b></p></div>' +
 
-      '<div id="countycases"><a href="charts#casesbycounty" id="chartIconLine1" aria-label="Link to chart of county data over time" title="View graph of county data"></a>' + 
+      '<div id="countycases"><div id="noteExclA" tabindex="0">!</div><a href="charts#casesbycounty" id="chartIconLine1" aria-label="Link to chart of county data over time" title="View graph of county data"></a>' + 
       (props ?
       
       // Content displayed on county hover
-        '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>' + '<p>' + props.recoveries + ' recoveries</p>'
+        '<h3>' + props.name + '</h3>' + '<p>' + props.cases + ' cases <b class="diff">(+' + [props.cases - props.prevcases] + ')</b></p><p>' + props.deaths + ' deaths <b class="diff">(+' + [props.deaths - props.prevdeaths] + ')</b></p>'
+        //+ '<p>' + props.recoveries + ' recoveries</p>'
         
         // Default content without county hover
-        :'<h3><i>County <span>(Hover/Tap)</span></i></h3>' + '<p><i> __ </i> cases</p>' + '<p><i> __ </i> deaths</p>' + '<p><i> __ </i> recoveries</p>'); +
+        :'<h3><i>County <span>(Hover/Tap)</span></i></h3>' + '<p><i> __ </i> cases</p>' + '<p><i> __ </i> deaths</p>'); +
+        // + '<p><i> __ </i> recoveries</p>'
       '</div>'
   };
   
