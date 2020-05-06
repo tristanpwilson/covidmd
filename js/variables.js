@@ -227,11 +227,13 @@ var colorNowHospBackground = "rgba(81,174,181,0.6)";
 var colorNowHospHover = "rgba(81,174,181,1.00)";
 
 var colorAcuteBorder = "rgba(221,122,176,1.00)";
-var colorAcuteBackground = "rgba(221,122,176,0.6)";
+var colorAcuteBackground = "rgba(161,96,131,1.00)";
+//"rgba(221,122,176,0.6)";
 var colorAcuteHover = "rgba(221,122,176,1.00)";
 
-var colorIntensiveBorder = "rgba(157,111,171,1.00)";
-var colorIntensiveBackground = "rgba(157,111,171,0.6)";
+var colorIntensiveBorder = "rgba(179,119,191,1.00)";
+var colorIntensiveBackground = "rgba(137,93,150,1.0)";
+//"rgba(157,111,171,0.6)";
 var colorIntensiveHover = "rgba(157,111,171,1.00)";
 
 var colorEverHospBorder = "rgba(86,80,132,1.00)";

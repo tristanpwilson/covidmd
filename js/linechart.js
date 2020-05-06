@@ -315,7 +315,7 @@
 			}
 		};
     
-      //Linechart Hospitalizations Config		
+    //Linechart Hospitalizations Config		
     var configHosp = {
       type: 'line',
       data: {
@@ -349,7 +349,7 @@
           hoverBorderColor:colorAcuteHover,
           fill: true,
           lineTension: 0.1,
-          //order:2,
+          order:2,
         },
         {
           label: 'Intensive Care',
@@ -364,7 +364,7 @@
           hoverBorderColor:colorIntensiveHover,
           fill: true,
           lineTension: 0.1,
-          //order:1,
+          order:1,
         },
   //      {
   //        label: 'Ever Hospitalized',
