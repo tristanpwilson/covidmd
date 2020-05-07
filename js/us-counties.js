@@ -8173,7 +8173,7 @@ var countiesData =
         "historyAcuteCare": [0,1],
         "historyIntensiveCare": [0,1],
         "historyEverHospitalized": [0,1],
-        "negativetests": 101049,
+        "historynegativetests": [0,1],
         "lastupdated": "4/27/20 11:00am EST",
       }
     },
