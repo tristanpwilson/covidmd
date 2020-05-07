@@ -19,7 +19,7 @@ function diff(ary) {
   return newA;
 }
 
-  // Calculating daily change in Recoveries
+  // Calculating daily change in Cases
   var dailyCaseChange = diff(caseNumbers);
   var adjDailyCaseChange = dailyCaseChange.unshift(1);
   
@@ -31,6 +31,27 @@ function diff(ary) {
   var dailyRecoveryChange = diff(recoveryNumbers);
   var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
 
+// Function to calculate 5 day moving average of values in an array
+function avgMov(ary2) {
+  var newB = [];
+  for (var i = 0; i < ary2.length; i++) newB.push(((ary2[i] + ary2[i-1] + ary2[i-2] + ary2[i-3] + ary2[i-4] + ary2[i-5] + ary2[i-6])/7.0).toFixed(1))
+  // /3.0)
+  return newB;
+}
+
+  // Calculating moving average of daily change in Cases
+  var avgMovingCaseChange = avgMov(dailyCaseChange);
+  
+  // Calculating moving average of daily change in deaths
+  var avgMovingDeathChange = avgMov(dailyDeathChange);
+  
+  // Calculating moving average of daily change in Recoveries
+  var avgMovingRecoveryChange = avgMov(dailyRecoveryChange);
+  
+  //var testavar = avgMov(dailyCaseChange);
+  //alert(testavar);
+  
+  
 
 var historyNowHosp = countiesData.features[24].properties.historyNowHospitalized;
 var historyAcute = countiesData.features[24].properties.historyAcuteCare;
@@ -212,18 +233,21 @@ var colorCaseBackgroundHover = "rgba(255, 107, 105, 1.0)";
 var colorCaseBorderLine = "rgba(223, 97, 95, 1)";
 var colorCaseBackgroundLine = "rgba(235,121,121, .4)";
 var colorCaseHoverLine = "rgba(223, 97, 95, 1)";
+var colorCaseAvgLine = "rgba(245, 170, 169, 1)"
 
 var colorDeathBorder = "rgba(219,149,61,1)";
 var colorDeathBackground = "rgba(239,161,63,0.9)";
 var colorDeathBorderLine = "rgba(245,153,34,1.0)";
 var colorDeathBackgroundLine = "rgba(245,153,34,0.5)";
 var colorDeathHoverLine = "rgba(245,153,34,.9)";
+var colorDeathAvgLine = "rgba(255, 213, 158, 1)"
 
 var colorRecoveryBorder = "rgba(66,170,71,.95)";
 var colorRecoveryBackground = "rgba(64,171,69,0.9)";
 var colorRecoveryBorderLine = "rgba(31,173,37,1.00)";
 var colorRecoveryBackgroundLine = "rgba(31,173,37,0.5)";
 var colorRecoveryHoverLine = "rgba(31,173,37,1.00)";
+var colorRecoveryAvgLine = "rgba(187, 242, 189, 1)"
 
 var colorNowHospBorder = "rgba(81,174,181,1.00)";
 var colorNowHospBackground = "rgba(81,174,181,0.6)";

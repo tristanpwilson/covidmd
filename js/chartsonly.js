@@ -16,6 +16,7 @@
     window.legendPaddingCnty = 13;
     window.legendPositionCnty = "bottom";
     window.legendAlignCnty = "start";
+
   } else {
     window.legendFontSize = 15;
     window.titleFontSize = 22;
@@ -32,7 +33,7 @@
     window.legendAlignCnty = "center";
   }
 
-
+  
   //Linechart 1 Config		
   var config = {
     type: 'line',
@@ -197,37 +198,80 @@
       labels: caseTimeline,
       datasets: [{
         label: 'Cases',
+        data: dailyCaseChange,
         pointRadius: 0,
         borderWidth: 2,
         borderColor: colorCaseBorder,
         backgroundColor: colorCaseBackground,
         hoverBackgroundColor:colorCaseBackgroundHover,
         hoverBorderColor:"",
-        data: dailyCaseChange,
         barPercentage: 1,
         categoryPercentage: 0.9,
+        hidden:false,
+        //order:4,
       },
       {
         label: 'Deaths',
+        data: dailyDeathChange,
         pointRadius: 10,
         borderWidth: 2,
         borderColor: colorDeathBorder,
         backgroundColor: colorDeathBackground,
-        data: dailyDeathChange,
         barPercentage: 1,
         categoryPercentage: 0.9,
         hidden: true,
+        //order:5,
       },
       {
         label: 'Recoveries',
+        data: dailyRecoveryChange,
         pointRadius: 0,
         borderWidth: 2,
         borderColor: colorRecoveryBorder,
         backgroundColor: colorRecoveryBackground,
-        data: dailyRecoveryChange,
         barPercentage: 1,
         categoryPercentage: 0.9,
         hidden: true,
+        //order:6,
+      },
+      {
+        type:'line',
+        label: '7d Avg Case',
+        data: avgMovingCaseChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorCaseAvgLine,
+        backgroundColor: colorCaseAvgLine,
+        fill:false,
+        lineTension:0.3,
+        hidden: true,
+        //order:1,
+      },
+      {
+        type:'line',
+        label: '7d Avg Death',
+        data: avgMovingDeathChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorDeathAvgLine,
+        backgroundColor: colorDeathAvgLine,
+        fill:false,
+        lineTension:0.3,
+        hidden: true,
+        //order:2,
+      },
+      {
+        type:'line',
+        label: '7d Avg Recov',
+        data: avgMovingRecoveryChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorRecoveryAvgLine,
+        backgroundColor: colorRecoveryAvgLine,
+        fill:false,
+        lineTension:0.3,
+        hidden: true,
+        //order:3,
       }]
     },
     options: {
@@ -246,6 +290,7 @@
         position: "top",
         align: "center",
         fullWidth: true,
+        usePointStyle:true,
         onHover:function(){
           config2.options.tooltips.enabled= false
         },
@@ -254,6 +299,7 @@
          //boxHeight: 16,
          fontColor: "#fafafa",
          fontSize: window.legendFontSize,
+
         },
       },
       tooltips: {
@@ -1428,6 +1474,7 @@
 			window.myLine = new Chart(ctx, config);
       var ctx = document.getElementById('canvas2').getContext('2d');
 			window.myBar = new Chart(ctx, config2);
+
       //var ctx = document.getElementById('canvasDth').getContext('2d');
 			//window.myBar = new Chart(ctx, configDth);
       //var ctx = document.getElementById('canvasRec').getContext('2d');
