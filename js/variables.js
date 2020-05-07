@@ -7,6 +7,7 @@ latestData();
 var caseNumbers = countiesData.features[24].properties.history;
 var deathNumbers = countiesData.features[24].properties.historydeaths;
 var recoveryNumbers = countiesData.features[24].properties.historyrecoveries;
+var negTestNumbers = countiesData.features[24].properties.historynegativetests;
 
 // Timeline data (dates) to use for x-axes
 var caseTimeline = countiesData.features[24].properties.dates;
@@ -208,19 +209,21 @@ var colorCnty23 = '#6B213D';
 var colorCaseBorder = "rgba(223, 97, 95, .95)";
 var colorCaseBackground = "rgba(223, 97, 95, 0.9)";
 var colorCaseBackgroundHover = "rgba(255, 107, 105, 1.0)";
-var colorCaseBorderLine = "rgba(255, 107, 105, 0.9)";
-var colorCaseBackgroundLine = "rgba(255, 107, 105, 0.5)";
+var colorCaseBorderLine = "rgba(223, 97, 95, 1)";
+var colorCaseBackgroundLine = "rgba(235,121,121, .4)";
+var colorCaseHoverLine = "rgba(223, 97, 95, 1)";
 
 var colorDeathBorder = "rgba(219,149,61,1)";
 var colorDeathBackground = "rgba(239,161,63,0.9)";
-var colorDeathBorderLine = "rgba(245,153,34,.9)";
-var colorDeathBackgroundLine = "rgba(245,153,34,.6)";
+var colorDeathBorderLine = "rgba(245,153,34,1.0)";
+var colorDeathBackgroundLine = "rgba(245,153,34,0.5)";
+var colorDeathHoverLine = "rgba(245,153,34,.9)";
 
 var colorRecoveryBorder = "rgba(66,170,71,.95)";
 var colorRecoveryBackground = "rgba(64,171,69,0.9)";
 var colorRecoveryBorderLine = "rgba(31,173,37,1.00)";
-var colorRecoveryBackgroundLine = "rgba(31,173,37,.7)";
-
+var colorRecoveryBackgroundLine = "rgba(31,173,37,0.5)";
+var colorRecoveryHoverLine = "rgba(31,173,37,1.00)";
 
 var colorNowHospBorder = "rgba(81,174,181,1.00)";
 var colorNowHospBackground = "rgba(81,174,181,0.6)";
@@ -239,6 +242,10 @@ var colorIntensiveHover = "rgba(157,111,171,1.00)";
 var colorEverHospBorder = "rgba(86,80,132,1.00)";
 var colorEverHospBackground = "rgba(86,80,132,0.6)";
 var colorEverHospHover = "rgba(86,80,132,1.00)";
+
+var colorNegTestBorder = "rgba(110,169,225,1.00)";
+var colorNegTestBackground = "rgba(110,169,225,0.4)";
+var colorNegTestHover = "rgba(109,188,245,1.00)";
 
 
 
