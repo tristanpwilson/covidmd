@@ -31,7 +31,8 @@ function diff(ary) {
   var dailyRecoveryChange = diff(recoveryNumbers);
   var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
 
-// Function to calculate 5 day moving average of values in an array
+
+// Function to calculate 7 day moving average of values in an array
 function avgMov(ary2) {
   var newB = [];
   for (var i = 0; i < ary2.length; i++) newB.push(((ary2[i] + ary2[i-1] + ary2[i-2] + ary2[i-3] + ary2[i-4] + ary2[i-5] + ary2[i-6])/7.0).toFixed(1))
@@ -85,7 +86,7 @@ function prctg(A, B) {
   // Calculating percent cases out of population per county
   var casePrctgCounties = prctg(allCase, allPop);
   // Rounding percent value to 3 decimal places
-  casePrctgCountiesRnd = casePrctgCounties.map(function(each_element){
+  var casePrctgCountiesRnd = casePrctgCounties.map(function(each_element){
       return Number(each_element.toFixed(3));
   });
   //alert(allPop);

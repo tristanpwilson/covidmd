@@ -86,14 +86,19 @@
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
         <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Total<br class="mobile-xs-only"> Counts</li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> Counts</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> New</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospitaliz<span class="mobile-xs-only">-</span><br class="mobile-xs-only">ations <sup class="new-tag">NEW</sup></li>
         <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-xs-only"> County</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By<br class="mobile-xs-only"> County <sup class="new-tag">NEW</sup></li>
       </ul>
     </div>  
     
-    <div id="mainchart" class="stdcharts tab-content active-tab-content"><h2 class="a11y">Cumulative Cases in MD</h2><canvas id="canvas"></canvas></div>
+    <div id="cumulchart" class="stdcharts tab-content active-tab-content">
+      <h2 class="a11y">Cumulative Cases in MD</h2>
+      <canvas id="canvasCumul"></canvas>
+      <div id="legendContainerCumul"></div>
+    </div>
+    
     <div id="dailychart" class="stdcharts tab-content">
       <h2 class="a11y">Daily New Cases in MD</h2>
       <canvas id="canvasDaily"></canvas>

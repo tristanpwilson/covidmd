@@ -35,7 +35,7 @@
 
   
   //Linechart 1 Config		
-  var config = {
+  var configCumul = {
     type: 'line',
     data: {
       labels: caseTimeline,
@@ -108,18 +108,21 @@
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
       legend: {
-        display: true,
-        //reverse:true,
-        position: "top",
-        align: "center",
-        fullWidth: true,
-        labels:{
-          usePointStyle: true,
-          boxWidth: 10,
-          fontColor: "#fafafa",
-          fontSize: window.legendFontSize,
-          fontStyle: 'bold',
-        },
+          display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemCumul hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetCumul(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareCumul" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
       },
       title: {
         display: true,
@@ -190,6 +193,19 @@
       }
     }
   };
+  
+  updateDatasetCumul = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciCumul = e.view.myLineCumul;
+    var meta = ciCumul.getDatasetMeta(index);
+    $('#legendContainerCumul li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+    meta.hidden = meta.hidden === null? !ciCumul.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciCumul.update();
+  };
+  
 
   //Barchart Daily Cases Config
   var configDaily = {
@@ -208,7 +224,6 @@
         fill:false,
         lineTension:0.3,
         hidden: true,
-        //order:1,
       },
       {
         type:'line',
@@ -221,7 +236,6 @@
         fill:false,
         lineTension:0.3,
         hidden: true,
-        //order:2,
       },
       {
         type:'line',
@@ -234,8 +248,6 @@
         fill:false,
         lineTension:0.3,
         hidden: true,
-        
-        //order:3,
       },
       {
         label: 'Cases',
@@ -261,7 +273,6 @@
         barPercentage: 1,
         categoryPercentage: 0.9,
         hidden: true,
-        //order:5,
       },
       {
         label: 'Recoveries',
@@ -273,7 +284,6 @@
         barPercentage: 1,
         categoryPercentage: 0.9,
         hidden: true,
-        //order:6,
       }
       ]
     },
@@ -325,18 +335,13 @@
       hover: {
         mode: 'nearest',
         intersect: true,
-        onHover:function(){
-         //configDaily.options.tooltips.enabled= true
-        },
       },
       scales: {
         xAxes: [{
           offset:true,
-          //offsetGridlines:true,
           type: 'time',
           time: {
             unit: 'day',
-            //unitStepSize: 4,
           },
           display: true,
           scaleLabel: {display: false,},
@@ -371,7 +376,6 @@
             drawTicks: window.yAxisTickDisplay,
             tickMarkLength:0,
           },
-
         }],
 
       }
@@ -1262,8 +1266,10 @@
 
 
 		window.onload = function() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			window.myLine = new Chart(ctx, config);
+			var ctx = document.getElementById('canvasCumul').getContext('2d');
+			window.myLineCumul = new Chart(ctx, configCumul);
+      document.getElementById("legendContainerCumul").innerHTML = myLineCumul.generateLegend();
+      var legendItems = legendContainerCumul.getElementsByTagName('li');
       
       // Daily new cases bar graph initiation & custom legend generation
       var ctx = document.getElementById('canvasDaily').getContext('2d');
