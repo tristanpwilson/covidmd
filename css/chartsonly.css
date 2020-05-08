@@ -214,7 +214,7 @@
   z-index:3000 !important; 
   height:80vh;
   flex-shrink:2;
-  flex-grow:1;
+  flex-grow:0;
   width: 80vw;
   max-height: calc(80vw * .75);
   margin:0 auto!important;
