@@ -1,6 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
+html{}
+
 @media(max-width: 768px){
   html, body{height:100%; color:rgba(109,81,117,1.00)}
 }
@@ -13,12 +15,17 @@
   height:100vh;
   width:100vw;
   overflow-x:hidden;
+  overflow-y:scroll;
   left:0;
   right:0;
   background: rgba(38,38,38,1.00);
 }
 
-
+@media(max-width:767px){
+ #container-charts{
+   overflow-y:initial;
+ }
+}
 /* ----------------------------- */
 /* ------ Header Styles -------- */
 /* ----------------------------- */
@@ -228,7 +235,6 @@
 #cumulchart {
    min-height:60vh !important;
    max-height: calc(80vw * .65);
-   
  }
  
 
@@ -602,6 +608,8 @@
     flex-grow:0 !important;
   }
 }
+
+
 
 
 
