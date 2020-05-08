@@ -253,6 +253,9 @@ html{}
     flex-basis:18%;
     font-size:14px;
   }  
+  .stdcharts{
+    width:90vw;
+  }
 }
 
 @media(max-width: 768px){
@@ -345,10 +348,19 @@ html{}
   flex-grow:0;
   cursor: pointer;
   margin:0 0 0 0;
-  padding:5px 0;
   color:#fff;
-  font-size:16px;
+  font-size:18px;
   font-weight:400;
+}
+
+#legendContainerCumul li {
+  flex-basis:auto;
+  padding:5px 20px;
+}
+
+#legendContainerDaily li {
+  flex-basis:33%;
+  padding:5px 0px;
 }
 
 #legendContainerCumul li.hiddentrue,
@@ -359,14 +371,6 @@ html{}
 #legendContainerCumul li:hover,
 #legendContainerDaily li:hover {
   text-decoration:underline;
-}
-
-#legendContainerCumul li {
-  flex-basis:25%;
-}
-
-#legendContainerDaily li {
-  flex-basis:30%;
 }
 
 /*Fixing the order of the legend listings*/
@@ -384,10 +388,10 @@ html{}
 #legendContainerDaily li span {
   position: relative;
   display:inline-block;
-  margin:0 5px -1px 0;
+  margin:0 7.5px -1px 0;
   padding: 0;
-  height:14px;
-  width:14px;
+  height:16px;
+  width:16px;
   z-index: 1000;
   border:2px solid;
   border-radius:50%;
@@ -423,15 +427,11 @@ html{}
 
 
 @media (max-width: 991px){
-  #legendContainerDaily li {
-    flex-basis:33%;
-  }
+
 }
 
 @media (max-width: 767px){
-  #legendContainerDaily li {
-    flex-basis:33%;
-  }
+
 }
 
 @media (max-width: 575px){
@@ -446,20 +446,24 @@ html{}
 
   #legendContainerCumul li,
   #legendContainerDaily li {
-    padding:5px 0;
-    font-size:14px;
-  }
-  
-  #legendContainerCumul li {
     flex-basis:33%;
+    padding:5px 0px;
+    font-size:16px;
   }
-
-  #legendContainerDaily li {
-    flex-basis:33%;
+  #legendContainerCumul li span,
+  #legendContainerDaily li span {
+    margin:0 5px -1px 0;
+    height:14px;
+    width:14px;
   }
-
 }
 
+@media(max-width:370px){
+  #legendContainerCumul li,
+  #legendContainerDaily li {
+    font-size:14px;
+  }
+}
 
 
 /*--- County Chart Custom Legend --- */
@@ -475,7 +479,7 @@ html{}
   display:flex;
   justify-content:space-between;
   flex-wrap: wrap;
-  padding:0 1vw;
+  padding:0 0;
 }
 
 #boxToggleCntyOff,
@@ -524,7 +528,7 @@ html{}
   cursor: pointer;
   margin:0 0 0 0;
   color:#fff;
-  font-size:16px;
+  font-size:18px;
   font-weight:400;
 }
 
@@ -538,10 +542,10 @@ html{}
 #legendContainerCntyDth li span {
   position: relative;
   display:inline-block;
-  margin:0 5px 0 0;
+  margin:0 7.5px -1px 0;
   padding: 0;
-  height:14px;
-  width:14px;
+  height:16px;
+  width:16px;
   border-radius: 13px;
   z-index: 1000;
 }
@@ -564,9 +568,9 @@ html{}
 @media (max-width: 767px){
   #legendContainerCnty li,
   #legendContainerCntyDth li {
-    flex-basis:33%;
-    font-size:16px;
+    flex-basis:33.3%;
   }
+
 }
 
 @media (max-width: 575px){
@@ -601,14 +605,26 @@ html{}
   #legendContainerCntyDth li {
     padding:2.5px 0;
     flex-basis:42%;
-    font-size:14px;
+    font-size:16px;
   }
   #legendContainerCnty li:last-child,
   #legendContainerCntyDth li:last-child {
     flex-grow:0 !important;
   }
+  #legendContainerCnty li span,
+  #legendContainerCntyDth li span {
+    margin:0 5px -1px 0;
+    height:14px;
+    width:14px;
+  }
 }
 
+@media(max-width:370px){
+  #legendContainerCnty li,
+  #legendContainerCntyDth li {
+    font-size:14px;
+  }
+}
 
 
 
