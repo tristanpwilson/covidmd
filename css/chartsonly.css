@@ -216,16 +216,18 @@
   flex-shrink:2;
   flex-grow:1;
   width: 80vw;
-  max-height: calc(80vw * .65);
+  max-height: calc(80vw * .75);
   margin:0 auto!important;
   padding: 30px 0;
   background: rgba(38,38,38,1);
  }
  
 #cntychart,
-#cntydthchart{
-   width: 90vw;
-   max-height: 70vh;
+#cntydthchart,
+#dailychart{
+   min-height:60vh !important;
+   max-height: calc(80vw * .65);
+   
  }
  
 
@@ -237,7 +239,7 @@
 }
 
 #mainchart {}
-#secondchart {}
+#dailychart {}
 
 @media(max-width: 992px){
   .toggle-tab {
@@ -261,7 +263,8 @@
   }
   
   #cntychart,
-  #cntydthchart{
+  #cntydthchart,
+  #dailychart{
     max-height: calc(95vw * 1);
   } 
 }
@@ -303,9 +306,99 @@
 
 
 
+/*--- Daily Chart Custom Legend --- */
+#legendContainerDaily{
+  width:100%;
+  max-width:500px;
+  height:auto;
+  z-index:3000;
+  margin:15px auto 7.5px auto;
+}
+
+#legendContainerDaily> ul{
+  display:flex;
+  justify-content:center;
+  flex-flow: row wrap;
+  padding:0;
+}
+
+/* Daily Chart Legend Items + Text Style */
+#legendContainerDaily li {
+  display:block;
+  flex-basis:30%;
+  flex-grow:0;
+  cursor: pointer;
+  margin:0 0 0 0;
+  color:#fff;
+  font-size:16px;
+  font-weight:400;
+}
+
+/*Fixing the order of the legend listings*/
+#legendContainerDaily li:nth-child(1) {order:4;}
+#legendContainerDaily li:nth-child(2) {order:5;}
+#legendContainerDaily li:nth-child(3) {order:6;}
+
+#legendContainerDaily li:nth-child(4) {order:1;}
+#legendContainerDaily li:nth-child(5) {order:2;}
+#legendContainerDaily li:nth-child(6) {order:3;}
+
+
+/* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
+#legendContainerDaily li span {
+  position: relative;
+  display:inline-block;
+  margin:0 5px -1px 0;
+  padding: 0;
+  height:14px;
+  width:14px;
+  z-index: 1000;
+}
+
+#legendContainerDaily li.hiddentrue span {
+  border:2px solid;
+  background:transparent !important;
+}
+
+#legendContainerDaily li:nth-child(1) span {border-radius:50%;}
+#legendContainerDaily li:nth-child(2) span {border-radius:50%;}
+#legendContainerDaily li:nth-child(3) span {border-radius:50%;}
+
+#legendContainerDaily li:nth-child(4) span {border-radius:0%;}
+#legendContainerDaily li:nth-child(5) span {border-radius:0%;}
+#legendContainerDaily li:nth-child(6) span {border-radius:0%;}
+
+
+
+@media (max-width: 991px){
+#legendContainerDaily li {
+    flex-basis:33%;
+  }
+
+}
+
+@media (max-width: 767px){
+#legendContainerDaily li {
+    flex-basis:30%;
+    font-size:16px;
+  }
+}
+
+@media (max-width: 575px){
+  #legendContainerDaily> ul{
+    padding:0 2%;
+  }
+
+  #legendContainerDaily li {
+    flex-basis:33%;
+    font-size:14px;
+  }
+}
+
+
 
 /*--- County Chart Custom Legend --- */
-
+#legendContainerDaily,
 #legendContainerCnty,
 #legendContainerCntyDth{
   width:100%;     
@@ -313,6 +406,7 @@
   z-index:3000;
 }
 
+#legendContainerDaily> ul, 
 #legendContainerCnty> ul,
 #legendContainerCntyDth> ul{
   display:flex;
@@ -320,11 +414,13 @@
   flex-wrap: wrap;
   padding:0 1vw;
 }
+
 #boxToggleCntyOff,
 #boxToggleCntyDthOff{
   width:100%;
   padding:15px 0 7.5px 0;
 }
+
 #toggleCntyOff,
 #toggleCntyDthOff{
   display:inline-block;
@@ -356,7 +452,7 @@
   border-radius:50%;
 }
 
- /* - Legend Item + Text Style (Also ".legendItemCnty") - */
+/* County Chart Legend Items + Text Style (Also ".legendItemCnty") */
 #legendContainerCnty li,
 #legendContainerCntyDth li {
   display:block;

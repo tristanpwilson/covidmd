@@ -192,11 +192,52 @@
   };
 
   //Barchart Daily Cases Config
-  var config2 = {
+  var configDaily = {
     type: 'bar',
     data: {
       labels: caseTimeline,
-      datasets: [{
+      datasets: [
+      {
+        type:'line',
+        label: '7 Day Avg',
+        data: avgMovingCaseChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorCaseAvgLine,
+        backgroundColor: colorCaseAvgLine,
+        fill:false,
+        lineTension:0.3,
+        hidden: true,
+        //order:1,
+      },
+      {
+        type:'line',
+        label: '7 Day Avg',
+        data: avgMovingDeathChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorDeathAvgLine,
+        backgroundColor: colorDeathAvgLine,
+        fill:false,
+        lineTension:0.3,
+        hidden: true,
+        //order:2,
+      },
+      {
+        type:'line',
+        label: '7 Day Avg',
+        data: avgMovingRecoveryChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorRecoveryAvgLine,
+        backgroundColor: colorRecoveryAvgLine,
+        fill:false,
+        lineTension:0.3,
+        hidden: true,
+        
+        //order:3,
+      },
+      {
         label: 'Cases',
         data: dailyCaseChange,
         pointRadius: 0,
@@ -233,46 +274,8 @@
         categoryPercentage: 0.9,
         hidden: true,
         //order:6,
-      },
-      {
-        type:'line',
-        label: '7d Avg Case',
-        data: avgMovingCaseChange,
-        pointRadius: 0,
-        borderWidth: 2,
-        borderColor: colorCaseAvgLine,
-        backgroundColor: colorCaseAvgLine,
-        fill:false,
-        lineTension:0.3,
-        hidden: true,
-        //order:1,
-      },
-      {
-        type:'line',
-        label: '7d Avg Death',
-        data: avgMovingDeathChange,
-        pointRadius: 0,
-        borderWidth: 2,
-        borderColor: colorDeathAvgLine,
-        backgroundColor: colorDeathAvgLine,
-        fill:false,
-        lineTension:0.3,
-        hidden: true,
-        //order:2,
-      },
-      {
-        type:'line',
-        label: '7d Avg Recov',
-        data: avgMovingRecoveryChange,
-        pointRadius: 0,
-        borderWidth: 2,
-        borderColor: colorRecoveryAvgLine,
-        backgroundColor: colorRecoveryAvgLine,
-        fill:false,
-        lineTension:0.3,
-        hidden: true,
-        //order:3,
-      }]
+      }
+      ]
     },
     options: {
       responsive: true,
@@ -286,31 +289,32 @@
         fontSize: window.titleFontSize,
       },
       legend: {
-        display: true,
-        position: "top",
-        align: "center",
-        fullWidth: true,
-        usePointStyle:true,
-        onHover:function(){
-          config2.options.tooltips.enabled= false
-        },
-        labels:{
-         boxWidth: 13,
-         //boxHeight: 16,
-         fontColor: "#fafafa",
-         fontSize: window.legendFontSize,
-
-        },
+          display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          //text.push('<div id="boxToggleCntyDthOff"><a id="toggleCntyDthOff" href="javascript:void(0);" onclick="updateDatasetsDth(event)">All Off</a></div><ul class="' + chart.id + '-legend">'); 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
       },
       tooltips: {
-        enabled: false, 
+        enabled: true, 
         mode: 'label',
-        displayColors:false,
+        displayColors:true,
         titleFontSize: 14,
         bodyFontSize: 14,
         xPadding:5,
         yPadding:5,
-        position:'average',
+        position:'nearest',
         caretSize:5,
         cornerRadius:3,
         caretPadding:10,
@@ -322,7 +326,7 @@
         mode: 'nearest',
         intersect: true,
         onHover:function(){
-         config2.options.tooltips.enabled= true
+         //configDaily.options.tooltips.enabled= true
         },
       },
       scales: {
@@ -368,227 +372,24 @@
             tickMarkLength:0,
           },
 
-        }],
-
-      }
-    }
-  };
-
-  //Bar Chart Daily Deaths Config
-  var configDth = {
-    type: 'bar',
-    data: {
-      labels: caseTimeline,
-      datasets: [{
-        label: 'Deaths',
-        pointRadius: 0,
-        borderWidth: 2,
-        borderColor: colorDeathBorder,
-        backgroundColor: colorDeathBackground,
-        data: dailyDeathChange,
-        fill: true,
-        barPercentage: 1,
-        categoryPercentage: 0.85,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,  
-      //aspectRatio: window.aspect,     
-      legend: {
-        display: true,
-        position: "top",
-        align: "center",
-        fullWidth: true,
-        labels:{
-         boxWidth: 13,
-         fontColor: "#fafafa",
-         fontSize: window.legendFontSize,
-        },
-      },
-      title: {
-        display: true,
-        text: 'Daily New Deaths in MD',
-        fontColor: "#fff",
-        fontFamily: "Work Sans",
-        fontSize: window.titleFontSize,
-      },
-      tooltips: {
-        enabled: true, 
-        mode: 'label',
-        displayColors:false,
-        titleFontSize: 14,
-        bodyFontSize: 14,
-        xPadding:5,
-        yPadding:5,
-        position:'average',
-        caretSize:5,
-        cornerRadius:3,
-        caretPadding:10,
-        xAlign: 'center',
-        yAlign: 'bottom',
-        intersect:false,
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        xAxes: [{
-          offset:true,
-          //offsetGridlines:true,
-          type: 'time',
-          time: {
-            unit: 'day',
-            //unitStepSize: 4,
-          },
-          display: true,
-          scaleLabel: {display: false,},
-          ticks:{
-            fontColor: "#fff",
-            fontSize: window.xAxisFontSize,
-            autoSkip: true,
-            minRotation:window.xAxisMinRotation,
-            maxRotation:window.xAxisMaxRotation,
-            autoSkipPadding: 60,
-          },
-          gridLines:{color:"rgba(255,255,255,0.1)"}
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {display: false,},
-          ticks:{
-            mirror: window.yAxisTickMirror,
-            fontColor: "#fff",
-            fontSize: window.yAxisFontSize,
-            autoSkip: true,
-            maxRotation: 0,
-            autoSkipPadding: 30,
-          },
-          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
-            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
-            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
-          },
-          gridLines:{
-            color:"rgba(255,255,255,0.1)",
-            drawBorder:false,
-            drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
-          }
         }],
 
       }
     }
   };
   
-  //Bar Chart Daily Recoveries Config
-  var configRec = {
-    type: 'bar',
-    data: {
-      labels: caseTimeline,
-      datasets: [{
-        label: 'Recoveries',
-        pointRadius: 0,
-        borderWidth: 2,
-        borderColor: colorRecoveryBorder,
-        backgroundColor: colorRecoveryBackground,
-        data: dailyRecoveryChange,
-        fill: true,
-        barPercentage: 1,
-        categoryPercentage: 0.85,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,  
-      //aspectRatio: window.aspect,     
-      legend: {
-        display: true,
-        position: "top",
-        align: "center",
-        fullWidth: true,
-        labels:{
-         boxWidth: 13,
-         fontColor: "#fafafa",
-         fontSize: window.legendFontSize,
-        },
-      },
-      title: {
-        display: true,
-        text: 'Daily New Recoveries in MD',
-        fontColor: "#fff",
-        fontFamily: "Work Sans",
-        fontSize: window.titleFontSize,
-      },
-      tooltips: {
-        enabled: true, 
-        mode: 'label',
-        displayColors:false,
-        titleFontSize: 14,
-        bodyFontSize: 14,
-        xPadding:5,
-        yPadding:5,
-        position:'average',
-        caretSize:5,
-        cornerRadius:3,
-        caretPadding:10,
-        xAlign: 'center',
-        yAlign: 'bottom',
-        intersect:false,
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        xAxes: [{
-          offset:true,
-          //offsetGridlines:true,
-          type: 'time',
-          time: {
-            unit: 'day',
-            //unitStepSize: 4,
-          },
-          display: true,
-          scaleLabel: {display: false,},
-          ticks:{
-            fontColor: "#fff",
-            fontSize: window.xAxisFontSize,
-            autoSkip: true,
-            minRotation:window.xAxisMinRotation,
-            maxRotation:window.xAxisMaxRotation,
-            autoSkipPadding: 60,
-          },
-          gridLines:{color:"rgba(255,255,255,0.1)"}
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {display: false,},
-          ticks:{
-            mirror: window.yAxisTickMirror,
-            fontColor: "#fff",
-            fontSize: window.yAxisFontSize,
-            autoSkip: true,
-            maxRotation: 0,
-            autoSkipPadding: 30,
-          },
-          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
-            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
-            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
-          },
-          gridLines:{
-            color:"rgba(255,255,255,0.1)",
-            drawBorder:false,
-            drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
-          }
-        }],
+  updateDatasetDaily = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciDaily = e.view.myBarDaily;
+    var meta = ciDaily.getDatasetMeta(index);
+    $('#legendContainerDaily li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
 
-      }
-    }
+    meta.hidden = meta.hidden === null? !ciDaily.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciDaily.update();
   };
 
-//window.optionsDatasetCnty = datasets: [];
 
   //Bar Chart For Cases by County
   var configCnty = {
@@ -898,7 +699,6 @@
         backgroundColor:colorCnty0,
         backgroundColor:colorCnty0,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth1,
         label: nameCnty1,
         borderColor: colorCnty1,
@@ -926,7 +726,6 @@
         hoverBorderColor:colorCnty4,
         backgroundColor:colorCnty4,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth5,
         label: nameCnty5,
         borderColor: colorCnty5,
@@ -946,7 +745,6 @@
         hoverBorderColor:colorCnty7,
         backgroundColor:colorCnty7,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth8,
         label: nameCnty8,
         borderColor: colorCnty8,
@@ -959,7 +757,6 @@
         hoverBorderColor:colorCnty9,
         backgroundColor:colorCnty9,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth10,
         label: nameCnty10,
         borderColor: colorCnty10,
@@ -972,7 +769,6 @@
         hoverBorderColor:colorCnty11,
         backgroundColor:colorCnty11,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth12,
         label: nameCnty12,
         borderColor: colorCnty12,
@@ -991,7 +787,6 @@
         hoverBorderColor:colorCnty14,
         backgroundColor:colorCnty14,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth15,
         label: nameCnty15,
         borderColor: colorCnty15,
@@ -1010,7 +805,6 @@
         hoverBorderColor:colorCnty17,
         backgroundColor:colorCnty17,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth18,
         label: nameCnty18,
         borderColor: colorCnty18,
@@ -1023,7 +817,6 @@
         hoverBorderColor:colorCnty19,
         backgroundColor:colorCnty19,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill:false, lineTension: 0.1,
-        //hidden: true,
       },{data: caseCntyDth20,
         label: nameCnty20,
         borderColor: colorCnty20,
@@ -1049,7 +842,6 @@
         hoverBorderColor:colorCnty23,
         backgroundColor:colorCnty23,
         pointRadius: 2, pointHitRadius: 5, borderWidth:2, hoverRadius: 5, hoverBorderWidth:3, fill: false, lineTension: 0.1,
-        //hidden: true,
       },]
     },
     options: {
@@ -1472,13 +1264,14 @@
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
-      var ctx = document.getElementById('canvas2').getContext('2d');
-			window.myBar = new Chart(ctx, config2);
+      
+      // Daily new cases bar graph initiation & custom legend generation
+      var ctx = document.getElementById('canvasDaily').getContext('2d');
+			window.myBarDaily = new Chart(ctx, configDaily);
+      document.getElementById("legendContainerDaily").innerHTML = myBarDaily.generateLegend();
+      var legendItems = legendContainerDaily.getElementsByTagName('li');
 
-      //var ctx = document.getElementById('canvasDth').getContext('2d');
-			//window.myBar = new Chart(ctx, configDth);
-      //var ctx = document.getElementById('canvasRec').getContext('2d');
-			//window.myBar = new Chart(ctx, configRec);
+      // Hospitalizations line graph initiation
       var ctx = document.getElementById('canvasHosp').getContext('2d');
 			window.myLineHosp = new Chart(ctx, configHosp);
       
