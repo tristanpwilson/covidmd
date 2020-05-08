@@ -384,6 +384,7 @@
   width:14px;
   z-index: 1000;
   border:2px solid;
+  border-radius:50%;
   transition:.1s ease background;
 }
 
