@@ -36,6 +36,7 @@
     if($(window).width() <= 575) {
       window.aspect = 1.25;
       window.aspectShort = 1.25;
+      window.aspectTemp = 1.43;
       window.legendFontSize = 12;
       window.titleFontSize = 15;
       window.xAxisFontSize = 9;
@@ -51,6 +52,7 @@
     } else {
       window.aspect = 1.5;
       window.aspectShort = 3.75;
+      window.aspectTemp = 1.65;
       window.legendFontSize = 14;
       window.titleFontSize = 16;
       window.xAxisFontSize = 9;
@@ -216,7 +218,7 @@
 		};
 
     //Barchart 1 Config
-    var config2 = {
+    var configDaily = {
 			type: 'bar',
 			data: {
 				labels: caseTimeline,
@@ -234,8 +236,8 @@
 					label: 'Deaths',
           pointRadius: 0,
           borderWidth: 2,
-          borderColor: "rgba(245,153,34,.9)",
-					backgroundColor: "rgba(245,153,34,.9)",
+          borderColor: colorDeathBorder,
+					backgroundColor: colorDeathBackground,
 					data: dailyDeathChange,
           barPercentage: 1,
           categoryPercentage: 0.85,
@@ -245,8 +247,8 @@
 					label: 'Recoveries',
           pointRadius: 0,
           borderWidth: 2,
-          borderColor: "rgba(31,173,37,0.8)",
-					backgroundColor: "rgba(31,173,37,0.8)",
+          borderColor: colorRecoveryBorder,
+					backgroundColor: colorRecoveryBackground,
 					data: dailyRecoveryChange,
           barPercentage: 1,
           categoryPercentage: 0.85,
@@ -292,28 +294,34 @@
 			},
 			options: {
 				responsive: true,
-        aspectRatio: window.aspect,
+        aspectRatio: window.aspectTemp,
         //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason
         title: {
-					display: true,
+					display: false,
 					text: 'Daily New Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
           fontSize: window.titleFontSize,
-          lineHeight: 1,
+          lineHeight: 2,
           padding: 0,
 				},
         legend: {
-          display: true,
-          position: "top",
-          align: "center",
-          fullWidth: true,
-          labels:{
-           boxWidth: 12,
-           boxHeight: 4,
-           fontColor: "#fafafa",
-           fontSize: window.legendFontSize,
-          },
+          display: false,
+        },
+        legendCallback: 
+          function(chart) { 
+            var text = []; 
+            //text.push('<div id="boxToggleCntyDthOff"><a id="toggleCntyDthOff" href="javascript:void(0);" onclick="updateDatasetsDth(event)">All Off</a></div><ul class="' + chart.id + '-legend">'); 
+            text.push('<ul class="' + chart.id + '-legend">'); 
+            for (var i = 0; i < chart.data.datasets.length; i++) { 
+              //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+              if (chart.data.datasets[i].label) { 
+                text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              } 
+              text.push('</li>'); 
+            } 
+            text.push('</ul>'); 
+            return text.join(''); 
         },
 				tooltips: {
           enabled: true, 
@@ -375,7 +383,19 @@
 				}
 			}
 		};
-    
+
+    updateDatasetDaily = function(e, datasetIndex) {
+      var index = datasetIndex;
+      var ciDaily = e.view.myBarDaily;
+      var meta = ciDaily.getDatasetMeta(index);
+      $('#legendContainerDaily li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+      meta.hidden = meta.hidden === null? !ciDaily.data.datasets[index].hidden : null;
+
+      // After hiding dataset, rerender the chart
+      ciDaily.update();
+    };
+
     //Linechart Hospitalizations Config		
     var configHosp = {
       type: 'line',
@@ -559,10 +579,10 @@
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
       
-      var ctx = document.getElementById('canvas2').getContext('2d');
-			window.myBar = new Chart(ctx, config2);
-      //document.getElementById("legendContainerDaily").innerHTML = myBarDaily.generateLegend();
-      //var legendItems = legendContainerDaily.getElementsByTagName('li');
+      var ctx = document.getElementById('canvasDaily').getContext('2d');
+			window.myBarDaily = new Chart(ctx, configDaily);
+      document.getElementById("legendContainerDaily").innerHTML = myBarDaily.generateLegend();
+      var legendItems = legendContainerDaily.getElementsByTagName('li');
       
       var ctx = document.getElementById('canvasHosp').getContext('2d');
 			window.myBar2 = new Chart(ctx, configHosp);

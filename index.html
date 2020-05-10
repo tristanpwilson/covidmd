@@ -98,9 +98,12 @@
       </div>
       
       <!-- Second Chart.js Graph -->
-      <div id="secondchart" class="stdcharts tab-content reorderWorker">
+      <div id="dailychart" class="stdcharts tab-content reorderWorker">
         <a href="charts#dailycases" class="linkExpChart" title="Expand daily cases chart" aria-label="Expand daily cases chart"></a>
-        <canvas id="canvas2"></canvas>
+        <h2 class="">Daily New Cases in MD</h2>
+        <div id="legendContainerDaily"></div>
+        <canvas id="canvasDaily"></canvas>
+
       </div>
       
       <!-- Third Chart.js Graph -->
@@ -142,9 +145,9 @@
       //Hacky way of stabilizing height of canvas before chart loads in
       //var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
       var chartContainerHeight = $('#mainchart').children("canvas").height() + 30 + "px";
-
-      //$('#secondchart').children("canvas").css('min-height', chartBoxHeight);
-      $('#secondchart').css('min-height', chartContainerHeight);
+      var chartContainerHeight = $('#mainchart').children("canvas").height() + "px";
+      //$('#dailychart').children("canvas").css('min-height', chartBoxHeight);
+      $('#dailychart ').css('min-height', chartContainerHeight);
       $('#hospchart').css('min-height', chartContainerHeight);
       
   });
