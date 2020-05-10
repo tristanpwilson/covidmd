@@ -251,7 +251,44 @@
           barPercentage: 1,
           categoryPercentage: 0.85,
           hidden: true,
-        }]
+        },
+//        {
+//          type:'line',
+//          label: '7 Day Avg',
+//          data: avgMovingCaseChange,
+//          pointRadius: 0,
+//          borderWidth: 2,
+//          borderColor: colorCaseAvgLine,
+//          backgroundColor: colorCaseAvgLine,
+//          fill:false,
+//          lineTension:0.3,
+//          hidden: true,
+//        },
+//        {
+//          type:'line',
+//          label: '7 Day Avg',
+//          data: avgMovingDeathChange,
+//          pointRadius: 0,
+//          borderWidth: 2,
+//          borderColor: colorDeathAvgLine,
+//          backgroundColor: colorDeathAvgLine,
+//          fill:false,
+//          lineTension:0.3,
+//          hidden: true,
+//        },
+//        {
+//          type:'line',
+//          label: '7 Day Avg',
+//          data: avgMovingRecoveryChange,
+//          pointRadius: 0,
+//          borderWidth: 2,
+//          borderColor: colorRecoveryAvgLine,
+//          backgroundColor: colorRecoveryAvgLine,
+//          fill:false,
+//          lineTension:0.3,
+//          hidden: true,
+//        }
+        ]
 			},
 			options: {
 				responsive: true,
@@ -521,8 +558,12 @@
     window.onload = function generateCharts() {
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
+      
       var ctx = document.getElementById('canvas2').getContext('2d');
 			window.myBar = new Chart(ctx, config2);
+      //document.getElementById("legendContainerDaily").innerHTML = myBarDaily.generateLegend();
+      //var legendItems = legendContainerDaily.getElementsByTagName('li');
+      
       var ctx = document.getElementById('canvasHosp').getContext('2d');
 			window.myBar2 = new Chart(ctx, configHosp);
 		};

@@ -101,6 +101,7 @@
         hoverBackgroundColor:colorNegTestHover,
         fill: false,
         hidden:true,
+        lineTension:0.1,
       }]
     },
     options: {
@@ -261,7 +262,6 @@
         barPercentage: 1,
         categoryPercentage: 0.9,
         hidden:false,
-        //order:4,
       },
       {
         label: 'Deaths',
