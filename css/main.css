@@ -180,7 +180,7 @@ html, body, .leaflet-container {
   background: rgba(38, 38, 38, 0);
 }
 
-#mainchart {
+#cumulchart {
   order: 2;
 }
 
@@ -203,7 +203,7 @@ html, body, .leaflet-container {
   line-height:100%;
 }
 
-#mainchart canvas {}
+#cumulchart canvas {}
 
 .container-toggle-tabs,
 .box-toggle-tabs,

@@ -92,9 +92,9 @@
       </div>  
       
       <!-- First Chart.js Graph -->
-      <div id="mainchart" class="stdcharts tab-content active-tab-content reorderWorker">
+      <div id="cumulchart" class="stdcharts tab-content active-tab-content reorderWorker">
         <a href="charts#totalcases" class="linkExpChart" title="Expand cumulative cases chart" aria-label="Expand cumulative cases chart"></a>
-        <canvas id="canvas"></canvas>
+        <canvas id="canvasCumul"></canvas>
       </div>
       
       <!-- Second Chart.js Graph -->
@@ -143,9 +143,9 @@
       .removeClass("active-tab-content");
       
       //Hacky way of stabilizing height of canvas before chart loads in
-      //var chartBoxHeight = $('#mainchart').children("canvas").height() + "px";
-      var chartContainerHeight = $('#mainchart').children("canvas").height() + 30 + "px";
-      var chartContainerHeight = $('#mainchart').children("canvas").height() + "px";
+      //var chartBoxHeight = $('#cumulchart').children("canvas").height() + "px";
+      var chartContainerHeight = $('#cumulchart').children("canvas").height() + 30 + "px";
+      var chartContainerHeight = $('#cumulchart').children("canvas").height() + "px";
       //$('#dailychart').children("canvas").css('min-height', chartBoxHeight);
       $('#dailychart ').css('min-height', chartContainerHeight);
       $('#hospchart').css('min-height', chartContainerHeight);

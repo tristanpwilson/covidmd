@@ -68,8 +68,8 @@
     }
 
 
-    //Linechart 1 Config		
-    var config = {
+    //Linechart State Cumulative Config		
+    var configCumul = {
 			type: 'line',
 			data: {
 				labels: caseTimeline,
@@ -576,8 +576,8 @@
 
 
     window.onload = function generateCharts() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			window.myLine = new Chart(ctx, config);
+			var ctx = document.getElementById('canvasCumul').getContext('2d');
+			window.myLineCumul = new Chart(ctx, configCumul);
       
       var ctx = document.getElementById('canvasDaily').getContext('2d');
 			window.myBarDaily = new Chart(ctx, configDaily);
