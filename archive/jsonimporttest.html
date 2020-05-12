@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>testjson</title>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script>
+//    $.getJSON( "https://services.arcgis.com/njFNhDsUCentVYJW/ArcGIS/rest/services/MD_COVID19_Case_Counts_by_County/FeatureServer/0/query?where=0%3D0&outFields=COUNTY%2C+COUNTYNUM%2C+TotalCaseCount%2C+NegativeTests%2C+TotalTests%2C+PercentPos%2C+TotalDeathCount%2C+ProbDeaths&returnGeometry=false&f=geojson", function( data ) {
+//      var items = [];
+//      $.each( data.features, function(key, val) {
+//        $.each(val.properties[1], function(i,j){
+//          items.push('<li id="' + i + '">' + i + ": " + j + '</li>');
+//        })  
+//    });
+      
+    $.getJSON( "https://services.arcgis.com/njFNhDsUCentVYJW/ArcGIS/rest/services/MD_COVID19_Case_Counts_by_County/FeatureServer/0/query?where=0%3D0&outFields=COUNTY%2C+COUNTYNUM%2C+TotalCaseCount%2C+NegativeTests%2C+TotalTests%2C+PercentPos%2C+TotalDeathCount%2C+ProbDeaths&returnGeometry=false&f=geojson", function( data ) {
+      var items = [];
+      $.each( data.features, function(key, val) {
+        $.each(val.properties, function(key, val){
+          val.COUNTY
+          $.each(val.TotalCaseCount, function(key,val){
+            items.push('<li>' + val + '</li>');
+          }) 
+        })  
+      });
+
+
+      $( "<ul/>", {
+        "class": "liveGeoJson",
+        html: items.join( "" )
+      }).appendTo( "body" );
+      //alert(items);
+    });
+
+    
+  </script>
+</body>
+</html>
