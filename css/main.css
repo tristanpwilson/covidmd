@@ -748,16 +748,18 @@ html, body, .leaflet-container {
 /*--- Cumulative & Daily Chart Custom Legends --- */
 #legendContainerCumul,
 #legendContainerDaily{
-  width:90%;
+
   height:auto;
   z-index:3000;
   margin:0px auto 0px auto;
 }
 #legendContainerCumul{
+  width:95%;
   /*max-width:600px;*/
 }
 
 #legendContainerDaily{
+  width:90%;
   /*max-width:500px;*/
 }
 
@@ -775,21 +777,21 @@ html, body, .leaflet-container {
 #legendContainerDaily li {
   display:block;
   flex-grow:0;
+  flex-basis:auto;
+  margin:0 0 0 0;  
+  padding:5px 0px;  
   cursor: pointer;
-  margin:0 0 0 0;
   color:#fff;
   font-size:14px;
   font-weight:500;
 }
 
 #legendContainerCumul li {
-  flex-basis:auto;
-  padding:5px 20px;
+
 }
 
 #legendContainerDaily li {
-  flex-basis:auto;
-  padding:5px 0px;
+
 }
 
 #legendContainerCumul li.hiddentrue,
@@ -817,16 +819,22 @@ html, body, .leaflet-container {
 #legendContainerDaily li span {
   position: relative;
   display:inline-block;
-  margin:0 6px -1px 0;
   padding: 0;
-  height:13px;
-  width:13px;
   z-index: 1000;
   border:2px solid;
-  border-radius:0%;
   transition:.1s ease background;
 }
+#legendContainerCumul li span {
+  height:13px;
+  width:13px;
+  margin:0 5px -2px 0;
+  border-radius:50%;}
 
+#legendContainerDaily li span {
+  height:12px;
+  width:12px;
+  margin:0 5px -1px 0;
+  border-radius:0%;}
 
 #legendContainerCumul li:hover span,
 #legendContainerDaily li:hover span{
@@ -860,10 +868,18 @@ html, body, .leaflet-container {
 }
 
 @media (max-width: 767px){
-
+  #legendContainerDaily{
+    width:70%;
+  }
 }
 
 @media (max-width: 575px){
+  #legendContainerCumul{
+    width:100%;
+  }
+  #legendContainerDaily{
+    width:100%;
+  }
   #legendContainerCumul> ul,
   #legendContainerDaily> ul{
     padding:0;
@@ -892,6 +908,10 @@ html, body, .leaflet-container {
   #legendContainerCumul li,
   #legendContainerDaily li {
     font-size:12px;
+  }
+  #legendContainerCumul li span,
+  #legendContainerDaily li span {
+      margin:0 3px -1px 0;
   }
 }
 

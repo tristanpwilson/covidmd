@@ -52,7 +52,7 @@
     } else {
       window.aspect = 1.5;
       window.aspectShort = 3.75;
-      window.aspectTemp = 1.65;
+      window.aspectTemp = 1.85;
       window.legendFontSize = 14;
       window.titleFontSize = 16;
       window.xAxisFontSize = 9;
@@ -137,9 +137,9 @@
 			options: {
 				responsive: true,
         //maintainAspectRatio: false, 
-        aspectRatio: window.aspect, 
+        aspectRatio: window.aspectTemp, 
         title: {
-					display: true,
+					display: false,
 					text: 'Cumulative Cases in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
@@ -148,17 +148,21 @@
           padding:0,
 				},   
         legend: {
-          display: true,
-          position: "top",
-          align: "center",
-          fullWidth: true,
-          labels:{
-           usePointStyle: true,
-           boxWidth: 8,
-           //boxHeight: 8,
-           fontColor: "#fafafa",
-           fontSize: window.legendFontSize,
-          },
+          display: false,
+        },
+        legendCallback: 
+          function(chart) { 
+            var text = []; 
+            text.push('<ul class="' + chart.id + '-legend">'); 
+            for (var i = 0; i < chart.data.datasets.length; i++) { 
+              //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+              if (chart.data.datasets[i].label) { 
+                text.push('<li class="chart-legend-label-text legendItemCumul hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetCumul(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareCumul" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              } 
+              text.push('</li>'); 
+            } 
+            text.push('</ul>'); 
+            return text.join(''); 
         },
 				tooltips: {
           enabled: true, 
@@ -216,6 +220,20 @@
 				}
 			}
 		};
+    
+    updateDatasetCumul = function(e, datasetIndex) {
+      var index = datasetIndex;
+      var ciCumul = e.view.myLineCumul;
+      var meta = ciCumul.getDatasetMeta(index);
+      $('#legendContainerCumul li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+      meta.hidden = meta.hidden === null? !ciCumul.data.datasets[index].hidden : null;
+
+      // After hiding dataset, rerender the chart
+      ciCumul.update();
+    };
+    
+    
 
     //Barchart 1 Config
     var configDaily = {
@@ -578,6 +596,8 @@
     window.onload = function generateCharts() {
 			var ctx = document.getElementById('canvasCumul').getContext('2d');
 			window.myLineCumul = new Chart(ctx, configCumul);
+      document.getElementById("legendContainerCumul").innerHTML = myLineCumul.generateLegend();
+      var legendItems = legendContainerCumul.getElementsByTagName('li');
       
       var ctx = document.getElementById('canvasDaily').getContext('2d');
 			window.myBarDaily = new Chart(ctx, configDaily);
