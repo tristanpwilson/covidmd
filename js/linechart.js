@@ -240,38 +240,7 @@
 			type: 'bar',
 			data: {
 				labels: caseTimeline,
-				datasets: [{
-					label: 'Cases',
-          pointRadius: 0,
-          borderWidth: 2,
-          borderColor: colorCaseBorder,
-					backgroundColor: colorCaseBackground,
-					data: dailyCaseChange,
-          barPercentage: 1,
-          categoryPercentage: 0.85,
-				},
-        {
-					label: 'Deaths',
-          pointRadius: 0,
-          borderWidth: 2,
-          borderColor: colorDeathBorder,
-					backgroundColor: colorDeathBackground,
-					data: dailyDeathChange,
-          barPercentage: 1,
-          categoryPercentage: 0.85,
-          hidden: true,
-				},
-        {
-					label: 'Recoveries',
-          pointRadius: 0,
-          borderWidth: 2,
-          borderColor: colorRecoveryBorder,
-					backgroundColor: colorRecoveryBackground,
-					data: dailyRecoveryChange,
-          barPercentage: 1,
-          categoryPercentage: 0.85,
-          hidden: true,
-        },
+				datasets: [
 //        {
 //          type:'line',
 //          label: '7 Day Avg',
@@ -307,8 +276,39 @@
 //          fill:false,
 //          lineTension:0.3,
 //          hidden: true,
-//        }
-        ]
+//        },
+        {
+					label: 'Cases',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: colorCaseBorder,
+					backgroundColor: colorCaseBackground,
+					data: dailyCaseChange,
+          barPercentage: 1,
+          categoryPercentage: 0.85,
+				},
+        {
+					label: 'Deaths',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: colorDeathBorder,
+					backgroundColor: colorDeathBackground,
+					data: dailyDeathChange,
+          barPercentage: 1,
+          categoryPercentage: 0.85,
+          hidden: true,
+				},
+        {
+					label: 'Recoveries',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: colorRecoveryBorder,
+					backgroundColor: colorRecoveryBackground,
+					data: dailyRecoveryChange,
+          barPercentage: 1,
+          categoryPercentage: 0.85,
+          hidden: true,
+        }]
 			},
 			options: {
 				responsive: true,
@@ -404,11 +404,19 @@
 
     updateDatasetDaily = function(e, datasetIndex) {
       var index = datasetIndex;
+      //var indexPlusThree = datasetIndex + 3;
       var ciDaily = e.view.myBarDaily;
       var meta = ciDaily.getDatasetMeta(index);
+      
+      //Chack data-legend value (index) and then toggle that dataset
       $('#legendContainerDaily li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
-
+      
+      //if( $('#legendContainerDaily li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");){
+      //}
+      //alert(indexPlusThree);
+      
       meta.hidden = meta.hidden === null? !ciDaily.data.datasets[index].hidden : null;
+      
 
       // After hiding dataset, rerender the chart
       ciDaily.update();

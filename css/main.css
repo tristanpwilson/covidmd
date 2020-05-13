@@ -111,6 +111,12 @@ html, body, .leaflet-container {
   /*box-shadow:0 0 0px 1px rgba(255,255,255,0.6);*/
 }
 
+.info #statecases #boxstateflex{
+  display:flex;
+  flex-flow:column wrap;
+  height:60px;
+}
+
 .info #statecases h2 {
   margin: 2.5px 0 0 0;
   font-size: 20px;
