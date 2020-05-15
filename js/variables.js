@@ -40,14 +40,25 @@ function avgMov(ary2) {
   return newB;
 }
 
+// Function to calculate 14 day moving average of values in an array
+function avgMov14(ary3) {
+  var newC = [];
+  for (var i = 0; i < ary3.length; i++) newC.push(((ary3[i] + ary3[i-1] + ary3[i-2] + ary3[i-3] + ary3[i-4] + ary3[i-5] + ary3[i-6] + ary3[i-7] + ary3[i-8] + ary3[i-9] + ary3[i-10] + ary3[i-11] + ary3[i-12] + ary3[i-13])/14.0).toFixed(1))
+  return newC;
+}
+
+
   // Calculating moving average of daily change in Cases
   var avgMovingCaseChange = avgMov(dailyCaseChange);
+  var avgMoving14CaseChange = avgMov14(dailyCaseChange);
   
   // Calculating moving average of daily change in deaths
   var avgMovingDeathChange = avgMov(dailyDeathChange);
+  var avgMoving14DeathChange = avgMov14(dailyDeathChange);
   
   // Calculating moving average of daily change in Recoveries
   var avgMovingRecoveryChange = avgMov(dailyRecoveryChange);
+  var avgMoving14RecoveryChange = avgMov14(dailyRecoveryChange);
   
   //var testavar = avgMov(dailyCaseChange);
   //alert(testavar);

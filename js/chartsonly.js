@@ -224,7 +224,7 @@
         backgroundColor: colorCaseAvgLine,
         fill:false,
         lineTension:0.3,
-        hidden: true,
+        hidden: false,
       },
       {
         type:'line',
@@ -315,7 +315,7 @@
           } 
           text.push('</ul>'); 
           return text.join(''); 
-      },
+        },
       tooltips: {
         enabled: true, 
         mode: 'label',
