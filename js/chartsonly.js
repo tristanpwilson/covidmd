@@ -1134,7 +1134,7 @@
         fill: true,
         lineTension: 0.1,
         //order:2,
-      },
+      }
 //      {
 //        label: 'Ever Hospitalized',
 //        backgroundColor: colorEverHospBackground,
@@ -1188,11 +1188,14 @@
         yalign:'none',
         intersect:false,
         callbacks: {
-          title: function() {},
+          title: function(tooltipItem, data) {
+            return data['labels'][tooltipItem[0]['index']];
+          },
           label: function(tooltipItem, data) {
             // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
             var count = data.datasets[tooltipItem.datasetIndex].label;
             var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            
 
             // Loop through all datasets to get the actual total of the index
             var total = 0;

@@ -520,14 +520,17 @@
           enabled: true, 
           mode: 'label',
           displayColors:false,
-          titleFontSize: 14,
-          bodyFontSize: 14,
+          titleFontSize: 12,
+          bodyFontSize: 12,
           position:'average',
           xalign: 'right',
           yalign:'none',
           intersect:false,
           callbacks: {
-            title: function() {},
+            title: function(tooltipItem, data) {
+            //Adds date label from x-axis to tooltip title
+              return data['labels'][tooltipItem[0]['index']];
+            },
             label: function(tooltipItem, data) {
               // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
               var count = data.datasets[tooltipItem.datasetIndex].label;
