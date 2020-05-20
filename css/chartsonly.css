@@ -212,6 +212,15 @@ html{}
  color:red;
  font-size:8px;
 }
+.toggle-tab .new-tag-gr{
+position:absolute; 
+display:inline-block; 
+margin-left:6.5px; 
+margin-top:-3px !important;
+font-size:16px; 
+color:#1FAD25;
+}
+
 
 .tab-content {order: 3 !important; display:none !important; }
 .tab-content.active-tab-content {order:2 !important; display:block !important;}
