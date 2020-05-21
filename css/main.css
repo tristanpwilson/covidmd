@@ -753,13 +753,15 @@ html, body, .leaflet-container {
 
 /*--- Cumulative & Daily Chart Custom Legends --- */
 #legendContainerCumul,
-#legendContainerDaily{
+#legendContainerDaily,
+#legendContainerHosp{
 
   height:auto;
   z-index:3000;
   margin:0px auto 0px auto;
 }
-#legendContainerCumul{
+#legendContainerCumul,
+#legendContainerHosp{
   width:95%;
   /*max-width:600px;*/
 }
@@ -770,7 +772,8 @@ html, body, .leaflet-container {
 }
 
 #legendContainerCumul> ul,
-#legendContainerDaily> ul{
+#legendContainerDaily> ul,
+#legendContainerHosp> ul{
   display:flex;
   justify-content:space-around;
   flex-flow: row wrap;
@@ -780,7 +783,8 @@ html, body, .leaflet-container {
 
 /* Daily Chart Legend Items + Text Style */
 #legendContainerCumul li,
-#legendContainerDaily li {
+#legendContainerDaily li,
+#legendContainerHosp li{
   display:block;
   flex-grow:0;
   flex-basis:auto;
@@ -792,21 +796,15 @@ html, body, .leaflet-container {
   font-weight:500;
 }
 
-#legendContainerCumul li {
-
-}
-
-#legendContainerDaily li {
-
-}
-
 #legendContainerCumul li.hiddentrue,
-#legendContainerDaily li.hiddentrue{
+#legendContainerDaily li.hiddentrue,
+#legendContainerHosp li.hiddentrue{
   color:rgba(255,255,255,0.5)
 } 
 
 #legendContainerCumul li:hover,
-#legendContainerDaily li:hover {
+#legendContainerDaily li:hover,
+#legendContainerHosp li:hover{
   text-decoration:underline;
 }
 
@@ -822,7 +820,8 @@ html, body, .leaflet-container {
 
 /* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
 #legendContainerCumul li span,
-#legendContainerDaily li span {
+#legendContainerDaily li span,
+#legendContainerHosp li span{
   position: relative;
   display:inline-block;
   padding: 0;
@@ -830,7 +829,8 @@ html, body, .leaflet-container {
   border:2px solid;
   transition:.1s ease background;
 }
-#legendContainerCumul li span {
+#legendContainerCumul li span,
+#legendContainerHosp li span {
   height:13px;
   width:13px;
   margin:0 5px -2px 0;
@@ -843,20 +843,23 @@ html, body, .leaflet-container {
   border-radius:0%;}
 
 #legendContainerCumul li:hover span,
-#legendContainerDaily li:hover span{
+#legendContainerDaily li:hover span,
+#legendContainerHosp li:hover span{
   border:2px solid;
   filter:brightness(90%);
 }
 
 #legendContainerCumul li.hiddentrue span,
-#legendContainerDaily li.hiddentrue span {
+#legendContainerDaily li.hiddentrue span,
+#legendContainerHosp li.hiddentrue span {
   border:2px solid;
   background:transparent !important;
   filter:brightness(60%);
 }
 
 #legendContainerCumul li.hiddentrue:hover span,
-#legendContainerDaily li.hiddentrue:hover span {
+#legendContainerDaily li.hiddentrue:hover span,
+#legendContainerHosp li.hiddentrue:hover span {
     filter:brightness(80%);
 }
 
@@ -877,6 +880,10 @@ html, body, .leaflet-container {
   #legendContainerDaily{
     width:70%;
   }
+  #legendContainerHosp{
+    width:60%;
+  }
+  
 }
 
 @media (max-width: 575px){
@@ -886,24 +893,31 @@ html, body, .leaflet-container {
   #legendContainerDaily{
     width:100%;
   }
+  #legendContainerHosp{
+    width:76%;
+  }
   #legendContainerCumul> ul,
-  #legendContainerDaily> ul{
+  #legendContainerDaily> ul,
+  #legendContainerHosp> ul{
     padding:0;
   }
 
   #legendContainerCumul> ul,
-  #legendContainerDaily> ul{
+  #legendContainerDaily> ul,
+  #legendContainerHosp> ul{
     justify-content:space-around;
   }
 
   #legendContainerCumul li,
-  #legendContainerDaily li {
+  #legendContainerDaily li,
+  #legendContainerHosp li{
     flex-basis:auto;
     padding:3.5px 0px;
     font-size:13px;
   }
   #legendContainerCumul li span,
-  #legendContainerDaily li span {
+  #legendContainerDaily li span,
+  #legendContainerHosp li span{
     margin:0 5px -1px 0;
     height:12px;
     width:12px;
@@ -912,11 +926,13 @@ html, body, .leaflet-container {
 
 @media(max-width:370px){
   #legendContainerCumul li,
-  #legendContainerDaily li {
+  #legendContainerDaily li,
+  #legendContainerHosp li{
     font-size:12px;
   }
   #legendContainerCumul li span,
-  #legendContainerDaily li span {
+  #legendContainerDaily li span,
+  #legendContainerHosp li span{
       margin:0 3px -1px 0;
   }
 }

@@ -428,21 +428,6 @@
       data: {
         labels: caseTimeline,
         datasets: [
-  //      {
-  //        label: 'Now Hospitalized',
-  //        backgroundColor: colorNowHospBackground,
-  //        borderColor: colorNowHospBorder,
-  //        data: historyNowHosp,
-  //        pointRadius: 1,
-  //        pointHitRadius: 4,
-  //        borderWidth: 2,
-  //        hoverRadius: 5,
-  //        hoverBorderWidth:3,
-  //        hoverBorderColor:colorNowHospHover,
-  //        fill: true,
-  //        lineTension: 0.1,
-  //        //order:3,
-  //      },
         {
           label: 'Acute Care',
           backgroundColor: colorAcuteBackground,
@@ -492,23 +477,26 @@
       },
       options: {
         responsive: true,
-        aspectRatio: window.aspect,
+        aspectRatio: window.aspectTemp,
         //maintainAspectRatio: false,  //seems to break everything with the second chart for some reason 
         legend: {
-          display: true,
-          position: "top",
-          align: "center",
-          fullWidth: true,
-          labels:{
-            usePointStyle: true,
-            boxWidth: 8,
-            //boxHeight: 8,
-            fontColor: "#fafafa",
-            fontSize: window.legendFontSize,
-          },
+          display: false,
+        },
+        legendCallback: 
+          function(chart) { 
+            var text = []; 
+            text.push('<ul class="' + chart.id + '-legend">'); 
+            for (var i = 0; i < chart.data.datasets.length; i++) { 
+              if (chart.data.datasets[i].label) { 
+                text.push('<li class="chart-legend-label-text legendItemHosp hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareHosp" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              } 
+              text.push('</li>'); 
+            } 
+            text.push('</ul>'); 
+            return text.join(''); 
         },
         title: {
-          display: true,
+          display: false,
           text: 'Current Hospitalizations in MD',
           fontColor: "#fff",
           fontFamily: "Work Sans",
@@ -603,6 +591,22 @@
       }
     };
 
+    updateDatasetHosp = function(e, datasetIndex) {
+      var index = datasetIndex;
+      //var indexPlusThree = datasetIndex + 3;
+      var ciHosp = e.view.myLineHosp;
+      var meta = ciHosp.getDatasetMeta(index);
+      
+      //Chack data-legend value (index) and then toggle that dataset
+      $('#legendContainerHosp li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+      
+      meta.hidden = meta.hidden === null? !ciHosp.data.datasets[index].hidden : null;
+      
+      // After hiding dataset, rerender the chart
+      ciHosp.update();
+    };
+
+
 
     window.onload = function generateCharts() {
 			var ctx = document.getElementById('canvasCumul').getContext('2d');
@@ -616,7 +620,9 @@
       var legendItems = legendContainerDaily.getElementsByTagName('li');
       
       var ctx = document.getElementById('canvasHosp').getContext('2d');
-			window.myBar2 = new Chart(ctx, configHosp);
+			window.myLineHosp = new Chart(ctx, configHosp);
+      document.getElementById("legendContainerHosp").innerHTML = myLineHosp.generateLegend();
+      var legendItems = legendContainerHosp.getElementsByTagName('li');
 		};
 		
 
