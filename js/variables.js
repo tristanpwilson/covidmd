@@ -241,6 +241,7 @@ var colorCnty23 = '#6B213D';
 // Colors for Daily State Bar Charts
 var colorCaseBorder = "rgba(223, 97, 95, .95)";
 var colorCaseBackground = "rgba(223, 97, 95, 0.9)";
+var colorCaseBackgroundSolid = "rgba(168,87,82,1.00)";
 var colorCaseBackgroundHover = "rgba(255, 107, 105, 1.0)";
 var colorCaseBorderLine = "rgba(223, 97, 95, 1)";
 var colorCaseBackgroundLine = "rgba(235,121,121, .4)";
@@ -281,6 +282,7 @@ var colorEverHospHover = "rgba(86,80,132,1.00)";
 
 var colorNegTestBorder = "rgba(110,169,225,1.00)";
 var colorNegTestBackground = "rgba(110,169,225,0.4)";
+var colorNegTestBackgroundSolid = "rgba(81,114,147,1.00)";
 var colorNegTestHover = "rgba(109,188,245,1.00)";
 
 

@@ -259,7 +259,8 @@ color:#1FAD25;
 
 @media(max-width: 992px){
   .toggle-tab {
-    flex-basis:18%;
+    flex-basis:16.66%;
+    min-width:initial;
     font-size:14px;
   }  
   .stdcharts{
@@ -269,7 +270,7 @@ color:#1FAD25;
 
 @media(max-width: 768px){
   .toggle-tab {
-    flex-basis:20%;
+    flex-basis:16.66%;
     min-width:initial;
     font-size:12px;
   }  
@@ -294,9 +295,11 @@ color:#1FAD25;
    flex-basis:20%;
     min-width:initial;
     height:36px;
-    font-size:12px;
-    line-height:14px;
-    padding:4px 0;
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:-.25px;
+    line-height:12px;
+    padding:6px 0;
     margin: 0;
      box-shadow: 0 -1px 1px 0 rgba(0,0,0,0),
                  0 -1px 1px 0 rgba(0,0,0,.1) inset;
@@ -305,8 +308,8 @@ color:#1FAD25;
   .toggle-tab:hover,
   .toggle-tab:focus{
     height:38px;
-    padding:5px 0;
-    line-height:14px;
+    padding:7px 0;
+    line-height:12px;
       transition: .05s ease-in height, .05s ease background, .1s ease color;
   }
     
@@ -314,8 +317,8 @@ color:#1FAD25;
   .toggle-tab.active-tab:hover,
   .toggle-tab.active-tab:focus {
     height:40px  !important;
-    padding:6px 0;
-    line-height:14px !important;
+    padding:8px 0;
+    line-height:12px !important;
       box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.5), 0 -2px 1px 1px rgba(0,0,0,0.1);
   }
   .stdcharts{

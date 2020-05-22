@@ -16,7 +16,11 @@
     window.legendPaddingCnty = 13;
     window.legendPositionCnty = "bottom";
     window.legendAlignCnty = "start";
-
+    window.pointRadiusLine = 1;
+    window.pointHitRadiusLine = 4;
+    window.borderWidthLine = 2;
+    window.hoverRadiusLine = 3;
+    window.hoverBorderWidthLine =2;
   } else {
     window.legendFontSize = 15;
     window.titleFontSize = 22;
@@ -31,6 +35,11 @@
     window.legendPaddingCnty = 10;
     window.legendPositionCnty = "left";
     window.legendAlignCnty = "center";
+    window.pointRadiusLine = 1.5;
+    window.pointHitRadiusLine = 4;
+    window.borderWidthLine = 2;
+    window.hoverRadiusLine = 4;
+    window.hoverBorderWidthLine =2;
   }
 
   
@@ -44,11 +53,11 @@
         backgroundColor: colorCaseBackgroundLine,
         borderColor: colorCaseBorderLine,
         data: caseNumbers,
-        pointRadius: 1.5,
-        pointHitRadius: 4,
-        borderWidth: 2,
-        hoverRadius: 4,
-        hoverBorderWidth:2,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
         hoverBorderColor:colorCaseHoverLine,
         hoverBackgroundColor:colorCaseHoverLine,
         fill: true,
@@ -60,11 +69,11 @@
         backgroundColor: colorDeathBackgroundLine,
         borderColor: colorDeathBorderLine,
         data: deathNumbers,
-        pointRadius: 1.5,
-        pointHitRadius: 4,
-        borderWidth: 2,
-        hoverRadius: 4,
-        hoverBorderWidth:2,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
         hoverBorderColor:colorDeathHoverLine,
         hoverBackgroundColor:colorDeathHoverLine,
         fill: false,
@@ -76,11 +85,11 @@
         backgroundColor: colorRecoveryBackgroundLine,
         borderColor: colorRecoveryBorderLine,
         data: recoveryNumbers,         
-        pointRadius: 1.5,
-        pointHitRadius: 4,
-        borderWidth: 2,
-        hoverRadius: 4,
-        hoverBorderWidth:2,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
         hoverBorderColor:colorRecoveryHoverLine,
         hoverBackgroundColor:colorRecoveryHoverLine,
         fill: false,
@@ -92,11 +101,11 @@
         backgroundColor: colorNegTestBackground,
         borderColor: colorNegTestBorder,
         data: negTestNumbers,         
-        pointRadius: 1.5,
-        pointHitRadius: 4,
-        borderWidth: 2,
-        hoverRadius: 4,
-        hoverBorderWidth:2,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
         hoverBorderColor:colorNegTestHover,
         hoverBackgroundColor:colorNegTestHover,
         fill: false,
@@ -1110,11 +1119,11 @@
         backgroundColor: colorIntensiveBackground,
         borderColor: colorIntensiveBorder,
         data: historyIntensive,         
-        pointRadius: 2,
-        pointHitRadius: 5,
-        borderWidth: 2,
-        hoverRadius: 5,
-        hoverBorderWidth:3,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
         hoverBorderColor:colorIntensiveHover,
         fill: true,
         lineTension: 0.1,
@@ -1125,11 +1134,11 @@
         backgroundColor: colorAcuteBackground,
         borderColor: colorAcuteBorder,
         data: historyAcute,
-        pointRadius: 2,
-        pointHitRadius: 5,
-        borderWidth: 2,
-        hoverRadius: 5,
-        hoverBorderWidth:3,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
         hoverBorderColor:colorAcuteHover,
         fill: true,
         lineTension: 0.1,
@@ -1263,6 +1272,174 @@
       }
     }
   };
+  
+  
+  //Linechart Test Cumul Config		
+  var configTest = {
+    type: 'line',
+    data: {
+      labels: caseTimeline,
+      datasets: [{
+        label: 'Positive Tests',
+        backgroundColor: colorCaseBackgroundSolid,
+        borderColor: colorCaseBorderLine,
+        data: caseNumbers,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
+        hoverBorderColor:colorCaseHoverLine,
+        hoverBackgroundColor:colorCaseHoverLine,
+        fill: true,
+        lineTension: 0.1,
+        //order:3,
+      },
+      {
+        label: 'Negative Tests',
+        backgroundColor: colorNegTestBackgroundSolid,
+        borderColor: colorNegTestBorder,
+        data: negTestNumbers,         
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
+        hoverBorderColor:colorNegTestHover,
+        hoverBackgroundColor:colorNegTestHover,
+        fill: true,
+        hidden:false,
+        lineTension:0.1,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      legend: {
+          display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemTest hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetTest(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareTest" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
+      },
+      title: {
+        display: true,
+        text: 'Cumulative Tests in MD (Stacked)',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      //tooltipTemplate: "<%if (label){%><%=label %>: <%}%><%= value + ' %' %>",
+      tooltips: {
+        enabled: true, 
+        mode: 'index',
+        displayColors:true,
+        //borderColor:'rgba(255,255,255,1)',
+        //borderWidth:1,
+        multiKeyBackground:'rgba(0,0,0,0)',
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        footerFontSize:14,
+        //position:'average',
+        xalign: 'right',
+        yalign:'top',
+        intersect:false,
+        itemSort: function(a, b) {
+            return b.datasetIndex - a.datasetIndex
+        },
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
+            }
+          },
+          // Set footer to the sum of the dataset values for each discrete point
+          footer: function(tooltipItems, data) {
+            var total = 0;
+            tooltipItems.forEach(function(tooltipItem) {
+              total += data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            });
+            return "Total Tests: " + total;
+          }
+        },
+      },       
+      hover: {
+        //mode: 'average',
+        intersect: false
+      },
+      scales: {
+        xAxes: [{
+          type: 'time',
+          time: {
+            unit: 'day',
+            //unitStepSize: 4,
+          },
+          display: true,
+          offset:false,
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: true,
+            minRotation:window.xAxisMinRotation,
+            maxRotation:window.xAxisMaxRotation,
+            autoSkipPadding: 60,
+          },
+          gridLines:{
+            color:"rgba(255,255,255,0.1)",
+            zeroLineColor: "rgba(255,255,255,0.02)",
+          }
+        }],
+        yAxes: [{
+          display: true,
+          stacked: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            mirror: window.yAxisTickMirror,
+            fontColor: "#fff",
+            fontSize: window.yAxisFontSize,
+            autoSkip: true,
+            maxRotation: 0,
+            autoSkipPadding: 30,
+          },
+          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+          },
+          gridLines:{
+            color:"rgba(255,255,255,0.1)",
+            drawTicks: window.yAxisTickDisplay,
+          }
+        }],
+
+      }
+    }
+  };
+  
+  updateDatasetTest = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciTest = e.view.myLineTest;
+    var meta = ciTest.getDatasetMeta(index);
+    $('#legendContainerTest li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+    meta.hidden = meta.hidden === null? !ciTest.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciTest.update();
+  };
 
 
 
@@ -1295,6 +1472,11 @@
 			window.myLineMultiDth = new Chart(ctx, configCntyDth);
       document.getElementById("legendContainerCntyDth").innerHTML = myLineMultiDth.generateLegend();
       var legendItems = legendContainerCntyDth.getElementsByTagName('li');
+
+      var ctx = document.getElementById('canvasTest').getContext('2d');
+			window.myLineTest = new Chart(ctx, configTest);
+      document.getElementById("legendContainerTest").innerHTML = myLineTest.generateLegend();
+      var legendItems = legendContainerTest.getElementsByTagName('li');
 
       //var ctx = document.getElementById('canvasPop').getContext('2d');
 			//window.myBarPop = new Chart(ctx, configPop);

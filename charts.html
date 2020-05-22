@@ -86,10 +86,11 @@
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
         <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Total<br class="mobile-xs-only"> Counts</li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> New  <div class="new-tag-gr" style="">!</div></li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospitaliz<span class="mobile-xs-only">-</span><br class="mobile-xs-only">ations</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> New  <!--<div class="new-tag-gr" style="">!</div>--></li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital<span class="mobile-xs-only">-</span><br class="mobile-xs-only">izations</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-xs-only"> County</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By<br class="mobile-xs-only"> County</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total<br class="mobile-xs-only"> Tests <sup class="new-tag">NEW</sup></li>
         
         <!-- New Tag For Later Use -->
         <!-- <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Tab Title <sup class="new-tag">NEW</sup></li> -->
@@ -108,9 +109,13 @@
       <div id="legendContainerDaily"></div>
     </div>
 
-    <div id="hospchart" class="stdcharts tab-content"><h2 class="a11y">Hospitalizations in MD</h2><canvas id="canvasHosp"></canvas></div>
+    <div id="hospchart" class="stdcharts tab-content">
+      <h2 class="a11y">Hospitalizations in MD</h2>
+      <canvas id="canvasHosp"></canvas>
+    </div>
+    
     <div id="cntychart" class="stdcharts tab-content">
-      <h2 class="a11y">Cumulative Cases per County</h2>
+      <h2 class="a11y">Cumulative Hospitalizations per County</h2>
       <canvas id="canvasCnty"></canvas>
       <div id="legendContainerCnty"></div>
     </div>
@@ -119,6 +124,12 @@
       <h2 class="a11y">Cumulative Deaths per County</h2>
       <canvas id="canvasCntyDth"></canvas>
       <div id="legendContainerCntyDth"></div>
+    </div>
+    
+    <div id="testchart" class="stdcharts tab-content">
+      <h2 class="a11y">Cumulative Test Data</h2>
+      <canvas id="canvasTest"></canvas>
+      <div id="legendContainerTest"></div>
     </div>
     
     <div id="forceScrollbar"></div>
