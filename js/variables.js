@@ -241,7 +241,7 @@ var colorCnty23 = '#6B213D';
 // Colors for Daily State Bar Charts
 var colorCaseBorder = "rgba(223, 97, 95, .95)";
 var colorCaseBackground = "rgba(223, 97, 95, 0.9)";
-var colorCaseBackgroundSolid = "rgba(168,87,82,1.00)";
+var colorCaseBackgroundSolid = "rgba(160,87,83,1.00)";
 var colorCaseBackgroundHover = "rgba(255, 107, 105, 1.0)";
 var colorCaseBorderLine = "rgba(223, 97, 95, 1)";
 var colorCaseBackgroundLine = "rgba(235,121,121, .4)";
