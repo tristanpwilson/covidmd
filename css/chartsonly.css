@@ -331,13 +331,15 @@ color:#1FAD25;
 
 /*--- Cumulative & Daily Chart Custom Legends --- */
 #legendContainerCumul,
-#legendContainerDaily{
+#legendContainerDaily,
+#legendContainerTest{
   width:100%;
   height:auto;
   z-index:3000;
   margin:15px auto 7.5px auto;
 }
-#legendContainerCumul{
+#legendContainerCumul,
+#legendContainerTest{
   max-width:600px;
 }
 
@@ -346,7 +348,8 @@ color:#1FAD25;
 }
 
 #legendContainerCumul> ul,
-#legendContainerDaily> ul{
+#legendContainerDaily> ul,
+#legendContainerTest> ul{
   display:flex;
   justify-content:center;
   flex-flow: row wrap;
@@ -355,7 +358,8 @@ color:#1FAD25;
 
 /* Daily Chart Legend Items + Text Style */
 #legendContainerCumul li,
-#legendContainerDaily li {
+#legendContainerDaily li,
+#legendContainerTest li{
   display:block;
   flex-grow:0;
   cursor: pointer;
@@ -365,7 +369,8 @@ color:#1FAD25;
   font-weight:400;
 }
 
-#legendContainerCumul li {
+#legendContainerCumul li,
+#legendContainerTest li {
   flex-basis:auto;
   padding:5px 20px;
 }
@@ -376,12 +381,14 @@ color:#1FAD25;
 }
 
 #legendContainerCumul li.hiddentrue,
-#legendContainerDaily li.hiddentrue{
+#legendContainerDaily li.hiddentrue,
+#legendContainerTest li.hiddentrue{
   color:rgba(255,255,255,0.5)
 } 
 
 #legendContainerCumul li:hover,
-#legendContainerDaily li:hover {
+#legendContainerDaily li:hover,
+#legendContainerTest li:hover {
   text-decoration:underline;
 }
 
@@ -397,7 +404,8 @@ color:#1FAD25;
 
 /* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
 #legendContainerCumul li span,
-#legendContainerDaily li span {
+#legendContainerDaily li span,
+#legendContainerTest li span {
   position: relative;
   display:inline-block;
   margin:0 7.5px -1px 0;
@@ -412,20 +420,23 @@ color:#1FAD25;
 
 
 #legendContainerCumul li:hover span,
-#legendContainerDaily li:hover span{
+#legendContainerDaily li:hover span,
+#legendContainerTest li:hover span{
   border:2px solid;
   filter:brightness(90%);
 }
 
 #legendContainerCumul li.hiddentrue span,
-#legendContainerDaily li.hiddentrue span {
+#legendContainerDaily li.hiddentrue span,
+#legendContainerTest li.hiddentrue span {
   border:2px solid;
   background:transparent !important;
   filter:brightness(60%);
 }
 
 #legendContainerCumul li.hiddentrue:hover span,
-#legendContainerDaily li.hiddentrue:hover span {
+#legendContainerDaily li.hiddentrue:hover span,
+#legendContainerTest li.hiddentrue:hover span {
     filter:brightness(80%);
 }
 
@@ -448,22 +459,26 @@ color:#1FAD25;
 
 @media (max-width: 575px){
   #legendContainerCumul> ul,
-  #legendContainerDaily> ul{
+  #legendContainerDaily> ul,
+  #legendContainerTest> ul{
     padding:0 2%;
   }
 
-  #legendContainerCumul> ul{
+  #legendContainerCumul> ul,
+  #legendContainerTest> ul{
     justify-content:flex-start;
   }
 
   #legendContainerCumul li,
-  #legendContainerDaily li {
+  #legendContainerDaily li,
+  #legendContainerTest li {
     flex-basis:33%;
     padding:5px 0px;
     font-size:16px;
   }
   #legendContainerCumul li span,
-  #legendContainerDaily li span {
+  #legendContainerDaily li span,
+  #legendContainerTest li span {
     margin:0 5px -1px 0;
     height:14px;
     width:14px;
@@ -472,7 +487,8 @@ color:#1FAD25;
 
 @media(max-width:370px){
   #legendContainerCumul li,
-  #legendContainerDaily li {
+  #legendContainerDaily li,
+  #legendContainerTest li {
     font-size:14px;
   }
 }

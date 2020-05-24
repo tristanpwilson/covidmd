@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>screencaptest</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500);
+
+    *{font-family:'Work Sans', sans-serif;}
+    *:focus{outline:1px dotted rgba(0,0,0,0.3) !important}
+    h1 {font-size:26px;color: #555;font-weight:400; margin:0;}
+    p, a {font-size:14px;color: #555;font-weight:300; margin:0;}
+
+    body{background:transparent; min-height:102vh; overflow-x:hidden !important;}
+    .container-a{ width:100%; }
+    #capture {
+      position: relative;
+      display:block;
+      width:100%;
+      height:100%;
+      margin:10vh 0;
+      background: #ffffff;
+    }
+    #captureBox{
+      position:relative;
+      display:block;
+      height:80vh;
+      min-height: 400px;
+      width:50vw;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: #ccc;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15),  0 0 4px 1px rgba(0, 0, 0, 0.02);
+    }
+
+    /* -------- Main Pen Content -------- */
+
+    #btnScreenCap{
+      position:relative;
+      display:block;
+      margin:10px auto;
+      padding:5px 10px;
+      font-size:14px;
+      color:#2a2a2a;
+      background:#fafafa;
+      border:none;
+      border-radius:4px;
+      box-shadow:0 1px 1px 0 rgba(0,0,0,0.1);
+      cursor:pointer;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container-a">
+      <div id="capture" class="content-card">
+        <div id="captureBox">
+          <button href="javascript:void(0)" id="btnScreenCap">Save Image</button>
+          <h1>Test Heading Text</h1>
+          <p>Test body text test body text test body text test body text test body text test</p>
+          <img src="img/test.jpg" alt="Placeholder">
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script type="text/javascript">
+      $("#btnScreenCap").click(function() {
+        html2canvas(document.querySelector("#capture"), {
+          backgroundColor: "#FFFFFF", 
+          onclone: function (clonedDoc) {
+            var screenCapWidth = $('#captureBox').width() + "px";
+            $(clonedDoc).find('#captureBox').prepend(" <b>From www.covidmd.info</b>.");
+            $(clonedDoc).find("#capture").css("width", "100vw").find("#captureBox").css("width", "100vw");
+            $(clonedDoc).find('#btnScreenCap').css("display", "none");
+          }
+        }).then(function(canvas) {
+      //html2canvas(document.querySelector("#capture")).then(canvas => {
+            document.body.appendChild(canvas)
+        });
+      })
+    </script>
+    
+  </body>
+
+</html>

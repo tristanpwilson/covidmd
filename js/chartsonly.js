@@ -143,14 +143,24 @@
       },
       tooltips: {
         enabled: true, 
-        mode: 'label',
-        displayColors:false,
+        mode: 'index',
+        displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
-        position:'average',
+        footerFontSize:14,
         xalign: 'right',
-        yalign:'none',
+        yalign:'top',
         intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.borderColor
+            }
+          },
+        },
       },       
       hover: {
         //mode: 'average',
@@ -327,19 +337,24 @@
         },
       tooltips: {
         enabled: true, 
-        mode: 'label',
+        mode: 'index',
         displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
-        xPadding:5,
-        yPadding:5,
-        position:'nearest',
-        caretSize:5,
-        cornerRadius:3,
-        caretPadding:10,
-        xAlign: 'center',
-        yAlign: 'bottom',
+        footerFontSize:14,
+        xalign: 'right',
+        yalign:'top',
         intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
+            }
+          },
+        },
       },
       hover: {
         mode: 'nearest',
@@ -602,14 +617,27 @@
       tooltips: {
         enabled: true, 
         mode: 'nearest',
+        position:'nearest',
         displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
-        position:'nearest',
+        footerFontSize:14,
         xalign: 'right',
-        yalign:'none',
-        intersect:true,
-       },       
+        yalign:'top',
+        intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+
+            return {
+              borderColor: 'rgba(0, 0, 0, 0)',
+              backgroundColor : dataset.backgroundColor
+            }
+          },
+        }
+      }, 
+            
       hover: {
         mode: 'nearest',
         intersect: true
@@ -888,14 +916,26 @@
       tooltips: {
         enabled: true, 
         mode: 'nearest',
+        position:'nearest',
         displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
-        position:'nearest',
+        footerFontSize:14,
         xalign: 'right',
-        yalign:'none',
-        intersect:true,
-       },       
+        yalign:'top',
+        intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+
+            return {
+              borderColor: 'rgba(0, 0, 0, 0)',
+              backgroundColor : dataset.backgroundColor
+            }
+          },
+        }
+      },        
       hover: {
         mode: 'nearest',
         intersect: true
@@ -1099,21 +1139,6 @@
     data: {
       labels: caseTimeline,
       datasets: [
-//      {
-//        label: 'Now Hospitalized',
-//        backgroundColor: colorNowHospBackground,
-//        borderColor: colorNowHospBorder,
-//        data: historyNowHosp,
-//        pointRadius: 2,
-//        pointHitRadius: 5,
-//        borderWidth: 2,
-//        hoverRadius: 5,
-//        hoverBorderWidth:3,
-//        hoverBorderColor:colorNowHospHover,
-//        fill: true,
-//        lineTension: 0.1,
-//        //order:3,
-//      },
       {
         label: 'Intensive Care',
         backgroundColor: colorIntensiveBackground,
@@ -1144,21 +1169,6 @@
         lineTension: 0.1,
         //order:2,
       }
-//      {
-//        label: 'Ever Hospitalized',
-//        backgroundColor: colorEverHospBackground,
-//        borderColor: colorEverHospBorder,
-//        data: historyEverHosp,         
-//        pointRadius: 2,
-//        pointHitRadius: 5,
-//        borderWidth: 2,
-//        hoverRadius: 5,
-//        hoverBorderWidth:3,
-//        hoverBorderColor:colorEverHospHover,
-//        fill: true,
-//        lineTension: 0.1,
-//        //order:1,
-//      }
       ]
     },
     options: {
@@ -1188,35 +1198,51 @@
       },
       tooltips: {
         enabled: true, 
-        mode: 'label',
-        displayColors:false,
+        mode: 'index',
+        displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
-        position:'average',
+        footerFontSize:14,
         xalign: 'right',
-        yalign:'none',
+        yalign:'top',
         intersect:false,
         callbacks: {
           title: function(tooltipItem, data) {
             return data['labels'][tooltipItem[0]['index']];
           },
-          label: function(tooltipItem, data) {
-            // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
-            var count = data.datasets[tooltipItem.datasetIndex].label;
-            var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+//          label: function(tooltipItem, data) {
+//            // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
+//            var count = data.datasets[tooltipItem.datasetIndex].label;
+//            var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+//            
+//
+//            // Loop through all datasets to get the actual total of the index
+//            var total = 0;
+//            for (var i = 0; i < data.datasets.length; i++)
+//                total += data.datasets[i].data[tooltipItem.index];
+//
+//            // If it is not the last dataset, you display it as you usually do
+//            if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+//                return count + ": " + index;
+//            } else { // .. else, you display the dataset and the total, using an array
+//                return [count + ": " + index, "Total: " + total];
+//            }
+//          },
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
             
-
-            // Loop through all datasets to get the actual total of the index
-            var total = 0;
-            for (var i = 0; i < data.datasets.length; i++)
-                total += data.datasets[i].data[tooltipItem.index];
-
-            // If it is not the last dataset, you display it as you usually do
-            if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                return count + ": " + index;
-            } else { // .. else, you display the dataset and the total, using an array
-                return [count + ": " + index, "Total: " + total];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
             }
+          },
+          footer: function(tooltipItems, data) {
+            var total = 0;
+            tooltipItems.forEach(function(tooltipItem) {
+              total += data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            });
+            return "Current Total: " + total;
           }
         },
       },       
