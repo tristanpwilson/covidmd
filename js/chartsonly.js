@@ -342,7 +342,6 @@
         multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
-        footerFontSize:14,
         xalign: 'right',
         yalign:'top',
         intersect:false,
@@ -1234,7 +1233,7 @@
             
             return {
                 borderColor: 'rgba(255, 0, 0, 0)',
-                backgroundColor : dataset.backgroundColor
+                backgroundColor : dataset.borderColor
             }
           },
           footer: function(tooltipItems, data) {
@@ -1371,13 +1370,10 @@
         enabled: true, 
         mode: 'index',
         displayColors:true,
-        //borderColor:'rgba(255,255,255,1)',
-        //borderWidth:1,
         multiKeyBackground:'rgba(0,0,0,0)',
         titleFontSize: 14,
         bodyFontSize: 14,
         footerFontSize:14,
-        //position:'average',
         xalign: 'right',
         yalign:'top',
         intersect:false,
@@ -1389,7 +1385,7 @@
             var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
             return {
                 borderColor: 'rgba(255, 0, 0, 0)',
-                backgroundColor : dataset.backgroundColor
+                backgroundColor : dataset.borderColor
             }
           },
           // Set footer to the sum of the dataset values for each discrete point

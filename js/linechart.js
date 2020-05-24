@@ -166,13 +166,25 @@
         },
 				tooltips: {
           enabled: true, 
-          mode: 'label',
-          displayColors:false,
-          position:'average',
+          mode: 'index',
+          displayColors:true,
+          multiKeyBackground:'rgba(0,0,0,0)',
+          titleFontSize: 12,
+          bodyFontSize: 12,
+          footerFontSize:12,
           xalign: 'right',
-          yalign:'none',
+          yalign:'top',
           intersect:false,
-         },       
+          callbacks: {
+            labelColor: function(tooltipItem, chart) {
+              var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+              return {
+                  borderColor: 'rgba(255, 0, 0, 0)',
+                  backgroundColor : dataset.borderColor
+              }
+            },
+          },
+        },        
 				hover: {
 					//mode: 'average',
 					intersect: false
@@ -343,13 +355,24 @@
         },
 				tooltips: {
           enabled: true, 
-          mode: 'label',
-          displayColors:false,
-          position:'average',
+          mode: 'index',
+          displayColors:true,
+          multiKeyBackground:'rgba(0,0,0,0)',
+          titleFontSize: 12,
+          bodyFontSize: 12,
           xalign: 'right',
-          yalign:'none',
-          intersect:true,
-         }, 
+          yalign:'top',
+          intersect:false,
+          callbacks: {
+            labelColor: function(tooltipItem, chart) {
+              var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+              return {
+                  borderColor: 'rgba(255, 0, 0, 0)',
+                  backgroundColor : dataset.backgroundColor
+              }
+            },
+          },
+        },
 				hover: {
 					mode: 'nearest',
 					intersect: true
@@ -457,23 +480,7 @@
           fill: true,
           lineTension: 0.1,
           //order:2,
-        },
-
-  //      {
-  //        label: 'Ever Hospitalized',
-  //        backgroundColor: colorEverHospBackground,
-  //        borderColor: colorEverHospBorder,
-  //        data: historyEverHosp,         
-  //        pointRadius: 1,
-  //        pointHitRadius: 4,
-  //        borderWidth: 2,
-  //        hoverRadius: 5,
-  //        hoverBorderWidth:3,
-  //        hoverBorderColor:colorEverHospHover,
-  //        fill: true,
-  //        lineTension: 0.1,
-  //        //order:1,
-  //      }
+        }
         ]
       },
       options: {
@@ -507,35 +514,33 @@
         },   
         tooltips: {
           enabled: true, 
-          mode: 'label',
-          displayColors:false,
+          mode: 'index',
+          displayColors:true,
+          multiKeyBackground:'rgba(0,0,0,0)',
           titleFontSize: 12,
           bodyFontSize: 12,
-          position:'average',
+          footerFontSize:12,
           xalign: 'right',
-          yalign:'none',
+          yalign:'top',
           intersect:false,
           callbacks: {
             title: function(tooltipItem, data) {
-            //Adds date label from x-axis to tooltip title
               return data['labels'][tooltipItem[0]['index']];
             },
-            label: function(tooltipItem, data) {
-              // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
-              var count = data.datasets[tooltipItem.datasetIndex].label;
-              var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            labelColor: function(tooltipItem, chart) {
+              var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
 
-              // Loop through all datasets to get the actual total of the index
-              var total = 0;
-              for (var i = 0; i < data.datasets.length; i++)
-                  total += data.datasets[i].data[tooltipItem.index];
-
-              // If it is not the last dataset, you display it as you usually do
-              if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                  return count + ": " + index;
-              } else { // .. else, you display the dataset and the total, using an array
-                  return [count + ": " + index, "Total: " + total];
+              return {
+                  borderColor: 'rgba(255, 0, 0, 0)',
+                  backgroundColor : dataset.borderColor
               }
+            },
+            footer: function(tooltipItems, data) {
+              var total = 0;
+              tooltipItems.forEach(function(tooltipItem) {
+                total += data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+              });
+              return "Current Total: " + total;
             }
           },
         },       
