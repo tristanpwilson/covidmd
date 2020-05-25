@@ -22,7 +22,7 @@ html, body, .leaflet-container {
 
 /*Temporary Last Update Pseudo*/
 #button-i:after{
- content:"Last Updated: May 24 2020, 10:20:00 EST";
+ content:"Last Updated: May 25 2020, 11:00:00 EST";
  position:absolute;
  display:block;
  left:100%;
@@ -50,7 +50,7 @@ html, body, .leaflet-container {
   height: auto;
   max-height: 98vh;
   /*max-height: calc(98vh * 1.1);*/
-  width: 360px;
+  width: 390px;
   top: 1vh;
   right: 1vw;
   background: rgba(38, 38, 38, .8);
@@ -64,10 +64,10 @@ html, body, .leaflet-container {
   display: block !important;
   order: 1;
   width: 100%;
-  min-height: 265px;
+
   height: auto;
   padding: 0px 0px;
-  margin: 0 !important;
+  margin: 0 0 10px 0 !important;
   border-radius: 0px;
   /*background:#eee;*/
   background: transparent;
@@ -90,17 +90,23 @@ html, body, .leaflet-container {
 /* State + County Cases Info Box (Shared) */
 
 .info #title,
-.info #countycases,
-.info #statecases {
+.info #statecases,
+.info #countycases {
   margin: 0 0 0 0;
   background: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 15px 17.5px 15px 17.5px;
+     padding: 15px 12.5px 12.5px 12.5px;
+}
+
+.info #statecases,
+.info #countycases{
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:space-between;
 }
 
 .info #title h1,
 .info #statecases h2,
-.info #statecases h3,
 .info #statecases p,
 .info #countycases h3,
 .info #countycases p {
@@ -108,8 +114,6 @@ html, body, .leaflet-container {
   color: #fff;
   line-height: 100%
 }
-
-
 
 /* State Cases Info Box (Only)*/
 
@@ -119,7 +123,8 @@ html, body, .leaflet-container {
   font-weight: 600;
 }
 
-.info #title h1 img{
+  /*.info #title h1 img*/
+  #mdflag{
   position:absolute;
   /*height:28px;*/
   width:16%;
@@ -130,13 +135,8 @@ html, body, .leaflet-container {
   /*box-shadow:0 0 0px 1px rgba(255,255,255,0.6);*/
 }
 
-.info #statecases #boxstateflex{
-  display:flex;
-  flex-flow:column wrap;
-  height:60px;
-}
-
 .info #statecases h2 {
+  width:100%;
   margin: 2.5px 0 0 0;
   font-size: 20px;
   font-weight: 600;
@@ -151,23 +151,74 @@ html, body, .leaflet-container {
 }
 
 .info #statecases p {
-  margin: 12px 0 0 0;
+  width:49%;
+  margin: 15px 0 0 0;
   font-size: 16px
 }
 
 /* County Cases  Info Box */
-
 .info #countycases h3 {
-  font-size: 18px;
-  margin: 0;
-  font-weight: 600;
+  position:relative;
+  display:block;
+  order:1;
+  flex-basis:90%;
+  flex-shrink:1;
+  width:90%;
   height: 18px !important;
+  line-height:18px;
+  font-size: 18px;
+  margin: 2.5px 0 0 0;
+  font-weight: 600;
 }
 
 .info #countycases p {
-  font-size: 14px;
-  margin: 10px 0 0 0;
-  font-weight: 400;
+  order:3 !important;
+  width:48%;
+  font-size: 16px;
+  margin: 15px 0 0 0;
+  font-weight: 400; 
+}
+
+.info #statecases .sep,
+.info #countycases .sep{
+  position:absolute;
+  display:inline-block;
+  align-self:flex-end;
+  order:3;
+  width:1px;
+  height:36px;
+  margin-top:13px !important;
+  background:rgba(255,255,255,0.2);
+  left:48%;
+}
+
+#boxChartIcon1{
+  position:relative;
+  display:block;
+  order:2;
+  flex-basis:10%;
+  flex-shrink:0;
+  flex-grow:1;
+  z-index:3000;
+}
+#chartIconLine1{
+  position:relative;
+  display:block;
+  float:right;
+  width:20px;
+  height:20px;
+  padding: 0;
+  text-decoration: none !important;
+  background-image: url("../img/charticonline-md1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: .7;
+}
+#chartIconLine1:hover,
+#chartIconLine1:focus{
+  opacity:1;
+  transition:.2s ease opacity;
 }
 
 /* Placholder County Title */
@@ -176,13 +227,12 @@ html, body, .leaflet-container {
 .info #countycases p i,
 .info #countycases h3 i span {
   font-style: normal;
-  font-weight: 400;
 }
 
 .info #countycases h3 i,
 .info #countycases h3 i span {
   /*color:#444;*/
-  color: #ddd;
+  color: #ccc !important;
 }
 
 .info #countycases h3 i span {
@@ -190,7 +240,7 @@ html, body, .leaflet-container {
 }
 
 .info #countycases p i {
-  color: #999;
+  color: #555;
 }
 
 .stdcharts {
@@ -257,14 +307,24 @@ html, body, .leaflet-container {
   #infoPane {
     width: 400px;
   }
-
+  .info #statecases p,
+  .info #countycases p{
+    width:50%;
+  }
+  .info #statecases .sep,
+  .info #countycases .sep{
+    margin-top:13px !important;
+    left:46%;
+  }  
 }
+
 
 @media(max-width: 992px) {
   #infoPane {
-    width: 360px;
+    width: 380px;
   }
-  .info #title h1 img{
+  /*.info #title h1 img*/
+  #mdflag{
     width:16%;
     top:15px;
     right:5px;
@@ -272,7 +332,11 @@ html, body, .leaflet-container {
   .info #title,
   .info #countycases,
   .info #statecases {
-    padding: 15px 12.5px 15px 12.5px;
+    padding: 15px 12.5px 12.5px 12.5px;
+  }
+  .info #statecases p,
+  .info #countycases p{
+    width:48%;
   }
 }
 
@@ -297,6 +361,7 @@ html, body, .leaflet-container {
     order: 1;
     width: 100%;
     min-height: initial;
+    margin-bottom:0 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     background: transparent;
   }
@@ -324,7 +389,8 @@ html, body, .leaflet-container {
     color: #fff;
     font-size: 22px;
   }
-  .info #title h1 img{
+  /*.info #title h1 img*/
+  #mdflag{
     width:50px;
     top:7.5px;
     right:5px;
@@ -348,15 +414,19 @@ html, body, .leaflet-container {
     color: #ddd;
   }
   .info #statecases p {
-    margin: 7.5px 0 0 0;
-    font-size: 16px;
+    width:100%;
+    margin: 10px 0 0 0;
+    font-size: 15px;
     color: #fff;
   }
   .info #countycases {
     order: 3;
   }
   .info #countycases h3 {
-    margin: 2.5px 0 0 0;
+    width:80%;
+    flex-basis:80%;
+    margin: 5px 0 0 0;
+    line-height:18px;
     font-size: 16px;
     color: #fff;
     text-overflow: ellipsis;
@@ -373,10 +443,22 @@ html, body, .leaflet-container {
     font-size: 12px;
   }
   .info #countycases p {
-    font-size: 12px;
-    margin: 5px 0 0 0;
+    width:100%;
+    font-size: 14px;
+    line-height:16px;
+    margin: 10px 0 0 0;
     color: #fff;
   }
+  #chartIconLine1{
+    height: 24px;
+    width: 24px;
+    background-size:18px;
+    opacity: .7;
+  }
+  .info #statecases .sep,
+  .info #countycases .sep{
+    display:none;
+  }    
   .container-toggle-tabs {
     display: block;
     z-index: 2000;
@@ -578,28 +660,7 @@ html, body, .leaflet-container {
   
 }
 
-#chartIconLine1{
-  position:relative;
-  display:block;
-  float:right;
-  z-index:3000;
-  top:0px;
-  width:20px;
-  height:20px;
-  padding: 0;
-  text-decoration: none !important;
-  background-image: url("../img/charticonline-md1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: .7;
-}
 
-#chartIconLine1:hover,
-#chartIconLine1:focus{
-  opacity:1;
-  transition:.2s ease opacity;
-}
 
 .linkExpChart {
   position: absolute;
@@ -663,18 +724,7 @@ html, body, .leaflet-container {
   }
 }
 
-
 @media(max-width: 767px) {
-  #chartIconLine1{
-    height: 24px;
-    width: 24px;
-    background-size:18px;
-    opacity: .7;
-  }
-  
-  #chartIconLine1:hover,
-  #chartIconLine1:focus{
-  }
   
   .linkExpChart {
     top: 10px;
@@ -702,7 +752,7 @@ html, body, .leaflet-container {
 
 
 /*TEMPORARY NOTE "!" BUTTON*/
-#noteExclA{
+/*#noteExclA{
   position:absolute;
   display:inline-block;
   right:19.5px;
@@ -765,7 +815,7 @@ html, body, .leaflet-container {
 
 @media(max-width:767px){
   #noteExclA{right:3.5vw; height:18px; width:18px; line-height:18px;}
-}
+}*/
 
 
 
