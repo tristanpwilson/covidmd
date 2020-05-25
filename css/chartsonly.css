@@ -468,14 +468,22 @@ color:#1FAD25;
   #legendContainerTest> ul{
     justify-content:flex-start;
   }
+ 
+  #legendContainerTest> ul{
+    justify-content:center;
+  }
 
   #legendContainerCumul li,
-  #legendContainerDaily li,
-  #legendContainerTest li {
+  #legendContainerDaily li {
     flex-basis:33%;
     padding:5px 0px;
     font-size:16px;
   }
+  #legendContainerTest li {
+    flex-basis:40%;
+    padding:5px 0px;
+    font-size:16px;
+  }  
   #legendContainerCumul li span,
   #legendContainerDaily li span,
   #legendContainerTest li span {
