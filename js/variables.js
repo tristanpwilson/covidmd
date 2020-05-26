@@ -40,18 +40,34 @@ function avgMov(ary2) {
   return newB;
 }
 
-// Function to calculate 14 day moving average of values in an array
-function avgMov14(ary3) {
+// Function to calculate 3 day moving average of values in an array
+function avgMov3(ary3) {
   var newC = [];
-  for (var i = 0; i < ary3.length; i++) newC.push(((ary3[i] + ary3[i-1] + ary3[i-2] + ary3[i-3] + ary3[i-4] + ary3[i-5] + ary3[i-6] + ary3[i-7] + ary3[i-8] + ary3[i-9] + ary3[i-10] + ary3[i-11] + ary3[i-12] + ary3[i-13])/14.0).toFixed(1))
+  for (var i = 0; i < ary3.length; i++) newC.push(((ary3[i] + ary3[i-1] + ary3[i-2])/3.0).toFixed(1))
   return newC;
+}
+
+// Function to calculate 10 day moving average of values in an array
+function avgMov10(ary4) {
+  var newD = [];
+  for (var i = 0; i < ary4.length; i++) newD.push(((ary4[i] + ary4[i-1] + ary4[i-2] + ary4[i-3] + ary4[i-4] + ary4[i-5] + ary4[i-6] + ary4[i-7] + ary4[i-8] + ary4[i-9])/10.0).toFixed(1))
+  return newD;
+}
+
+// Function to calculate 14 day moving average of values in an array
+function avgMov14(ary5) {
+  var newE = [];
+  for (var i = 0; i < ary5.length; i++) newE.push(((ary5[i] + ary5[i-1] + ary5[i-2] + ary5[i-3] + ary5[i-4] + ary5[i-5] + ary5[i-6] + ary5[i-7] + ary5[i-8] + ary5[i-9] + ary5[i-10] + ary5[i-11] + ary5[i-12] + ary5[i-13])/14.0).toFixed(1))
+  return newE;
 }
 
 
   // Calculating moving average of daily change in Cases
-  var avgMovingCaseChange = avgMov(dailyCaseChange);
-  var avgMoving14CaseChange = avgMov14(dailyCaseChange);
-  
+  window.avgMovingCaseChange = avgMov(dailyCaseChange);
+//  var avgMoving14CaseChange = avgMov3(dailyCaseChange);
+//  var avgMoving14CaseChange = avgMov10(dailyCaseChange);
+//  var avgMoving14CaseChange = avgMov14(dailyCaseChange);
+
   // Calculating moving average of daily change in deaths
   var avgMovingDeathChange = avgMov(dailyDeathChange);
   var avgMoving14DeathChange = avgMov14(dailyDeathChange);

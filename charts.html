@@ -106,7 +106,19 @@
     <div id="dailychart" class="stdcharts tab-content">
       <h2 class="a11y">Daily New Cases in MD</h2>
       <canvas id="canvasDaily"></canvas>
+
       <div id="legendContainerDaily"></div>
+      <div class="containerDropdownCustom">
+        <form>
+          <label for="avgLengthMenu">Moving Average Length:</label>
+          <select name="avgLengthMenu" id="avgLengthMenu" onchange="updateDatasetAvgDaily()">
+            <option value="3">3 Day</option>
+            <option value="7" selected>7 Day</option>
+            <option value="10">10 Day</option>
+            <option value="14">14 Day</option>
+          </select>
+        </form>
+      </div>
     </div>
 
     <div id="hospchart" class="stdcharts tab-content">

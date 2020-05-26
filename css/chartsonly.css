@@ -228,7 +228,7 @@ color:#1FAD25;
 .stdcharts{
   position:relative;
   z-index:3000 !important; 
-  height:80vh;
+  height:72vh;
   flex-shrink:2;
   flex-grow:0;
   width: 80vw;
@@ -243,7 +243,7 @@ color:#1FAD25;
 #dailychart,
 #cumulchart {
    min-height:60vh !important;
-   max-height: calc(80vw * .65);
+   max-height: calc(80vw * .55);
  }
  
 
@@ -336,15 +336,16 @@ color:#1FAD25;
   width:100%;
   height:auto;
   z-index:3000;
-  margin:15px auto 7.5px auto;
 }
 #legendContainerCumul,
 #legendContainerTest{
   max-width:600px;
+  margin:15px auto 7.5px auto;
 }
 
 #legendContainerDaily{
   max-width:500px;
+  margin:5px auto 0px auto;
 }
 
 #legendContainerCumul> ul,
@@ -377,7 +378,7 @@ color:#1FAD25;
 
 #legendContainerDaily li {
   flex-basis:33%;
-  padding:5px 0px;
+  padding:2px 0px;
 }
 
 #legendContainerCumul li.hiddentrue,
@@ -662,6 +663,41 @@ color:#1FAD25;
   }
 }
 
+form{line-height:100% !important;}
 
+.containerDropdownCustom{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  padding:0 !important;
+  margin:0 !important;
+}
 
+.containerDropdownCustom label{
+  margin:0 0 5px 0 !important;
+  padding:0 !important;
+  line-height:100% !important;
+  font-size:16px;
+  color:#fff;
+}
+
+.containerDropdownCustom select{
+  position:relative;
+  display:inline;
+  margin: 0 0 0 5px !important;
+  padding:0px 1px !important;
+  font-size:15px;
+  color:#ddd;
+  border-radius:3px;
+  background:transparent;  
+  border:1px solid rgba(255,255,255,0.4);
+  /*box-shadow:0 0 0 1px rgba(255,255,255,0.3);*/
+  cursor:pointer;
+}
+.containerDropdownCustom option{
+    font-size:15px;
+  color:#444;
+  border-radius:2px;
+  background:transparent;
+}
 

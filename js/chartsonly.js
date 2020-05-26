@@ -235,7 +235,7 @@
       datasets: [
       {
         type:'line',
-        label: '7 Day Avg',
+        label: 'Average (C)',
         data: avgMovingCaseChange,
         pointRadius: 0,
         borderWidth: 2,
@@ -247,7 +247,7 @@
       },
       {
         type:'line',
-        label: '7 Day Avg',
+        label: 'Average (D)',
         data: avgMovingDeathChange,
         pointRadius: 0,
         borderWidth: 2,
@@ -259,7 +259,7 @@
       },
       {
         type:'line',
-        label: '7 Day Avg',
+        label: 'Average (R)',
         data: avgMovingRecoveryChange,
         pointRadius: 0,
         borderWidth: 2,
@@ -323,7 +323,7 @@
       legendCallback: 
         function(chart) { 
           var text = []; 
-          //text.push('<div id="boxToggleCntyDthOff"><a id="toggleCntyDthOff" href="javascript:void(0);" onclick="updateDatasetsDth(event)">All Off</a></div><ul class="' + chart.id + '-legend">'); 
+         
           text.push('<ul class="' + chart.id + '-legend">'); 
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
@@ -416,6 +416,36 @@
     // After hiding dataset, rerender the chart
     ciDaily.update();
   };
+  
+  //Function to update the length of the moving average line for Daily Change chart
+  updateDatasetAvgDaily = function(){
+    
+    var avgMenuVal = $('#avgLengthMenu').val();
+
+    if ($('#avgLengthMenu').val() == "7") {
+      window.myBarDaily.data.datasets[0].data = avgMov(dailyCaseChange)
+      window.myBarDaily.data.datasets[1].data = avgMov(dailyDeathChange)
+      window.myBarDaily.data.datasets[2].data = avgMov(dailyRecoveryChange)
+      //alert(avgMov(dailyCaseChange));
+    } else if ($('#avgLengthMenu').val() == "3") {
+      window.myBarDaily.data.datasets[0].data = avgMov3(dailyCaseChange)
+      window.myBarDaily.data.datasets[1].data = avgMov3(dailyDeathChange)
+      window.myBarDaily.data.datasets[2].data = avgMov3(dailyRecoveryChange)
+      //alert(avgMov3(dailyCaseChange));
+    } else if ($('#avgLengthMenu').val() == "10") {
+      window.myBarDaily.data.datasets[0].data = avgMov10(dailyCaseChange)
+      window.myBarDaily.data.datasets[1].data = avgMov10(dailyDeathChange)
+      window.myBarDaily.data.datasets[2].data = avgMov10(dailyRecoveryChange)
+      //alert(avgMov10(dailyCaseChange));
+    } else if ($('#avgLengthMenu').val() == "14") {
+      window.myBarDaily.data.datasets[0].data = avgMov14(dailyCaseChange)
+      window.myBarDaily.data.datasets[1].data = avgMov14(dailyDeathChange)
+      window.myBarDaily.data.datasets[2].data = avgMov14(dailyRecoveryChange)
+      //alert(avgMov14(dailyCaseChange));
+    }
+    
+    window.myBarDaily.update();
+  }; 
 
 
   //Bar Chart For Cases by County
