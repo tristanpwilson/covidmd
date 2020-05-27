@@ -461,11 +461,7 @@
       // After hiding dataset, rerender the chart
       ciDaily.update();
     };
-//     if ($('#legendContainerDaily li[data-legend=3]').hasClass("hiddenundefined") && $('#legendContainerDaily li[data-legend=4]').hasClass("hiddentrue")) {
-//        window.myBarDaily.data.datasets[1].hidden = true
-//      } else if ($('#legendContainerDaily li[data-legend=4]').hasClass("hiddenundefined")){
-//        window.myBarDaily.data.datasets[1].hidden = false
-//      } 
+
     toggleAvgDaily = function(){
       if ($('#toggleAvg').hasClass("avgOn")) {
         $('#toggleAvg').toggleClass("avgOn");
