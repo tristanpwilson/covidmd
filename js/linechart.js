@@ -442,10 +442,30 @@
       meta.hidden = meta.hidden === null? !ciDaily.data.datasets[index].hidden : null;
       
 
+      if ($('#legendContainerDaily li[data-legend=3]').hasClass("hiddentrue")){
+        window.myBarDaily.data.datasets[0].hidden = true
+      } else{
+        window.myBarDaily.data.datasets[0].hidden = false
+      }
+      if ($('#legendContainerDaily li[data-legend=4]').hasClass("hiddentrue")){
+        window.myBarDaily.data.datasets[1].hidden = true
+      } else{
+        window.myBarDaily.data.datasets[1].hidden = false
+      }
+      if ($('#legendContainerDaily li[data-legend=5]').hasClass("hiddentrue")){
+        window.myBarDaily.data.datasets[2].hidden = true
+      } else{
+        window.myBarDaily.data.datasets[2].hidden = false
+      }
+
       // After hiding dataset, rerender the chart
       ciDaily.update();
     };
-
+//     if ($('#legendContainerDaily li[data-legend=3]').hasClass("hiddenundefined") && $('#legendContainerDaily li[data-legend=4]').hasClass("hiddentrue")) {
+//        window.myBarDaily.data.datasets[1].hidden = true
+//      } else if ($('#legendContainerDaily li[data-legend=4]').hasClass("hiddenundefined")){
+//        window.myBarDaily.data.datasets[1].hidden = false
+//      } 
     toggleAvgDaily = function(){
       if ($('#toggleAvg').hasClass("avgOn")) {
         $('#toggleAvg').toggleClass("avgOn");
@@ -457,7 +477,7 @@
         window.myBarDaily.data.datasets[0].data = avgMov(dailyCaseChange)
         window.myBarDaily.data.datasets[1].data = avgMov(dailyDeathChange)
         window.myBarDaily.data.datasets[2].data = avgMov(dailyRecoveryChange)
-      } 
+      }
       window.myBarDaily.update();
     }; 
 
