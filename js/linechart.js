@@ -253,42 +253,42 @@
 			data: {
 				labels: caseTimeline,
 				datasets: [
-//        {
-//          type:'line',
-//          label: '7 Day Avg',
-//          data: avgMovingCaseChange,
-//          pointRadius: 0,
-//          borderWidth: 2,
-//          borderColor: colorCaseAvgLine,
-//          backgroundColor: colorCaseAvgLine,
-//          fill:false,
-//          lineTension:0.3,
-//          hidden: true,
-//        },
-//        {
-//          type:'line',
-//          label: '7 Day Avg',
-//          data: avgMovingDeathChange,
-//          pointRadius: 0,
-//          borderWidth: 2,
-//          borderColor: colorDeathAvgLine,
-//          backgroundColor: colorDeathAvgLine,
-//          fill:false,
-//          lineTension:0.3,
-//          hidden: true,
-//        },
-//        {
-//          type:'line',
-//          label: '7 Day Avg',
-//          data: avgMovingRecoveryChange,
-//          pointRadius: 0,
-//          borderWidth: 2,
-//          borderColor: colorRecoveryAvgLine,
-//          backgroundColor: colorRecoveryAvgLine,
-//          fill:false,
-//          lineTension:0.3,
-//          hidden: true,
-//        },
+        {
+          type:'line',
+          label: '7 Day Avg',
+          data: avgMovingCaseChange,
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: colorCaseAvgLine,
+          backgroundColor: colorCaseAvgLine,
+          fill:false,
+          lineTension:0.3,
+          hidden: false,
+        },
+        {
+          type:'line',
+          label: '7 Day Avg',
+          data: avgMovingDeathChange,
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: colorDeathAvgLine,
+          backgroundColor: colorDeathAvgLine,
+          fill:false,
+          lineTension:0.3,
+          hidden: true,
+        },
+        {
+          type:'line',
+          label: '7 Day Avg',
+          data: avgMovingRecoveryChange,
+          pointRadius: 0,
+          borderWidth: 2,
+          borderColor: colorRecoveryAvgLine,
+          backgroundColor: colorRecoveryAvgLine,
+          fill:false,
+          lineTension:0.3,
+          hidden: true,
+        },
         {
 					label: 'Cases',
           pointRadius: 0,
@@ -341,16 +341,17 @@
         legendCallback: 
           function(chart) { 
             var text = []; 
-            //text.push('<div id="boxToggleCntyDthOff"><a id="toggleCntyDthOff" href="javascript:void(0);" onclick="updateDatasetsDth(event)">All Off</a></div><ul class="' + chart.id + '-legend">'); 
+            
             text.push('<ul class="' + chart.id + '-legend">'); 
             for (var i = 0; i < chart.data.datasets.length; i++) { 
-              //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+              
               if (chart.data.datasets[i].label) { 
-                text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+                text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legSq" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
               } 
               text.push('</li>'); 
             } 
-            text.push('</ul>'); 
+            text.push('<li id="toggleAvg" class="avgOn" onclick="toggleAvgDaily()"><span class="legCheck"></span>7d Avg</li></ul>'); 
+            //text.push('</ul>'); 
             return text.join(''); 
         },
 				tooltips: {
@@ -444,6 +445,22 @@
       // After hiding dataset, rerender the chart
       ciDaily.update();
     };
+
+    toggleAvgDaily = function(){
+      if ($('#toggleAvg').hasClass("avgOn")) {
+        $('#toggleAvg').toggleClass("avgOn");
+        window.myBarDaily.data.datasets[0].data = []
+        window.myBarDaily.data.datasets[1].data = []
+        window.myBarDaily.data.datasets[2].data = []
+      } else {
+        $('#toggleAvg').toggleClass("avgOn");
+        window.myBarDaily.data.datasets[0].data = avgMov(dailyCaseChange)
+        window.myBarDaily.data.datasets[1].data = avgMov(dailyDeathChange)
+        window.myBarDaily.data.datasets[2].data = avgMov(dailyRecoveryChange)
+      } 
+      window.myBarDaily.update();
+    }; 
+
 
     //Linechart Hospitalizations Config		
     var configHosp = {

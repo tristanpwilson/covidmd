@@ -877,12 +877,12 @@ html, body, .leaflet-container {
   text-decoration:underline;
 }
 
-/*Fixing the order of the legend listings*/
-/*#legendContainerDaily li:nth-child(1) {order:4;}
-#legendContainerDaily li:nth-child(2) {order:5;}
-#legendContainerDaily li:nth-child(3) {order:6;}
+/*Hiding First 3 Legend Entries (Replaced by toggle)*/
+#legendContainerDaily li:nth-child(1),
+#legendContainerDaily li:nth-child(2),
+#legendContainerDaily li:nth-child(3) {display:none;}
 
-#legendContainerDaily li:nth-child(4) {order:1;}
+/*#legendContainerDaily li:nth-child(4) {order:1;}
 #legendContainerDaily li:nth-child(5) {order:2;}
 #legendContainerDaily li:nth-child(6) {order:3;}*/
 
@@ -895,9 +895,43 @@ html, body, .leaflet-container {
   display:inline-block;
   padding: 0;
   z-index: 1000;
-  border:2px solid;
   transition:.1s ease background;
 }
+#legendContainerCumul li span,
+#legendContainerDaily li span.legSq,
+#legendContainerHosp li span{
+  border:2px solid;
+}
+
+/*Daily Chart Moving Avg Check Toggle Style*/
+#legendContainerDaily li span.legCheck{
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:2px;
+}
+#legendContainerDaily li.avgOn span.legCheck{
+  border:1px solid rgba(255,255,255,0.6);
+  border-radius:2px;
+}
+  /*Daily Chart Pseudoelement to Create Check Mark*/
+  #legendContainerDaily li.avgOn span.legCheck:after {
+    content:"";
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border: solid #fff;
+    border-width: 0 0 2px 2px !important;
+    height: 5px;
+    width: 10px;
+    margin: 1px 0 0 0;
+    z-index:3000;
+    opacity:1;
+    transition:.2s ease opacity;
+  }
+  #legendContainerDaily li.avgOn:hover span.legCheck:after {
+    opacity:.7;
+    transition:.2s ease opacity;
+  }
+
 #legendContainerCumul li span,
 #legendContainerHosp li span {
   height:13px;
@@ -912,7 +946,7 @@ html, body, .leaflet-container {
   border-radius:0%;}
 
 #legendContainerCumul li:hover span,
-#legendContainerDaily li:hover span,
+#legendContainerDaily li:hover span.legSq,
 #legendContainerHosp li:hover span{
   border:2px solid;
   filter:brightness(90%);
@@ -1005,5 +1039,4 @@ html, body, .leaflet-container {
       margin:0 3px -1px 0;
   }
 }
-
 
