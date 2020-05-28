@@ -151,7 +151,6 @@ html, body, .leaflet-container {
 }
 
 .info #statecases p {
-  width:49%;
   margin: 15px 0 0 0;
   font-size: 16px
 }
@@ -173,10 +172,18 @@ html, body, .leaflet-container {
 
 .info #countycases p {
   order:3 !important;
-  width:48%;
   font-size: 16px;
   margin: 15px 0 0 0;
   font-weight: 400; 
+}
+
+.info #statecases p:nth-child(2),
+.info #countycases p:nth-child(3){
+  width:52%;
+}
+.info #statecases p:nth-child(4),
+.info #countycases p:nth-child(5){
+  width:45%;
 }
 
 .info #statecases .sep,
@@ -189,7 +196,7 @@ html, body, .leaflet-container {
   height:36px;
   margin-top:13px !important;
   background:rgba(255,255,255,0.2);
-  left:48%;
+  left:51%;
 }
 
 #boxChartIcon1{
@@ -307,14 +314,18 @@ html, body, .leaflet-container {
   #infoPane {
     width: 400px;
   }
-  .info #statecases p,
-  .info #countycases p{
-    width:50%;
+  .info #statecases p:nth-child(2),
+  .info #countycases p:nth-child(3){
+    width:52%;
+  }
+  .info #statecases p:nth-child(4),
+  .info #countycases p:nth-child(5){
+    width:45%;
   }
   .info #statecases .sep,
   .info #countycases .sep{
     margin-top:13px !important;
-    left:46%;
+    left:51%;
   }  
 }
 
@@ -336,7 +347,6 @@ html, body, .leaflet-container {
   }
   .info #statecases p,
   .info #countycases p{
-    width:48%;
   }
 }
 
@@ -414,7 +424,7 @@ html, body, .leaflet-container {
     color: #ddd;
   }
   .info #statecases p {
-    width:100%;
+    width:100% !important;
     margin: 10px 0 0 0;
     font-size: 15px;
     color: #fff;
@@ -443,7 +453,7 @@ html, body, .leaflet-container {
     font-size: 12px;
   }
   .info #countycases p {
-    width:100%;
+    width:100% !important;
     font-size: 14px;
     line-height:16px;
     margin: 10px 0 0 0;
