@@ -246,6 +246,12 @@ color:#1FAD25;
    max-height: calc(80vw * .55);
  }
  
+.stdcharts .chartTitle{
+ color:#fff;
+ font-weight:400;
+ text-align:center;
+ margin:10px 0;
+}
 
 .stdcharts canvas{
   width:100%;
@@ -288,6 +294,10 @@ color:#1FAD25;
   #cumulchart {
     max-height: calc(95vw * 1);
   } 
+  .stdcharts .chartTitle{
+   font-size:18px;
+   margin:10px 0;
+  }  
 }
 
 @media (max-width: 575px){
@@ -324,7 +334,10 @@ color:#1FAD25;
   .stdcharts{
     padding: 1vh 0;
   }
-
+  .stdcharts .chartTitle{
+   font-size:16px;
+   margin:10px 0 5px 0;
+  }  
 }
 
 

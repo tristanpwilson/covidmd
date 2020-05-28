@@ -8,9 +8,11 @@
     window.xAxisFontSize = 12;
     window.xAxisMinRotation = 89.9;
     window.xAxisMaxRotation = 90;
+    window.xAxisGridColor = "rgba(255,255,255,0.1)";
     window.yAxisFontSize = 12;
     window.yAxisTickDisplay = false;
     window.yAxisTickMirror = true;
+    window.yAxisGridColor = "rgba(255,255,255,0.1)";
     window.legendFontSizeCnty = 15;
     window.legendBoxSizeCnty = 15;
     window.legendPaddingCnty = 13;
@@ -24,12 +26,14 @@
   } else {
     window.legendFontSize = 15;
     window.titleFontSize = 22;
-    window.xAxisFontSize = 14;
+    window.xAxisFontSize = 12;
     window.xAxisMinRotation = -0.1;
     window.xAxisMaxRotation = 0;
-    window.yAxisFontSize = 14;
+    window.xAxisGridColor = "rgba(255,255,255,0.1)";
+    window.yAxisFontSize = 12;
     window.yAxisTickDisplay = true;
     window.yAxisTickMirror = false;
+    window.yAxisGridColor = "rgba(255,255,255,0.1)";
     window.legendFontSizeCnty = 15;
     window.legendBoxSizeCnty = 13;
     window.legendPaddingCnty = 10;
@@ -135,7 +139,7 @@
           return text.join(''); 
       },
       title: {
-        display: true,
+        display: false,
         text: 'Cumulative Cases in MD',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -185,7 +189,7 @@
             autoSkipPadding: 60,
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.xAxisGridColor,
             zeroLineColor: "rgba(255,255,255,0.02)",
           }
         }],
@@ -205,7 +209,7 @@
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.yAxisGridColor,
             drawTicks: window.yAxisTickDisplay,
           }
         }],
@@ -311,7 +315,7 @@
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
       title: {
-        display: true,
+        display: false,
         text: 'Daily New Counts in MD',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -376,7 +380,7 @@
             maxRotation:window.xAxisMaxRotation,
             autoSkipPadding: 60,
           },
-          gridLines:{color:"rgba(255,255,255,0.1)"}
+          gridLines:{color:window.xAxisGridColor}
         }],
         yAxes: [{
           display: true,
@@ -394,7 +398,7 @@
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.yAxisGridColor,
             drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
             tickMarkLength:0,
@@ -637,7 +641,7 @@
           return text.join(''); 
       },
       title: {
-        display: true,
+        display: false,
         text: 'Cumulative Cases per County',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -691,7 +695,7 @@
             maxRotation:window.xAxisMaxRotation,
             autoSkipPadding: 60,
           },
-          gridLines:{color:"rgba(255,255,255,0.1)"}
+          gridLines:{color:window.xAxisGridColor}
         }],
         yAxes: [{
           display: true,
@@ -709,7 +713,7 @@
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.yAxisGridColor,
             drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
             tickMarkLength:0,
@@ -936,7 +940,7 @@
           return text.join(''); 
       },
       title: {
-        display: true,
+        display: false,
         text: 'Cumulative Deaths per County',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -989,7 +993,7 @@
             maxRotation:window.xAxisMaxRotation,
             autoSkipPadding: 60,
           },
-          gridLines:{color:"rgba(255,255,255,0.1)"}
+          gridLines:{color:window.xAxisGridColor}
         }],
         yAxes: [{
           display: true,
@@ -1007,7 +1011,7 @@
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.yAxisGridColor,
             drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
             tickMarkLength:0,
@@ -1075,7 +1079,7 @@
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
       title: {
-        display: true,
+        display: false,
         text: 'Daily New Cases in MD',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -1207,7 +1211,7 @@
       legend: {
         display: true,
         //reverse:true,
-        position: "top",
+        position: "bottom",
         align: "center",
         fullWidth: true,
         labels:{
@@ -1219,7 +1223,7 @@
         },
       },
       title: {
-        display: true,
+        display: false,
         text: 'Current Hospitalizations in MD (Stacked)',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -1240,24 +1244,6 @@
           title: function(tooltipItem, data) {
             return data['labels'][tooltipItem[0]['index']];
           },
-//          label: function(tooltipItem, data) {
-//            // Thanks to Tektiv on SO for this callback (https://stackoverflow.com/questions/39373561/how-get-sum-of-total-values-in-stackedbar-chartjs)
-//            var count = data.datasets[tooltipItem.datasetIndex].label;
-//            var index = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-//            
-//
-//            // Loop through all datasets to get the actual total of the index
-//            var total = 0;
-//            for (var i = 0; i < data.datasets.length; i++)
-//                total += data.datasets[i].data[tooltipItem.index];
-//
-//            // If it is not the last dataset, you display it as you usually do
-//            if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-//                return count + ": " + index;
-//            } else { // .. else, you display the dataset and the total, using an array
-//                return [count + ": " + index, "Total: " + total];
-//            }
-//          },
           labelColor: function(tooltipItem, chart) {
             var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
             
@@ -1298,7 +1284,7 @@
             autoSkipPadding: 60,
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.xAxisGridColor,
             zeroLineColor: "rgba(255,255,255,0.02)",
           }
         }],
@@ -1319,7 +1305,7 @@
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.yAxisGridColor,
             drawTicks: window.yAxisTickDisplay,
           }
         }],
@@ -1389,7 +1375,7 @@
           return text.join(''); 
       },
       title: {
-        display: true,
+        display: false,
         text: 'Cumulative Tests in MD (Stacked)',
         fontColor: "#fff",
         fontFamily: "Work Sans",
@@ -1451,7 +1437,7 @@
             autoSkipPadding: 60,
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.xAxisGridColor,
             zeroLineColor: "rgba(255,255,255,0.02)",
           }
         }],
@@ -1472,7 +1458,7 @@
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
           },
           gridLines:{
-            color:"rgba(255,255,255,0.1)",
+            color:window.yAxisGridColor,
             drawTicks: window.yAxisTickDisplay,
           }
         }],
