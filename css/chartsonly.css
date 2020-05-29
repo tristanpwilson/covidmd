@@ -206,19 +206,19 @@ html{}
 
 .toggle-tab .new-tag{
 /* content:"NEW";
- position:absolute;*/
- position:relative;
- display:inline-block;
- color:red;
- font-size:8px;
+  position:absolute;*/
+  position:relative;
+  display:inline-block;
+  color:red;
+  font-size:8px;
 }
 .toggle-tab .new-tag-gr{
-position:absolute; 
-display:inline-block; 
-margin-left:6.5px; 
-margin-top:-3px !important;
-font-size:16px; 
-color:#1FAD25;
+  position:absolute; 
+  display:inline-block; 
+  margin-left:6.5px; 
+  margin-top:-3px !important;
+  font-size:16px; 
+  color:#1FAD25;
 }
 
 
@@ -228,21 +228,23 @@ color:#1FAD25;
 .stdcharts{
   position:relative;
   z-index:3000 !important; 
-  height:72vh;
+
   flex-shrink:2;
   flex-grow:0;
   width: 80vw;
-  max-height: calc(80vw * .75);
   margin:0 auto!important;
   padding: 30px 0;
   background: rgba(38,38,38,1);
  }
  
-#cntychart,
-#cntydthchart,
-#dailychart,
-#cumulchart {
-   min-height:60vh !important;
+  #cumulchart,
+  #dailychart,
+  #hospchart,
+  #cntychart,
+  #cntydthchart,
+  #testchart {
+   height:68vh;
+   min-height:300px;
    max-height: calc(80vw * .55);
  }
  
@@ -260,9 +262,6 @@ color:#1FAD25;
   padding:0;
 }
 
-#cumulchart {}
-#dailychart {}
-
 @media(max-width: 992px){
   .toggle-tab {
     flex-basis:16.66%;
@@ -276,38 +275,13 @@ color:#1FAD25;
 
 @media(max-width: 768px){
   .toggle-tab {
-    flex-basis:16.66%;
-    min-width:initial;
-    font-size:12px;
-  }  
- 
-  .stdcharts{
-    display:block;
-    width: 97vw;
-    max-height: calc(95vw * 1.1);
-    padding: 15px 0;
-  }
-  
-  #cntychart,
-  #cntydthchart,
-  #dailychart,
-  #cumulchart {
-    max-height: calc(95vw * 1);
-  } 
-  .stdcharts .chartTitle{
-   font-size:18px;
-   margin:10px 0;
-  }  
-}
-
-@media (max-width: 575px){
-  .toggle-tab {
    flex-basis:20%;
     min-width:initial;
     height:36px;
-    font-size:11px;
+    font-size:12px;
     font-weight:400;
-    letter-spacing:-.25px;
+    letter-spacing:1;
+    
     line-height:12px;
     padding:6px 0;
     margin: 0;
@@ -322,7 +296,6 @@ color:#1FAD25;
     line-height:12px;
       transition: .05s ease-in height, .05s ease background, .1s ease color;
   }
-    
   .toggle-tab.active-tab,
   .toggle-tab.active-tab:hover,
   .toggle-tab.active-tab:focus {
@@ -332,8 +305,51 @@ color:#1FAD25;
       box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.5), 0 -2px 1px 1px rgba(0,0,0,0.1);
   }
   .stdcharts{
+    display:block;
+    width: 97vw;  
+    padding: 15px 0;
+  }
+  #cumulchart,
+  #dailychart,
+  #hospchart,
+  #cntychart,
+  #cntydthchart,
+  #testchart{
+    max-height: calc(95vw * .7);
+  } 
+  .stdcharts .chartTitle{
+   font-size:18px;
+   margin:10px 0;
+  }  
+}
+
+@media (max-width: 575px){
+  .toggle-tab {
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:-.25px;
+    line-height:12px;
+  }
+  .toggle-tab:hover,
+  .toggle-tab:focus{
+    line-height:12px;
+  }
+  .toggle-tab.active-tab,
+  .toggle-tab.active-tab:hover,
+  .toggle-tab.active-tab:focus {
+    line-height:12px !important;
+  }
+  .stdcharts{
     padding: 1vh 0;
   }
+  #cumulchart,
+  #dailychart,
+  #hospchart,
+  #cntychart,
+  #cntydthchart,
+  #testchart{
+    max-height: calc(95vw * .6);
+  } 
   .stdcharts .chartTitle{
    font-size:18px;
    margin:10px 0;
@@ -345,13 +361,15 @@ color:#1FAD25;
 /*--- Cumulative & Daily Chart Custom Legends --- */
 #legendContainerCumul,
 #legendContainerDaily,
-#legendContainerTest{
+#legendContainerTest,
+#legendContainerHosp{
   width:100%;
   height:auto;
   z-index:3000;
 }
 #legendContainerCumul,
-#legendContainerTest{
+#legendContainerTest,
+#legendContainerHosp{
   max-width:600px;
   margin:15px auto 7.5px auto;
 }
@@ -363,7 +381,8 @@ color:#1FAD25;
 
 #legendContainerCumul> ul,
 #legendContainerDaily> ul,
-#legendContainerTest> ul{
+#legendContainerTest> ul,
+#legendContainerHosp> ul{
   display:flex;
   justify-content:center;
   flex-flow: row wrap;
@@ -373,7 +392,8 @@ color:#1FAD25;
 /* Daily Chart Legend Items + Text Style */
 #legendContainerCumul li,
 #legendContainerDaily li,
-#legendContainerTest li{
+#legendContainerTest li,
+#legendContainerHosp li{
   display:block;
   flex-grow:0;
   cursor: pointer;
@@ -384,7 +404,8 @@ color:#1FAD25;
 }
 
 #legendContainerCumul li,
-#legendContainerTest li {
+#legendContainerTest li,
+#legendContainerHosp li{
   flex-basis:auto;
   padding:5px 20px;
 }
@@ -396,13 +417,15 @@ color:#1FAD25;
 
 #legendContainerCumul li.hiddentrue,
 #legendContainerDaily li.hiddentrue,
-#legendContainerTest li.hiddentrue{
+#legendContainerTest li.hiddentrue,
+#legendContainerHosp li.hiddentrue{
   color:rgba(255,255,255,0.5)
 } 
 
 #legendContainerCumul li:hover,
 #legendContainerDaily li:hover,
-#legendContainerTest li:hover {
+#legendContainerTest li:hover,
+#legendContainerHosp li:hover{
   text-decoration:underline;
 }
 
@@ -419,7 +442,8 @@ color:#1FAD25;
 /* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
 #legendContainerCumul li span,
 #legendContainerDaily li span,
-#legendContainerTest li span {
+#legendContainerTest li span,
+#legendContainerHosp li span{
   position: relative;
   display:inline-block;
   margin:0 7.5px -1px 0;
@@ -435,14 +459,16 @@ color:#1FAD25;
 
 #legendContainerCumul li:hover span,
 #legendContainerDaily li:hover span,
-#legendContainerTest li:hover span{
+#legendContainerTest li:hover span,
+#legendContainerHosp li:hover span{
   border:2px solid;
   filter:brightness(90%);
 }
 
 #legendContainerCumul li.hiddentrue span,
 #legendContainerDaily li.hiddentrue span,
-#legendContainerTest li.hiddentrue span {
+#legendContainerTest li.hiddentrue span,
+#legendContainerHosp li.hiddentrue span{
   border:2px solid;
   background:transparent !important;
   filter:brightness(60%);
@@ -450,7 +476,8 @@ color:#1FAD25;
 
 #legendContainerCumul li.hiddentrue:hover span,
 #legendContainerDaily li.hiddentrue:hover span,
-#legendContainerTest li.hiddentrue:hover span {
+#legendContainerTest li.hiddentrue:hover span,
+#legendContainerHosp li.hiddentrue:hover span{
     filter:brightness(80%);
 }
 
@@ -474,7 +501,8 @@ color:#1FAD25;
 @media (max-width: 575px){
   #legendContainerCumul> ul,
   #legendContainerDaily> ul,
-  #legendContainerTest> ul{
+  #legendContainerTest> ul,
+  #legendContainerHosp> ul{
     padding:0 2%;
   }
 
@@ -483,24 +511,27 @@ color:#1FAD25;
     justify-content:flex-start;
   }
  
-  #legendContainerTest> ul{
+  #legendContainerTest> ul,
+  #legendContainerHosp> ul{
     justify-content:center;
   }
 
   #legendContainerCumul li,
-  #legendContainerDaily li {
+  #legendContainerDaily li{
     flex-basis:33%;
     padding:5px 0px;
     font-size:16px;
   }
-  #legendContainerTest li {
+  #legendContainerTest li,
+  #legendContainerHosp li {
     flex-basis:40%;
     padding:5px 0px;
     font-size:16px;
   }  
   #legendContainerCumul li span,
   #legendContainerDaily li span,
-  #legendContainerTest li span {
+  #legendContainerTest li span,
+  #legendContainerHosp li span {
     margin:0 5px -1px 0;
     height:14px;
     width:14px;
@@ -510,7 +541,8 @@ color:#1FAD25;
 @media(max-width:370px){
   #legendContainerCumul li,
   #legendContainerDaily li,
-  #legendContainerTest li {
+  #legendContainerTest li,
+  #legendContainerHosp li {
     font-size:14px;
   }
 }
@@ -581,7 +613,6 @@ color:#1FAD25;
   font-size:18px;
   font-weight:400;
 }
-
 #legendContainerCnty li:last-child,
 #legendContainerCntyDth li:last-child {
   flex-grow:2 !important;
@@ -713,4 +744,3 @@ form{line-height:100% !important;}
   border-radius:2px;
   background:transparent;
 }
-

@@ -326,19 +326,19 @@
       },
       legendCallback: 
         function(chart) { 
-          var text = []; 
-         
-          text.push('<ul class="' + chart.id + '-legend">'); 
-          for (var i = 0; i < chart.data.datasets.length; i++) { 
-            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
-            if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
-            } 
-            text.push('</li>'); 
+        var text = []; 
+
+        text.push('<ul class="' + chart.id + '-legend">'); 
+        for (var i = 0; i < chart.data.datasets.length; i++) { 
+          //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+          if (chart.data.datasets[i].label) { 
+            text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
           } 
-          text.push('</ul>'); 
-          return text.join(''); 
-        },
+          text.push('</li>'); 
+        } 
+        text.push('</ul>'); 
+        return text.join(''); 
+      },
       tooltips: {
         enabled: true, 
         mode: 'index',
@@ -1057,115 +1057,6 @@
   };
   
 
-    
-  //Barchart Case Percent of Pop Config
-  var configPop = {
-    type: 'bar',
-    data: {
-      labels: allCountyNames,
-      datasets: [{
-        label: 'Percent',
-        pointRadius: 0,
-        borderWidth: 2,
-        borderColor: "rgba(255, 107, 105, 0.8)",
-        backgroundColor: "rgba(255, 107, 105, 0.8)",
-        data: casePrctgCountiesRnd,
-        barPercentage: 1,
-        categoryPercentage: 0.85,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,  
-      //aspectRatio: window.aspect,     
-      title: {
-        display: false,
-        text: 'Daily New Cases in MD',
-        fontColor: "#fff",
-        fontFamily: "Work Sans",
-        fontSize: window.titleFontSize,
-      },
-      legend: {
-        display: true,
-        position: "top",
-        align: "center",
-        fullWidth: true,
-        labels:{
-         boxWidth: 13,
-         //boxHeight: 16,
-         fontColor: "#fafafa",
-         fontSize: window.legendFontSize,
-        },
-      },
-      tooltips: {
-        enabled: true, 
-        mode: 'label',
-        displayColors:false,
-        titleFontSize: 14,
-        bodyFontSize: 14,
-        position:'average',
-        xalign: 'right',
-        yalign:'none',
-        intersect:true,
-        callbacks: {
-          label: function(tooltipItem, data) { 
-            var dataset = data.datasets[tooltipItem.datasetIndex];
-            var currentValue = dataset.data[tooltipItem.index];
-            return currentValue + '%';
-          }
-        }
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        xAxes: [{
-          offset:true,
-          type: 'category',
-          display: true,
-          scaleLabel: {display: false,},
-          ticks:{
-            fontColor: "#fff",
-            fontSize: window.xAxisFontSize,
-            autoSkip: false,
-            minRotation:89,
-            maxRotation:91,
-            autoSkipPadding: 60,
-          },
-          gridLines:{color:"rgba(255,255,255,0.1)"}
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {display: false,},
-          ticks:{
-            mirror: window.yAxisTickMirror,
-            fontColor: "#fff",
-            fontSize: window.yAxisFontSize,
-            autoSkip: true,
-            maxRotation: 0,
-            autoSkipPadding: 30,
-            callback: function(value, index, values) {
-                        return value + '%';
-                      },
-          },
-          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
-            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
-            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
-          },
-          gridLines:{
-            color:"rgba(255,255,255,0.1)",
-            drawBorder:false,
-            drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
-          }
-        }],
-
-      }
-    }
-  };
-
-
   //Linechart Hospitalizations Config		
   var configHosp = {
     type: 'line',
@@ -1209,18 +1100,20 @@
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
       legend: {
-        display: true,
-        //reverse:true,
-        position: "bottom",
-        align: "center",
-        fullWidth: true,
-        labels:{
-          usePointStyle: true,
-          boxWidth: 10,
-          fontColor: "#fafafa",
-          fontSize: window.legendFontSize,
-          fontStyle: 'bold',
-        },
+        display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemHosp hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareHosp" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
       },
       title: {
         display: false,
@@ -1314,6 +1207,20 @@
     }
   };
   
+  updateDatasetHosp = function(e, datasetIndex) {
+    var index = datasetIndex;
+    //var indexPlusThree = datasetIndex + 3;
+    var ciHosp = e.view.myLineHosp;
+    var meta = ciHosp.getDatasetMeta(index);
+
+    //Chack data-legend value (index) and then toggle that dataset
+    $('#legendContainerHosp li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+    meta.hidden = meta.hidden === null? !ciHosp.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciHosp.update();
+  };
   
   //Linechart Test Cumul Config		
   var configTest = {
@@ -1498,6 +1405,8 @@
       // Hospitalizations line graph initiation
       var ctx = document.getElementById('canvasHosp').getContext('2d');
 			window.myLineHosp = new Chart(ctx, configHosp);
+      document.getElementById("legendContainerHosp").innerHTML = myLineHosp.generateLegend();
+      var legendItems = legendContainerHosp.getElementsByTagName('li');
       
       // County cases multi line graph initiation & custom legend generation
       var ctx = document.getElementById('canvasCnty').getContext('2d');

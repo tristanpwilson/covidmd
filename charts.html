@@ -85,12 +85,12 @@
 
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
-        <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Cumulative<br class="mobile-xs-only"> Totals</li><!--<br class="mobile-xs-only"> Counts-->
-        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-xs-only"> New  <!--<div class="new-tag-gr" style="">!</div>--></li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital<span class="mobile-xs-only">-</span><br class="mobile-xs-only">izations</li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-xs-only"> County</li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By<br class="mobile-xs-only"> County</li>
-        <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total<br class="mobile-xs-only"> Tests <sup class="new-tag">NEW</sup></li>
+        <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Cumulative<br class="mobile-only"> Totals</li><!--<br class="mobile-xs-only"> Counts-->
+        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-only"> New  <!--<div class="new-tag-gr" style="">!</div>--></li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital<span class="mobile-only">-</span><br class="mobile-only">izations</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-only"> County</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By<br class="mobile-only"> County</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total<br class="mobile-only"> Tests <sup class="new-tag">NEW</sup></li>
         
         <!-- New Tag For Later Use -->
         <!-- <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Tab Title <sup class="new-tag">NEW</sup></li> -->
@@ -121,8 +121,9 @@
     </div>
 
     <div id="hospchart" class="stdcharts tab-content">
-      <h2 class="chartTitle">Current Hospitalizations in MD</h2>
+      <h2 class="chartTitle">Current Hospitalizations (State)</h2>
       <canvas id="canvasHosp"></canvas>
+      <div id="legendContainerHosp"></div>
     </div>
     
     <div id="cntychart" class="stdcharts tab-content">
