@@ -34,8 +34,6 @@
 
 
     if($(window).width() <= 575) {
-      window.aspect = 1.25;
-      window.aspectShort = 1.25;
       window.aspectTemp = 1.43;
       window.legendFontSize = 12;
       window.titleFontSize = 15;
@@ -50,9 +48,7 @@
       window.barPercentStacked = .2;
       window.yAxisPaddingStacked = 0;
     } else {
-      window.aspect = 1.5;
-      window.aspectShort = 3.75;
-      window.aspectTemp = 1.85;
+      window.aspectTemp = 1.95;
       window.legendFontSize = 14;
       window.titleFontSize = 16;
       window.xAxisFontSize = 9;
@@ -76,9 +72,6 @@
 				datasets: [{
 					label: 'Cases',
 					backgroundColor: colorCaseBackgroundLine,
-          //"rgba(230, 84, 83, 0.4)",
-          //"rgba(230, 84, 83, 1)",
-					//borderColor: "rgba(255, 107, 105, 0.9)",
           borderColor: colorCaseBorderLine,
 					data: caseNumbers,
           pointRadius: 1,
@@ -588,22 +581,21 @@
               unit: 'day',
               //unitStepSize: 4,
             },
-            display: true,
-            offset:false,
-            scaleLabel: {display: false,},
+						display: true,
+						scaleLabel: {display: false,},
             ticks:{
               fontColor: "#fff",
               fontSize: window.xAxisFontSize,
               autoSkip: true,
               minRotation:window.xAxisMinRotation,
               maxRotation:window.xAxisMaxRotation,
-              autoSkipPadding: 60,
+              autoSkipPadding: 40,
             },
             gridLines:{
               color:"rgba(255,255,255,0.1)",
               zeroLineColor: "rgba(255,255,255,0.02)",
             }
-          }],
+					}],
           yAxes: [{
             display: true,
             stacked: true,
