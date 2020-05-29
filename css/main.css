@@ -150,11 +150,6 @@ html, body, .leaflet-container {
   font-weight: 500;
 }
 
-.info #statecases p {
-  margin: 15px 0 0 0;
-  font-size: 16px
-}
-
 /* County Cases  Info Box */
 .info #countycases h3 {
   position:relative;
@@ -172,15 +167,28 @@ html, body, .leaflet-container {
 
 .info #countycases p {
   order:3 !important;
-  font-size: 16px;
-  margin: 15px 0 0 0;
   font-weight: 400; 
+}
+
+/* Info State + County Shared Styles */
+.info #statecases p,
+.info #countycases p{
+  margin: 15px 0 0 0;
+  font-size: 16px
+}
+
+.info #statecases p small,
+.info #countycases p small{
+  margin: 15px 2px 0 0;
+  font-size:12px;
+  color:#ddd;
 }
 
 .info #statecases p:nth-child(2),
 .info #countycases p:nth-child(3){
   width:52%;
 }
+
 .info #statecases p:nth-child(4),
 .info #countycases p:nth-child(5){
   width:45%;
