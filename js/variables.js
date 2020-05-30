@@ -19,6 +19,7 @@ function diff(ary) {
   return newA;
 }
 
+
   // Calculating daily change in Cases
   var dailyCaseChange = diff(caseNumbers);
   var adjDailyCaseChange = dailyCaseChange.unshift(1);
@@ -26,6 +27,8 @@ function diff(ary) {
   // Calculating daily change in deaths
   var dailyDeathChange = diff(deathNumbers);
   var adjDailyDeathChange = dailyDeathChange.unshift(1);
+  //var poppedDailyDeathChange = adjDailyDeathChange.pop();
+  //alert(adjDailyDeathChange);
   
   // Calculating daily change in Recoveries
   var dailyRecoveryChange = diff(recoveryNumbers);
