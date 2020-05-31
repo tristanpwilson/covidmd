@@ -22,7 +22,7 @@ html, body, .leaflet-container {
 
 /*Temporary Last Update Pseudo*/
 #button-i:after{
- content:"Last Updated: May 30 2020, 10:35:00 EST";
+ content:"Last Updated: May 31 2020, 10:29:00 EST";
  position:absolute;
  display:block;
  left:100%;
