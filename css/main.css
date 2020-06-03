@@ -220,8 +220,9 @@ html, body, .leaflet-container {
   position:relative;
   display:block;
   float:right;
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
+  margin-right:4px;
   padding: 0;
   text-decoration: none !important;
   background-image: url("../img/charticonline-md1.png");
@@ -348,6 +349,9 @@ html, body, .leaflet-container {
   }
   .info #statecases p,
   .info #countycases p{
+  }
+  #chartIconLine1{
+    margin-right:0px;
   }
 }
 
@@ -568,7 +572,7 @@ html, body, .leaflet-container {
   line-height: 100%;
   text-align: center;
   color: #fff;
-  text-shadow: 0px 0px 1px rgba(0, 0, 0, 1), 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 1), 0px 0px 2px rgba(0, 0, 0, .2), 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 10px rgba(0, 0, 0, 0.4);
 }
 
 .leaflet-tooltip h5 {
@@ -578,7 +582,7 @@ html, body, .leaflet-container {
 }
 
 .leaflet-tooltip p.mapCases {
-  margin: 2px 0 0 0;
+  margin: 0px 0 0 0;
   font-size: 16px;
   font-weight: 600;
 }
@@ -624,26 +628,14 @@ html, body, .leaflet-container {
 .leaflet-bottom.leaflet-left{
   bottom:20vh;
 }
-.leaflet-control-zoom.leaflet-bar.leaflet-control{
-   opacity:.6;
-}
-.leaflet-control-zoom.leaflet-bar.leaflet-control:hover{
-   opacity:1;
-}
-.leaflet-control-zoom-in,
+
+/*.leaflet-control-zoom-in,
 .leaflet-control-zoom-out{
   background:rgba(255,255,255,1) !important;
   border-radius:1px !important;
   opacity:.7;
-}
-.leaflet-control-zoom-in:hover,
-.leaflet-control-zoom-out:hover,
-.leaflet-control-zoom-in:focus,
-.leaflet-control-zoom-out:focus{
-  background:rgba(255,255,255,1) !important;
-  border-radius:1px !important;
-  opacity:1;
-}
+}*/
+
 
 @media(max-width: 768px) {
   .leaflet-bottom.leaflet-right {
@@ -663,24 +655,17 @@ html, body, .leaflet-container {
   .leaflet-control-attribution a {
     font-size: 10px !important;
   }
-  
-  /* -- Zoom control styles on mobile width -- */
-  .leaflet-control-zoom.leaflet-bar.leaflet-control{
-     display:none;
-  }
-  
 }
-
 
 
 .linkExpChart {
   position: absolute;
   z-index: 3000;
   display: block;
-  top: 8px;
-  right: 17.5px;
-  height: 18px;
-  width: 18px;
+  top: 10px;
+  right: 19.5px;
+  height: 15px;
+  width: 15px;
   text-decoration: none !important;
   background-image: url("../img/expand.png");
   background-position: center;
@@ -692,10 +677,10 @@ html, body, .leaflet-container {
 
 .linkExpChart:hover,
 .linkExpChart:focus {
-  top: 7px;
-  right: 16.5px;
-  height: 20px;
-  width: 20px;
+  top: 9px;
+  right: 18.5px;
+  height: 17px;
+  width: 17px;
   color: #fff;
   font-weight: 600;
   opacity: 1;
@@ -704,7 +689,7 @@ html, body, .leaflet-container {
 
 .linkExpChart:focus {
   outline:1px dashed rgba(255,212,105,.3) !important;
-  outline-offset:5px;
+  outline-offset:4px;
 }
 
 

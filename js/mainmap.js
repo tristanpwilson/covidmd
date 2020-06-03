@@ -206,17 +206,19 @@
       switch (zoomLevel) {
         case 7:
           countyName.css('opacity', 0);
-          countyNumber.css('font-size', 14);
+          countyNumber.css('font-size', 12);
           countyNumber.css('margin-top', -4);
           break;
         case 8:
           countyName.css('opacity', 1);
           countyName.css('font-size', 12);
-          countyNumber.css('font-size', 16);
-          countyNumber.css('margin-top', 2);
+          countyNumber.css('font-size', 15);
+          countyNumber.css('margin-top', 1);
           break;
         case 9:
           countyName.css('font-size', 18);
+          countyName.css('margin-top', -2);
+          countyNumber.css('margin-top', -3);
           countyNumber.css('font-size', 24);
           break;
       }
