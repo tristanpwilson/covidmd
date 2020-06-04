@@ -1,0 +1,12 @@
+function(aryM){
+  var currentMax = Math.max(...aryM);
+  for(var i = 0, length = aryM.length; i < length; i++){
+    aryM[i].x /= currentMax;
+  }
+}
+
+Finding max:
+https://stackoverflow.com/questions/11985341/get-max-and-min-value-from-array-in-javascript
+
+Dividing each array item by number:
+https://stackoverflow.com/questions/14775942/how-do-you-divide-each-number-in-an-array-by-a-variable-in-javascript
