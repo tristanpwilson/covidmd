@@ -5,24 +5,9 @@
 /* ------------------------------------------------------- */
 /* ------------- Main Home (Map) Page Styles ------------- */
 /* ------------------------------------------------------- */
-.testcolor{color:rgba(224,78,76,1.00)}
-
-html{overflow-x:hidden;}
-#mapMain {height: 100vh; width:100%; border: none;}
-
-@media(max-width: 768px){
-html, body{height:100%;}
-#mapMain { height: 100%; width:100%;}
-}
-
-html, body, .leaflet-container {
-  background:#303030 !important;
-}
-
-
 /*Temporary Last Update Pseudo*/
 #button-i:after{
- content:"Last Updated: June 3, 2020, 10:29:00 EST";
+ content:"Last Updated: June 4, 2020, 11:04:00 EST";
  position:absolute;
  display:block;
  left:100%;
@@ -37,6 +22,21 @@ html, body, .leaflet-container {
   display:none;
   }
 }
+
+html{overflow-x:hidden;}
+#mapMain {height: 100vh; width:100%; border: none;}
+
+@media(max-width: 768px){
+html, body{height:100%;}
+#mapMain { height: 100%; width:100%;}
+}
+
+html, body, .leaflet-container {
+  background:#303030 !important;
+}
+
+
+
 
 /* ----------------------------- */
 /* -------- Info Pane ---------- */
