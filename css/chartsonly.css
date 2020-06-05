@@ -51,7 +51,7 @@ html{}
 }
 .mainNav{
  position:absolute;
- top:22.5px;
+ top:20px;
  left:10px;
  height:auto;
  width:auto;
@@ -74,14 +74,15 @@ html{}
   transition:.3s ease opacity;
 }
 .mainNav a:after{
-  content:"Back";
+  content:"Back to Map";
   position:relative;
-  margin-left:-0%;
+  white-space:nowrap;
+  margin-left:110%;
   font-size:16px;
   line-height:20px;
-  padding:0;
+  padding:10px 0;
   text-decoration:none !important;
-  opacity:0;
+  opacity:1;
   transition:.3s ease all;
 }
 .mainNav a:hover,
@@ -93,7 +94,7 @@ html{}
 }
 .mainNav a:hover:after{
   margin-left:120%;
-  opacity:1;
+  text-decoration:underline !important;
     transition:.3s ease all;
 }
 
@@ -104,17 +105,40 @@ html{}
   }
   .container-header h1 img{
     width:30px;
+    margin:0 0 0 15px;
   }
   .mainNav{
    position:absolute;
-   top:15px;
-   left:2vw;
-   height:auto;
-   width:auto;
+   top:12.5px;
+   left:1vw;
    z-index:3000;
   }
 }
-
+@media(max-width: 575px){
+  .container-header h1{
+    font-size:19px;
+    padding-top:7.5px;
+    line-height:22.5px;
+  }
+  .container-header h1 img{
+    margin:0 0 0 10px;
+  }
+  .mainNav{
+   top:15px;
+   left:1.5vw;
+  }
+  .mainNav a{
+   height:22px;
+   width:20px;
+   background-size: 11.5px 20px;
+  }
+  .mainNav a:after{
+    content:"Map";
+    font-size:16px;
+    line-height:20px;
+    margin-left:105%;
+  }
+}
 /* ----------------------------- */
 /* ------ Chart Styles --------- */
 /* ----------------------------- */
