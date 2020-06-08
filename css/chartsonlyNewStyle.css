@@ -137,7 +137,10 @@ html{}
   flex-grow:0;
   flex-shrink:1;
   flex-basis:100%;
-  padding:0 !important;
+  padding-top:calc(80vw * .22) !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right:0 !important;
   margin:0 !important;
   background: transparent;
 }
