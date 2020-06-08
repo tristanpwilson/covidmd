@@ -219,3 +219,34 @@
    padding:0px 45px 7.5px 10px !important; 
   }
 }
+
+/*For New Charts Page Design When Implemented (Fixes i-button positioning*/
+/*@media(max-width:767px){
+  .container-i {
+   width:100% !important;
+  }
+  #button-i{
+   width:45px;
+   height:45px;
+   right:1vw;
+  }
+  #container-i-charts #button-i{
+   top:10px;
+  }
+  #panelDesc,
+  #container-i-charts #panelDesc{
+   left:1vw;
+   right:1vw;
+   width:98vw;
+   min-width:initial !important;
+   padding:0px 45px 7.5px 10px !important; 
+  }
+  #panelDesc{
+   padding:0px 45px 7.5px 10px !important; 
+  }
+  #container-i-charts #panelDesc{
+    padding:10px 45px 7.5px 10px !important; 
+  }
+}
+*/
+

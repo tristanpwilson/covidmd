@@ -105,15 +105,22 @@ html{}
 }
 
 @media(max-width: 768px){
+  .container-header{
+    flex-basis:65px;
+    padding: 0px 0;
+  }
   .container-header h1{
+    margin:0px;
     font-size:22px;
+    line-height:65px;
+    text-align:center;
   }
   .container-header h1 img{
-    width:30px;
+    width:36px;
+    margin:0 0 0 15px;
   }
   .mainNav{
-   position:absolute;
-   top:15px;
+   top:22.5px;
    left:2vw;
    height:auto;
    width:auto;
@@ -137,10 +144,7 @@ html{}
   flex-grow:0;
   flex-shrink:1;
   flex-basis:100%;
-  padding-top:calc(80vw * .22) !important;
-  padding-bottom: 0 !important;
-  padding-left: 0 !important;
-  padding-right:0 !important;
+  padding:3vh 0 0 0 !important;
   margin:0 !important;
   background: transparent;
 }
