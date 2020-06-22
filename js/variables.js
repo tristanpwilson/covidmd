@@ -33,6 +33,10 @@ function diff(ary) {
   // Calculating daily change in Recoveries
   var dailyRecoveryChange = diff(recoveryNumbers);
   var adjDailyRecoveryChange = dailyRecoveryChange.unshift(1);
+  
+  // Calculating daily change in Recoveries
+  var dailyNegTestChange = diff(negTestNumbers);
+  var adjDailyNegTestChange = dailyNegTestChange.unshift(1);
 
 
 // Function to calculate 7 day moving average of values in an array
@@ -79,8 +83,9 @@ function avgMov14(ary5) {
   var avgMovingRecoveryChange = avgMov(dailyRecoveryChange);
   var avgMoving14RecoveryChange = avgMov14(dailyRecoveryChange);
   
-  //var testavar = avgMov(dailyCaseChange);
-  //alert(testavar);
+  // Calculating moving average of daily change in Negative Tests
+  var avgMovingNegTestChange = avgMov(dailyNegTestChange);
+  //var avgMoving14NegTestChange = avgMov14(dailyRecoveryChange);
   
   
 
@@ -303,6 +308,7 @@ var colorNegTestBorder = "rgba(110,169,225,1.00)";
 var colorNegTestBackground = "rgba(110,169,225,0.4)";
 var colorNegTestBackgroundSolid = "rgba(81,114,147,1.00)";
 var colorNegTestHover = "rgba(109,188,245,1.00)";
+var colorNegTestAvgLine = "rgba(166,210,251,1.00)";
 
 
 
