@@ -135,16 +135,11 @@ html{}
 .container-chart-area {
   position:relative;
   display:block;
-  /*Flex Child Positioning*/
-  /*display:flex;
-  flex-flow:row nowrap;
-  align-items:stretch;*/
-  /*Flex Self Positioning*/
   order:2;
   flex-grow:0;
   flex-shrink:1;
   flex-basis:100%;
-  padding:3vh 0 0 0 !important;
+  padding:0vh 0 0 0 !important;
   margin:0 !important;
   background: transparent;
 }
@@ -299,30 +294,36 @@ html{}
 }
 
 @media(max-width: 768px){
+  
+  .container-chart-area{
+    padding:0 0 0 0 !important;
+  }
+
   .container-toggle-tabs{
     position:relative;
     float:none;
-    width:160px;
-    margin:5px auto 0 auto;
+    width:300px;
+    margin:0 auto 0 auto;
     height:30px;
     overflow:visible;
-    
     background: rgba(21,21,21,1.00)
   }
+
   #dropdownHead{
     position:relative !important;
     display:block !important;
     width:100% !important;
     height:30px;
     padding:0 15px;
-    background:rgba(38,38,38,1);
+    background:rgba(32,32,32,1);
     color:#fff;
     text-align:left;
     font-size:14px;
     font-weight:400;
     line-height:30px;
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:2px;
+    border:1px solid rgba(58,58,58,1);
+    border-top:0px;
+    border-radius:0px 0px 2px 2px;
   }
 
   #dropdownHead:focus{
@@ -332,22 +333,23 @@ html{}
   #dropdownHead:hover,
   #dropdownHead[aria-expanded="true"]{
     text-decoration:none !important;
-    background:rgba(50,50,50,1);
+    background:rgba(42,42,42,1);
     outline:none !important;
   }
   .arrowDown {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
     position: relative;
+    float:right;
     margin: 0 0 0 7.5px;
   }
   .arrowDown:before,
   .arrowDown:after{
     content:"";
-    top: 10px;
+    top: 8px;
     position: absolute;
-    width: 9.5px;
+    width: 8.5px;
     height: 2px;
     background-color: #fff;
     display: inline-block;

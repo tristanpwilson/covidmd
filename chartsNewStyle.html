@@ -86,7 +86,7 @@
 
     <div class="container-chart-area">
     
-      <div class="container-toggle-tabs">
+      <div id="container-toggle-tabs" class="container-toggle-tabs">
         <a id="dropdownHead" href="javascript:void(0);" class="mobile-only" aria-expanded="false">Select a Chart <span class="arrowDown"></span></a>
         <ul class="box-toggle-tabs">
           <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Cumulative Totals</li>
@@ -145,10 +145,12 @@
           <canvas id="canvasTest"></canvas>
           <div id="legendContainerTest"></div>
         </div>
-
+        
         <div id="forceScrollbar"></div>
       </div>
+      
     </div>  
+    
   </div>
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -196,10 +198,6 @@
   </script>
   
   <script type="text/javascript">
-    //$("#dropdownHead")
-    //  .mouseover(function() {
-    //  $(".box-toggle-tabs").show(200);
-    //});
     
     $("#dropdownHead").click(function() {
       //Toggles menu visibility and toggles menuExpanded class
@@ -222,14 +220,6 @@
        $("#dropdownHead").attr("aria-expanded","false");
      }else{}
     });
-    //$( window ).resize(function() {
-    //  if($(window).width() >= 768) {
-    //    $(".box-toggle-tabs").show(0).removeClass("menuExpanded");
-    //    $("#dropdownHead").attr("aria-expanded","false");
-    // }else{
-    //    $(".box-toggle-tabs").hide(0).removeClass("menuExpanded");
-    // }
-    //});
     
   </script>
   
