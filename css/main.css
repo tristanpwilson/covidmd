@@ -521,9 +521,9 @@ html, body, .leaflet-container {
   .stdcharts {
     position: relative;
     display: block;
-    flex-grow: 1;
-    flex-basis: 75%;
-    width: 75%;
+    flex-grow: 0;
+    /* flex-basis: 75%;*/
+    width: 82%;
     order: 3;
     /*height:100%;*/
     margin: 0 !important;
