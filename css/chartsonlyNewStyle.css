@@ -491,7 +491,7 @@ html{}
   .container-stdcharts{
     width:calc(100% - 30px);
     margin: 0 0 0 30px;
-    padding: 30px 15px 15px 15px;
+    padding: 30px 5px 15px 7.5px;
   }
   .stdcharts{
    
