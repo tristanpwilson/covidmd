@@ -453,21 +453,25 @@
       window.myBarDaily.data.datasets[0].data = avgMov(dailyCaseChange)
       window.myBarDaily.data.datasets[1].data = avgMov(dailyDeathChange)
       window.myBarDaily.data.datasets[2].data = avgMov(dailyRecoveryChange)
+      window.myBarDaily.data.datasets[3].data = avgMov(dailyNegTestChange)
       //alert(avgMov(dailyCaseChange));
     } else if ($('#avgLengthMenu').val() == "3") {
       window.myBarDaily.data.datasets[0].data = avgMov3(dailyCaseChange)
       window.myBarDaily.data.datasets[1].data = avgMov3(dailyDeathChange)
       window.myBarDaily.data.datasets[2].data = avgMov3(dailyRecoveryChange)
+      window.myBarDaily.data.datasets[3].data = avgMov3(dailyNegTestChange)
       //alert(avgMov3(dailyCaseChange));
     } else if ($('#avgLengthMenu').val() == "10") {
       window.myBarDaily.data.datasets[0].data = avgMov10(dailyCaseChange)
       window.myBarDaily.data.datasets[1].data = avgMov10(dailyDeathChange)
       window.myBarDaily.data.datasets[2].data = avgMov10(dailyRecoveryChange)
+      window.myBarDaily.data.datasets[3].data = avgMov10(dailyNegTestChange)
       //alert(avgMov10(dailyCaseChange));
     } else if ($('#avgLengthMenu').val() == "14") {
       window.myBarDaily.data.datasets[0].data = avgMov14(dailyCaseChange)
       window.myBarDaily.data.datasets[1].data = avgMov14(dailyDeathChange)
       window.myBarDaily.data.datasets[2].data = avgMov14(dailyRecoveryChange)
+      window.myBarDaily.data.datasets[3].data = avgMov14(dailyNegTestChange)
       //alert(avgMov14(dailyCaseChange));
     }
     
