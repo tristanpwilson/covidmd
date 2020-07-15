@@ -32,23 +32,32 @@ html{}
 /* ----------------------------- */
 .container-header{
   position:relative;
+  display:flex;
+  align-items: center;
   /*Flex Self Positioning*/
   order:1;
   flex-basis:70px;
   flex-shrink:0;
-  padding: 10px 0;
-  background: rgba(38,38,38,1);
-  border-bottom:1px solid rgba(255,255,255,.1);
+  padding: 0 0;
+  background:rgba(52,52,52,1);
+  /*border-bottom:1px solid rgba(255,255,255,.1);*/
+  border-bottom:1px solid rgba(36,36,36,1);
+  box-shadow:0px 1px 1px 0 rgba(0,0,0,0.4)
 }
 
 .container-header h1{
-  margin:0 0 0 50px;
+  position:relative;
+  display:block;
+  flex-basis:auto;
+  flex-grow:1;
+  margin:0 0 0 0;
   padding:0;
   color: #fff;
   font-size:30px;
   line-height:45px;
-  text-align:left;
+  text-align:center;
 }
+
 .container-header h1 img{
   position:relative;
   display:inline-block;
@@ -56,13 +65,26 @@ html{}
   margin:0 0 0 25px;
   font-size:0px;
 }
-.mainNav{
+
+/*.mainNav{
  position:absolute;
  top:22.5px;
  left:10px;
  height:auto;
  width:auto;
  z-index:3000;
+}*/
+
+.mainNav{
+ position:relative;
+ display:flex;
+ align-items:center;
+ left:0px;
+ height:100%;
+ width:181px;
+ padding: 0 0 0 20px;
+ z-index:3000;
+ border-right:2px solid rgba(45,45,45,1);
 }
 
 .mainNav a{
@@ -81,14 +103,15 @@ html{}
   transition:.3s ease opacity;
 }
 .mainNav a:after{
-  content:"Back";
+  content:"Back to Map";
   position:relative;
-  margin-left:-0%;
+  white-space:nowrap;
+  margin-left:140%;
   font-size:16px;
   line-height:20px;
-  padding:0;
+  padding:10px 0;
   text-decoration:none !important;
-  opacity:0;
+  opacity:1;
   transition:.3s ease all;
 }
 .mainNav a:hover,
@@ -100,7 +123,7 @@ html{}
 }
 .mainNav a:hover:after{
   margin-left:120%;
-  opacity:1;
+  text-decoration:underline !important;
     transition:.3s ease all;
 }
 
@@ -120,11 +143,25 @@ html{}
     margin:0 0 0 15px;
   }
   .mainNav{
-   top:22.5px;
-   left:2vw;
-   height:auto;
-   width:auto;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   height:100%;
+   width:30px;
+   top:0;
+   left:0;
+   padding:0 0 0 0;
    z-index:3000;
+  }
+  .mainNav a{
+   height:100%;
+   background-size: auto 35%;
+  }
+  .mainNav a:after{
+    content:"";
+    font-size:16px;
+    line-height:20px;
+    margin-left:105%;
   }
 }
 
@@ -208,10 +245,10 @@ html{}
   z-index:3020 !important;
   color:rgba(255,255,255,1);
   background: rgba(38,38,38,1);
-    box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5), 0 2px 1px 1px rgba(0,0,0,0.1);
+    box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5), -1px 2px 1px 1px rgba(0,0,0,0.1);
 }
 
-.toggle-tab.active-tab:focus:after {
+/*.toggle-tab.active-tab:focus:after {
   content:"";
   position:absolute;
   left:40%;
@@ -219,11 +256,9 @@ html{}
   height:2px;
   width:20%;
   background:rgba(255,255,255,.2);
-}
+}*/
 
 .toggle-tab .new-tag{
-/* content:"NEW";
-  position:absolute;*/
   position:relative;
   display:inline-block;
   color:red;
@@ -300,7 +335,7 @@ html{}
   }
 
   .container-toggle-tabs{
-    z-index:4000;
+    z-index:3030;
     position:absolute;
     display:flex;
     left:0;
@@ -322,7 +357,7 @@ html{}
     width:30px;
     height:100%;
     padding:0px;
-    z-index:4000;
+
     color:#fff;
     text-align:left;
     font-size:14px;
@@ -330,7 +365,7 @@ html{}
     line-height:100%;
     background:rgba(52,52,52,1);
     border-right:1px solid rgba(36,36,36,1);
-    box-shadow:0px 0 1px 0 rgba(0,0,0,0.4)
+    box-shadow:0px 1px 1px 0 rgba(0,0,0,0.4)
   }
 
 
@@ -362,7 +397,7 @@ html{}
     display:block;
     width:auto;
     height:auto;
-    margin:75px 0 0 0;
+    margin:85px 0 0 0;
     padding:0;
     line-height:100%;
     white-space:nowrap;
@@ -442,17 +477,7 @@ html{}
     font-size:14px;
     line-height:40px;
   }
-  .box-toggle-tabs:hover .toggle-tab.active-tab,
-  .box-toggle-tabs:focus .toggle-tab.active-tab{
-   
-  }
-  .toggle-tab:hover,
-  .toggle-tab:focus{
   
-  }
-  .toggle-tab.active-tab{
-   
-  }
   .toggle-tab,
   .toggle-tab:hover,
   .toggle-tab:focus,
@@ -464,8 +489,9 @@ html{}
   }
   
   .container-stdcharts{
-   width:100%;
-  padding: 30px 15px 15px 15px;
+    width:calc(100% - 30px);
+    margin: 0 0 0 30px;
+    padding: 30px 15px 15px 15px;
   }
   .stdcharts{
    
