@@ -319,33 +319,34 @@ html{}
     justify-content: center;
     flex-wrap:nowrap;
     order:2;
-    width:20px;
+    width:30px;
     height:100%;
     padding:0px;
-    background:rgba(42,42,42,1);
+    z-index:4000;
     color:#fff;
     text-align:left;
-    z-index:4000;
-    /*writing-mode: vertical-lr; text-orientation:sideways;*/
     font-size:14px;
     font-weight:400;
     line-height:100%;
-    border:1px solid rgba(26,26,26,1);
-    /*border:1px solid white;*/
-    border-top:3px;
-    border-radius:0;
+    background:rgba(52,52,52,1);
+    border-right:1px solid rgba(36,36,36,1);
+    box-shadow:0px 0 1px 0 rgba(0,0,0,0.4)
   }
-  
+
 
   #dropdownHead:focus{
     /*background:rgba(50,50,50,1);*/
     outline:none !important;
   }
+  
   #dropdownHead:hover,
   #dropdownHead[aria-expanded="true"]{
     text-decoration:none !important;
     background:rgba(42,42,42,1);
     outline:none !important;
+  }
+  #dropdownHead[aria-expanded="true"]{
+    box-shadow:2px 0 2px 0 rgba(0,0,0,0.4)
   }
   
   #labelDropdownHead{
@@ -354,7 +355,7 @@ html{}
     height:auto;
     width:100%;
     margin:0 0 0 0;
-    border:1px solid #ffffff;
+    /*border:1px solid #ffffff;*/
   }
   #labelDropdownHead p{
     position:relative;
@@ -373,56 +374,48 @@ html{}
             transform-origin: center;
   }
   
-  #dropdownHead .arrowDown {
+  #dropdownHead .arrowHoriz {
     position: relative;
     display: block;
     width: 14px;
     height: 14px;
-    margin: 0 0 0 0;
+    margin: 0 0 0 7px;
   }
-  #dropdownHead[aria-expanded="false"] #labelDropdownHead .arrowDown{
-    /*-webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);*/
-    -webkit-transform-origin: center;
-            transform-origin: center;
+  #dropdownHead[aria-expanded="false"] #labelDropdownHead .arrowHoriz{
+    -webkit-transform-origin: top center;
+            transform-origin: top center;
+    -webkit-transition: 0.2s transform ease .2s;
+            transition: 0.2s transform ease .2s;
   }
-  #dropdownHead[aria-expanded="true"] #labelDropdownHead .arrowDown{
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-    -webkit-transform-origin: center;
-            transform-origin: center;
+  #dropdownHead[aria-expanded="true"] #labelDropdownHead .arrowHoriz{
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transform-origin: top center;
+            transform-origin: top center;
+    -webkit-transition: 0.2s transform ease .2s;
+            transition: 0.2s transform ease .2s;
   }
-  .arrowDown:before,
-  .arrowDown:after{
-/*    content:"";
-    position: absolute;
-    top:7.5px;
-    width: 8.5px;
-    height: 2px;
-    background-color: #fff;*/
-       content:"";
+  .arrowHoriz:before,
+  .arrowHoriz:after{
+    content:"";
     position: absolute;
     top:0px;
     left:0px;
     width: 2px;
-    height: 8.5px;
+    height: 10px;
     background-color: #fff;
-    -webkit-transition: all 0.2s ease;
-            transition: all 0.2s ease;
+
   }
-  .arrowDown:before {
+  .arrowHoriz:before {
     left: 0;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transform-origin: center left;
-            transform-origin: center left;
+    -webkit-transform: rotate(45deg) translate(5px, -5px);
+            transform: rotate(45deg) translate(5px, -5px);
+
   }
-  .arrowDown:after {
+  .arrowHoriz:after {
     right: 0;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transform-origin: center left;
-            transform-origin: center left;
+    -webkit-transform: rotate(-45deg) translate(10px, 0px);
+            transform: rotate(-45deg) translate(10px, 0px);
   }
 
   .box-toggle-tabs{
@@ -447,7 +440,7 @@ html{}
   }
   .toggle-tab {
     font-size:14px;
-    line-height:30px;
+    line-height:40px;
   }
   .box-toggle-tabs:hover .toggle-tab.active-tab,
   .box-toggle-tabs:focus .toggle-tab.active-tab{
