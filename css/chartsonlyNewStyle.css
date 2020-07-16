@@ -19,7 +19,7 @@ html{}
   overflow-y:scroll;
   left:0;
   right:0;
-  background: rgba(38,38,38,1)
+  background: rgba(30,30,30,1)
 }
 
 @media(max-width:767px){
@@ -41,7 +41,7 @@ html{}
   padding: 0 0;
   background:rgba(52,52,52,1);
   /*border-bottom:1px solid rgba(255,255,255,.1);*/
-  border-bottom:1px solid rgba(36,36,36,1);
+  border-bottom:2px solid rgba(36,36,36,1);
   box-shadow:0px 1px 1px 0 rgba(0,0,0,0.4)
 }
 
@@ -66,14 +66,6 @@ html{}
   font-size:0px;
 }
 
-/*.mainNav{
- position:absolute;
- top:22.5px;
- left:10px;
- height:auto;
- width:auto;
- z-index:3000;
-}*/
 
 .mainNav{
  position:relative;
@@ -81,7 +73,7 @@ html{}
  align-items:center;
  left:0px;
  height:100%;
- width:181px;
+ width:201px;
  padding: 0 0 0 20px;
  z-index:3000;
  border-right:2px solid rgba(45,45,45,1);
@@ -184,7 +176,7 @@ html{}
 .container-toggle-tabs{
   position:relative;
   float:left;
-  width:180px;
+  width:200px;
   height:100%;
   background: rgba(21,21,21,1.00)
 }
@@ -232,7 +224,7 @@ html{}
 }
 .toggle-tab:hover,
 .toggle-tab:focus{
-  color:rgba(255,255,255,0.7);
+  color:rgba(255,255,255,0.8);
   background: rgba(38,38,38,.5);
   border:1px solid rgba(38,38,38,0);
   box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.1);
@@ -244,19 +236,21 @@ html{}
 .toggle-tab.active-tab:focus {
   z-index:3020 !important;
   color:rgba(255,255,255,1);
-  background: rgba(38,38,38,1);
+  background: rgba(30,30,30,1);
     box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5), -1px 2px 1px 1px rgba(0,0,0,0.1);
 }
 
-/*.toggle-tab.active-tab:focus:after {
-  content:"";
+.toggle-tab.active-tab{
+  /*padding-left:30px;*/
+}
+
+.toggle-tab.active-tab:after {
+  content:"\25B6";
   position:absolute;
-  left:40%;
-  bottom:10%;
-  height:2px;
-  width:20%;
-  background:rgba(255,255,255,.2);
-}*/
+  font-size:12px;
+  right:15px;
+  /*margin-left:-15px;*/
+}
 
 .toggle-tab .new-tag{
   position:relative;
@@ -269,16 +263,11 @@ html{}
 .container-stdcharts{
   position:relative;
   display:inline-block;
-  width:calc(100% - 180px);
+  width:calc(100% - 200px);
   z-index:3000 !important; 
-  /*Flex Self Positioning*/
-  /*order:3;
-  flex-shrink:1;
-  flex-grow:0;
-  flex-basis:100%;*/
   margin:0;
   padding: 15px 15px;
-  background: rgba(38,38,38,1);
+  background: rgba(30,30,30,1)
 }
 
 .tab-content {order: 3 !important; display:none !important; }
@@ -293,21 +282,15 @@ html{}
   min-height:300px;
   max-height: calc(80vw * .55);
   padding: 0;
-  background: rgba(38,38,38,1);
+  background: rgba(30,30,30,1)
 }
  
- /* #cumulchart,
-  #dailychart,
-  #hospchart,
-  #cntychart,
-  #cntydthchart,
-  #testchart {
-
- }*/
+ /* #cumulchart,#dailychart,#hospchart,#cntychart,#cntydthchart,#testchart {}*/
  
 .stdcharts .chartTitle{
  color:#fff;
- font-weight:400;
+ font-size:22px;
+ font-weight:500;
  text-align:center;
  margin:10px 0;
 }
@@ -319,17 +302,7 @@ html{}
   padding:0;
 }
 
-@media(max-width: 992px){
-  .toggle-tab {
-
-  }  
-  .stdcharts{
-
-  }
-}
-
 @media(max-width: 768px){
-  
   .container-chart-area{
     padding:0 0 0 0 !important;
   }
@@ -357,15 +330,14 @@ html{}
     width:30px;
     height:100%;
     padding:0px;
-
     color:#fff;
     text-align:left;
     font-size:14px;
     font-weight:400;
     line-height:100%;
-    background:rgba(52,52,52,1);
-    border-right:1px solid rgba(36,36,36,1);
-    box-shadow:0px 1px 1px 0 rgba(0,0,0,0.4)
+    background:rgba(46,46,46,1);
+    border-right:2px solid rgba(36,36,36,1);
+    box-shadow:0px 1px 1px 0 rgba(0,0,0,0.2)
   }
 
 
@@ -377,11 +349,11 @@ html{}
   #dropdownHead:hover,
   #dropdownHead[aria-expanded="true"]{
     text-decoration:none !important;
-    background:rgba(42,42,42,1);
+    background:rgba(52,52,52,1);
     outline:none !important;
   }
   #dropdownHead[aria-expanded="true"]{
-    box-shadow:2px 0 2px 0 rgba(0,0,0,0.4)
+    
   }
   
   #labelDropdownHead{
