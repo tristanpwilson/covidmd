@@ -96,9 +96,11 @@
           <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By County</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total Tests<!-- <sup class="new-tag">NEW</sup>--></li>
         </ul>
+        
       </div>
       
-      <div class="container-stdcharts">
+      <div class="container-stdcharts" id="container-stdcharts">
+      
         <div id="cumulchart" class="stdcharts tab-content active-tab-content">
           <h2 class="chartTitle">Cumulative Totals (State)</h2>
           <canvas id="canvasCumul"></canvas>
@@ -180,7 +182,7 @@
       .removeClass("active-tab");
     $(".tab-content:eq(" + currentTabIndex + ")")
       .addClass("active-tab-content")
-      .parents("#container-charts")
+      .parents("#container-stdcharts")
       .find(".tab-content")
       .not($(".tab-content:eq(" + currentTabIndex + ")"))
       .removeClass("active-tab-content");
@@ -218,8 +220,11 @@
        //$(".box-toggle-tabs").hide(400).removeClass("menuExpanded");
        $(".box-toggle-tabs").removeClass("menuExpanded");
        $("#dropdownHead").attr("aria-expanded","false");
+      
      }else{}
     });
+    
+    
     
   </script>
   

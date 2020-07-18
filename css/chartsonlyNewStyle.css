@@ -337,7 +337,7 @@ html{}
     line-height:100%;
     background:rgba(46,46,46,1);
     border-right:2px solid rgba(36,36,36,1);
-    box-shadow:0px 1px 1px 0 rgba(0,0,0,0.2)
+    box-shadow:0px 1px 1px 0 rgba(0,0,0,0.2);
   }
 
 
@@ -353,7 +353,6 @@ html{}
     outline:none !important;
   }
   #dropdownHead[aria-expanded="true"]{
-    
   }
   
   #labelDropdownHead{
@@ -362,6 +361,7 @@ html{}
     height:auto;
     width:100%;
     margin:0 0 0 0;
+    z-index:3000;
     /*border:1px solid #ffffff;*/
   }
   #labelDropdownHead p{
@@ -387,6 +387,7 @@ html{}
     width: 14px;
     height: 14px;
     margin: 0 0 0 7px;
+    
   }
   #dropdownHead[aria-expanded="false"] #labelDropdownHead .arrowHoriz{
     -webkit-transform-origin: top center;
@@ -426,25 +427,20 @@ html{}
   }
 
   .box-toggle-tabs{
-    position:relative;
-    display:none;
+    position:absolute;
+    display:flex;
     order:1;
-    left:0;
-    width:280px;
+    width:0px;
     height:auto;
+    overflow:hidden;
   }
-  
   
   .box-toggle-tabs.menuExpanded{
-    display:flex;
-    left:0;
+    position:relative;
     height:100%;
+    width:280px;
   }
 
-  .box-toggle-tabs:hover,
-  .box-toggle-tabs:focus{
-
-  }
   .toggle-tab {
     font-size:14px;
     line-height:40px;
