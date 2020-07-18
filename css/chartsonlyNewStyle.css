@@ -531,7 +531,7 @@ html{}
 }
 
 #legendContainerDaily{
-  max-width:500px;
+  max-width:600px;
   margin:5px auto 0px auto;
 }
 
@@ -567,7 +567,7 @@ html{}
 }
 
 #legendContainerDaily li {
-  flex-basis:33%;
+  flex-basis:25%;
   padding:2px 0px;
 }
 
@@ -586,14 +586,15 @@ html{}
 }
 
 /*Fixing the order of the legend listings*/
-#legendContainerDaily li:nth-child(1) {order:4;}
-#legendContainerDaily li:nth-child(2) {order:5;}
-#legendContainerDaily li:nth-child(3) {order:6;}
+#legendContainerDaily li:nth-child(1) {order:5;}
+#legendContainerDaily li:nth-child(2) {order:6;}
+#legendContainerDaily li:nth-child(3) {order:7;}
+#legendContainerDaily li:nth-child(4) {order:8;}
 
-#legendContainerDaily li:nth-child(4) {order:1;}
-#legendContainerDaily li:nth-child(5) {order:2;}
-#legendContainerDaily li:nth-child(6) {order:3;}
-
+#legendContainerDaily li:nth-child(5) {order:1;}
+#legendContainerDaily li:nth-child(6) {order:2;}
+#legendContainerDaily li:nth-child(7) {order:3;}
+#legendContainerDaily li:nth-child(8) {order:4;}
 
 /* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
 #legendContainerCumul li span,
@@ -640,10 +641,12 @@ html{}
 #legendContainerDaily li:nth-child(1) span {border-radius:50%;}
 #legendContainerDaily li:nth-child(2) span {border-radius:50%;}
 #legendContainerDaily li:nth-child(3) span {border-radius:50%;}
+#legendContainerDaily li:nth-child(4) span {border-radius:50%;}
 
-#legendContainerDaily li:nth-child(4) span {border-radius:0%;}
 #legendContainerDaily li:nth-child(5) span {border-radius:0%;}
 #legendContainerDaily li:nth-child(6) span {border-radius:0%;}
+#legendContainerDaily li:nth-child(7) span {border-radius:0%;}
+#legendContainerDaily li:nth-child(8) span {border-radius:0%;}
 
 
 @media (max-width: 991px){
@@ -661,6 +664,9 @@ html{}
   #legendContainerHosp> ul{
     padding:0 2%;
   }
+  #legendContainerDaily> ul{
+    padding:0 1%;
+  }
 
   #legendContainerCumul> ul,
   #legendContainerTest> ul{
@@ -672,12 +678,25 @@ html{}
     justify-content:center;
   }
 
-  #legendContainerCumul li,
-  #legendContainerDaily li{
+  #legendContainerCumul li{
     flex-basis:33%;
     padding:5px 0px;
     font-size:16px;
+
   }
+
+  #legendContainerDaily li{
+    padding:5px 0px;
+    font-size:16px;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  
+  #legendContainerDaily li:nth-child(5),#legendContainerDaily li:nth-child(1){flex-basis:21%;}
+  #legendContainerDaily li:nth-child(6),#legendContainerDaily li:nth-child(2){flex-basis:22%;}
+  #legendContainerDaily li:nth-child(7),#legendContainerDaily li:nth-child(3){flex-basis:29%;}
+  #legendContainerDaily li:nth-child(8),#legendContainerDaily li:nth-child(4){flex-basis:27%;}
+  
   #legendContainerTest li,
   #legendContainerHosp li {
     flex-basis:40%;
@@ -691,6 +710,10 @@ html{}
     margin:0 5px -1px 0;
     height:14px;
     width:14px;
+  }
+
+  #legendContainerDaily li span{
+    margin:0 3px -2px 0;
   }
 }
 
