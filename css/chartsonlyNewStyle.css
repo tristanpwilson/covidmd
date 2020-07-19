@@ -322,7 +322,7 @@ html{}
 /*  .page-header {*/
     @supports (-webkit-appearance:none) {
       .container-toggle-tabs {
-        bottom: calc(0 + 56px) !important;
+        bottom: 56px !important;
       }
     }
 /*  }*/
