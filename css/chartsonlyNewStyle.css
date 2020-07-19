@@ -320,14 +320,14 @@ html{}
     background: rgba(21,21,21,.6);
   }
 /*  .page-header {*/
- /*   @supports (-webkit-appearance:none) {*/
+ /*   @supports (-webkit-appearance:none) {
  @media screen and (-webkit-min-device-pixel-ratio:0)
   and (min-resolution:.001dpcm) {
       .container-toggle-tabs {
         bottom: 56px;
       }
     }
-/*  }*/
+*/
 
   #dropdownHead{
     z-index:4090;
