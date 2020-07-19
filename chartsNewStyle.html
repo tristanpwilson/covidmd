@@ -82,15 +82,18 @@
       </div>
       
     </div>
-    <!--Tabs for toggling charts -->
+
 
     <div class="container-chart-area">
     
+      <!-------- Tabs for toggling charts -------->
+      
       <div id="container-toggle-tabs" class="container-toggle-tabs">
-        <a id="dropdownHead" href="javascript:void(0);" class="mobile-only" aria-expanded="false"><div id="labelDropdownHead"><span class="arrowHoriz"></span><p>Select a Chart</p></div></a>
+
+        <a id="dropdownHead" href="javascript:void(0);" class="mobile-only" aria-expanded="false"><div id="labelDropdownHead"><p>Select a Chart</p><span class="arrowHoriz"></span></div></a>
         <ul class="box-toggle-tabs">
-          <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Cumulative Totals</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily New</li>
+          <li class="toggle-tab active-tab" role="button" tabindex="0" href="#dailycases">Daily New</li>
+          <li class="toggle-tab" role="button" tabindex="0" href="#totalcases">Cumulative Totals</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospitalizations</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By County</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By County</li>
@@ -99,15 +102,12 @@
         
       </div>
       
-      <div class="container-stdcharts" id="container-stdcharts">
       
-        <div id="cumulchart" class="stdcharts tab-content active-tab-content">
-          <h2 class="chartTitle">Cumulative Totals (State)</h2>
-          <canvas id="canvasCumul"></canvas>
-          <div id="legendContainerCumul"></div>
-        </div>
+      <!-------- Charts Rendering Area -------->
+      
+      <div class="container-stdcharts" id="container-stdcharts">
 
-        <div id="dailychart" class="stdcharts tab-content">
+        <div id="dailychart" class="stdcharts tab-content active-tab-content">
           <h2 class="chartTitle">Daily New Totals (State)</h2>
           <canvas id="canvasDaily"></canvas>
           <div id="legendContainerDaily"></div>
@@ -122,6 +122,12 @@
               </select>
             </form>
           </div>
+        </div>
+        
+        <div id="cumulchart" class="stdcharts tab-content">
+          <h2 class="chartTitle">Cumulative Totals (State)</h2>
+          <canvas id="canvasCumul"></canvas>
+          <div id="legendContainerCumul"></div>
         </div>
 
         <div id="hospchart" class="stdcharts tab-content">

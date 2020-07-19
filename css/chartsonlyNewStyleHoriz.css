@@ -168,7 +168,7 @@ html{}
   flex-grow:0;
   flex-shrink:1;
   flex-basis:100%;
-  padding:0 0 0 0 !important;
+  padding:0vh 0 0 0 !important;
   margin:0 !important;
   background: transparent;
 }
@@ -310,32 +310,34 @@ html{}
   .container-toggle-tabs{
     z-index:3030;
     position:absolute;
-    display:block;
+    display:flex;
     left:0;
-    bottom:0px;
-    width:100%;
-    margin:0;
-    height:auto;
+    top:0;
+    width:auto;
+    margin:0 auto 0 auto;
+    height:100%;
     overflow:visible;
-    background: rgba(21,21,21,.6);
+    background: rgba(21,21,21,1.00);
   }
 
   #dropdownHead{
-    z-index:4090;
     position:relative !important;
     display:flex !important;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     flex-wrap:nowrap;
-    order:1;
-    width:100%;
-    height:40px;
+    order:2;
+    width:30px;
+    height:100%;
     padding:0px;
     color:#fff;
+    text-align:left;
+    font-size:14px;
+    font-weight:400;
+    line-height:100%;
     background:rgba(46,46,46,1);
-    border-top:0px solid rgba(36,36,36,1);
-    box-shadow:0px -1px 0px 1px rgba(36,36,36,1),
-               0px -2px 1px 0 rgba(0,0,0,0.2);
+    border-right:2px solid rgba(36,36,36,1);
+    box-shadow:0px 1px 1px 0 rgba(0,0,0,0.2);
   }
 
 
@@ -355,12 +357,9 @@ html{}
   
   #labelDropdownHead{
     position:relative;
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    height:40px;
-    width:auto;
+    display:block;
+    height:auto;
+    width:100%;
     margin:0 0 0 0;
     z-index:3000;
     /*border:1px solid #ffffff;*/
@@ -370,69 +369,76 @@ html{}
     display:block;
     width:auto;
     height:auto;
-    margin:0;
-    padding:0 15px;
-    font-size:14px;
-    font-weight:400;
-    line-height:40px;
+    margin:85px 0 0 0;
+    padding:0;
+    line-height:100%;
     white-space:nowrap;
     border:none;
     background:rgba(0,0,0,0);
-   /* -webkit-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
     -webkit-transform-origin: center;
-            transform-origin: center;*/
+            transform-origin: center;
   }
   
   #dropdownHead .arrowHoriz {
     position: relative;
     display: block;
-    width: 12px;
-    height: 12px;
-    margin: 0 0 0 0;
-    -webkit-transform: rotate(0deg) translate(0, 3px);
-            transform: rotate(0deg) translate(0, 3px);
-    -webkit-transform-origin: center center;
-            transform-origin: center center;
+    width: 14px;
+    height: 14px;
+    margin: 0 0 0 7px;
+    
   }
   #dropdownHead[aria-expanded="false"] #labelDropdownHead .arrowHoriz{
+    -webkit-transform-origin: top center;
+            transform-origin: top center;
     -webkit-transition: 0.2s transform ease .2s;
             transition: 0.2s transform ease .2s;
   }
   #dropdownHead[aria-expanded="true"] #labelDropdownHead .arrowHoriz{
-    -webkit-transform: rotate(180deg) translate(0, 3px);
-            transform: rotate(180deg) translate(0, 3px);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transform-origin: top center;
+            transform-origin: top center;
     -webkit-transition: 0.2s transform ease .2s;
             transition: 0.2s transform ease .2s;
   }
-  
+  .arrowHoriz:before,
   .arrowHoriz:after{
     content:"";
     position: absolute;
-    width: 12px;
-    height: 12px;
-    top: 0;
-    margin:0;
-    border-color:rgba(255,255,255,1.0);
-    border-bottom: 2px solid;
-    border-left: 2px solid;
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
+    top:0px;
+    left:0px;
+    width: 2px;
+    height: 10px;
+    background-color: #fff;
+
+  }
+  .arrowHoriz:before {
+    left: 0;
+    -webkit-transform: rotate(45deg) translate(5px, -5px);
+            transform: rotate(45deg) translate(5px, -5px);
+
+  }
+  .arrowHoriz:after {
+    right: 0;
+    -webkit-transform: rotate(-45deg) translate(10px, 0px);
+            transform: rotate(-45deg) translate(10px, 0px);
   }
 
   .box-toggle-tabs{
-    position:relative;
+    position:absolute;
     display:flex;
-    order:2;
-    width:100%;
-    height:0px;
-    
+    order:1;
+    width:0px;
+    height:auto;
     overflow:hidden;
   }
   
   .box-toggle-tabs.menuExpanded{
     position:relative;
-    height:auto;
+    height:100%;
+    width:280px;
   }
 
   .toggle-tab {
@@ -451,8 +457,8 @@ html{}
   }
   
   .container-stdcharts{
-    width:100%;
-    margin: 0 0 0 0;
+    width:calc(100% - 30px);
+    margin: 0 0 0 30px;
     padding: 30px 5px 15px 7.5px;
   }
   .stdcharts{
