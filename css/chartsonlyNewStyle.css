@@ -319,6 +319,13 @@ html{}
     overflow:visible;
     background: rgba(21,21,21,.6);
   }
+/*  .page-header {*/
+    @supports (-webkit-appearance:none) {
+      .container-toggle-tabs {
+        bottom: calc(0 + 56px) !important;
+      }
+    }
+/*  }*/
 
   #dropdownHead{
     z-index:4090;
