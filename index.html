@@ -85,31 +85,33 @@
       <!-- Tabs for toggling charts on mobile -->
       <div class="container-toggle-tabs reorderWorker">
         <ul class="box-toggle-tabs">
-          <li class="toggle-tab active-tab" role="button">Cumulative</li>
-          <li class="toggle-tab" role="button">Daily New</li>
+
+          <li class="toggle-tab active-tab" role="button">Daily New</li>
+          <li class="toggle-tab" role="button">Cumulative</li>
           <li class="toggle-tab" role="button">In Hospital</li>
         </ul>
       </div>  
       
       
-      
-      <!-- First Chart.js Graph -->
-      <div id="cumulchart" class="stdcharts tab-content active-tab-content reorderWorker">
-        <a href="charts#totalcases" class="linkExpChart" title="Expand cumulative cases chart" aria-label="Expand cumulative cases chart"></a>
-        <h2 class="">Cumulative Cases in MD</h2>
-        <div id="legendContainerCumul"></div>
-        <canvas id="canvasCumul"></canvas>
-      </div>
-      
-      <!-- Second Chart.js Graph -->
-      <div id="dailychart" class="stdcharts tab-content reorderWorker">
+      <!-- Daily New Graph -->
+      <div id="dailychart" class="stdcharts tab-content active-tab-content reorderWorker">
         <a href="charts#dailycases" class="linkExpChart" title="Expand daily cases chart" aria-label="Expand daily cases chart"></a>
         <h2 class="">Daily New Cases in MD</h2>
         <div id="legendContainerDaily"></div>
         <canvas id="canvasDaily"></canvas>
       </div>
       
-      <!-- Third Chart.js Graph -->
+      
+      <!-- Cumulative Graph -->
+      <div id="cumulchart" class="stdcharts tab-content reorderWorker">
+        <a href="charts#totalcases" class="linkExpChart" title="Expand cumulative cases chart" aria-label="Expand cumulative cases chart"></a>
+        <h2 class="">Cumulative Cases in MD</h2>
+        <div id="legendContainerCumul"></div>
+        <canvas id="canvasCumul"></canvas>
+      </div>
+
+      
+      <!-- Hospitalizations Graph -->
       <div id="hospchart" class="stdcharts tab-content reorderWorker">
         <a href="charts#hospitalizations" class="linkExpChart" title="Expand hospitalizations chart" aria-label="Expand hospitalizations chart"></a>
         <h2 class="">Now Hospitalized in MD (Stacked)</h2>

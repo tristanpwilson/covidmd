@@ -7,7 +7,7 @@
 /* ------------------------------------------------------- */
 /*Temporary Last Update Pseudo*/
 #button-i:after{
- content:"Last Updated: July 18, 2020, 10:34:00 EST";
+ content:"Last Updated: July 19, 2020, 10:34:00 EST";
  position:absolute;
  display:block;
  left:100%;
@@ -271,9 +271,9 @@ html, body, .leaflet-container {
   background: rgba(38, 38, 38, 0);
 }
 
-#cumulchart {order: 2;}
+#cumulchart {order: 3;}
 
-#dailychart {order: 3;}
+#dailychart {order: 2;}
 
 #hospchart {order: 4;}
 
@@ -554,6 +554,8 @@ html, body, .leaflet-container {
     font-size: 2.6vw;
   }
 }
+
+
 
 /* ----------------------------- */
 /* County Name and Case # Labels */

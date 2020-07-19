@@ -48,8 +48,8 @@
         <a href="/" aria-label="Link back to home page"></a>
       </nav>  
   
-      <h1>COVID-19 Maryland <img src="img/mdflagmap-lg.png" aria-hidden="true" alt="Maryland flag icon" id="mdflag"></h1>
-      
+      <h1>Maryland COVID-19 <img src="img/mdflagmap-lg.png" aria-hidden="true" alt="Maryland flag icon" id="mdflag"></h1>
+
       <div class="container-i" id="container-i-charts">
         <button id="button-i" aria-label="Button to open information pane about this website and its creator">
         </button>
@@ -85,8 +85,8 @@
 
     <div class="container-toggle-tabs">
       <ul class="box-toggle-tabs">
-        <li class="toggle-tab active-tab" role="button" tabindex="0" href="#totalcases">Cumulative<br class="mobile-only"> Totals</li><!--<br class="mobile-xs-only"> Counts-->
-        <li class="toggle-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-only"> New  <!--<div class="new-tag-gr" style="">!</div>--></li>
+        <li class="toggle-tab active-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-only"> New  <!--<div class="new-tag-gr" style="">!</div>--></li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#totalcases">Cumulative<br class="mobile-only"> Totals</li><!--<br class="mobile-xs-only"> Counts-->
         <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital<span class="mobile-only">-</span><br class="mobile-only">izations</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-only"> County</li>
         <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By<br class="mobile-only"> County</li>
@@ -97,13 +97,7 @@
       </ul>
     </div>  
     
-    <div id="cumulchart" class="stdcharts tab-content active-tab-content">
-      <h2 class="chartTitle">Cumulative Totals (State)</h2>
-      <canvas id="canvasCumul"></canvas>
-      <div id="legendContainerCumul"></div>
-    </div>
-    
-    <div id="dailychart" class="stdcharts tab-content">
+    <div id="dailychart" class="stdcharts tab-content active-tab-content">
       <h2 class="chartTitle">Daily New Totals (State)</h2>
       <canvas id="canvasDaily"></canvas>
       <div id="legendContainerDaily"></div>
@@ -119,7 +113,13 @@
         </form>
       </div>
     </div>
-
+    
+    <div id="cumulchart" class="stdcharts tab-content">
+      <h2 class="chartTitle">Cumulative Totals (State)</h2>
+      <canvas id="canvasCumul"></canvas>
+      <div id="legendContainerCumul"></div>
+    </div>
+    
     <div id="hospchart" class="stdcharts tab-content">
       <h2 class="chartTitle">Current Hospitalizations (State)</h2>
       <canvas id="canvasHosp"></canvas>
