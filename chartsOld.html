@@ -18,7 +18,7 @@
   <!-- and https://coronavirus.maryland.gov/ ------------------------------------------------>
   
   <link href="css/universal.css" rel="stylesheet" type="text/css">
-  <link href="css/chartsonlyNewStyle.css" rel="stylesheet" type="text/css">
+  <link href="css/chartsonly.css" rel="stylesheet" type="text/css">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/leaflet.css"/>
 
@@ -43,17 +43,16 @@
   
 
   <div id="container-charts">
-  
     <div class="container-header">
-    
       <nav class="mainNav">
         <a href="/" aria-label="Link back to home page"></a>
       </nav>  
   
-      <h1>COVID-19 Maryland <img src="img/mdflagmap-lg.png" aria-hidden="true" alt="Maryland flag icon" id="mdflag"></h1>
-      
+      <h1>Maryland COVID-19 <img src="img/mdflagmap-lg.png" aria-hidden="true" alt="Maryland flag icon" id="mdflag"></h1>
+
       <div class="container-i" id="container-i-charts">
-        <button id="button-i" aria-label="Button to open information pane about this website and its creator"></button>
+        <button id="button-i" aria-label="Button to open information pane about this website and its creator">
+        </button>
         <div id="panelDesc">
           <h2>About this Project</h2>
           <p>COVIDMD is an attempt to track, aggregate, and display publically available COVID-19 data in a single, user friendly location </p>
@@ -82,89 +81,70 @@
       </div>
       
     </div>
+    <!--Tabs for toggling charts -->
 
-
-    <div class="container-chart-area">
-    
-      <!-------- Tabs for toggling charts -------->
-      
-      <div id="container-toggle-tabs" class="container-toggle-tabs">
-
-        <a id="dropdownHead" href="javascript:void(0);" class="mobile-only" aria-expanded="false"><div id="labelDropdownHead"><p>Select a Chart</p><span class="arrowHoriz"></span></div></a>
-        <ul class="box-toggle-tabs">
-          <li class="toggle-tab active-tab" role="button" tabindex="0" href="#dailycases">Daily New</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#totalcases">Cumulative Totals</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospitalizations</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By County</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By County</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total Tests</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Positivity Rate <sup class="new-tag">NEW</sup></li>
-        </ul>
+    <div class="container-toggle-tabs">
+      <ul class="box-toggle-tabs">
+        <li class="toggle-tab active-tab" role="button" tabindex="0" href="#dailycases">Daily<br class="mobile-only"> New  <!--<div class="new-tag-gr" style="">!</div>--></li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#totalcases">Cumulative<br class="mobile-only"> Totals</li><!--<br class="mobile-xs-only"> Counts-->
+        <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital<span class="mobile-only">-</span><br class="mobile-only">izations</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By<br class="mobile-only"> County</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By<br class="mobile-only"> County</li>
+        <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total<br class="mobile-only"> Tests<!-- <sup class="new-tag">NEW</sup>--></li>
         
-      </div>
-      
-      
-      <!-------- Charts Rendering Area -------->
-      
-      <div class="container-stdcharts" id="container-stdcharts">
-
-        <div id="dailychart" class="stdcharts tab-content active-tab-content">
-          <h2 class="chartTitle">Daily New Totals (State)</h2>
-          <canvas id="canvasDaily"></canvas>
-          <div id="legendContainerDaily"></div>
-          <div class="containerDropdownCustom">
-            <form>
-              <label for="avgLengthMenu">Moving Average Length:</label>
-              <select name="avgLengthMenu" id="avgLengthMenu" onchange="updateDatasetAvgDaily()">
-                <option value="3">3 Day</option>
-                <option value="7" selected>7 Day</option>
-                <option value="10">10 Day</option>
-                <option value="14">14 Day</option>
-              </select>
-            </form>
-          </div>
-        </div>
-        
-        <div id="cumulchart" class="stdcharts tab-content">
-          <h2 class="chartTitle">Cumulative Totals (State)</h2>
-          <canvas id="canvasCumul"></canvas>
-          <div id="legendContainerCumul"></div>
-        </div>
-
-        <div id="hospchart" class="stdcharts tab-content">
-          <h2 class="chartTitle">Current Hospitalizations (State)</h2>
-          <canvas id="canvasHosp"></canvas>
-          <div id="legendContainerHosp"></div>
-        </div>
-
-        <div id="cntychart" class="stdcharts tab-content">
-          <h2 class="chartTitle">Cumulative Cases by County</h2>
-          <canvas id="canvasCnty"></canvas>
-          <div id="legendContainerCnty"></div>
-        </div>
-
-        <div id="cntydthchart" class="stdcharts tab-content">
-          <h2 class="chartTitle">Cumulative Deaths by County</h2>
-          <canvas id="canvasCntyDth"></canvas>
-          <div id="legendContainerCntyDth"></div>
-        </div>
-
-        <div id="testchart" class="stdcharts tab-content">
-          <h2 class="chartTitle">Cumulative Test Data (State)</h2>
-          <canvas id="canvasTest"></canvas>
-          <div id="legendContainerTest"></div>
-        </div>
-        
-        <div id="posratechart" class="stdcharts tab-content">
-          <h2 class="chartTitle">Positivity Rate; 7 Day Avg (Reported)</h2>
-          <canvas id="canvasPosRate"></canvas>
-          <div id="legendContainerPosRate"></div>
-        </div>
-        
-        <div id="forceScrollbar"></div>
-      </div>
-      
+        <!-- New Tag For Later Use -->
+        <!-- <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Tab Title <sup class="new-tag">NEW</sup></li> -->
+      </ul>
     </div>  
+    
+    <div id="dailychart" class="stdcharts tab-content active-tab-content">
+      <h2 class="chartTitle">Daily New Totals (State)</h2>
+      <canvas id="canvasDaily"></canvas>
+      <div id="legendContainerDaily"></div>
+      <div class="containerDropdownCustom">
+        <form>
+          <label for="avgLengthMenu">Moving Average Length:</label>
+          <select name="avgLengthMenu" id="avgLengthMenu" onchange="updateDatasetAvgDaily()">
+            <option value="3">3 Day</option>
+            <option value="7" selected>7 Day</option>
+            <option value="10">10 Day</option>
+            <option value="14">14 Day</option>
+          </select>
+        </form>
+      </div>
+    </div>
+    
+    <div id="cumulchart" class="stdcharts tab-content">
+      <h2 class="chartTitle">Cumulative Totals (State)</h2>
+      <canvas id="canvasCumul"></canvas>
+      <div id="legendContainerCumul"></div>
+    </div>
+    
+    <div id="hospchart" class="stdcharts tab-content">
+      <h2 class="chartTitle">Current Hospitalizations (State)</h2>
+      <canvas id="canvasHosp"></canvas>
+      <div id="legendContainerHosp"></div>
+    </div>
+    
+    <div id="cntychart" class="stdcharts tab-content">
+      <h2 class="chartTitle">Cumulative Cases by County</h2>
+      <canvas id="canvasCnty"></canvas>
+      <div id="legendContainerCnty"></div>
+    </div>
+    
+    <div id="cntydthchart" class="stdcharts tab-content">
+      <h2 class="chartTitle">Cumulative Deaths by County</h2>
+      <canvas id="canvasCntyDth"></canvas>
+      <div id="legendContainerCntyDth"></div>
+    </div>
+    
+    <div id="testchart" class="stdcharts tab-content">
+      <h2 class="chartTitle">Cumulative Test Data (State)</h2>
+      <canvas id="canvasTest"></canvas>
+      <div id="legendContainerTest"></div>
+    </div>
+    
+    <div id="forceScrollbar"></div>
     
   </div>
 
@@ -195,7 +175,7 @@
       .removeClass("active-tab");
     $(".tab-content:eq(" + currentTabIndex + ")")
       .addClass("active-tab-content")
-      .parents("#container-stdcharts")
+      .parents("#container-charts")
       .find(".tab-content")
       .not($(".tab-content:eq(" + currentTabIndex + ")"))
       .removeClass("active-tab-content");
@@ -209,46 +189,8 @@
           toggleTabs()
       }
   });
-
-  
-  
   //$('.toggle-tab').first().click();
   </script>
-  
-  
-  <script type="text/javascript">     
-  // Quick fix for Chrome on Android's URL bar height inclusion
-    var innerHeightFix = window.innerHeight;
-    $("#container-charts").height(innerHeightFix);
-  </script>
-  
-  <script type="text/javascript">
-    
-    $("#dropdownHead").click(function() {
-      //Toggles menu visibility and toggles menuExpanded class
-      //$(".box-toggle-tabs").toggle(200).toggleClass("menuExpanded");
-      $(".box-toggle-tabs").toggleClass("menuExpanded");
-      
-      //Checks status of menuExpanded class to set aria-expanded for accessibility
-      if ($(".box-toggle-tabs").hasClass("menuExpanded")){
-        $("#dropdownHead").attr("aria-expanded","true");
-      }else{
-        $("#dropdownHead").attr("aria-expanded","false");
-      }
-    });
-    
-    //Hides menu, removes menuExpanded class, and sets aria-exp to "false" when menu item is selected
-    $(".toggle-tab").click(function() {
-     if($(window).width() <= 767) {
-       //$(".box-toggle-tabs").hide(400).removeClass("menuExpanded");
-       $(".box-toggle-tabs").removeClass("menuExpanded");
-       $("#dropdownHead").attr("aria-expanded","false");
-      
-     }else{}
-    });
-    
-  </script>
-  
   
   <script type="text/javascript">
   // jQuery for controlling i panel content

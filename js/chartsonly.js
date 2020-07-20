@@ -1422,9 +1422,10 @@
       labels: caseTimeline,
       datasets: [
       {
-        label: 'Positivity Rate - 7d Avg',
+        label: 'Positivity Rate (7d Avg)',
         data: posRateNumbers,
         borderColor: colorPosRateBorderLine,
+        backgroundColor: colorPosRateBorderLine,
         pointRadius: window.pointRadiusLine,
         pointHitRadius: window.pointHitRadiusLine,
         borderWidth: window.borderWidthLine,
