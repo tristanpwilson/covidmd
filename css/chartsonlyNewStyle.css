@@ -178,7 +178,7 @@ html{}
   float:left;
   width:200px;
   height:100%;
-  background: rgba(21,21,21,1.00)
+  background: rgba(14,14,14,1.00);
 }
 .box-toggle-tabs{
   position:relative;
@@ -196,7 +196,7 @@ html{}
   padding:0 !important;
   margin:0 !important;
   z-index:4000;
-  background: rgba(21,21,21,1.00)
+  background: rgba(14,14,14,1.00);
 }
 
 .toggle-tab {
@@ -213,9 +213,12 @@ html{}
   list-style: none;
   text-align:left;
   font-weight:500;
-  color:rgba(255,255,255,0.6);
+  color:rgba(255,255,255,0.48);
   background: rgba(38,38,38,.1);
-  border:1px solid rgba(38,38,38,.3);
+  border-top:1px solid transparent;
+  border-bottom: 1px solid rgba(100,100,100,0.1);
+  border-left:1px solid transparent;
+  border-right:1px solid transparent;
   cursor:pointer;
   outline:none !important;
    box-shadow: 0 -1px 1px 0 rgba(0,0,0,0),
@@ -225,10 +228,13 @@ html{}
 .toggle-tab:hover,
 .toggle-tab:focus{
   color:rgba(255,255,255,0.8);
-  background: rgba(38,38,38,.5);
-  border:1px solid rgba(38,38,38,0);
+  background: rgba(26,26,26,1);
+  border-top:1px solid transparent;
+  border-bottom: 1px solid rgba(100,100,100,0.1);
+  border-left:1px solid transparent;
+  border-right:1px solid transparent;
   box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.1);
-    transition: .05s ease-in height, .05s ease background, .1s ease color;
+    transition: .2s ease all;
 }
   
 .toggle-tab.active-tab,
@@ -237,7 +243,12 @@ html{}
   z-index:3020 !important;
   color:rgba(255,255,255,1);
   background: rgba(30,30,30,1);
-    box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5), -1px 2px 1px 1px rgba(0,0,0,0.1);
+  border-top:1px solid rgba(100,100,100,0.2);
+  border-bottom: 1px solid rgba(100,100,100,0.2);
+  border-left:1px solid transparent;
+  border-right:1px solid transparent;
+    box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5), -1px 2px 1px 1px rgba(0,0,0,0.2);
+    transition: .1s ease all;
 }
 
 .toggle-tab.active-tab{
@@ -321,8 +332,8 @@ html{}
   @keyframes shrinkDown {
     0% {height:0px;}
     30% {height:0px;}
-    40% {height:30vh;}
-    90% {height:30vh;}
+    40% {height:300px;}
+    90% {height:300px;}
     100% {height:0px;}
   }
 
@@ -373,6 +384,21 @@ html{}
   #dropdownHead[aria-expanded="true"]{
   }
   
+/*  #dropdownHead:before{
+    content:"";
+    z-index:1000;
+    position:absolute;
+    display:none;
+    bottom:100%;
+    left:0;
+    height:100vh;
+    width:100%;
+    background:rgba(0,0,0,.2);
+  }
+  #dropdownHead[aria-expanded="true"]:before{
+    display:block;
+  }*/
+  
   #labelDropdownHead{
     position:relative;
     display:flex;
@@ -385,29 +411,6 @@ html{}
     z-index:3000;
     /*border:1px solid #ffffff;*/
   }
-  /*#labelDropdownHead:before{
-   content:"New Layout: \A Switch charts here";
-   position:absolute;
-   top:-100%;
-   right:50%;
-   width:160px;
-   height:50px;
-   color:#E4413E;
-   font-size:14px;
-   font-weight:500;
-   text-align:left;
-   line-height:100%;
-   white-space:pre;
-   border:1px solid rgba(255,255,255,0.0);
-   background-image:url("../img/arrow-curve-red.png");
-   background-size:20px;
-   background-position: right;
-   background-repeat: no-repeat;
-  }
-  
-  #dropdownHead[aria-expanded="true"] #labelDropdownHead:before{
-   display:none;
-  }*/
   
   #labelDropdownHead p{
     position:relative;
@@ -466,14 +469,15 @@ html{}
     order:2;
     width:100%;
     height:0px;
-    
     overflow:hidden;
     animation: 3s ease-out 0s 1 shrinkDown;
+    transition: .3s ease-out all;
   }
+
   
   .box-toggle-tabs.menuExpanded{
     position:relative;
-    height:auto;
+    height:300px;
   }
 
   .toggle-tab {
