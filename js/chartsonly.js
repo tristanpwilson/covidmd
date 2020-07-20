@@ -1414,7 +1414,167 @@
   };
 
 
+  //Positivity Rate Config
+  var configPosRate = {
+    type: 'line',
+    data: {
+      labels: caseTimeline,
+      datasets: [
+      {
+        label: 'Positivity Rate - 7d Avg',
+        data: posRateNumbers,
+        borderColor: colorPosRateBorderLine,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
+        hoverBorderColor:colorPosRateHoverLine,
+        hoverBackgroundColor:colorPosRateHoverLine,
+        fill: false,
+        lineTension: 0.1,
+      }
+////  BAR EXAMPLE
+//      {
+//        label: 'Positivity Rate (7d Avg)',
+//        data: posRateNumbers,
+//        pointRadius: 0,
+//        borderWidth: 2,
+//        borderColor: colorCaseBorder,
+//        backgroundColor: colorCaseBackground,
+//        hoverBackgroundColor:colorCaseBackgroundHover,
+//        hoverBorderColor:"",
+//        barPercentage: 1,
+//        categoryPercentage: 0.9,
+//        hidden:false,
+//      }
+////  LINE EXAMPLE
+//      ,{
+//        type:'line',
+//        label: 'Avg (C)',
+//        data: avgMovingCaseChange,
+//        pointRadius: 0,
+//        borderWidth: 2,
+//        borderColor: colorCaseAvgLine,
+//        backgroundColor: colorCaseAvgLine,
+//        fill:false,
+//        lineTension:0.3,
+//        hidden: false,
+//      }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      title: {
+        display: false,
+        text: 'Positivity Rate; 7 Day Average ',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      legend: {
+          display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemPosRate hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetPosRate(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquarePosRate" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
+      },
+      tooltips: {
+        enabled: true, 
+        mode: 'index',
+        displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        xalign: 'right',
+        yalign:'top',
+        intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
+            }
+          },
+        },
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true,
+      },
+      scales: {
+        xAxes: [{
+          offset:true,
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+          display: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: true,
+            minRotation:window.xAxisMinRotation,
+            maxRotation:window.xAxisMaxRotation,
+            autoSkipPadding: 60,
+          },
+          gridLines:{color:window.xAxisGridColor}
+        }],
+        yAxes: [{
+          display: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            callback: function(tick) {
+              return tick.toString() + '%';
+            },
+            mirror: window.yAxisTickMirror,
+            fontColor: "#fff",
+            fontSize: window.yAxisFontSize,
+            autoSkip: true,
+            maxRotation: 0,
+            autoSkipPadding: 30,
+          },
+          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+          },
+          gridLines:{
+            color:window.yAxisGridColor,
+            drawBorder:false,
+            drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:0,
+          },
+        }],
 
+      }
+    }
+  };
+  
+  updateDatasetPosRate = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciPosRate = e.view.myLinePosRate;
+    var meta = ciPosRate.getDatasetMeta(index);
+    $('#legendContainerPosRate li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+    meta.hidden = meta.hidden === null? !ciPosRate.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciPosRate.update();
+  };
 
 
 		window.onload = function() {
@@ -1447,10 +1607,17 @@
       document.getElementById("legendContainerCntyDth").innerHTML = myLineMultiDth.generateLegend();
       var legendItems = legendContainerCntyDth.getElementsByTagName('li');
 
+      // Total tests stacked line graph & custom legend generation
       var ctx = document.getElementById('canvasTest').getContext('2d');
 			window.myLineTest = new Chart(ctx, configTest);
       document.getElementById("legendContainerTest").innerHTML = myLineTest.generateLegend();
       var legendItems = legendContainerTest.getElementsByTagName('li');
+
+      // Positivity rate graph & custom legend generation
+      var ctx = document.getElementById('canvasPosRate').getContext('2d');
+			window.myLinePosRate = new Chart(ctx, configPosRate);
+      document.getElementById("legendContainerPosRate").innerHTML = myLinePosRate.generateLegend();
+      var legendItems = legendContainerPosRate.getElementsByTagName('li');
 
       //var ctx = document.getElementById('canvasPop').getContext('2d');
 			//window.myBarPop = new Chart(ctx, configPop);

@@ -8,6 +8,7 @@ var caseNumbers = countiesData.features[24].properties.history;
 var deathNumbers = countiesData.features[24].properties.historydeaths;
 var recoveryNumbers = countiesData.features[24].properties.historyrecoveries;
 var negTestNumbers = countiesData.features[24].properties.historynegativetests;
+var posRateNumbers = countiesData.features[24].properties.historyPositivityRateAvg;
 
 // Timeline data (dates) to use for x-axes
 var caseTimeline = countiesData.features[24].properties.dates;
@@ -270,7 +271,7 @@ var colorCaseBackgroundHover = "rgba(255, 107, 105, 1.0)";
 var colorCaseBorderLine = "rgba(223, 97, 95, 1)";
 var colorCaseBackgroundLine = "rgba(235,121,121, .2)";
 var colorCaseHoverLine = "rgba(223, 97, 95, 1)";
-var colorCaseAvgLine = "rgba(245, 170, 169, 1)"
+var colorCaseAvgLine = "rgba(245, 170, 169, 1)";
 
 var colorDeathBorder = "rgba(219,149,61,1)";
 var colorDeathBackground = "rgba(239,161,63,0.9)";
@@ -310,5 +311,8 @@ var colorNegTestBackgroundSolid = "rgba(81,114,147,1.00)";
 var colorNegTestHover = "rgba(109,188,245,1.00)";
 var colorNegTestAvgLine = "rgba(166,210,251,1.00)";
 
+var colorPosRateBorderLine = "rgba(239,220,121,1.00)";
+var colorPosRateBackgroundLine = "rgba(239,220,121,.2)";
+var colorPosRateHoverLine = "rgba(244,232,173,1.00)";
 
 

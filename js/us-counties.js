@@ -8174,6 +8174,9 @@ var countiesData =
         "historyIntensiveCare": [0,1],
         "historyEverHospitalized": [0,1],
         "historynegativetests": [0,1],
+        "historyTotalTests": [0,1],
+        "historyPositivityRate": [0,1],
+        "historyPositivityRateAvg": [0,1],
         "lastupdated": "4/27/20 11:00am EST",
       }
     },

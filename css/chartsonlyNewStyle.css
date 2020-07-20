@@ -309,7 +309,7 @@ html{}
 
   .container-toggle-tabs{
     z-index:3030;
-    position:absolute;
+    position:fixed;
     display:block;
     left:0;
     bottom:0px;
@@ -319,15 +319,6 @@ html{}
     overflow:visible;
     background: rgba(21,21,21,.6);
   }
-/*  .page-header {*/
- /*   @supports (-webkit-appearance:none) {
- @media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
-      .container-toggle-tabs {
-        bottom: 56px;
-      }
-    }
-*/
 
   #dropdownHead{
     z-index:4090;
@@ -374,6 +365,30 @@ html{}
     z-index:3000;
     /*border:1px solid #ffffff;*/
   }
+  /*#labelDropdownHead:before{
+   content:"New Layout: \A Switch charts here";
+   position:absolute;
+   top:-100%;
+   right:50%;
+   width:160px;
+   height:50px;
+   color:#E4413E;
+   font-size:14px;
+   font-weight:500;
+   text-align:left;
+   line-height:100%;
+   white-space:pre;
+   border:1px solid rgba(255,255,255,0.0);
+   background-image:url("../img/arrow-curve-red.png");
+   background-size:20px;
+   background-position: right;
+   background-repeat: no-repeat;
+  }
+  
+  #dropdownHead[aria-expanded="true"] #labelDropdownHead:before{
+   display:none;
+  }*/
+  
   #labelDropdownHead p{
     position:relative;
     display:block;
@@ -381,16 +396,12 @@ html{}
     height:auto;
     margin:0;
     padding:0 15px;
-    font-size:14px;
-    font-weight:400;
+    font-size:16px;
+    font-weight:500;
     line-height:40px;
     white-space:nowrap;
     border:none;
     background:rgba(0,0,0,0);
-   /* -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    -webkit-transform-origin: center;
-            transform-origin: center;*/
   }
   
   #dropdownHead .arrowHoriz {
@@ -472,7 +483,8 @@ html{}
   #hospchart,
   #cntychart,
   #cntydthchart,
-  #testchart{
+  #testchart,
+  #posratechart{
     max-height: calc(95vw * .7);
   } 
   .stdcharts .chartTitle{
@@ -517,14 +529,16 @@ html{}
 #legendContainerCumul,
 #legendContainerDaily,
 #legendContainerTest,
-#legendContainerHosp{
+#legendContainerHosp,
+#legendContainerPosRate{
   width:100%;
   height:auto;
   z-index:3000;
 }
 #legendContainerCumul,
 #legendContainerTest,
-#legendContainerHosp{
+#legendContainerHosp,
+#legendContainerPosRate{
   max-width:600px;
   margin:15px auto 7.5px auto;
 }
@@ -537,7 +551,8 @@ html{}
 #legendContainerCumul> ul,
 #legendContainerDaily> ul,
 #legendContainerTest> ul,
-#legendContainerHosp> ul{
+#legendContainerHosp> ul,
+#legendContainerPosRate > ul{
   display:flex;
   justify-content:center;
   flex-flow: row wrap;
@@ -548,7 +563,8 @@ html{}
 #legendContainerCumul li,
 #legendContainerDaily li,
 #legendContainerTest li,
-#legendContainerHosp li{
+#legendContainerHosp li,
+#legendContainerPosRate li{
   display:block;
   flex-grow:0;
   cursor: pointer;
@@ -560,7 +576,8 @@ html{}
 
 #legendContainerCumul li,
 #legendContainerTest li,
-#legendContainerHosp li{
+#legendContainerHosp li,
+#legendContainerPosRate li{
   flex-basis:auto;
   padding:5px 20px;
 }
@@ -573,14 +590,16 @@ html{}
 #legendContainerCumul li.hiddentrue,
 #legendContainerDaily li.hiddentrue,
 #legendContainerTest li.hiddentrue,
-#legendContainerHosp li.hiddentrue{
+#legendContainerHosp li.hiddentrue,
+#legendContainerPosRate li.hiddentrue{
   color:rgba(255,255,255,0.5)
 } 
 
 #legendContainerCumul li:hover,
 #legendContainerDaily li:hover,
 #legendContainerTest li:hover,
-#legendContainerHosp li:hover{
+#legendContainerHosp li:hover,
+#legendContainerPosRate li:hover{
   text-decoration:underline;
 }
 
@@ -599,7 +618,8 @@ html{}
 #legendContainerCumul li span,
 #legendContainerDaily li span,
 #legendContainerTest li span,
-#legendContainerHosp li span{
+#legendContainerHosp li span,
+#legendContainerPosRate li span{
   position: relative;
   display:inline-block;
   margin:0 7.5px -1px 0;
@@ -616,7 +636,8 @@ html{}
 #legendContainerCumul li:hover span,
 #legendContainerDaily li:hover span,
 #legendContainerTest li:hover span,
-#legendContainerHosp li:hover span{
+#legendContainerHosp li:hover span,
+#legendContainerPosRate li:hover span{
   border:2px solid;
   filter:brightness(90%);
 }
@@ -624,7 +645,8 @@ html{}
 #legendContainerCumul li.hiddentrue span,
 #legendContainerDaily li.hiddentrue span,
 #legendContainerTest li.hiddentrue span,
-#legendContainerHosp li.hiddentrue span{
+#legendContainerHosp li.hiddentrue span,
+#legendContainerPosRate li.hiddentrue span{
   border:2px solid;
   background:transparent !important;
   filter:brightness(60%);
@@ -633,7 +655,8 @@ html{}
 #legendContainerCumul li.hiddentrue:hover span,
 #legendContainerDaily li.hiddentrue:hover span,
 #legendContainerTest li.hiddentrue:hover span,
-#legendContainerHosp li.hiddentrue:hover span{
+#legendContainerHosp li.hiddentrue:hover span,
+#legendContainerPosRate li.hiddentrue:hover span{
     filter:brightness(80%);
 }
 
@@ -660,7 +683,8 @@ html{}
   #legendContainerCumul> ul,
   #legendContainerDaily> ul,
   #legendContainerTest> ul,
-  #legendContainerHosp> ul{
+  #legendContainerHosp> ul,
+  #legendContainerPosRate> ul{
     padding:0 2%;
   }
   #legendContainerDaily> ul{
@@ -673,20 +697,25 @@ html{}
   }
  
   #legendContainerTest> ul,
-  #legendContainerHosp> ul{
+  #legendContainerHosp> ul,
+  #legendContainerPosRate > ul{
     justify-content:center;
   }
 
+  #legendContainerCumul li,
+  #legendContainerDaily li,
+  #legendContainerTest li,
+  #legendContainerHosp li,
+  #legendContainerPosRate li{
+    font-size:16px;
+    padding:5px 0px;
+  }
+  
   #legendContainerCumul li{
     flex-basis:33%;
-    padding:5px 0px;
-    font-size:16px;
-
   }
 
   #legendContainerDaily li{
-    padding:5px 0px;
-    font-size:16px;
     overflow:hidden;
     white-space:nowrap;
   }
@@ -697,15 +726,17 @@ html{}
   #legendContainerDaily li:nth-child(8),#legendContainerDaily li:nth-child(4){flex-basis:27%;}
   
   #legendContainerTest li,
-  #legendContainerHosp li {
+  #legendContainerHosp li{
     flex-basis:40%;
-    padding:5px 0px;
-    font-size:16px;
+  }  
+  #legendContainerPosRate li{
+    flex-basis:auto;
   }  
   #legendContainerCumul li span,
   #legendContainerDaily li span,
   #legendContainerTest li span,
-  #legendContainerHosp li span {
+  #legendContainerHosp li span,
+  #legendContainerPosRate li span{
     margin:0 5px -1px 0;
     height:14px;
     width:14px;
@@ -720,7 +751,8 @@ html{}
   #legendContainerCumul li,
   #legendContainerDaily li,
   #legendContainerTest li,
-  #legendContainerHosp li {
+  #legendContainerHosp li,
+  #legendContainerPosRate li{
     font-size:14px;
   }
 }
