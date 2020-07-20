@@ -127,11 +127,12 @@
       legendCallback: 
         function(chart) { 
           var text = []; 
+          
           text.push('<ul class="' + chart.id + '-legend">'); 
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
             if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemCumul hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetCumul(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareCumul" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              text.push('<li class="chart-legend-label-text legendItemCumul hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetCumul(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetCumul(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquareCumul" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
             } 
             text.push('</li>'); 
           } 
@@ -355,7 +356,7 @@
         for (var i = 0; i < chart.data.datasets.length; i++) { 
           //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
           if (chart.data.datasets[i].label) { 
-            text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            text.push('<li class="chart-legend-label-text legendItemDaily hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetDaily(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquareDaily" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
           } 
           text.push('</li>'); 
         } 
@@ -431,7 +432,7 @@
       }
     }
   };
-  
+ 
   updateDatasetDaily = function(e, datasetIndex) {
     var index = datasetIndex;
     var ciDaily = e.view.myBarDaily;
@@ -660,7 +661,7 @@
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
             if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemCnty hidden' + chart.data.datasets[i].hidden + '" onclick="updateDataset(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendCircleCnty" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              text.push('<li class="chart-legend-label-text legendItemCnty hidden' + chart.data.datasets[i].hidden + '" onclick="updateDataset(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDataset(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendCircleCnty" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
             } 
             text.push('</li>'); 
           } 
@@ -959,7 +960,7 @@
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
             if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemCnty hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDth(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendCircleCnty" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              text.push('<li class="chart-legend-label-text legendItemCnty hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDth(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetDth(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendCircleCnty" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
             } 
             text.push('</li>'); 
           } 
@@ -1135,7 +1136,7 @@
           text.push('<ul class="' + chart.id + '-legend">'); 
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemHosp hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareHosp" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              text.push('<li class="chart-legend-label-text legendItemHosp hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquareHosp" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
             } 
             text.push('</li>'); 
           } 
@@ -1301,7 +1302,7 @@
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
             if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemTest hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetTest(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquareTest" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              text.push('<li class="chart-legend-label-text legendItemTest hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetTest(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetTest(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquareTest" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
             } 
             text.push('</li>'); 
           } 
@@ -1434,33 +1435,6 @@
         fill: false,
         lineTension: 0.1,
       }
-////  BAR EXAMPLE
-//      {
-//        label: 'Positivity Rate (7d Avg)',
-//        data: posRateNumbers,
-//        pointRadius: 0,
-//        borderWidth: 2,
-//        borderColor: colorCaseBorder,
-//        backgroundColor: colorCaseBackground,
-//        hoverBackgroundColor:colorCaseBackgroundHover,
-//        hoverBorderColor:"",
-//        barPercentage: 1,
-//        categoryPercentage: 0.9,
-//        hidden:false,
-//      }
-////  LINE EXAMPLE
-//      ,{
-//        type:'line',
-//        label: 'Avg (C)',
-//        data: avgMovingCaseChange,
-//        pointRadius: 0,
-//        borderWidth: 2,
-//        borderColor: colorCaseAvgLine,
-//        backgroundColor: colorCaseAvgLine,
-//        fill:false,
-//        lineTension:0.3,
-//        hidden: false,
-//      }
       ]
     },
     options: {
@@ -1484,7 +1458,7 @@
           for (var i = 0; i < chart.data.datasets.length; i++) { 
             //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
             if (chart.data.datasets[i].label) { 
-              text.push('<li class="chart-legend-label-text legendItemPosRate hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetPosRate(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '"><span class="legendSquarePosRate" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+              text.push('<li class="chart-legend-label-text legendItemPosRate hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetPosRate(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetPosRate(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquarePosRate" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
             } 
             text.push('</li>'); 
           } 
@@ -1588,7 +1562,7 @@
 			window.myBarDaily = new Chart(ctx, configDaily);
       document.getElementById("legendContainerDaily").innerHTML = myBarDaily.generateLegend();
       var legendItems = legendContainerDaily.getElementsByTagName('li');
-
+      
       // Hospitalizations line graph initiation
       var ctx = document.getElementById('canvasHosp').getContext('2d');
 			window.myLineHosp = new Chart(ctx, configHosp);
@@ -1618,7 +1592,7 @@
 			window.myLinePosRate = new Chart(ctx, configPosRate);
       document.getElementById("legendContainerPosRate").innerHTML = myLinePosRate.generateLegend();
       var legendItems = legendContainerPosRate.getElementsByTagName('li');
-
+       
       //var ctx = document.getElementById('canvasPop').getContext('2d');
 			//window.myBarPop = new Chart(ctx, configPop);
 		};
