@@ -79,16 +79,17 @@
   <!-- Main Map Container -->
   <div id="mapMain">
    
-    <!-- Information Panel on Right Side -->
+    
+  <!-- Information Panel on Right Side -->
     <div id="infoPane" class="infoPane">
       <img src="img/mdflagmap-lg.png" aria-hidden="true" id="mdflag" alt="">
       <!-- Tabs for toggling charts on mobile -->
       <div class="container-toggle-tabs reorderWorker">
         <ul class="box-toggle-tabs">
-
           <li class="toggle-tab active-tab" role="button">Daily New</li>
           <li class="toggle-tab" role="button">Cumulative</li>
-          <li class="toggle-tab" role="button">In Hospital</li>
+          <li class="toggle-tab" role="button">Hospital: Now</li>
+          <li class="toggle-tab" role="button">Hospital: Chg.</li>
         </ul>
       </div>  
       
@@ -114,16 +115,22 @@
       <!-- Hospitalizations Graph -->
       <div id="hospchart" class="stdcharts tab-content reorderWorker">
         <a href="charts#hospitalizations" class="linkExpChart" title="Expand hospitalizations chart" aria-label="Expand hospitalizations chart"></a>
-        <h2 class="">Now Hospitalized in MD (Stacked)</h2>
+        <h2 class="">Current Hospitalizations <sup style="top:-1px; font-size:10px; color:#dddddd;">(Stacked)</sup></h2>
         <div id="legendContainerHosp"></div>
         <canvas id="canvasHosp"></canvas>
       </div>
         
+      <!-- Daily Hospitalizations Graph -->
+      <div id="dailyhospchart" class="stdcharts tab-content reorderWorker">
+        <a href="charts#dailyhospitalizations" style="display:none" class="linkExpChart" title="Expand daily hospitalizations chart" aria-label="Expand daily hospitalizations chart"></a>
+        <h2 class="">Change in Hospitalizations <sup style="top:-1px; font-size:10px; color:#dddddd;">(Stacked)</sup></h2>
+        <div id="legendContainerDailyHosp"></div>
+        <canvas id="canvasDailyHosp"></canvas>
+      </div>  
+        
     </div>
   </div>
-  
-  <!--<a href="charts#casesbycounty" id="linkNewFeature">NEW: Graph of all counties over time</a>-->
-  
+
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/us-counties.js"></script>
@@ -133,79 +140,77 @@
   <script type="text/javascript" src="js/linechart.js"></script>
    
   <script type="text/javascript">
-  // jQuery for controlling tabbed content
-  $(".box-toggle-tabs li").click(function () {
-    $(this)
-      .addClass("active-tab")
-      .parents("ul.box-toggle-tabs")
-      .find("li")
-      .not($(this))
-      .removeClass("active-tab");
-    var currentTabIndex = $(this).index();
-    $(".tab-content:eq(" + currentTabIndex + ")")
-      .addClass("active-tab-content")
-      .parents(".infoPane")
-      .find(".tab-content")
-      .not($(".tab-content:eq(" + currentTabIndex + ")"))
-      .removeClass("active-tab-content");
-      
-      //Hacky way of stabilizing height of canvas before chart loads in
-      //var chartBoxHeight = $('#cumulchart').children("canvas").height() + "px";
-      var chartContainerHeight = $('#cumulchart').children("canvas").height() + 30 + "px";
-      var chartContainerHeight = $('#cumulchart').children("canvas").height() + "px";
-      //$('#dailychart').children("canvas").css('min-height', chartBoxHeight);
-      $('#dailychart ').css('min-height', chartContainerHeight);
-      $('#hospchart').css('min-height', chartContainerHeight);
-      
-  });
+    // jQuery for controlling tabbed content
+    $(".box-toggle-tabs li").click(function () {
+      $(this)
+        .addClass("active-tab")
+        .parents("ul.box-toggle-tabs")
+        .find("li")
+        .not($(this))
+        .removeClass("active-tab");
+      var currentTabIndex = $(this).index();
+      $(".tab-content:eq(" + currentTabIndex + ")")
+        .addClass("active-tab-content")
+        .parents(".infoPane")
+        .find(".tab-content")
+        .not($(".tab-content:eq(" + currentTabIndex + ")"))
+        .removeClass("active-tab-content");
+
+        //Hacky way of stabilizing height of canvas before chart loads in
+        //var chartBoxHeight = $('#cumulchart').children("canvas").height() + "px";
+        var chartContainerHeight = $('#cumulchart').children("canvas").height() + 30 + "px";
+        var chartContainerHeight = $('#cumulchart').children("canvas").height() + "px";
+        //$('#dailychart').children("canvas").css('min-height', chartBoxHeight);
+        $('#dailychart ').css('min-height', chartContainerHeight);
+        $('#hospchart').css('min-height', chartContainerHeight);
+
+    });
   </script>
   
   <script type="text/javascript">
-  // jQuery for controlling i panel content
-  $("#button-i").click(function () {
-    $(this).toggleClass("buttonActive");
-    
-    // Checks if panel is expanded
-    if ($("#panelDesc").hasClass("panelActive")){
-      // Collapses visible panel with slide up animation
-      $("#panelDesc").slideUp(200).removeClass("panelActive");
-      // Sets aria-expanded attr to 'false' and aria-label attr to 'Open panel...'
-      $("#button-i").attr('aria-expanded', 'false').attr('aria-label', 'Open panel containing project info');
-    } else {
-      // Expands hidden panel with slide down animation
-      $("#panelDesc").slideDown(200).addClass("panelActive");
-      // Sets aria-expanded attr to 'true' and aria-label attr to 'Close panel...'
-      $("#button-i").attr('aria-expanded', 'true').attr('aria-label', 'Close panel containing project info');
-    }
-  });
-  </script>
-  
-  <script>
-  // Scripts for Enforcing Accessibility
-  // Reorders DOM elements manually for proper screen reader reading order
-  var wrapper = $('#infoPane'), 
-      items = wrapper.children('.reorderWorker'),
-      arr = [4,0,1,2,3];  
-  wrapper.append( $.map(arr, function(v){ return items[v] }) ); //items.detach(); if arr doesn't reuse all items
-  
-  // Removes map container from tab order because it shouldnt be in there
-  $('$mapMain').attr('tabindex', -1);
-  </script>
-  
-  
-  <script>
-  // Fixes issue in Leaflet.js where control containers are prevented from scrolling within the map container
-  var infoPaneBox = document.getElementsByClassName("infoPane")[0];
-  if (!L.Browser.touch) {
-    L.DomEvent
-      .disableClickPropagation(infoPaneBox)
-      .disableScrollPropagation(infoPaneBox);
-  } else {
-    L.DomEvent.disableClickPropagation(infoPaneBox);
-  }
-  
-  </script>
+    // Js for controlling "i" panel content (the "About this project" panel)
+    $("#button-i").click(function () {
+      $(this).toggleClass("buttonActive");
 
+      // Checks if panel is expanded
+      if ($("#panelDesc").hasClass("panelActive")){
+        // Collapses visible panel with slide up animation
+        $("#panelDesc").slideUp(200).removeClass("panelActive");
+        // Sets aria-expanded attr to 'false' and aria-label attr to 'Open panel...'
+        $("#button-i").attr('aria-expanded', 'false').attr('aria-label', 'Open panel containing project info');
+      } else {
+        // Expands hidden panel with slide down animation
+        $("#panelDesc").slideDown(200).addClass("panelActive");
+        // Sets aria-expanded attr to 'true' and aria-label attr to 'Close panel...'
+        $("#button-i").attr('aria-expanded', 'true').attr('aria-label', 'Close panel containing project info');
+      }
+    });
+  </script>
+  
+  <script>
+    // Scripts for Enforcing Accessibility
+    // Reorders DOM elements manually for proper screen reader reading order
+    var wrapper = $('#infoPane'), 
+        items = wrapper.children('.reorderWorker'),
+        arr = [4,0,1,2,3,4];  
+    wrapper.append( $.map(arr, function(v){ return items[v] }) ); //items.detach(); if arr doesn't reuse all items
+
+    // Removes map container from tab order because it shouldnt be in there
+    $('$mapMain').attr('tabindex', -1);
+  </script>
+  
+  
+  <script>
+    // Fixes issue in Leaflet.js where control containers are prevented from scrolling within the map container
+    var infoPaneBox = document.getElementsByClassName("infoPane")[0];
+    if (!L.Browser.touch) {
+      L.DomEvent
+        .disableClickPropagation(infoPaneBox)
+        .disableScrollPropagation(infoPaneBox);
+    } else {
+      L.DomEvent.disableClickPropagation(infoPaneBox);
+    }
+  </script>
 
 </body>
 

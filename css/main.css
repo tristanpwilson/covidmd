@@ -7,7 +7,7 @@
 /* ------------------------------------------------------- */
 /*Temporary Last Update Pseudo*/
 #button-i:after{
- content:"Last Updated: July 21, 2020, 10:28:00 EST";
+ content:"Last Updated: July 21, 2020, 12:33:00 EST";
  position:absolute;
  display:block;
  left:100%;
@@ -278,6 +278,8 @@ html, body, .leaflet-container {
 
 #hospchart {order: 4;}
 
+#dailyhospchart {order: 5;}
+
 .stdcharts h2{
   position:relative;
   display:block;
@@ -504,7 +506,7 @@ html, body, .leaflet-container {
     list-style: none;
     text-align: right;
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
   }
@@ -528,7 +530,7 @@ html, body, .leaflet-container {
     order: 3;
     /*height:100%;*/
     margin: 0 !important;
-    padding: 15px 2vw;
+    padding: 15px 1vw;
     transition: .1s linear height 1s;
   }
   .stdcharts canvas {
@@ -551,8 +553,16 @@ html, body, .leaflet-container {
 }
 
 @media(max-width: 575px) {
+  .container-toggle-tabs {
+    flex-basis: 20%;
+  }
+    
   .toggle-tab {
-    font-size: 2.6vw;
+    font-size: 2.5vw;
+  }
+  .stdcharts {
+    width: 80%;
+    padding: 15px 1vw;
   }
 }
 
@@ -822,14 +832,16 @@ html, body, .leaflet-container {
 /*--- Cumulative & Daily Chart Custom Legends --- */
 #legendContainerCumul,
 #legendContainerDaily,
-#legendContainerHosp{
+#legendContainerHosp,
+#legendContainerDailyHosp{
 
   height:auto;
   z-index:3000;
   margin:0px auto 0px auto;
 }
 #legendContainerCumul,
-#legendContainerHosp{
+#legendContainerHosp,
+#legendContainerDailyHosp{
   width:95%;
   /*max-width:600px;*/
 }
@@ -841,7 +853,8 @@ html, body, .leaflet-container {
 
 #legendContainerCumul> ul,
 #legendContainerDaily> ul,
-#legendContainerHosp> ul{
+#legendContainerHosp> ul,
+#legendContainerDailyHosp > ul{
   display:flex;
   justify-content:space-around;
   flex-flow: row wrap;
@@ -849,10 +862,11 @@ html, body, .leaflet-container {
   margin:0!important;
 }
 
-/* Daily Chart Legend Items + Text Style */
+/* Chart Legend Items + Text Style */
 #legendContainerCumul li,
 #legendContainerDaily li,
-#legendContainerHosp li{
+#legendContainerHosp li,
+#legendContainerDailyHosp li{
   display:block;
   flex-grow:0;
   flex-basis:auto;
@@ -866,13 +880,15 @@ html, body, .leaflet-container {
 
 #legendContainerCumul li.hiddentrue,
 #legendContainerDaily li.hiddentrue,
-#legendContainerHosp li.hiddentrue{
+#legendContainerHosp li.hiddentrue,
+#legendContainerDailyHosp li.hiddentrue{
   color:rgba(255,255,255,0.5)
 } 
 
 #legendContainerCumul li:hover,
 #legendContainerDaily li:hover,
-#legendContainerHosp li:hover{
+#legendContainerHosp li:hover,
+#legendContainerDailyHosp li:hover{
   text-decoration:underline;
 }
 
@@ -889,7 +905,8 @@ html, body, .leaflet-container {
 /* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
 #legendContainerCumul li span,
 #legendContainerDaily li span,
-#legendContainerHosp li span{
+#legendContainerHosp li span,
+#legendContainerDailyHosp li span{
   position: relative;
   display:inline-block;
   padding: 0;
@@ -898,19 +915,22 @@ html, body, .leaflet-container {
 }
 #legendContainerCumul li span,
 #legendContainerDaily li span.legSq,
-#legendContainerHosp li span{
+#legendContainerHosp li span,
+#legendContainerDailyHosp li span{
   border:2px solid;
 }
 
-/*Daily Chart Moving Avg Check Toggle Style*/
-#legendContainerDaily li span.legCheck{
-  border:1px solid rgba(255,255,255,0.4);
-  border-radius:2px;
-}
-#legendContainerDaily li.avgOn span.legCheck{
-  border:1px solid rgba(255,255,255,0.6);
-  border-radius:2px;
-}
+  /*-----------------------------------------------------------*/
+  /*-------- Daily Chart Moving Avg Check Toggle Style --------*/
+  /*-----------------------------------------------------------*/
+  #legendContainerDaily li span.legCheck{
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:2px;
+  }
+  #legendContainerDaily li.avgOn span.legCheck{
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:2px;
+  }
   /*Daily Chart Pseudoelement to Create Check Mark*/
   #legendContainerDaily li.avgOn span.legCheck:after {
     content:"";
@@ -930,7 +950,9 @@ html, body, .leaflet-container {
     opacity:.7;
     transition:.2s ease opacity;
   }
-
+  /*-----------------------------------------------------------*/
+  /*-----------------------------------------------------------*/
+  
 #legendContainerCumul li span,
 #legendContainerHosp li span {
   height:13px;
@@ -938,7 +960,8 @@ html, body, .leaflet-container {
   margin:0 5px -2px 0;
   border-radius:50%;}
 
-#legendContainerDaily li span {
+#legendContainerDaily li span,
+#legendContainerDailyHosp li span{
   height:12px;
   width:12px;
   margin:0 5px -1px 0;
@@ -946,14 +969,16 @@ html, body, .leaflet-container {
 
 #legendContainerCumul li:hover span,
 #legendContainerDaily li:hover span.legSq,
-#legendContainerHosp li:hover span{
+#legendContainerHosp li:hover span,
+#legendContainerDailyHosp li:hover span{
   border:2px solid;
   filter:brightness(90%);
 }
 
 #legendContainerCumul li.hiddentrue span,
 #legendContainerDaily li.hiddentrue span,
-#legendContainerHosp li.hiddentrue span {
+#legendContainerHosp li.hiddentrue span,
+#legendContainerDailyHosp li.hiddentrue span{
   border:2px solid;
   background:transparent !important;
   filter:brightness(60%);
@@ -961,31 +986,21 @@ html, body, .leaflet-container {
 
 #legendContainerCumul li.hiddentrue:hover span,
 #legendContainerDaily li.hiddentrue:hover span,
-#legendContainerHosp li.hiddentrue:hover span {
+#legendContainerHosp li.hiddentrue:hover span,
+#legendContainerDailyHosp li.hiddentrue:hover span{
     filter:brightness(80%);
 }
 
-/*#legendContainerDaily li:nth-child(1) span {border-radius:50%;}
-#legendContainerDaily li:nth-child(2) span {border-radius:50%;}
-#legendContainerDaily li:nth-child(3) span {border-radius:50%;}
-
-#legendContainerDaily li:nth-child(4) span {border-radius:0%;}
-#legendContainerDaily li:nth-child(5) span {border-radius:0%;}
-#legendContainerDaily li:nth-child(6) span {border-radius:0%;}*/
-
-
-@media (max-width: 991px){
-
-}
+/*@media (max-width: 991px){}*/
 
 @media (max-width: 767px){
   #legendContainerDaily{
     width:70%;
   }
-  #legendContainerHosp{
+  #legendContainerHosp,
+  #legendContainerDailyHosp{
     width:60%;
   }
-  
 }
 
 @media (max-width: 575px){
@@ -995,31 +1010,29 @@ html, body, .leaflet-container {
   #legendContainerDaily{
     width:100%;
   }
-  #legendContainerHosp{
+  #legendContainerHosp,
+  #legendContainerDailyHosp{
     width:76%;
   }
   #legendContainerCumul> ul,
   #legendContainerDaily> ul,
-  #legendContainerHosp> ul{
+  #legendContainerHosp> ul,
+  #legendContainerDailyHosp> ul{
     padding:0;
-  }
-
-  #legendContainerCumul> ul,
-  #legendContainerDaily> ul,
-  #legendContainerHosp> ul{
     justify-content:space-around;
   }
-
   #legendContainerCumul li,
   #legendContainerDaily li,
-  #legendContainerHosp li{
+  #legendContainerHosp li,
+  #legendContainerDailyHosp li{
     flex-basis:auto;
     padding:3.5px 0px;
     font-size:13px;
   }
   #legendContainerCumul li span,
   #legendContainerDaily li span,
-  #legendContainerHosp li span{
+  #legendContainerHosp li span,
+  #legendContainerDailyHosp li span{
     margin:0 5px -1px 0;
     height:12px;
     width:12px;
@@ -1029,12 +1042,14 @@ html, body, .leaflet-container {
 @media(max-width:370px){
   #legendContainerCumul li,
   #legendContainerDaily li,
-  #legendContainerHosp li{
+  #legendContainerHosp li,
+  #legendContainerDailyHosp li{
     font-size:12px;
   }
   #legendContainerCumul li span,
   #legendContainerDaily li span,
-  #legendContainerHosp li span{
+  #legendContainerHosp li span,
+  #legendContainerDailyHosp li span{
       margin:0 3px -1px 0;
   }
 }

@@ -23,7 +23,8 @@
     window.borderWidthLine = 2;
     window.hoverRadiusLine = 3;
     window.hoverBorderWidthLine =2;
-  } else {
+  } 
+  else {
     window.legendFontSize = 15;
     window.titleFontSize = 22;
     window.xAxisFontSize = 12;
