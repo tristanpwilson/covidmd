@@ -35,7 +35,7 @@
 
 
 // Conditional Styling Variables for Small vs. Large Screen Widths 
-if($(window).width() <= 575) {
+if($(window).width() <= 767) {
   window.aspectTemp = 1.43;
   window.legendFontSize = 12;
   window.titleFontSize = 15;
@@ -49,9 +49,11 @@ if($(window).width() <= 575) {
   window.yAxisTickMirror = true;
   window.barPercentStacked = .2;
   window.yAxisPaddingStacked = 0;
+  window.xAxisTickMarkLength = 4;
+  window.yAxisTickMarkLength = 0;
 } 
 else {
-  window.aspectTemp = 1.95;
+  window.aspectTemp = 2.1;
   window.legendFontSize = 14;
   window.titleFontSize = 16;
   window.xAxisFontSize = 9;
@@ -61,9 +63,11 @@ else {
   window.xAxisMirror = false;
   window.yAxisFontSize = 9;
   window.yAxisTickDisplay = true;
-  window.yAxisTickMirror = false;
+  window.yAxisTickMirror = true;
   window.barPercentStacked = 1;
   window.yAxisPaddingStacked = 20;
+  window.xAxisTickMarkLength = 4;
+  window.yAxisTickMarkLength = 0;
 }
 
 
@@ -76,7 +80,8 @@ var configCumul = {
   type: 'line',
   data: {
     labels: caseTimeline,
-    datasets: [{
+    datasets: [
+    {
       label: 'Cases',
       backgroundColor: colorCaseBackgroundLine,
       borderColor: colorCaseBorderLine,
@@ -206,7 +211,10 @@ var configCumul = {
           maxRotation:window.xAxisMaxRotation,
           autoSkipPadding: 40,
         },
-        gridLines:{color:"rgba(255,255,255,0.1)"}
+        gridLines:{
+          color:"rgba(255,255,255,0.1)",
+          tickMarkLength:window.xAxisTickMarkLength,
+        }
       }],
       yAxes: [{
         display: true,
@@ -226,6 +234,7 @@ var configCumul = {
         gridLines:{
           color:"rgba(255,255,255,0.1)",
           drawTicks: window.yAxisTickDisplay,
+          tickMarkLength:window.yAxisTickMarkLength,
         }
       }],
 
@@ -394,9 +403,11 @@ var configDaily = {
           minRotation:window.xAxisMinRotation,
           maxRotation:window.xAxisMaxRotation,
           autoSkipPadding: 40,
+          
         },
         gridLines:{
           color:"rgba(255,255,255,0.1)",
+          tickMarkLength:window.xAxisTickMarkLength,
         }
       }],
       yAxes: [{
@@ -418,6 +429,7 @@ var configDaily = {
           color:"rgba(255,255,255,0.1)",
           drawBorder:false,
           drawTicks: window.yAxisTickDisplay,
+          tickMarkLength:window.yAxisTickMarkLength,
         }
       }],
 
@@ -600,6 +612,7 @@ var configHosp = {
         gridLines:{
           color:"rgba(255,255,255,0.1)",
           zeroLineColor: "rgba(255,255,255,0.02)",
+          tickMarkLength:window.xAxisTickMarkLength,
         }
       }],
       yAxes: [{
@@ -621,6 +634,7 @@ var configHosp = {
         gridLines:{
           color:"rgba(255,255,255,0.1)",
           drawTicks: window.yAxisTickDisplay,
+          tickMarkLength:window.yAxisTickMarkLength,
         }
       }],
 
@@ -656,7 +670,6 @@ var configDailyHosp = {
       borderWidth: 2,
       backgroundColor: colorIntensiveBackground,
       borderColor: colorIntensiveBorder,
-      
       categoryPercentage:1,
       hidden: false,
     },
@@ -747,7 +760,8 @@ var configDailyHosp = {
           autoSkipPadding: 40,
         },
         gridLines:{
-          color:"rgba(255,255,255,0.1)",
+          color:"rgba(255,255,255,0.05)",
+          tickMarkLength:window.xAxisTickMarkLength,
         }
       }],
       yAxes: [{
@@ -760,25 +774,19 @@ var configDailyHosp = {
           fontSize: window.yAxisFontSize,
           autoSkip: false,
           maxRotation: 0,
-          autoSkipPadding: 10,
+          //autoSkipPadding: 10,
           stepSize: 100,
-          major:{
-            enabled:true,
-          
-            fontColor:"rgba(255,255,255,1)",
-          },
-          
         },
-//        afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
-//          scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
-//          scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
-//        },
+afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+          scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+          scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+        },
         gridLines:{
-          
           color:"rgba(255,255,255,0.1)",
-          zeroLineColor:"rgba(255,255,255,0.1)",
+          zeroLineColor:"rgba(255,255,255,0.2)",
           drawBorder:false,
           drawTicks: window.yAxisTickDisplay,
+          tickMarkLength:window.yAxisTickMarkLength,
         }
       }],
 
