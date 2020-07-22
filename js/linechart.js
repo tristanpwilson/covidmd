@@ -191,7 +191,6 @@ var configCumul = {
       },
     },        
     hover: {
-      //mode: 'average',
       intersect: false
     },
     scales: {
@@ -199,11 +198,12 @@ var configCumul = {
         type: 'time',
         time: {
           unit: 'day',
-          //unitStepSize: 4,
+          //unitStepSize: 28,
         },
         display: true,
         scaleLabel: {display: false,},
         ticks:{
+          //min: 1,
           fontColor: "#fff",
           fontSize: window.xAxisFontSize,
           autoSkip: true,
@@ -213,6 +213,7 @@ var configCumul = {
         },
         gridLines:{
           color:"rgba(255,255,255,0.1)",
+          zeroLineColor:"rgba(255,255,255,0.1)",
           tickMarkLength:window.xAxisTickMarkLength,
         }
       }],
