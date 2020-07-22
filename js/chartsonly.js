@@ -18,7 +18,7 @@
     window.legendPaddingCnty = 13;
     window.legendPositionCnty = "bottom";
     window.legendAlignCnty = "start";
-    window.pointRadiusLine = 1;
+    window.pointRadiusLine = .75;
     window.pointHitRadiusLine = 4;
     window.borderWidthLine = 2;
     window.hoverRadiusLine = 3;
@@ -55,7 +55,7 @@
       labels: caseTimeline,
       datasets: [{
         label: 'Cases',
-        backgroundColor: colorCaseBackgroundLine,
+        backgroundColor: colorCaseBackgroundLineLight,
         borderColor: colorCaseBorderLine,
         data: caseNumbers,
         pointRadius: window.pointRadiusLine,

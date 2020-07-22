@@ -75,7 +75,7 @@ else {
 //----- Chart Initialization Section (Home Page Only) -----//
 //---------------------------------------------------------//
 
-// --- Linechart State Cumulative Config ----------//
+// --- Cumulative Cases Linechart Config ----------//
 var configCumul = {
   type: 'line',
   data: {
@@ -255,7 +255,8 @@ updateDatasetCumul = function(e, datasetIndex) {
 };
 
 
-// --- Barchart 1 Config ------------------------- //
+
+// --- Daily Cases Barchart Config ------------------------- //
 var configDaily = {
   type: 'bar',
   data: {
@@ -489,7 +490,8 @@ toggleAvgDaily = function(){
 }; 
 
 
-// --- Linechart Hospitalizations Config --------- //
+
+// --- Current Hospitalizations Linechart Config --------- //
 var configHosp = {
   type: 'line',
   data: {
@@ -657,7 +659,9 @@ updateDatasetHosp = function(e, datasetIndex) {
   ciHosp.update();
 };
 
-// --- Linechart Daily Hospitalizations Config --- //
+
+
+// --- Daily Hospitalizations Linechart Config --- //
 var configDailyHosp = {
   type: 'bar',
   data: {
@@ -793,6 +797,8 @@ afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) 
     }
   }
 };
+
+
 
 // --- Chart Instantiation Script --------- //
 window.onload = function generateCharts() {
