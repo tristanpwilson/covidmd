@@ -225,44 +225,53 @@ html{}
                0 -1px 1px 0 rgba(0,0,0,.1) inset;
     transition: .2s ease-out height .1s, .05s ease background, .05s ease color;
 }
-.toggle-tab:hover,
-.toggle-tab:focus{
-  color:rgba(255,255,255,0.8);
-  background: rgba(26,26,26,1);
+
+.toggle-tab.active-tab {
+  z-index:3020 !important;
+  color:rgba(255,255,255,1);
+  background: rgba(30,30,30,1);
   border-top:1px solid transparent;
+  border-bottom: 1px solid rgba(100,100,100,0.2);
+  border-left:1px solid transparent;
+  border-right:1px solid transparent;
+    box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.5), 
+                -1px 2px 1px 1px rgba(0,0,0,0.2),
+                /*This Last shadow mimics upper border*/
+                0px -1px 0px 0px rgba(100,100,100,0.2); 
+    transition: .1s ease all;
+}
+
+.toggle-tab:hover,
+.toggle-tab:focus,
+.toggle-tab.active-tab:hover,
+.toggle-tab.active-tab:focus{
   border-left:1px solid transparent;
   border-right:1px solid transparent;
     transition: .2s ease all;
 }
-.toggle-tab:hover{
-  border-bottom: 1px solid rgba(100,100,100,0.1);
-  box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.1);
-}
-.toggle-tab:focus{
-  border-bottom: 1px solid rgba(100,100,100,0.2);
-  box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.2);
-}
 
-.toggle-tab.active-tab,
-.toggle-tab.active-tab:hover,
-.toggle-tab.active-tab:focus {
-  z-index:3020 !important;
-  color:rgba(255,255,255,1);
-  background: rgba(30,30,30,1);
-  border-top:1px solid rgba(100,100,100,0.2);
-  border-bottom: 1px solid rgba(100,100,100,0.2);
-  border-left:1px solid transparent;
-  border-right:1px solid transparent;
-    box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5), -1px 2px 1px 1px rgba(0,0,0,0.2);
-    transition: .1s ease all;
+.toggle-tab:hover,
+.toggle-tab:focus{
+  color:rgba(255,255,255,0.8);
+  background: rgba(26,26,26,1);
+  border-bottom: 1px solid rgba(100,100,100,0.1);
+  box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5),
+              0px -1px 0px 0px rgba(100,100,100,0.1);
 }
-.toggle-tab.active-tab:focus{
+.toggle-tab:focus{  
   text-decoration:underline;
 }
-
-.toggle-tab.active-tab{
-  /*padding-left:30px;*/
+.toggle-tab.active-tab:hover,
+.toggle-tab.active-tab:focus{
+  color:rgba(255,255,255,1);
+  background: rgba(30,30,30,1);
+  text-decoration:underline;
+  border-top:1px solid rgba(100,100,100,0.2);
+  border-bottom: 1px solid rgba(100,100,100,0.2);
+  box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5);
+  cursor:default;
 }
+
 
 .toggle-tab.active-tab:after {
   content:"\25B6";
