@@ -234,11 +234,17 @@ html{}
   border-bottom: 1px solid rgba(100,100,100,0.2);
   border-left:1px solid transparent;
   border-right:1px solid transparent;
-    box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.5), 
-                -1px 2px 1px 1px rgba(0,0,0,0.2),
-                /*This Last shadow mimics upper border*/
-                0px -1px 0px 0px rgba(100,100,100,0.2); 
+  box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.5), 
+              -1px 2px 1px 1px rgba(0,0,0,0.2),
+              /*This Last shadow mimics upper border*/
+              0px -1px 0px 0px rgba(100,100,100,0.2); 
     transition: .1s ease all;
+}
+.toggle-tab.active-tab:first-child {
+  box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.5), 
+              -1px 2px 1px 1px rgba(0,0,0,0.2),
+              /*This Last shadow mimics upper border*/
+              0px -1px 0px 0px rgba(00,00,00,0.0); 
 }
 
 .toggle-tab:hover,
@@ -263,15 +269,14 @@ html{}
 }
 .toggle-tab.active-tab:hover,
 .toggle-tab.active-tab:focus{
+  text-decoration:underline;
   color:rgba(255,255,255,1);
   background: rgba(30,30,30,1);
-  text-decoration:underline;
   border-top:1px solid rgba(100,100,100,0.2);
   border-bottom: 1px solid rgba(100,100,100,0.2);
   box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.5);
   cursor:default;
 }
-
 
 .toggle-tab.active-tab:after {
   content:"\25B6";
@@ -402,21 +407,6 @@ html{}
   #dropdownHead[aria-expanded="true"]{
   }
   
-/*  #dropdownHead:before{
-    content:"";
-    z-index:1000;
-    position:absolute;
-    display:none;
-    bottom:100%;
-    left:0;
-    height:100vh;
-    width:100%;
-    background:rgba(0,0,0,.2);
-  }
-  #dropdownHead[aria-expanded="true"]:before{
-    display:block;
-  }*/
-  
   #labelDropdownHead{
     position:relative;
     display:flex;
@@ -511,6 +501,9 @@ html{}
   .toggle-tab.active-tab:hover,
   .toggle-tab.active-tab:focus {
     box-shadow:none;
+  }
+  .toggle-tab.active-tab:after {
+    transform:rotate(-90deg);
   }
   
   .container-stdcharts{
