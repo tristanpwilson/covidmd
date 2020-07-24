@@ -1096,6 +1096,7 @@
         label: 'Intensive Care',
         backgroundColor: colorIntensiveBackground,
         borderColor: colorIntensiveBorder,
+        pointBackgroundColor: colorIntensiveBorder,
         data: historyIntensive,         
         pointRadius: window.pointRadiusLine,
         pointHitRadius: window.pointHitRadiusLine,
@@ -1111,6 +1112,7 @@
         label: 'Acute Care',
         backgroundColor: colorAcuteBackground,
         borderColor: colorAcuteBorder,
+        pointBackgroundColor: colorIntensiveBorder,
         data: historyAcute,
         pointRadius: window.pointRadiusLine,
         pointHitRadius: window.pointHitRadiusLine,
@@ -1184,7 +1186,6 @@
         },
       },       
       hover: {
-        //mode: 'average',
         intersect: false
       },
       scales: {
@@ -1192,7 +1193,6 @@
           type: 'time',
           time: {
             unit: 'day',
-            //unitStepSize: 4,
           },
           display: true,
           offset:false,
@@ -1250,6 +1250,152 @@
     // After hiding dataset, rerender the chart
     ciHosp.update();
   };
+  
+  
+//Barchart Daily Hospitalizations Config
+  var configDailyHosp = {
+    type: 'bar',
+    data: {
+      labels: caseTimeline,
+      datasets: [
+      {
+        label: 'Intensive Care',
+        data: dailyIntensiveChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        backgroundColor: colorIntensiveBorder,
+        borderColor: colorIntensiveBorder,
+        categoryPercentage:1,
+        hidden: false,
+      },
+      {
+        label: 'Acute Care',
+        data: dailyAcuteChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        backgroundColor: colorAcuteBorder,
+        borderColor: colorAcuteBorder,
+        categoryPercentage:1,
+        hidden: false,
+      }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      title: {
+        display: false,
+        text: 'Daily Change in Hospitalizations (Stacked)',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      legend: {
+          display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+        var text = []; 
+       
+        text.push('<ul class="' + chart.id + '-legend">'); 
+        for (var i = 0; i < chart.data.datasets.length; i++) { 
+          if (chart.data.datasets[i].label) { 
+            text.push('<li class="chart-legend-label-text legendItemDailyHosp hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetDailyHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetDailyHosp(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquareDailyHosp" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+          } 
+          text.push('</li>'); 
+        } 
+        text.push('</ul>'); 
+        return text.join(''); 
+      },
+      tooltips: {
+        enabled: true, 
+        mode: 'index',
+        displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        xalign: 'right',
+        yalign:'top',
+        intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
+            }
+          },
+        },
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true,
+      },
+      scales: {
+        xAxes: [{
+          offset:true,
+          stacked: true,
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+          display: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: true,
+            minRotation:window.xAxisMinRotation,
+            maxRotation:window.xAxisMaxRotation,
+            autoSkipPadding: 60,
+          },
+          gridLines:{color:window.xAxisGridColor}
+        }],
+        yAxes: [{
+          display: true,
+          stacked: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            mirror: window.yAxisTickMirror,
+            fontColor: "#fff",
+            fontSize: window.yAxisFontSize,
+            autoSkip: false,
+            //autoSkipPadding: 10,
+            min:-100,
+            max:250,
+            stepSize: 50,
+            maxRotation: 0,
+          },
+          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+          },
+          gridLines:{
+            color:window.yAxisGridColor,
+            drawBorder:false,
+            drawTicks: window.yAxisTickDisplay,
+            zeroLineColor:"rgba(255,255,255,0.2)",
+          },
+        }],
+
+      }
+    }
+  };
+ 
+  updateDatasetDailyHosp = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciDailyHosp = e.view.myBarDailyHosp;
+    var meta = ciDailyHosp.getDatasetMeta(index);
+    $('#legendContainerDailyHosp li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+    meta.hidden = meta.hidden === null? !ciDailyHosp.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciDailyHosp.update();
+  }; 
+
+  
   
   //Linechart Test Cumul Config		
   var configTest = {
@@ -1570,6 +1716,12 @@
 			window.myLineHosp = new Chart(ctx, configHosp);
       document.getElementById("legendContainerHosp").innerHTML = myLineHosp.generateLegend();
       var legendItems = legendContainerHosp.getElementsByTagName('li');
+      
+      // Daily Hospitalizations Bar graph initiation
+      var ctx = document.getElementById('canvasDailyHosp').getContext('2d');
+      window.myBarDailyHosp = new Chart(ctx, configDailyHosp);
+      document.getElementById("legendContainerDailyHosp").innerHTML = myBarDailyHosp.generateLegend();
+      var legendItems = legendContainerDailyHosp.getElementsByTagName('li');
       
       // County cases multi line graph initiation & custom legend generation
       var ctx = document.getElementById('canvasCnty').getContext('2d');

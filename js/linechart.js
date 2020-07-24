@@ -673,17 +673,19 @@ var configDailyHosp = {
       data: dailyIntensiveChange,
       pointRadius: 0,
       borderWidth: 2,
-      backgroundColor: colorIntensiveBackground,
+      //backgroundColor: colorIntensiveBackground,
+      backgroundColor: colorIntensiveBorder,
       borderColor: colorIntensiveBorder,
       categoryPercentage:1,
       hidden: false,
     },
     {
-      label: 'Accute Care',
+      label: 'Acute Care',
       data: dailyAcuteChange,
       pointRadius: 0,
       borderWidth: 2,
-      backgroundColor: colorAcuteBackground,
+      //backgroundColor: colorAcuteBackground,
+      backgroundColor: colorAcuteBorder,
       borderColor: colorAcuteBorder,
       
       categoryPercentage:1,
@@ -752,7 +754,6 @@ var configDailyHosp = {
         type: 'time',
         time: {
           unit: 'day',
-          //unitStepSize: 4,
         },
         display: true,
         scaleLabel: {display: false,},
@@ -799,7 +800,17 @@ afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) 
   }
 };
 
+  updateDatasetDailyHosp = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciDailyHosp = e.view.myBarDailyHosp;
+    var meta = ciDailyHosp.getDatasetMeta(index);
+    $('#legendContainerDailyHosp li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
 
+    meta.hidden = meta.hidden === null? !ciDailyHosp.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciDailyHosp.update();
+  }; 
 
 // --- Chart Instantiation Script --------- //
 window.onload = function generateCharts() {

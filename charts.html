@@ -94,7 +94,8 @@
         <ul class="box-toggle-tabs">
           <li class="toggle-tab active-tab" role="button" tabindex="0" href="#dailycases">Daily New</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#totalcases">Cumulative Totals</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospitalizations</li>
+          <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital: Current</li>
+          <li class="toggle-tab" role="button" tabindex="0" href="#dailyhospitalizations">Hospital: Change <sup class="new-tag">NEW</sup></li>
           <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By County</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By County</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total Tests</li>
@@ -137,6 +138,12 @@
           <div id="legendContainerHosp"></div>
         </div>
 
+        <div id="dailyhospchart" class="stdcharts tab-content">
+          <h2 class="chartTitle">Change in Hospitalizations (Stacked)</h2>
+          <canvas id="canvasDailyHosp"></canvas>
+          <div id="legendContainerDailyHosp"></div>
+        </div>
+        
         <div id="cntychart" class="stdcharts tab-content">
           <h2 class="chartTitle">Cumulative Cases by County</h2>
           <canvas id="canvasCnty"></canvas>
