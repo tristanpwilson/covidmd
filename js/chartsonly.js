@@ -1669,6 +1669,8 @@
             autoSkip: true,
             maxRotation: 0,
             autoSkipPadding: 30,
+            //min:4,
+            //stepSize: 4,
           },
           afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
             scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
@@ -1685,6 +1687,155 @@
       }
     }
   };
+  
+  // In Progress config for combo of cases & positivity rate
+  /*var configPosRate = {
+    type: 'line',
+    data: {
+      labels: caseTimeline,
+      datasets: [
+      {
+        label: 'Positivity Rate (7d Avg)',
+        yAxisID: 'A',
+        data: posRateNumbers,
+        borderColor: colorPosRateBorderLine,
+        backgroundColor: colorPosRateBorderLine,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
+        hoverBorderColor:colorPosRateHoverLine,
+        hoverBackgroundColor:colorPosRateHoverLine,
+        fill: false,
+        lineTension: 0.1,
+      },
+      {
+        label: 'Cases',
+        yAxisID: 'B',
+        data: dailyCaseChange,
+        type:"bar",
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: colorCaseBorder,
+        backgroundColor: colorCaseBackground,
+        hoverBackgroundColor:colorCaseBackgroundHover,
+        hoverBorderColor:"",
+        barPercentage: 1,
+        categoryPercentage: 0.9,
+        hidden:false,
+      }
+      
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      title: {
+        display: false,
+        text: 'Positivity Rate; 7 Day Average ',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      legend: {
+          display: false,
+      },
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            //text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>'); 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemPosRate hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetPosRate(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetPosRate(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquarePosRate" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
+      },
+      tooltips: {
+        enabled: true, 
+        mode: 'index',
+        displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        xalign: 'right',
+        yalign:'top',
+        intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
+            }
+          },
+        },
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true,
+      },
+      scales: {
+        xAxes: [{
+          offset:true,
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+          display: true,
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: true,
+            minRotation:window.xAxisMinRotation,
+            maxRotation:window.xAxisMaxRotation,
+            autoSkipPadding: 60,
+          },
+          gridLines:{color:window.xAxisGridColor}
+        }],
+        yAxes: [
+        //{
+          //display: true,
+          {
+            id: 'A',
+            type: 'linear',
+            position: 'left',
+            min:0,
+            max:30,
+            stepSize:10,
+            gridLines:{
+              color:window.yAxisGridColor,
+              drawBorder:false,
+              drawTicks: window.yAxisTickDisplay,
+              tickMarkLength:0,
+            },
+          }, {
+            id: 'B',
+            type: 'linear',
+            position: 'right',
+            ticks: {
+              max: 1800,
+              min: 0,
+              stepSize:300,
+            },
+            gridLines:{
+            color:window.yAxisGridColor,
+            drawBorder:false,
+            drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:0,
+           },
+          },
+        ],
+
+      }
+    }
+  };*/
   
   updateDatasetPosRate = function(e, datasetIndex) {
     var index = datasetIndex;
