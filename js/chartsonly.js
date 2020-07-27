@@ -1383,7 +1383,8 @@
             drawTicks: window.yAxisTickDisplay,
             tickMarkLength:window.yAxisTickMarkLengthA,
             drawBorder:false,
-            zeroLineColor:"rgba(255,255,255,0.2)",
+            zeroLineColor:"rgba(255,255,255,0.4)",
+            zeroLineWidth:2,
           },
         }],
 
