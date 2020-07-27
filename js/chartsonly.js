@@ -13,7 +13,6 @@
     window.yAxisTickDisplay = false;
     window.yAxisTickMirror = true;
     window.yAxisTickMarkLengthA = 0;
-    window.yAxisTickMarkLengthB = 0;
     window.yAxisGridColor = "rgba(255,255,255,0.1)";
     window.legendFontSizeCnty = 15;
     window.legendBoxSizeCnty = 15;
@@ -38,7 +37,6 @@
     window.yAxisTickDisplay = true;
     window.yAxisTickMirror = false;
     window.yAxisTickMarkLengthA = 3;
-    window.yAxisTickMarkLengthB = 8;
     window.yAxisGridColor = "rgba(255,255,255,0.1)";
     window.legendFontSizeCnty = 15;
     window.legendBoxSizeCnty = 13;
@@ -804,8 +802,7 @@
     data: {
       labels: caseTimeline,
       datasets: [
-      {
-      data: caseCntyDth0,
+      {data: caseCntyDth0,
         label: nameCnty0,
         borderColor: colorCnty0,
         hoverBorderColor:colorCnty0,
@@ -956,7 +953,8 @@
         hoverBorderColor:colorCnty23,
         backgroundColor:colorCnty23,
         pointRadius: window.pointRadiusLine, pointHitRadius: window.pointHitRadiusLine, borderWidth: window.borderWidthLine, hoverRadius: window.hoverRadiusLine, hoverBorderWidth:window.hoverBorderWidthLine, fill: false, lineTension: 0.1,
-      },]
+      },
+      ]
     },
     options: {
       responsive: true,
@@ -1855,6 +1853,9 @@
     // After hiding dataset, rerender the chart
     ciPosRate.update();
   };
+
+
+
 
 
 		window.onload = function() {
