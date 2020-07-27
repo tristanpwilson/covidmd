@@ -12,6 +12,8 @@
     window.yAxisFontSize = 12;
     window.yAxisTickDisplay = false;
     window.yAxisTickMirror = true;
+    window.yAxisTickMarkLengthA = 0;
+    window.yAxisTickMarkLengthB = 0;
     window.yAxisGridColor = "rgba(255,255,255,0.1)";
     window.legendFontSizeCnty = 15;
     window.legendBoxSizeCnty = 15;
@@ -22,7 +24,8 @@
     window.pointHitRadiusLine = 4;
     window.borderWidthLine = 2;
     window.hoverRadiusLine = 3;
-    window.hoverBorderWidthLine =2;
+    window.hoverBorderWidthLine = 2;
+    
   } 
   else {
     window.legendFontSize = 15;
@@ -34,6 +37,8 @@
     window.yAxisFontSize = 12;
     window.yAxisTickDisplay = true;
     window.yAxisTickMirror = false;
+    window.yAxisTickMarkLengthA = 3;
+    window.yAxisTickMarkLengthB = 8;
     window.yAxisGridColor = "rgba(255,255,255,0.1)";
     window.legendFontSizeCnty = 15;
     window.legendBoxSizeCnty = 13;
@@ -45,6 +50,7 @@
     window.borderWidthLine = 2;
     window.hoverRadiusLine = 4;
     window.hoverBorderWidthLine =2;
+    
   }
 
   
@@ -53,7 +59,8 @@
     type: 'line',
     data: {
       labels: caseTimeline,
-      datasets: [{
+      datasets: [
+      {
         label: 'Cases',
         backgroundColor: colorCaseBackgroundLineLight,
         borderColor: colorCaseBorderLine,
@@ -122,9 +129,7 @@
       responsive: true,
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
-      legend: {
-          display: false,
-      },
+      legend: {display: false,},
       legendCallback: 
         function(chart) { 
           var text = []; 
@@ -180,7 +185,8 @@
             //unitStepSize: 4,
           },
           display: true,
-          offset:false,
+          //offset:false,
+          offset:true,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -192,7 +198,7 @@
           },
           gridLines:{
             color:window.xAxisGridColor,
-            zeroLineColor: "rgba(255,255,255,0.02)",
+            //zeroLineColor: "rgba(255,255,255,0.02)",
           }
         }],
         yAxes: [{
@@ -205,6 +211,10 @@
             autoSkip: true,
             maxRotation: 0,
             autoSkipPadding: 30,
+            //Callback to replace "000" with "K" for larger numbers
+            callback : function(value,index,array) { 
+              return (value < 1000000) ? value/1000 + 'K' : value/1000000 + 'M'; 
+            },
           },
           afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
             scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
@@ -213,6 +223,8 @@
           gridLines:{
             color:window.yAxisGridColor,
             drawTicks: window.yAxisTickDisplay,
+            drawBorder:false,
+            tickMarkLength:window.yAxisTickMarkLengthA,
           }
         }],
 
@@ -346,9 +358,7 @@
         fontFamily: "Work Sans",
         fontSize: window.titleFontSize,
       },
-      legend: {
-          display: false,
-      },
+      legend: {display: false,},
       legendCallback: 
         function(chart) { 
         var text = []; 
@@ -426,10 +436,9 @@
             color:window.yAxisGridColor,
             drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
+            tickMarkLength:window.yAxisTickMarkLengthA,
           },
         }],
-
       }
     }
   };
@@ -444,8 +453,7 @@
 
     // After hiding dataset, rerender the chart
     ciDaily.update();
-  };
-  
+  };  
   //Function to update the length of the moving average line for Daily Change chart
   updateDatasetAvgDaily = function(){
     
@@ -698,13 +706,11 @@
             }
           },
         }
-      }, 
-            
+      },    
       hover: {
         mode: 'nearest',
         intersect: true
       },
-      layout: {padding: {left: 0,right: 0,top: 0,bottom: 0,}},
       scales: {
         xAxes: [{
           offset:true,
@@ -736,6 +742,10 @@
             autoSkip: true,
             maxRotation: 0,
             autoSkipPadding: 30,
+            //Callback to replace "000" with "K" for larger numbers
+            callback : function(value,index,array) { 
+              return (value < 1000000) ? value/1000 + 'K' : value/1000000 + 'M'; 
+            },
           },
           afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
             scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
@@ -743,9 +753,9 @@
           },
           gridLines:{
             color:window.yAxisGridColor,
-            drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
           }
         }],
 
@@ -788,21 +798,22 @@
   };
   
   
-  
   //Bar Chart For Deaths by County
   var configCntyDth = {
     type: 'line',
     data: {
       labels: caseTimeline,
-      datasets: 
-      [{data: caseCntyDth0,
+      datasets: [
+      {
+      data: caseCntyDth0,
         label: nameCnty0,
         borderColor: colorCnty0,
         hoverBorderColor:colorCnty0,
         backgroundColor:colorCnty0,
         backgroundColor:colorCnty0,
         pointRadius: window.pointRadiusLine, pointHitRadius: window.pointHitRadiusLine, borderWidth: window.borderWidthLine, hoverRadius: window.hoverRadiusLine, hoverBorderWidth:window.hoverBorderWidthLine, fill:false, lineTension: 0.1,
-      },{data: caseCntyDth1,
+      },
+      {data: caseCntyDth1,
         label: nameCnty1,
         borderColor: colorCnty1,
         hoverBorderColor:colorCnty1,
@@ -1005,6 +1016,7 @@
       layout: {padding: {left: 0,right: 0,top: 0,bottom: 0,}},
       scales: {
         xAxes: [{
+          display:true,
           offset:true,
           //offsetGridlines:true,
           type: 'time',
@@ -1012,7 +1024,6 @@
             unit: 'day',
             //unitStepSize: 4,
           },
-          display: true,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -1034,6 +1045,7 @@
             autoSkip: true,
             maxRotation: 0,
             autoSkipPadding: 30,
+            
           },
           afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
             scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
@@ -1041,9 +1053,9 @@
           },
           gridLines:{
             color:window.yAxisGridColor,
-            drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
           }
         }],
 
@@ -1130,9 +1142,7 @@
       responsive: true,
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
-      legend: {
-        display: false,
-      },
+      legend: {display: false,},
       legendCallback: 
         function(chart) { 
           var text = []; 
@@ -1190,12 +1200,12 @@
       },
       scales: {
         xAxes: [{
+          display:true,
+          offset:true,
           type: 'time',
           time: {
             unit: 'day',
           },
-          display: true,
-          offset:false,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -1229,6 +1239,8 @@
           gridLines:{
             color:window.yAxisGridColor,
             drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
           }
         }],
 
@@ -1291,13 +1303,10 @@
         fontFamily: "Work Sans",
         fontSize: window.titleFontSize,
       },
-      legend: {
-          display: false,
-      },
+      legend: {display: false,},
       legendCallback: 
         function(chart) { 
         var text = []; 
-       
         text.push('<ul class="' + chart.id + '-legend">'); 
         for (var i = 0; i < chart.data.datasets.length; i++) { 
           if (chart.data.datasets[i].label) { 
@@ -1334,13 +1343,13 @@
       },
       scales: {
         xAxes: [{
+          display:true,
           offset:true,
           stacked: true,
           type: 'time',
           time: {
             unit: 'day',
           },
-          display: true,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -1373,8 +1382,9 @@
           },
           gridLines:{
             color:window.yAxisGridColor,
-            drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
             zeroLineColor:"rgba(255,255,255,0.2)",
           },
         }],
@@ -1396,13 +1406,13 @@
   }; 
 
   
-  
   //Linechart Test Cumul Config		
   var configTest = {
     type: 'line',
     data: {
       labels: caseTimeline,
-      datasets: [{
+      datasets: [
+      {
         label: 'Positive Tests',
         backgroundColor: colorCaseBackgroundSolid,
         borderColor: colorCaseBorderLine,
@@ -1439,9 +1449,7 @@
       responsive: true,
       maintainAspectRatio: false,  
       //aspectRatio: window.aspect,     
-      legend: {
-          display: false,
-      },
+      legend: {display: false,},
       legendCallback: 
         function(chart) { 
           var text = []; 
@@ -1502,13 +1510,13 @@
       },
       scales: {
         xAxes: [{
+          display: true,
+          offset:true,
           type: 'time',
           time: {
             unit: 'day',
             //unitStepSize: 4,
           },
-          display: true,
-          offset:false,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -1534,6 +1542,10 @@
             autoSkip: true,
             maxRotation: 0,
             autoSkipPadding: 30,
+            //Callback to replace "000" with "K" for larger numbers
+            callback : function(value,index,array) { 
+              return (value < 1000000) ? value/1000 + 'K' : value/1000000 + 'M'; 
+            },
           },
           afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
             scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
@@ -1542,9 +1554,10 @@
           gridLines:{
             color:window.yAxisGridColor,
             drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
           }
         }],
-
       }
     }
   };
@@ -1582,8 +1595,7 @@
         hoverBackgroundColor:colorPosRateHoverLine,
         fill: false,
         lineTension: 0.1,
-      }
-      ]
+      }]
     },
     options: {
       responsive: true,
@@ -1596,9 +1608,7 @@
         fontFamily: "Work Sans",
         fontSize: window.titleFontSize,
       },
-      legend: {
-          display: false,
-      },
+      legend: {display: false,},
       legendCallback: 
         function(chart) { 
           var text = []; 
@@ -1639,12 +1649,12 @@
       },
       scales: {
         xAxes: [{
+          display:true,
           offset:true,
           type: 'time',
           time: {
             unit: 'day',
           },
-          display: true,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -1678,9 +1688,9 @@
           },
           gridLines:{
             color:window.yAxisGridColor,
-            drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
           },
         }],
 
@@ -1782,12 +1792,12 @@
       },
       scales: {
         xAxes: [{
+          display: true,
           offset:true,
           type: 'time',
           time: {
             unit: 'day',
           },
-          display: true,
           scaleLabel: {display: false,},
           ticks:{
             fontColor: "#fff",
@@ -1800,8 +1810,6 @@
           gridLines:{color:window.xAxisGridColor}
         }],
         yAxes: [
-        //{
-          //display: true,
           {
             id: 'A',
             type: 'linear',
@@ -1811,9 +1819,9 @@
             stepSize:10,
             gridLines:{
               color:window.yAxisGridColor,
-              drawBorder:false,
               drawTicks: window.yAxisTickDisplay,
-              tickMarkLength:0,
+              tickMarkLength:window.yAxisTickMarkLengthA,
+              drawBorder:false,
             },
           }, {
             id: 'B',
@@ -1826,13 +1834,12 @@
             },
             gridLines:{
             color:window.yAxisGridColor,
-            drawBorder:false,
             drawTicks: window.yAxisTickDisplay,
-            tickMarkLength:0,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
            },
           },
         ],
-
       }
     }
   };*/

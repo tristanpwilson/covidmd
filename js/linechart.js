@@ -227,6 +227,10 @@ var configCumul = {
           autoSkip: true,
           maxRotation: 0,
           autoSkipPadding: 30,
+          //Callback to replace "000" with "K" for larger numbers
+          callback : function(value,index,array) { 
+            return (value < 1000000) ? value/1000 + 'K' : value/1000000 + 'M'; 
+          },
         },
         afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
           scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
