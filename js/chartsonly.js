@@ -1667,6 +1667,7 @@
         }],
         yAxes: [{
           display: true,
+          //type: 'logarithmic',
           scaleLabel: {display: false,},
           ticks:{
             callback: function(tick) {
@@ -1677,10 +1678,12 @@
             fontSize: window.yAxisFontSize,
             autoSkip: true,
             maxRotation: 0,
-            autoSkipPadding: 30,
-            //min:4,
-            //stepSize: 4,
+            autoSkipPadding: 40,
+            min:0,
+            max:30,
+            //stepSize: 2,
           },
+
           afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
             scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
             scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
