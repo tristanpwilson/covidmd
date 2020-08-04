@@ -45,7 +45,7 @@
   // Updates the info box (control) based on the feature properties passed from JSON
   info.update = function(props) {
     this._div.innerHTML =
-      '<div id="title"><h1>Maryland COVID-19</h1></div><div id="statecases"><h2>State Totals</h2><p><small>Cases: </small>' + stateCasesVal + '<b class="diff"> (+' + stateCasesChg + ')</b></p><span class="sep"></span><p><small>Deaths: </small>' + stateDeathsVal + '<b class="diff"> (+' + stateDeathsChg + ')</b></p></div>' +
+      '<div id="title"><h1>COVID-19 Maryland</h1></div><div id="statecases"><h2>State Totals</h2><p><small>Cases: </small>' + stateCasesVal + '<b class="diff"> (+' + stateCasesChg + ')</b></p><span class="sep"></span><p><small>Deaths: </small>' + stateDeathsVal + '<b class="diff"> (+' + stateDeathsChg + ')</b></p></div>' +
 
       '<div id="countycases"><div id="boxChartIcon1"><a href="charts#casesbycounty" id="chartIconLine1" aria-label="Link to chart of county data over time" title="View graph of county data"></a></div>' + 
       //Backup of County panel with "!" note about recoveries data
