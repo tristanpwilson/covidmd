@@ -48,6 +48,10 @@ function diff(ary) {
   var adjDailyNegTestChange = dailyNegTestChange.unshift(1);
   
   // Calculating daily change in Intensive Hospitalizations
+  var dailyNowHospChange = diff(historyNowHosp);
+  var adjDailyNowHospChange = dailyNowHospChange.unshift(1);
+  
+  // Calculating daily change in Intensive Hospitalizations
   var dailyIntensiveChange = diff(historyIntensive);
   var adjDailyIntensiveChange = dailyIntensiveChange.unshift(1);
   
@@ -86,9 +90,6 @@ function avgMov14(ary5) {
 
   // Calculating moving average of daily change in Cases
   window.avgMovingCaseChange = avgMov(dailyCaseChange);
-//  var avgMoving14CaseChange = avgMov3(dailyCaseChange);
-//  var avgMoving14CaseChange = avgMov10(dailyCaseChange);
-//  var avgMoving14CaseChange = avgMov14(dailyCaseChange);
 
   // Calculating moving average of daily change in deaths
   var avgMovingDeathChange = avgMov(dailyDeathChange);
@@ -102,6 +103,8 @@ function avgMov14(ary5) {
   var avgMovingNegTestChange = avgMov(dailyNegTestChange);
   //var avgMoving14NegTestChange = avgMov14(dailyRecoveryChange);
   
+  // Calculating moving average of daily change in Total Current Hospitalizations
+  var avgMovingNowHospChange = avgMov(dailyNowHospChange);
 
 // Case Data for County Cases Line Chart
 var caseCnty0 = countiesData.features[0].properties.history;

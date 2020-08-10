@@ -659,6 +659,13 @@ html{}
 #legendContainerDaily li:nth-child(7) {order:3;}
 #legendContainerDaily li:nth-child(8) {order:4;}
 
+/* -- Uncomment when Moving Avg Line is Added to Daily Hosp -- */
+/*
+#legendContainerDailyHosp li:nth-child(1) {order:3;}
+#legendContainerDailyHosp li:nth-child(2) {order:1;}
+#legendContainerDailyHosp li:nth-child(3) {order:2;}
+*/
+
 /* - Daily Legend Item Shape Style (Also ".legendSquareDaily") - */
 #legendContainerCumul li span,
 #legendContainerDaily li span,
@@ -719,14 +726,17 @@ html{}
 #legendContainerDaily li:nth-child(7) span {border-radius:0%;}
 #legendContainerDaily li:nth-child(8) span {border-radius:0%;}
 
+/* -- Uncomment when Moving Avg Line is Added to Daily Hosp -- */
+/* #legendContainerDailyHosp li:nth-child(2) span {border-radius:0%;} */
+/* #legendContainerDailyHosp li:nth-child(3) span {border-radius:0%;} */
 
-@media (max-width: 991px){
+/* -- Delete when Moving Avg Line is Added to Daily Hosp -- */
+#legendContainerDailyHosp li:nth-child(1) span {border-radius:0%;}
+#legendContainerDailyHosp li:nth-child(2) span {border-radius:0%;}
 
-}
+/*@media (max-width: 991px){}
 
-@media (max-width: 767px){
-
-}
+@media (max-width: 767px){}*/
 
 @media (max-width: 575px){
   #legendContainerCumul> ul,

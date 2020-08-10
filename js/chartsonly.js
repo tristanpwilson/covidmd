@@ -1268,6 +1268,18 @@
     data: {
       labels: caseTimeline,
       datasets: [
+      /*{
+        type:'line',
+        label: 'Avg (7d) Total',
+        data: avgMovingNowHospChange,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderColor: "rgba(255,255,255,1)",
+        backgroundColor: "rgba(255,255,255,1)",
+        fill:false,
+        lineTension:0.3,
+        hidden: false,
+      },*/
       {
         label: 'Intensive Care',
         data: dailyIntensiveChange,
@@ -1287,7 +1299,7 @@
         borderColor: colorAcuteBorder,
         categoryPercentage:1,
         hidden: false,
-      }
+      },
       ]
     },
     options: {
