@@ -12,6 +12,7 @@ var deathNumbers = countiesData.features[24].properties.historydeaths;
 var recoveryNumbers = countiesData.features[24].properties.historyrecoveries;
 var negTestNumbers = countiesData.features[24].properties.historynegativetests;
 var posRateNumbers = countiesData.features[24].properties.historyPositivityRateAvg;
+var posRateNumbers90 = posRateNumbers.slice(-90);
 
 //Pulling & Cleaning Hospitalization Data
 var historyNowHosp = countiesData.features[24].properties.historyNowHospitalized;
@@ -21,6 +22,7 @@ var historyEverHosp = countiesData.features[24].properties.historyEverHospitaliz
 
 // Timeline data (dates) to use for x-axes
 var caseTimeline = countiesData.features[24].properties.dates;
+var caseTimeline90 = caseTimeline.slice(-90);
 
 // Function to calculate sequential difference between values in array
 function diff(ary) {

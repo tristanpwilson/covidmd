@@ -1871,6 +1871,142 @@
   };
 
 
+  //Positivity Rate Config
+  var configPosRate90 = {
+    type: 'line',
+    data: {
+      labels: caseTimeline90,
+      datasets: [
+      {
+        label: 'Positivity Rate (7d Avg)',
+        data: posRateNumbers90,
+        borderColor: colorPosRateBorderLine,
+        backgroundColor: colorPosRateBorderLine,
+        pointRadius: window.pointRadiusLine,
+        pointHitRadius: window.pointHitRadiusLine,
+        borderWidth: window.borderWidthLine,
+        hoverRadius: window.hoverRadiusLine,
+        hoverBorderWidth:window.hoverBorderWidthLine,
+        hoverBorderColor:colorPosRateHoverLine,
+        hoverBackgroundColor:colorPosRateHoverLine,
+        fill: false,
+        lineTension: 0.1,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      //aspectRatio: window.aspect,     
+      title: {
+        display: false,
+        text: 'Positivity Rate; 7 Day Average ',
+        fontColor: "#fff",
+        fontFamily: "Work Sans",
+        fontSize: window.titleFontSize,
+      },
+      legend: {display: false,},
+      legendCallback: 
+        function(chart) { 
+          var text = []; 
+          text.push('<ul class="' + chart.id + '-legend">'); 
+          for (var i = 0; i < chart.data.datasets.length; i++) { 
+            if (chart.data.datasets[i].label) { 
+              text.push('<li class="chart-legend-label-text legendItemPosRate90 hidden' + chart.data.datasets[i].hidden + '" onclick="updateDatasetPosRate90(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" onkeypress="updateDatasetPosRate90(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')" data-legend="' + chart.legend.legendItems[i].datasetIndex + '" tabindex="0"><span class="legendSquarePosRate90" style="background-color:' + chart.data.datasets[i].borderColor + '; border-color:' + chart.data.datasets[i].borderColor + '"></span>' + chart.data.datasets[i].label + '</li>');
+            } 
+            text.push('</li>'); 
+          } 
+          text.push('</ul>'); 
+          return text.join(''); 
+      },
+      tooltips: {
+        enabled: true, 
+        mode: 'index',
+        displayColors:true,
+        multiKeyBackground:'rgba(0,0,0,0)',
+        titleFontSize: 14,
+        bodyFontSize: 14,
+        xalign: 'right',
+        yalign:'top',
+        intersect:false,
+        callbacks: {
+          labelColor: function(tooltipItem, chart) {
+            var dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+            return {
+                borderColor: 'rgba(255, 0, 0, 0)',
+                backgroundColor : dataset.backgroundColor
+            }
+          },
+        },
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true,
+      },
+      scales: {
+        xAxes: [{
+          display:true,
+          offset:true,
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+          scaleLabel: {display: false,},
+          ticks:{
+            fontColor: "#fff",
+            fontSize: window.xAxisFontSize,
+            autoSkip: true,
+            minRotation:window.xAxisMinRotation,
+            maxRotation:window.xAxisMaxRotation,
+            autoSkipPadding: 60,
+          },
+          gridLines:{color:window.xAxisGridColor}
+        }],
+        yAxes: [{
+          display: true,
+          //type: 'logarithmic',
+          scaleLabel: {display: false,},
+          ticks:{
+            callback: function(tick) {
+              return tick.toString() + '%';
+            },
+            mirror: window.yAxisTickMirror,
+            fontColor: "#fff",
+            fontSize: window.yAxisFontSize,
+            autoSkip: true,
+            maxRotation: 0,
+            autoSkipPadding: 40,
+            min:0,
+            //max:30,
+            //stepSize: 2,
+          },
+
+          afterTickToLabelConversion: function(scaleInstance) { // set the first tick (0) to null so it does not display
+            scaleInstance.ticks[scaleInstance.ticks.length - 1] = null;
+            scaleInstance.ticksAsNumbers[scaleInstance.ticksAsNumbers.length - 1] = null;
+          },
+          gridLines:{
+            color:window.yAxisGridColor,
+            drawTicks: window.yAxisTickDisplay,
+            tickMarkLength:window.yAxisTickMarkLengthA,
+            drawBorder:false,
+          },
+        }],
+
+      }
+    }
+  };
+
+  updateDatasetPosRate90 = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ciPosRate90 = e.view.myLinePosRate90;
+    var meta = ciPosRate90.getDatasetMeta(index);
+    $('#legendContainerPosRate90 li[data-legend='+index+']').toggleClass("hiddentrue").toggleClass("hiddenundefined");
+
+    meta.hidden = meta.hidden === null? !ciPosRate90.data.datasets[index].hidden : null;
+
+    // After hiding dataset, rerender the chart
+    ciPosRate90.update();
+  };
 
 
 
@@ -1921,6 +2057,11 @@
 			window.myLinePosRate = new Chart(ctx, configPosRate);
       document.getElementById("legendContainerPosRate").innerHTML = myLinePosRate.generateLegend();
       var legendItems = legendContainerPosRate.getElementsByTagName('li');
+       
+      var ctx = document.getElementById('canvasPosRate90').getContext('2d');
+			window.myLinePosRate90 = new Chart(ctx, configPosRate90);
+      document.getElementById("legendContainerPosRate90").innerHTML = myLinePosRate90.generateLegend();
+      var legendItems = legendContainerPosRate90.getElementsByTagName('li'); 
        
       //var ctx = document.getElementById('canvasPop').getContext('2d');
 			//window.myBarPop = new Chart(ctx, configPop);

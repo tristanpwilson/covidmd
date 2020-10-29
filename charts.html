@@ -99,11 +99,12 @@
           <li class="toggle-tab active-tab" role="button" tabindex="0" href="#dailycases">Daily New</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#totalcases">Cumulative Totals</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#hospitalizations">Hospital: Current</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#dailyhospitalizations">Hospital: Change <sup class="new-tag">NEW</sup></li>
+          <li class="toggle-tab" role="button" tabindex="0" href="#dailyhospitalizations">Hospital: Change</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#casesbycounty">Cases By County</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#deathsbycounty">Deaths By County</li>
           <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Total Tests</li>
-          <li class="toggle-tab" role="button" tabindex="0" href="#totaltests">Positivity Rate <sup class="new-tag">NEW</sup></li>
+          <li class="toggle-tab" role="button" tabindex="0" href="#positivityrate">Positivity Rate</li>
+          <li class="toggle-tab" role="button" tabindex="0" href="#positivityrate90d">Pos Rate; 90 days <sup class="new-tag">NEW</sup></li>
         </ul>
         
       </div>
@@ -172,6 +173,12 @@
           <div id="legendContainerPosRate"></div>
         </div>
         
+        <div id="posrate90chart" class="stdcharts tab-content">
+          <h2 class="chartTitle">Positivity Rate - Last 90d; 7 Day Avg (Reported)</h2>
+          <canvas id="canvasPosRate90"></canvas>
+          <div id="legendContainerPosRate90"></div>
+        </div>
+        
         <div id="forceScrollbar"></div>
       </div>
       
@@ -184,6 +191,11 @@
   <script type="text/javascript" src="js/latest.js"></script>
   <script type="text/javascript" src="js/variables.js"></script>
   <script type="text/javascript" src="js/chartsonly.js"></script>
+  
+  <script type="text/javascript">
+  //alert(posRateNumbers90)
+  //alert(caseTimeline90)
+  </script>
   
   <!-- jQuery for controlling tabbed content-->
   <script type="text/javascript">

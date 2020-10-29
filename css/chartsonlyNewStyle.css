@@ -342,7 +342,7 @@ html{}
   }
 
   @keyframes blinkAttention {
-    0% {background:rgba(46,46,46,1)}
+    0% {background:rgba(46,46,46,1);}
     40% {background:rgba(46,46,46,1);}
     48% {background:rgba(106,106,106,1);}
     56% {background:rgba(46,46,46,1);}
@@ -355,8 +355,8 @@ html{}
   @keyframes shrinkDown {
     0% {height:0px;}
     30% {height:0px;}
-    40% {height:342px;}
-    90% {height:342px;}
+    40% {height:376px;}
+    90% {height:376px;}
     100% {height:0px;}
   }
 
@@ -485,7 +485,7 @@ html{}
   
   .box-toggle-tabs.menuExpanded{
     position:relative;
-    height:342px;
+    height:376px;
   }
 
   .toggle-tab {
@@ -521,7 +521,8 @@ html{}
   #cntychart,
   #cntydthchart,
   #testchart,
-  #posratechart{
+  #posratechart,
+  #posrate90chart{
     max-height: calc(95vw * .7);
   } 
   .stdcharts .chartTitle{
@@ -569,7 +570,8 @@ html{}
 #legendContainerTest,
 #legendContainerHosp,
 #legendContainerDailyHosp,
-#legendContainerPosRate{
+#legendContainerPosRate,
+#legendContainerPosRate90{
   width:100%;
   height:auto;
   z-index:3000;
@@ -578,7 +580,8 @@ html{}
 #legendContainerTest,
 #legendContainerHosp,
 #legendContainerDailyHosp,
-#legendContainerPosRate{
+#legendContainerPosRate,
+#legendContainerPosRate90{
   max-width:600px;
   margin:15px auto 7.5px auto;
 }
@@ -593,7 +596,8 @@ html{}
 #legendContainerTest> ul,
 #legendContainerHosp> ul,
 #legendContainerDailyHosp> ul,
-#legendContainerPosRate > ul{
+#legendContainerPosRate > ul,
+#legendContainerPosRate90 > ul{
   display:flex;
   justify-content:center;
   flex-flow: row wrap;
@@ -606,7 +610,8 @@ html{}
 #legendContainerTest li,
 #legendContainerHosp li,
 #legendContainerDailyHosp li,
-#legendContainerPosRate li{
+#legendContainerPosRate li,
+#legendContainerPosRate90 li{
   display:block;
   flex-grow:0;
   cursor: pointer;
@@ -620,7 +625,8 @@ html{}
 #legendContainerTest li,
 #legendContainerHosp li,
 #legendContainerDailyHosp li,
-#legendContainerPosRate li{
+#legendContainerPosRate li,
+#legendContainerPosRate90 li{
   flex-basis:auto;
   padding:5px 20px;
 }
@@ -635,7 +641,8 @@ html{}
 #legendContainerTest li.hiddentrue,
 #legendContainerHosp li.hiddentrue,
 #legendContainerDailyHosp li.hiddentrue,
-#legendContainerPosRate li.hiddentrue{
+#legendContainerPosRate li.hiddentrue,
+#legendContainerPosRate90 li.hiddentrue{
   color:rgba(255,255,255,0.5)
 } 
 
@@ -644,7 +651,8 @@ html{}
 #legendContainerTest li:hover,
 #legendContainerHosp li:hover,
 #legendContainerDailyHosp li:hover,
-#legendContainerPosRate li:hover{
+#legendContainerPosRate li:hover,
+#legendContainerPosRate90 li:hover{
   text-decoration:underline;
 }
 
@@ -672,7 +680,8 @@ html{}
 #legendContainerTest li span,
 #legendContainerHosp li span,
 #legendContainerDailyHosp li span,
-#legendContainerPosRate li span{
+#legendContainerPosRate li span,
+#legendContainerPosRate90 li span{
   position: relative;
   display:inline-block;
   margin:0 7.5px -1px 0;
@@ -691,7 +700,8 @@ html{}
 #legendContainerTest li:hover span,
 #legendContainerHosp li:hover span,
 #legendContainerDailyHosp li:hover span,
-#legendContainerPosRate li:hover span{
+#legendContainerPosRate li:hover span,
+#legendContainerPosRate90 li:hover span{
   border:2px solid;
   filter:brightness(90%);
 }
@@ -701,7 +711,8 @@ html{}
 #legendContainerTest li.hiddentrue span,
 #legendContainerHosp li.hiddentrue span,
 #legendContainerDailyHosp li.hiddentrue span,
-#legendContainerPosRate li.hiddentrue span{
+#legendContainerPosRate li.hiddentrue span,
+#legendContainerPosRate90 li.hiddentrue span{
   border:2px solid;
   background:transparent !important;
   filter:brightness(60%);
@@ -712,7 +723,8 @@ html{}
 #legendContainerTest li.hiddentrue:hover span,
 #legendContainerHosp li.hiddentrue:hover span,
 #legendContainerDailyHosp li.hiddentrue:hover span,
-#legendContainerPosRate li.hiddentrue:hover span{
+#legendContainerPosRate li.hiddentrue:hover span,
+#legendContainerPosRate90 li.hiddentrue:hover span{
     filter:brightness(80%);
 }
 
@@ -744,7 +756,8 @@ html{}
   #legendContainerTest> ul,
   #legendContainerHosp> ul,
   #legendContainerDailyHosp> ul,
-  #legendContainerPosRate> ul{
+  #legendContainerPosRate> ul,
+  #legendContainerPosRate90> ul{
     padding:0 2%;
   }
   #legendContainerDaily> ul{
@@ -759,7 +772,8 @@ html{}
   #legendContainerTest> ul,
   #legendContainerHosp> ul,
   #legendContainerDailyHosp ul,
-  #legendContainerPosRate > ul{
+  #legendContainerPosRate > ul,
+  #legendContainerPosRate90> ul{
     justify-content:center;
   }
 
@@ -768,7 +782,8 @@ html{}
   #legendContainerTest li,
   #legendContainerHosp li,
   #legendContainerDailyHosp li,
-  #legendContainerPosRate li{
+  #legendContainerPosRate li,
+  #legendContainerPosRate90 li{
     font-size:16px;
     padding:5px 0px;
   }
@@ -792,7 +807,8 @@ html{}
   #legendContainerDailyHosp li{
     flex-basis:40%;
   }  
-  #legendContainerPosRate li{
+  #legendContainerPosRate li,
+  #legendContainerPosRate90 li{
     flex-basis:auto;
   }  
   #legendContainerCumul li span,
@@ -800,7 +816,8 @@ html{}
   #legendContainerTest li span,
   #legendContainerHosp li span,
   #legendContainerDailyHosp li span,
-  #legendContainerPosRate li span{
+  #legendContainerPosRate li span,
+  #legendContainerPosRate90 li span{
     margin:0 5px -1px 0;
     height:14px;
     width:14px;
@@ -817,7 +834,8 @@ html{}
   #legendContainerTest li,
   #legendContainerHosp li,
   #legendContainerDailyHosp li,
-  #legendContainerPosRate li{
+  #legendContainerPosRate li,
+  #legendContainerPosRate90 li{
     font-size:14px;
   }
 }
