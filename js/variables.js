@@ -38,8 +38,6 @@ function diff(ary) {
   // Calculating daily change in deaths
   var dailyDeathChange = diff(deathNumbers);
   var adjDailyDeathChange = dailyDeathChange.unshift(1);
-  //var poppedDailyDeathChange = adjDailyDeathChange.pop();
-  //alert(adjDailyDeathChange);
   
   // Calculating daily change in Recoveries
   var dailyRecoveryChange = diff(recoveryNumbers);
@@ -60,6 +58,8 @@ function diff(ary) {
   // Calculating daily change in Acute Hospitalizations
   var dailyAcuteChange = diff(historyAcute);
   var adjDailyAcuteChange = dailyAcuteChange.unshift(1);
+
+
 
 // Function to calculate 7 day moving average of values in an array
 function avgMov(ary2) {
@@ -107,6 +107,29 @@ function avgMov14(ary5) {
   
   // Calculating moving average of daily change in Total Current Hospitalizations
   var avgMovingNowHospChange = avgMov(dailyNowHospChange);
+
+
+
+//IN PROGRESS - DAILY CASES PER 100K POPULATION
+//THIS WORKS; JUST NEED TO CHART (AND DECIDED WHY IT'S EVEN IMPORTANT)
+
+  // Calculating daily change in Cases for 100K Calc
+    //var caseNumbersB = countiesData.features[24].properties.history;
+    //var dailyCaseChangeB = diff(caseNumbersB);
+    //var adjDailyCaseChangeB = dailyCaseChangeB.unshift(1);
+
+  // Function to calculate value per 100K population across array
+    //function popCalc(ary6) {
+    //  var newP = [];
+    //  for (var i = 0; i < ary6.length; i++) newP.push(ary6[i] *= 0.0165407)
+    //  return newP;
+    //}
+
+  // Calculating per 100K of daily change in total cases
+    //var dailyPerHunThou = popCalc(dailyCaseChangeB);
+
+  //alert(dailyPerHunThou);
+
 
 // Case Data for County Cases Line Chart
 var caseCnty0 = countiesData.features[0].properties.history;
