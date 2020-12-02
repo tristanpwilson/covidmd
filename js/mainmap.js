@@ -91,6 +91,14 @@
   for (i in countiesData.features) {
     caseNumbers += countiesData.features[i].properties.cases + " ";
   }
+  
+  //TEST CODE FOR CASES PER 100k BY COUNTY 
+  //for (i in countiesData.features) {
+  //  var countyCasesValA = countiesData.features[i].properties.history[countiesData.features[i].properties.history.length-1];
+  //  var countyCasesPer100KA = countyCasesValA /  countiesData.features[i].properties.population * 100000;
+  //  var countyCasesPer100KRoundA = countyCasesPer100KA.toFixed(0);
+  //  caseNumbers += countyCasesPer100KRoundA + " ";
+  //}
     
   var caseString = caseNumbers.split(" ");
   var caseMax = caseString.reduce(function(a, b) {
@@ -123,6 +131,8 @@
       dashArray: '',
       fillOpacity: 0.8,
       fillColor: getColor(feature.properties.cases)
+      //TEST CODE FOR CASES PER 100k BY COUNTY 
+      //fillColor: getColor(feature.properties.history[feature.properties.history.length-1] / feature.properties.population * 100000)
     };
   }
 
@@ -172,7 +182,12 @@
   // Setting variable for latest case value of each county from its JSON history array
   var countyCasesVal = feature.properties.history[feature.properties.history.length-1];
    
-   //layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + feature.properties.cases + '</p>',{ 
+  // TEST CODE FOR CASES BY COUNTY PER 100K
+  //var countyCasesPer100K = countyCasesVal /  feature.properties.population * 100000;
+  //var countyCasesPer100KRound = countyCasesPer100K.toFixed(0);
+  //layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + countyCasesPer100KRound + '</p><p class="mapCases" style="font-size:10px; margin:-2px 0 0 0 !important;">per 100K</p>',{ 
+   
+   // WORKING CODE FOR STANDARD RAW CASES BELOW
    layer.bindTooltip('<h5>' + feature.properties.name + '</h5>' + '<p class="mapCases">' + countyCasesVal + '</p>',{ 
     permanent: true, 
     interactive: false,
