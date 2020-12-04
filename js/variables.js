@@ -131,6 +131,16 @@ function avgMov14(ary5) {
   //alert(dailyPerHunThou);
 
 
+
+  // Function to calculate value per county population across array
+    //function popCalc(ary6, population) {
+    //  var newP = [];
+    //  for (var i = 0; i < ary6.length; i++) newP.push(ary6[i] /= population)
+    //  return newP;
+    //}
+
+//var caseCnty0 = popCalc(countiesData.features[0].properties.history, countiesData.features[0].properties.population);
+
 // Case Data for County Cases Line Chart
 var caseCnty0 = countiesData.features[0].properties.history;
 var caseCnty1 = countiesData.features[1].properties.history;
