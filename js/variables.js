@@ -132,14 +132,37 @@ function avgMov14(ary5) {
 
 
 
-  // Function to calculate value per county population across array
-    //function popCalc(ary6, population) {
-    //  var newP = [];
-    //  for (var i = 0; i < ary6.length; i++) newP.push(ary6[i] /= population)
-    //  return newP;
-    //}
-
+//    Function and variables to graph value per 1000 county population across array
+//    function popCalc(ary6, population) {
+//      var newP = [];
+//      for (var i = 0; i < ary6.length; i++) newP.push(ary6[i] *= 1000 / population)
+//      return newP.map(a => a.toFixed(2));
+//    }
+//
 //var caseCnty0 = popCalc(countiesData.features[0].properties.history, countiesData.features[0].properties.population);
+//var caseCnty1 = popCalc(countiesData.features[1].properties.history, countiesData.features[1].properties.population);
+//var caseCnty2 = popCalc(countiesData.features[2].properties.history, countiesData.features[2].properties.population);
+//var caseCnty3 = popCalc(countiesData.features[3].properties.history, countiesData.features[3].properties.population);
+//var caseCnty4 = popCalc(countiesData.features[4].properties.history, countiesData.features[4].properties.population);
+//var caseCnty5 = popCalc(countiesData.features[5].properties.history, countiesData.features[5].properties.population);
+//var caseCnty6 = popCalc(countiesData.features[6].properties.history, countiesData.features[6].properties.population);
+//var caseCnty7 = popCalc(countiesData.features[7].properties.history, countiesData.features[7].properties.population);
+//var caseCnty8 = popCalc(countiesData.features[8].properties.history, countiesData.features[8].properties.population);
+//var caseCnty9 = popCalc(countiesData.features[9].properties.history, countiesData.features[9].properties.population);
+//var caseCnty10 = popCalc(countiesData.features[10].properties.history, countiesData.features[10].properties.population);
+//var caseCnty11 = popCalc(countiesData.features[11].properties.history, countiesData.features[11].properties.population);
+//var caseCnty12 = popCalc(countiesData.features[12].properties.history, countiesData.features[12].properties.population);
+//var caseCnty13 = popCalc(countiesData.features[13].properties.history, countiesData.features[13].properties.population);
+//var caseCnty14 = popCalc(countiesData.features[14].properties.history, countiesData.features[14].properties.population);
+//var caseCnty15 = popCalc(countiesData.features[15].properties.history, countiesData.features[15].properties.population);
+//var caseCnty16 = popCalc(countiesData.features[16].properties.history, countiesData.features[16].properties.population);
+//var caseCnty17 = popCalc(countiesData.features[17].properties.history, countiesData.features[17].properties.population);
+//var caseCnty18 = popCalc(countiesData.features[18].properties.history, countiesData.features[18].properties.population);
+//var caseCnty19 = popCalc(countiesData.features[19].properties.history, countiesData.features[19].properties.population);
+//var caseCnty20 = popCalc(countiesData.features[20].properties.history, countiesData.features[20].properties.population);
+//var caseCnty21 = popCalc(countiesData.features[21].properties.history, countiesData.features[21].properties.population);
+//var caseCnty22 = popCalc(countiesData.features[22].properties.history, countiesData.features[22].properties.population);
+//var caseCnty23 = popCalc(countiesData.features[23].properties.history, countiesData.features[23].properties.population);
 
 // Case Data for County Cases Line Chart
 var caseCnty0 = countiesData.features[0].properties.history;
